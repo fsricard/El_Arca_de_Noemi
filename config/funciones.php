@@ -1,0 +1,146 @@
+<?php
+// Función para restringir contenido solo para el rol "admin"
+function tienePermiso(): bool {
+    $rolesPermitidos = ['admin']; 
+    
+    return in_array($_SESSION['rol'], $rolesPermitidos, true);
+}
+
+// Función para detectar dispositos móviles
+function esSoloMovil() {
+    $ua = strtolower($_SERVER['HTTP_USER_AGENT']);
+    return preg_match('/(android.*mobile|iphone|ipod|blackberry|windows phone|webos)/i', $ua);
+}
+
+// Función para imprimir los textos dinámicos en el header del BackEnd
+function tituloPagina($pagina) {
+    // Array asociativo de títulos
+    $titulos = [
+        'logs'                        => 'Registro de logs',
+        'contacto'                    => 'Mensajes de contacto',
+        'usuarios'                    => 'Gestión de Usuarios',
+        'dashboard'                   => 'Panel de Control',
+        'contacto_intro'              => 'Invocación al contacto',
+        'tablas_de_datos'             => 'Tablas de la base de datos',
+        'tablas_de_datos_ver'         => 'Contenido de la tabla de la base datos',
+        'politica_de_privacidad'      => 'Política de privacidad'
+    ];
+
+    // Si existe en el array, devolvemos el título; si no, uno genérico
+    return $titulos[$pagina] ?? 'Administración';
+}
+
+// Función para imprimir textos personalizados en "header.php" del FrontEnd
+function mostrarTextoPersonalizado() {
+    // Recupera la ruta desde la variable global
+    $pagina = $GLOBALS['pagina_actual'] ?? '';
+
+    // Define los textos personalizados
+    $textos = [
+        ''                          => 'El Arca de Noemi',
+        '404'                       => '!!Vaya por Dios¡¡, que situación más vergonzosa',
+        'inicio'                    => 'El Arca de Noemi',
+        'contacto'                  => 'Contacta con Noemi',
+        'politica-de-privacidad'    => 'Política de privacidad',
+    ];
+
+    // Imprime el texto correspondiente o uno por defecto
+    echo $textos[$pagina] ?? 'El Arca de Noemi';
+}
+
+// Función para mostrar el CopyRight en el footer
+function CopyrightRicardFS($startYear = 2021) {
+    $currentYear = date('Y');
+    $yearDisplay = ($startYear == $currentYear) ? $currentYear : "$startYear – $currentYear";
+    return "&copy; $yearDisplay El Arca de Noemi - Todos los derechos reservados";
+}
+
+// Función para las frases cortas de Noemi
+function noemi_frase_random(PDO $pdo): string {
+    $stmt = $pdo->query("
+        SELECT frase 
+        FROM noemi_frases 
+        WHERE activo = 1 
+        ORDER BY RAND() 
+        LIMIT 1
+    ");
+
+    return $stmt->fetchColumn() ?: 'Noemi esta descansando...';
+}
+
+// Función para crear rutas absolutas
+function base_url(): string {
+    $protocolo = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https://' : 'http://';
+    $host = $_SERVER['HTTP_HOST'];
+
+    // Detectar la carpeta raíz del proyecto
+    // DOCUMENT_ROOT = /var/www/html
+    // __DIR__ = /var/www/html/config
+    // Resultado = / (raíz del proyecto)
+    $rootPath = realpath($_SERVER['DOCUMENT_ROOT']);
+    $projectPath = realpath(__DIR__ . '/..');
+
+    // Calcular subcarpeta si el proyecto no está en la raíz del servidor
+    $subcarpeta = str_replace($rootPath, '', $projectPath);
+
+    return rtrim($protocolo . $host . $subcarpeta, '/');
+}
+
+// Genera rutas absolutas correctas para assets.
+function asset(string $ruta): string {
+    return base_url() . '/' . ltrim($ruta, '/');
+}
+
+// Registra eventos en un archivo de log con bloqueo de escritura.
+function registrarLog(string $mensaje, string $nivel = 'INFO', ?int $usuarioId = null, ?string $modulo = null): void {
+    // Ruta del log
+    $logDir = __DIR__ . '/../logs';
+    $logFile = $logDir . '/app.log';
+
+    if (!is_dir($logDir)) {
+        @mkdir($logDir, 0775, true);
+    }
+
+    $fecha = date('Y-m-d H:i:s');
+    $ip = obtenerIpCliente();
+    $usuarioId = $usuarioId ?? (isset($_SESSION['usuario_id']) ? (int)$_SESSION['usuario_id'] : 0);
+    $modulo = $modulo ?? obtenerModuloActual();
+
+    // Limpieza básica del mensaje para evitar saltos extraños
+    $mensaje = str_replace(["\r", "\n"], ' ', $mensaje);
+
+    $linea = sprintf("[%s] %s | %d | %s | %s | %s\n", $fecha, strtoupper($nivel), $usuarioId, $ip, $modulo, $mensaje);
+
+    // Escritura con bloqueo para evitar condiciones de carrera
+    $fh = @fopen($logFile, 'a');
+    if ($fh) {
+        @flock($fh, LOCK_EX);
+        @fwrite($fh, $linea);
+        @flock($fh, LOCK_UN);
+        @fclose($fh);
+    }
+}
+
+// IP del cliente considerando cabeceras comunes de proxies.
+function obtenerIpCliente(): string {
+    $candidatas = [
+        'HTTP_X_FORWARDED_FOR',
+        'HTTP_CLIENT_IP',
+        'HTTP_X_REAL_IP',
+        'REMOTE_ADDR',
+    ];
+    foreach ($candidatas as $key) {
+        if (!empty($_SERVER[$key])) {
+            // Tomar la primera IP si hay lista separada por comas
+            $ip = explode(',', $_SERVER[$key])[0];
+            return trim($ip);
+        }
+    }
+    return '0.0.0.0';
+}
+
+// Determina el "módulo actual" para logging según el script.
+function obtenerModuloActual(): string {
+    $script = isset($_SERVER['SCRIPT_NAME']) ? basename($_SERVER['SCRIPT_NAME']) : 'cli';
+    return $script;
+}
