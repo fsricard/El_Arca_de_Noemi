@@ -39,7 +39,7 @@ function mostrarTextoPersonalizado() {
     $textos = [
         ''                          => 'El Arca de Noemi',
         '404'                       => '!!Vaya por Dios¡¡, que situación más vergonzosa',
-        'inicio'                    => 'El Arca de Noemi',
+        'inicio'                    => '',
         'contacto'                  => 'Contacta con Noemi',
         'politica-de-privacidad'    => 'Política de privacidad',
     ];
@@ -49,13 +49,13 @@ function mostrarTextoPersonalizado() {
 }
 
 // Función para mostrar el CopyRight en el footer
-function CopyrightRicardFS($startYear = 2021) {
+function CopyrightRicardFS($startYear = 2024) {
     $currentYear = date('Y');
     $yearDisplay = ($startYear == $currentYear) ? $currentYear : "$startYear – $currentYear";
-    return "&copy; $yearDisplay El Arca de Noemi - Todos los derechos reservados";
+    return "&copy; $yearDisplay El Arca de Noemí - Todos los derechos reservados";
 }
 
-// Función para las frases cortas de Noemi
+// Función para las frases cortas de Noemí
 function noemi_frase_random(PDO $pdo): string {
     $stmt = $pdo->query("
         SELECT frase 
@@ -65,7 +65,7 @@ function noemi_frase_random(PDO $pdo): string {
         LIMIT 1
     ");
 
-    return $stmt->fetchColumn() ?: 'Noemi esta descansando...';
+    return $stmt->fetchColumn() ?: 'Noemí esta descansando...';
 }
 
 // Función para crear rutas absolutas

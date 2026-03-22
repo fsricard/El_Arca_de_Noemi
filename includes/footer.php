@@ -4,7 +4,7 @@
                     <div class="sections-footer-left">
                         <h3>Sobre nosotros</h3>
                         <ul>
-                            <li><a href="<?= asset('/contacto') ?>">Contacta con Noemi</a></li>
+                            <li><a href="<?= asset('/contacto') ?>">Contacta con Noemí</a></li>
                             <li><a href="<?= asset('/politica-de-privacidad') ?>">Política de privacidad</a></li>
                         </ul>
                     </div>
@@ -18,7 +18,7 @@
                     </div>
         
                     <div class="sections-footer-right">
-                        <img src="<?= asset('/img/logo_20260317_0001.png') ?>" alt="Logotipo de el Arca de Noemi" class="footer-logo" />
+                        <img src="<?= asset('/img/logo_20260317_0001.png') ?>" alt="Logotipo de el Arca de Noemí" class="footer-logo" />
                     </div>
                 </div>
         
@@ -64,6 +64,12 @@
         </div>
 
         <script>
+            // Script para el menú responsive
+            function toggleMobileMenu() {
+                const menu = document.getElementById('menuMovil');
+                menu.style.left = (menu.style.left === '0px') ? '-100%' : '0px';
+            }
+            
             // Script para el aviso de cookies
             document.addEventListener("DOMContentLoaded", () => {
 
