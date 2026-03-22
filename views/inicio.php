@@ -2,7 +2,6 @@
 
                 <section class="destacados">
 
-                    <!-- Pagina en construcción -->
                     <article class="destacado-block">
                         <h2 class="destacado-title">
 
