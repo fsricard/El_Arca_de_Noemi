@@ -144,3 +144,80 @@ function obtenerModuloActual(): string {
     $script = isset($_SERVER['SCRIPT_NAME']) ? basename($_SERVER['SCRIPT_NAME']) : 'cli';
     return $script;
 }
+
+// Función para el sistema de mensajes de alerta modular
+function mostrarAlerta(string $mensaje, string $tipo = 'success'): string {
+    $tipos = [
+        'success' => [
+            'icon' => 'fa-circle-check',
+            'color' => 'var(--color-success)',
+            'bg'    => 'var(--bg-success)'
+        ],
+        'error' => [
+            'icon' => 'fa-circle-xmark',
+            'color' => 'var(--color-danger)',
+            'bg'    => 'var(--bg-danger)'
+        ],
+        'info' => [
+            'icon' => 'fa-circle-info',
+            'color' => 'var(--color-info)',
+            'bg'    => 'var(--bg-info)'
+        ],
+        'warning' => [
+            'icon' => 'fa-triangle-exclamation',
+            'color' => 'var(--color-warning)',
+            'bg'    => 'var(--bg-warning)'
+        ]
+    ];
+
+    $t = $tipos[$tipo] ?? $tipos['success'];
+
+    return '
+        <div class="alerta-global" 
+             style="
+                background:' . $t['bg'] . ';
+                border-left:4px solid ' . $t['color'] . ';
+                color:' . $t['color'] . ';
+             ">
+            <i class="fa-solid ' . $t['icon'] . '"></i>
+            ' . htmlspecialchars($mensaje) . '
+        </div>
+    ';
+}
+
+// Función para crear un sistema de paginación modular
+function paginador($total_registros, $por_pagina, $pagina_actual, $filtros = [], $param_pagina = 'p') {
+
+    $total_paginas = max(1, ceil($total_registros / $por_pagina));
+
+    // No queremos arrastrar el parámetro de página en los filtros
+    unset($filtros[$param_pagina]);
+
+    // Construir query string con el resto de filtros
+    $query = '';
+    if (!empty($filtros)) {
+        $query = '&' . http_build_query($filtros);
+    }
+
+    $html = '<div class="paginacion">';
+
+    // Anterior
+    if ($pagina_actual > 1) {
+        $html .= '<a class="btn-pag" href="?' . $param_pagina . '=' . ($pagina_actual - 1) . $query . '">Anterior</a>';
+    }
+
+    // Números
+    for ($i = 1; $i <= $total_paginas; $i++) {
+        $activo = ($i == $pagina_actual) ? 'activo' : '';
+        $html .= '<a class="btn-pag ' . $activo . '" href="?' . $param_pagina . '=' . $i . $query . '">' . $i . '</a>';
+    }
+
+    // Siguiente
+    if ($pagina_actual < $total_paginas) {
+        $html .= '<a class="btn-pag" href="?' . $param_pagina . '=' . ($pagina_actual + 1) . $query . '">Siguiente</a>';
+    }
+
+    $html .= '</div>';
+
+    return $html;
+}

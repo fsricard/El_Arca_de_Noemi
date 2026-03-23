@@ -391,8 +391,6 @@ form button:hover i {
 /* Colores principales */
 .icon-inicio { color: #d00000; }
 .icon-frases { color: #ff6d00; }
-.icon-documentos { color: #7209b7; }
-.icon-blog { color: #9d0208; }
 .icon-bd { color: #4361ee; }
 .icon-logout { color: #d00000; }
 
@@ -404,17 +402,7 @@ form button:hover i {
 
 /* Subitems Documentos */
 .icon-doc-contacto { color: #4cc9f0; }
-.icon-doc-sobremi { color: #4361ee; }
-.icon-doc-sobremi-inicio { color: #3a0ca3; }
 .icon-doc-privacidad { color: #7209b7; }
-
-/* Subitems Blog */
-.icon-blog-escribir { color: #ff6d00; }
-.icon-blog-articulos { color: #d00000; }
-.icon-blog-categorias { color: #ff8e3c; }
-.icon-blog-comentarios { color: #9d0208; }
-.icon-blog-papelera { color: #7209b7; }
-.icon-blog-comentarios-papelera { color: #3a0ca3; }
 
 /* Subitems Base de datos */
 .icon-bd-logs { color: #4cc9f0; }
@@ -456,16 +444,6 @@ form button:hover i {
     }
 }
 /* END mensajes */
-
-/* Artículos */
-.thumb {
-    width: 60px;
-    height: 60px;
-    object-fit: cover;
-    border-radius: 6px;
-    border: 1px solid #ddd;
-}
-/* END artículos */
 
 /* Menú desplegable */
 .submenu {
