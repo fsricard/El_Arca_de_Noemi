@@ -1,6 +1,6 @@
             <main class="layout-home">
 
-                <section class="destacados">
+                <section class="destacados noemi-gatos">
 
                     <article class="destacado-block">
                         <h2 class="destacado-title">
@@ -12,6 +12,12 @@
                         </div>
 
                     </article>
+
+                    <?php
+                        if (!esSoloMovil()){
+                            include('includes/aside.php');
+                        }
+                    ?>
 
                 </section>
 

@@ -3,7 +3,7 @@
   /* Tonos principales */
   --color-primary: #BDC453;
   --color-primary-dark: #2A6432;
-  --color-primary-icon: #F84937;
+  --color-primary-icon: #b3d5ee;
   --color-secondary: #A0A0A0;
   --color-accent: #FCE8D8;
   --color-text: #1C1C1C;
@@ -112,9 +112,14 @@ h3 {
     margin: 40px auto;
     padding: 0 20px;
 }
+.noemi-gatos {
+    display: grid;
+    grid-template-columns: 2.5fr 1.5fr;
+    gap: 35px;
+}
 .destacado-block {
     border: 2px solid var(--color-primary);
-    border-radius: 10px;
+    border-radius: 20px;
     padding: 25px;
     box-shadow: 0 4px 10px var(--shadow-soft);
     transition: transform .25s ease, box-shadow .25s ease;
@@ -519,7 +524,32 @@ footer h4 {
 }
 /* END menú */
 
-/* Noemí frases */
+/* Aside */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    border: 2px solid var(--color-primary);
+    border-radius: 20px;
+    box-shadow: 0 4px 10px var(--shadow-soft);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+.sidebar-block {
+    padding: 20px;
+}
+.sidebar-title {
+    font-family: var(--font-titulo);
+    font-size: 2.0rem;
+    color: var(--color-text);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.sidebar-title i {
+    font-size: 3.0rem;
+    color: var(--color-primary-icon);
+}
 .noemi-container {
     display: flex;
     align-items: center;
@@ -576,7 +606,7 @@ footer h4 {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
-/* END noemí frases */
+/* END aside */
 
 /* Botón volver arriba */
 #noemi-top-btn {
@@ -945,6 +975,10 @@ footer h4 {
     }
 }
 @media (max-width: 768px) {
+    .noemi-gatos{
+        display: block;
+        margin-bottom: 20px;
+    }
     .layout-home {
         display: block;
     }
