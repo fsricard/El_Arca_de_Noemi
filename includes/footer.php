@@ -34,7 +34,7 @@
 
         <!-- Contenedor para el botón "Volver arriba" -->
         <button id="noemi-top-btn" aria-label="Subir arriba">
-            <i class="fa-solid fa-hand-horns"></i>
+            <i class="fa-solid fa-paw-claws"></i>
         </button>
 
         <!-- Contenedor para el aviso de cookies -->
