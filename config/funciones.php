@@ -68,6 +68,19 @@ function noemi_frase_random(PDO $pdo): string {
     return $stmt->fetchColumn() ?: 'Noemí esta descansando...';
 }
 
+// Función para las imágenes aleatorias de "Los bichillos de Noemí"
+function noemi_bichillos_random(PDO $pdo): string {
+    $stmt = $pdo->query("
+        SELECT bichillo 
+        FROM noemi_bichillos 
+        WHERE activo = 1 
+        ORDER BY RAND() 
+        LIMIT 1
+    ");
+
+    return $stmt->fetchColumn() ?: 'Todos los bichillos de Noemí están descansando ahora mismo...';
+}
+
 // Función para crear rutas absolutas
 function base_url(): string {
     $protocolo = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https://' : 'http://';

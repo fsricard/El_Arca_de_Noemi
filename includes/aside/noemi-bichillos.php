@@ -2,7 +2,7 @@
 require_once(__DIR__ . '/../../config/database.php');
 require_once(__DIR__ . '/../../config/funciones.php');
 
-$noemiFrase = noemi_frase_random($pdo);
+$noemibichillos = noemi_bichillos_random($pdo);
 ?>
 <aside class="sidebar">
     <section class="sidebar-block noemi-bichillos">
@@ -12,7 +12,7 @@ $noemiFrase = noemi_frase_random($pdo);
 
         <div class="noemi-container">
             <p class="noemi-bichillo">
-                <?= htmlspecialchars($noemiFrase) ?>
+                <?= htmlspecialchars($noemibichillos) ?>
             </p>
         </div>
     </section>

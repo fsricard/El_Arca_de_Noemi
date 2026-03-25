@@ -8,13 +8,15 @@
     <!-- Frases -->
     <div class="submenu">
         <button class="submenu-toggle">
-            <i class="fa-solid fa-hand-horns icon-frases"></i> Frases
+            <i class="fa-solid fa-hand-horns icon-frases"></i> Sarcásmo y humor
             <i class="fa-solid fa-chevron-down flecha"></i>
         </button>
 
         <ul class="submenu-items">
             <li><a href="<?= asset('admin/noemi_dice.php') ?>"><i class="fa-solid fa-face-grin-tongue-wink icon-frases-loco"></i> Noemí dice</a></li>
             <li><a href="<?= asset('admin/noemi_dice_listado.php') ?>"><i class="fa-solid fa-scroll icon-frases-scroll"></i> El listado de Noemí dice</a></li>
+            <li><a href="<?= asset('admin/noemi_bichillos.php') ?>"><i class="fa-solid fa-paw icon-frases-bichillos"></i> Los bichillos de Noemí</a></li>
+            <li><a href="<?= asset('admin/noemi_bichillos_listado.php') ?>"><i class="fa-solid fa-images icon-frases-bichillos-listado"></i> El listado bichillos de Noemí</a></li>
         </ul>
     </div>
 
