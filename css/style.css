@@ -111,10 +111,18 @@ h3 {
     margin: 40px auto;
     padding: 0 20px;
 }
+.noemi-perros{
+    display: grid;
+    grid-template-columns: 1.3fr 2.7fr;
+    gap: 35px;
+}
 .noemi-gatos {
     display: grid;
-    grid-template-columns: 2.5fr 1.5fr;
+    grid-template-columns: 2.7fr 1.3fr;
     gap: 35px;
+}
+.destacados {
+    margin-bottom: 40px;
 }
 .destacado-block {
     border: 2px solid var(--color-primary);
