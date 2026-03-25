@@ -613,6 +613,10 @@ footer h4 {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+.noemi-bichillo img {
+    max-width: 400px;
+    height: auto;
+}
 /* END aside */
 
 /* Botón volver arriba */
