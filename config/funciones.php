@@ -21,8 +21,10 @@ function tituloPagina($pagina) {
         'usuarios'                    => 'Gestión de Usuarios',
         'dashboard'                   => 'Panel de Control',
         'contacto_intro'              => 'Invocación al contacto',
+        'noemi_bichillos'             => 'Gestión de los bichillos de Noemí',
         'tablas_de_datos'             => 'Tablas de la base de datos',
         'tablas_de_datos_ver'         => 'Contenido de la tabla de la base datos',
+        'noemi_bichillos_listado'     => 'Listado de los bichillos de Noemí',
         'politica_de_privacidad'      => 'Política de privacidad'
     ];
 
