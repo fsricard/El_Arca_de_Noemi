@@ -1,28 +1,29 @@
 <?php
-    require 'config.php';
+$stmt = $pdo->query("
+    SELECT id, titulo, contenido, actualizado
+    FROM asi_es_noemi
+    ORDER BY id DESC
+    LIMIT 1
+");
 
-    $id = $_GET['id'] ?? null;
-
-    if (!$id) {
-        die("Contenido no encontrado");
-    }
-
-    $stmt = $pdo->prepare("
-        SELECT titulo, contenido, actualizado
-        FROM asi_es_noemi
-        WHERE id = ?
-        LIMIT 1
-    ");
-    $stmt->execute([$id]);
-    $noemi = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    if (!$noemi) {
-        die("Contenido no disponible");
-    }
+$noemi = $stmt->fetch(PDO::FETCH_ASSOC);
 ?>
 
-<h1><?= htmlspecialchars($noemi['titulo']) ?></h1>
+            <main class="layout-home">
 
-<div class="contenido-completo">
-    <?= $noemi['contenido'] ?>
-</div>
+                <section class="destacados">
+
+                    <article class="destacado-block">
+                        <h2 class="destacado-title">
+                            <?= htmlspecialchars($noemi['titulo']) ?>
+                        </h2>
+
+                        <div class="destacado-content">
+                            <?= $noemi['contenido'] ?>
+                        </div>
+
+                    </article>
+
+                </section>
+
+            </main>

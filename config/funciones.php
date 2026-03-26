@@ -46,6 +46,7 @@ function mostrarTextoPersonalizado() {
         '404'                       => '!!Vaya por Dios¡¡, que situación más vergonzosa',
         'inicio'                    => '',
         'contacto'                  => 'Contacta con Noemi',
+        'asi-es-noemi'              => '',
         'politica-de-privacidad'    => 'Política de privacidad',
     ];
 

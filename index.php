@@ -15,6 +15,7 @@ $extra = isset($_GET['extra']) ? trim($_GET['extra']) : null;
 $rutas_validas = [
     'inicio',
     'contacto',
+    'asi-es-noemi',
     'politica-de-privacidad'
 ];
 
