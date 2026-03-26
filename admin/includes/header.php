@@ -53,6 +53,7 @@ require_once(__DIR__ . '/../../config/funciones.php');
     <!-- Estilos y script de Quill -->
     <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet">
+    <link rel="stylesheet" href="<?= asset('admin/css/noemi.snow.css') ?>">
 </head>
 <body data-pagina="<?= $pagina ?>" data-tabla="<?= $tabla ?>" class="preset-infernal-suave">
     <header>
