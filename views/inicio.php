@@ -55,7 +55,7 @@
                             <?= $primeros_tres ?>
                         </div>
 
-                        <a href="<?= asset('/asi-es-noemi') ?>" class="btn-leer-mas">
+                        <a href="<?= asset('/asi-es-noemi') ?>" class="btn">
                             Leer más...
                         </a>
 
