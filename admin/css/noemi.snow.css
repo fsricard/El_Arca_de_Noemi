@@ -1,5 +1,5 @@
 /*!
- * Diablillo Quill Editor v1.3.7
+ * Noemí Quill Editor v1.3.7
  * https://quilljs.com/
  * Copyright (c) 2014, Jason Chen
  * Copyright (c) 2013, salesforce.com
@@ -57,6 +57,38 @@
   --font-after-before: "Twinkle Star", cursive;
 }
 /* END ROOT */
+
+/* Iconos */
+.emoji-popup {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    border: 1px solid #ccc;
+    padding: 6px;
+    display: none;
+    flex-wrap: wrap;
+    width: 180px;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    z-index: 20;
+}
+.emoji-popup.open {
+    display: flex;
+}
+.emoji-btn {
+    font-size: 20px;
+    padding: 4px;
+    margin: 2px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+.emoji-btn:hover {
+    transform: scale(1.2);
+}
+/* END Iconos */
 
 .ql-container {
   box-sizing: border-box;
