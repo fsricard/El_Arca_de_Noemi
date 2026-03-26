@@ -20,9 +20,12 @@ function tituloPagina($pagina) {
         'contacto'                    => 'Mensajes de contacto',
         'usuarios'                    => 'Gestión de Usuarios',
         'dashboard'                   => 'Panel de Control',
+        'noemi_dice'                  => 'Frases de Noemí',
+        'asi_es_noemi'                => 'Bloque "Así es Noemí" pagina de inicio.',
         'contacto_intro'              => 'Invocación al contacto',
         'noemi_bichillos'             => 'Gestión de los bichillos de Noemí',
         'tablas_de_datos'             => 'Tablas de la base de datos',
+        'noemi_dice_listado'          => 'Listado de las frases de Noemí',
         'tablas_de_datos_ver'         => 'Contenido de la tabla de la base datos',
         'noemi_bichillos_listado'     => 'Listado de los bichillos de Noemí',
         'politica_de_privacidad'      => 'Política de privacidad'
