@@ -13,9 +13,9 @@
                     <div class="sections-footer-center">
                         <h3>Mis bichillos son sociales</h3>
                         <ul>
-                            <li><a href="<?= asset('/') ?>"><i class="fa-brands fa-instagram"></i> Estamos en Instagram</a></li>
-                            <li><a href="<?= asset('/') ?>"><i class="fa-brands fa-facebook"></i> Estamos en Facebook</a></li>
-                            <li><a href="<?= asset('/') ?>"><i class="fa-brands fa-youtube"></i> Estamos en YouTube</a></li>
+                            <li><a href="<?= asset('/') ?>" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a></li>
+                            <li><a href="<?= asset('/') ?>" target="_blank"><i class="fa-brands fa-facebook"></i> Facebook</a></li>
+                            <li><a href="<?= asset('/') ?>" target="_blank"><i class="fa-brands fa-youtube"></i> YouTube</a></li>
                         </ul>
                     </div>
         

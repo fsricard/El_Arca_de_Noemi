@@ -6,22 +6,18 @@
   --color-primary-icon: #b3d5ee;
   --color-secondary: #A0A0A0;
   --color-accent: #d8d9fc;
-  --color-text: #1C1C1C;
   --color-hamburguesa: #1f8bce;
 
   /* Tonos Noemí */
   --noemi-text: #f2e6e6;
   --noemi-accent: #ff3b3b;
-  --noemi-bg: #1a0000;
   --noemi-rojo: #ff3c00;
-  --noemi-naranja: #ff8a00;
   --noemi-glow: #bee1fa;
   --noemi-glow-suave: #b3d5ee;
   --noemi-glow-fuerte: #1f8bce;
 
   /* Fondos y bordes */
   --color-bg-light: #FFF8F5;
-  --color-bg-dark: #2B2B2B;
   --color-border: #9B1C1C;
 
   /* Estados y efectos */
@@ -29,15 +25,11 @@
   --color-error: #D62828;
   --color-warning: #FF9800;
   --color-info: #2196F3;
-
-  /* Loader y glow */
-  --color-loader-start: #D62828;
-  --color-loader-end: #A0A0A0;
-  --color-glow: rgba(214, 40, 40, 0.6);
-
+  
   /* Sombras */
   --shadow-strong: rgba(0, 0, 0, 0.4);
   --shadow-soft: rgba(0, 0, 0, 0.2);
+  --shadow-glow: rgba(214, 40, 40, 0.6);
 
   /* Color textos */
    --color-titulo: #2e2e2e;
@@ -582,7 +574,7 @@ footer h4 {
     position: relative;
     box-shadow:
         0 0 10px var(--color-primary),
-        0 0 20px var(--color-glow),
+        0 0 20px var(--shadow-glow),
         0 0 30px var(--color-primary-dark);
     animation:
         noemiIdle 2.8s ease-in-out infinite,
@@ -603,9 +595,9 @@ footer h4 {
     opacity: 0.95;
 }
 @keyframes noemiGlow {
-    0% { box-shadow: 0 0 6px var(--color-glow); }
+    0% { box-shadow: 0 0 6px var(--shadow-glow); }
     50% { box-shadow: 0 0 14px var(--color-primary); }
-    100% { box-shadow: 0 0 6px var(--color-glow); }
+    100% { box-shadow: 0 0 6px var(--shadow-glow); }
 }
 @keyframes noemiIdle {
     0% { transform: translateY(0) scale(1); }
@@ -675,6 +667,23 @@ footer h4 {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.22);
 }
 /* END botones */
+
+/* Iconos */
+.fa-instagram,
+.fa-facebook,
+.fa-youtube {
+    font-size: 2.2rem;
+}
+.fa-instagram {
+    color: #e4405f;
+}
+.fa-facebook {
+    color: #4267B2;
+}
+.fa-youtube {
+    color: #FF0000;
+}
+/* END iconos */
 
 /* Botón volver arriba */
 #noemi-top-btn {
