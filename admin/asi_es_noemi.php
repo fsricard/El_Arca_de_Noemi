@@ -19,21 +19,31 @@ $asi_es_noemi = $stmt->fetch();
 
 // Procesar formulario
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $titulo = trim($_POST['titulo'] ?? '');
     $contenido = trim($_POST['contenido'] ?? '');
+
+    if ($titulo === '') {
+        $errores[] = "El título no puede estar vacío.";
+    }
 
     if ($contenido === '') {
         $errores[] = "El contenido no puede estar vacío.";
-    } else {
+    }
+
+    if (empty($errores)) {
         try {
             if ($asi_es_noemi) {
-                $stmt = $pdo->prepare("UPDATE asi_es_noemi SET contenido = ? WHERE id = ?");
-                $stmt->execute([$contenido, $asi_es_noemi['id']]);
+                $stmt = $pdo->prepare("UPDATE asi_es_noemi SET titulo = ?, contenido = ? WHERE id = ?");
+                $stmt->execute([$titulo, $contenido, $asi_es_noemi['id']]);
             } else {
-                $stmt = $pdo->prepare("INSERT INTO asi_es_noemi (contenido) VALUES (?)");
-                $stmt->execute([$contenido]);
+                $stmt = $pdo->prepare("INSERT INTO asi_es_noemi (titulo, contenido) VALUES (?, ?)");
+                $stmt->execute([$titulo, $contenido]);
             }
+
             $exito = true;
+            $asi_es_noemi['titulo'] = $titulo;
             $asi_es_noemi['contenido'] = $contenido;
+
         } catch (PDOException $e) {
             $errores[] = "Error al guardar: " . $e->getMessage();
         }
