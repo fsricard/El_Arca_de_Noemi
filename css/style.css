@@ -41,14 +41,14 @@
 
   /* Color textos */
    --color-titulo: #2e2e2e;
-   --color-general: #444444;
+   --color-general: #6b6a6a;
    --color-menu: #2A6432;
    --color-menu-hover: #C76A17;
 
   /* Tipografías */
   --font-titulo: "Quicksand", sans-serif;
-  --font-general: "Lato", sans-serif;
-  --font-menu: "Poppins", sans-serif;
+  --font-menu: "Lato", sans-serif;
+  --font-general: "Poppins", sans-serif;
 }
 /* END ROOT */
 
@@ -175,8 +175,6 @@ h3 {
 }
 .destacado-content em {
     color: var(--color-primary-dark);
-    font-family: var(--font-general-kings);
-    font-size: 2.0rem;
 }
 .destacado-content ul {
     list-style: none;
@@ -630,12 +628,21 @@ footer h4 {
 /* Módulo presentación pagina de inicio */
 .title-presentacion {
     display: block;
-    font-size: 2.4rem;
+    font-size: 2.8rem;
     text-align: center;
     color: var(--noemi-glow-suave);
     text-shadow: 2px 2px 0 var(--color-primary-dark);
 }
+.content-presentacion {
+    font-size: 1.6rem;
+}
 /* END módulo presentación pagina de inicio */
+
+/* Botnoes */
+.btn-leer-mas {
+    
+}
+/* END botones */
 
 /* Botón volver arriba */
 #noemi-top-btn {

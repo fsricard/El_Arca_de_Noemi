@@ -61,6 +61,14 @@ elseif ($view === 'politica-de-privacidad') {
 }
 
 // ---------------------------
+//  ASÏ ES NOEMI
+//  /asi-es-noemi
+// ---------------------------
+elseif ($view === 'asi-es-noemi') {
+    require __DIR__ . '/views/asi-es-noemi.php';
+}
+
+// ---------------------------
 //  404
 // ---------------------------
 else {
