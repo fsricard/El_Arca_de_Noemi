@@ -26,8 +26,8 @@
                 <section class="destacados">
 
                     <article class="destacado-block">
-                        <h2 class="destacado-title">
-
+                        <h2 class="destacado-title title-presentacion">
+                            Así es Noemí
                         </h2>
 
                         <div class="destacado-content">

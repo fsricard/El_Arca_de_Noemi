@@ -10,7 +10,7 @@ $noemibichillos = noemi_bichillos_random($pdo);
             <i class="fa-solid fa-alicorn"></i> Los bichillos de Noemí
         </h3>
 
-        <div class="noemi-container">
+        <div class="noemi-bichillos-container">
             <p class="noemi-bichillo">
                 <img src="<?= asset($noemibichillos) ?>" alt="Logotipo del Arca de Noemi" />
             </p>
