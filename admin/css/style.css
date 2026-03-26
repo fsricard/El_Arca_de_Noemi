@@ -391,7 +391,8 @@ form button:hover i {
 /* Colores principales */
 .icon-inicio { color: #d00000; }
 .icon-frases { color: #ff6d00; }
-.icon-bd { color: #4361ee; }
+.fa-book-open { color: #625acf; }
+.icon-bd { color: #4387ee; }
 .icon-logout { color: #d00000; }
 
 /* Subitems Frases */
@@ -404,6 +405,7 @@ form button:hover i {
 
 /* Subitems Documentos */
 .icon-doc-contacto { color: #4cc9f0; }
+.icon-asi-es-noemi { color: #4361ee; }
 .icon-doc-privacidad { color: #7209b7; }
 
 /* Subitems Base de datos */

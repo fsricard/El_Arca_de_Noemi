@@ -18,7 +18,7 @@ include('includes/header.php');
     <main>
         <section>
             <div class="container">
-                <h2></h2>
+                <h2>Bloque "Así es Noemí" pagina de inicio</h2>
 
                 
 
