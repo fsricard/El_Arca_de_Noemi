@@ -627,7 +627,7 @@ footer h4 {
 }
 /* END aside */
 
-/* Módulo presentación pagina de inicio */
+/* Módulo "Así es Noemi" */
 .title-presentacion {
     display: block;
     font-size: 2.8rem;
@@ -639,7 +639,21 @@ footer h4 {
     font-size: 1.6rem;
     margin-bottom: 20px;
 }
-/* END módulo presentación pagina de inicio */
+.destacado-asi-es-noemi .destacado-title {
+    display: block;
+    font-size: 3.2rem;
+    text-align: center;
+    text-decoration: underline wavy;
+    text-underline-offset: 10px;
+    color: var(--noemi-glow-fuerte);
+    text-shadow: 2px 2px 0 var(--color-primary-dark);
+}
+.destacado-asi-es-noemi .destacado-content {
+    font-size: 1.6rem;
+    line-height: 1.6;
+    color: var(--color-general);
+}
+/* END módulo "Así es Noemi" */
 
 /* Botnoes */
 .btn {

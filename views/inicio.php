@@ -37,10 +37,10 @@
                     // Dividir el contenido en párrafos
                     $parrafos = preg_split('/<\/p>/', $noemi['contenido'], -1, PREG_SPLIT_NO_EMPTY);
 
-                    // Obtener los 3 primeros párrafos
-                    $primeros_tres = '';
-                    for ($i = 0; $i < min(3, count($parrafos)); $i++) {
-                        $primeros_tres .= $parrafos[$i] . '</p>';
+                    // Obtener los 2 primeros párrafos
+                    $primeros_dos = '';
+                    for ($i = 0; $i < min(2, count($parrafos)); $i++) {
+                        $primeros_dos .= $parrafos[$i] . '</p>';
                     }
                 ?>
 
@@ -52,7 +52,7 @@
                         </h2>
 
                         <div class="destacado-content content-presentacion">
-                            <?= $primeros_tres ?>
+                            <?= $primeros_dos ?>
                         </div>
 
                         <a href="<?= asset('/asi-es-noemi') ?>" class="btn">

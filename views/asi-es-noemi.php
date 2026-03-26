@@ -13,10 +13,10 @@ $noemi = $stmt->fetch(PDO::FETCH_ASSOC);
 
                 <section class="destacados">
 
-                    <article class="destacado-block">
-                        <h2 class="destacado-title">
+                    <article class="destacado-block destacado-asi-es-noemi">
+                        <h1 class="destacado-title">
                             <?= htmlspecialchars($noemi['titulo']) ?>
-                        </h2>
+                        </h1>
 
                         <div class="destacado-content">
                             <?= $noemi['contenido'] ?>

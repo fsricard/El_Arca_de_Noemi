@@ -2,18 +2,20 @@
             <div class="footer">
                 <div class="sections-footer">
                     <div class="sections-footer-left">
-                        <h3>Sobre nosotros</h3>
+                        <h3>Esas cosillas legales</h3>
                         <ul>
+                            <li><a href="<?= asset('/asi-es-noemi') ?>">Así es Noemí</a></li>
                             <li><a href="<?= asset('/contacto') ?>">Contacta con Noemí</a></li>
                             <li><a href="<?= asset('/politica-de-privacidad') ?>">Política de privacidad</a></li>
                         </ul>
                     </div>
         
                     <div class="sections-footer-center">
-                        <h3>Estamos en redes</h3>
+                        <h3>Mis bichillos son sociales</h3>
                         <ul>
-                            <li><a href=""></a></li>
-                            <li><a href=""></a></li>
+                            <li><a href="<?= asset('/') ?>"><i class="fa-brands fa-instagram"></i> Estamos en Instagram</a></li>
+                            <li><a href="<?= asset('/') ?>"><i class="fa-brands fa-facebook"></i> Estamos en Facebook</a></li>
+                            <li><a href="<?= asset('/') ?>"><i class="fa-brands fa-youtube"></i> Estamos en YouTube</a></li>
                         </ul>
                     </div>
         
