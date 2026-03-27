@@ -70,9 +70,15 @@ body{
 }
 a {
     text-decoration: none;
+    color: var(--noemi-glow-fuerte);
+    transition: color .3s ease, transform .3s ease;
 }
-p + p{
-    margin-top: 1rem;
+a:hover {
+    color: var(--noemi-glow-suave);
+    transform: scale(1.12);
+}
+p {
+    margin: 0.5rem 0;
     font-family: var(--font-general);
     color: var(--color-general);
 }
@@ -93,7 +99,7 @@ h1 {
 h2 {
     font-size: 2rem;
     font-weight: 600;
-    margin-bottom: 1.2rem;
+    margin: 1rem 0;
 }
 h3 {
     font-size: 1.6rem;
@@ -130,7 +136,9 @@ h3 {
     box-shadow: 0 6px 14px var(--shadow-strong);
 }
 .destacado-title {
-    text-shadow: 2px 2px 0 var(--color-secondary);
+    font-family: var(--font-titulo);
+    color: var(--noemi-glow-suave);
+    text-shadow: 2px 2px 0 var(--color-primary-dark);
     margin-top: 15px;
     margin-bottom: 30px;
     display: flex;
@@ -168,7 +176,8 @@ h3 {
     }
 }
 .destacado-content em {
-    color: var(--color-primary-dark);
+    color: var(--noemi-glow-suave);
+    text-shadow: 2px 2px 0 var(--color-primary-dark);
 }
 .destacado-content ul {
     list-style: none;
@@ -631,21 +640,20 @@ footer h4 {
     font-size: 1.6rem;
     margin-bottom: 20px;
 }
-.destacado-asi-es-noemi .destacado-title {
-    display: block;
-    font-size: 3.2rem;
-    text-align: center;
-    text-decoration: underline wavy;
-    text-underline-offset: 10px;
-    color: var(--noemi-glow-fuerte);
-    text-shadow: 2px 2px 0 var(--color-primary-dark);
-}
 .destacado-asi-es-noemi .destacado-content {
     font-size: 1.6rem;
     line-height: 1.6;
     color: var(--color-general);
 }
 /* END módulo "Así es Noemi" */
+
+/* Módulo "Política de privacidad" */
+.destacado-politica-de-privacidad .destacado-content {
+    font-size: 1.6rem;
+    line-height: 1.6;
+    color: var(--color-general);
+}
+/* END módulo "Política de privacidad" */
 
 /* Botnoes */
 .btn {
@@ -663,6 +671,7 @@ footer h4 {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 .btn:hover {
+    color: var(--color-botones);
     transform: scale(1.06);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.22);
 }

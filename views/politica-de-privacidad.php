@@ -13,7 +13,7 @@
                         $politica = $stmt->fetch(PDO::FETCH_ASSOC);
                     ?>
 
-                    <article class="destacado-block">
+                    <article class="destacado-block destacado-politica-de-privacidad">
                         <h2 class="destacado-title">
                             <i class="fa-solid fa-user-secret"></i> Aviso legal:
                         </h2>
