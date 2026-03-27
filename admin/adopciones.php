@@ -55,8 +55,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errores[] = "La fecha de ingreso es obligatoria.";
     }
 
+    // Validación de fotos
+    if (!empty($_FILES['fotos']['name'][0])) {
+        foreach ($_FILES['fotos']['error'] as $error) {
+            if ($error !== UPLOAD_ERR_OK) {
+                $errores[] = "Error al subir una de las fotos.";
+                break;
+            }
+        }
+    }
+
     if (empty($errores)) {
         try {
+            // Insertar animal
             $stmt = $pdo->prepare("
                 INSERT INTO animales 
                 (nombre, id_raza, sexo, edad, fecha_nacimiento, tamano, peso, estado_salud, esterilizado, vacunado, desparasitado, microchip, fecha_ingreso, fecha_rescate, adoptable, descripcion)
@@ -68,6 +79,50 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $estado_salud, $esterilizado, $vacunado, $desparasitado, $microchip,
                 $fecha_ingreso, $fecha_rescate, $adoptable, $descripcion
             ]);
+
+            $id_animal = $pdo->lastInsertId();
+
+            // Crear carpeta del animal
+            $carpeta = __DIR__ . '/../uploads/adopciones/' . $id_animal;
+
+            if (!is_dir($carpeta)) {
+                mkdir($carpeta, 0777, true);
+            }
+
+            // Procesar fotos
+            if (!empty($_FILES['fotos']['name'][0])) {
+
+                foreach ($_FILES['fotos']['tmp_name'] as $index => $tmpName) {
+
+                    if ($_FILES['fotos']['error'][$index] === UPLOAD_ERR_OK) {
+
+                        $nombreOriginal = basename($_FILES['fotos']['name'][$index]);
+                        $extension = strtolower(pathinfo($nombreOriginal, PATHINFO_EXTENSION));
+
+                        // Validar extensión
+                        if (!in_array($extension, ['jpg', 'jpeg', 'png', 'webp'])) {
+                            continue;
+                        }
+
+                        $nuevoNombre = uniqid('foto_') . '.' . $extension;
+                        $rutaDestino = $carpeta . '/' . $nuevoNombre;
+
+                        if (move_uploaded_file($tmpName, $rutaDestino)) {
+
+                            $stmt = $pdo->prepare("
+                                INSERT INTO animales_fotos (id_animal, ruta, es_principal)
+                                VALUES (?, ?, ?)
+                            ");
+
+                            $stmt->execute([
+                                $id_animal,
+                                'uploads/adopciones/' . $id_animal . '/' . $nuevoNombre,
+                                $index === 0 ? 1 : 0
+                            ]);
+                        }
+                    }
+                }
+            }
 
             $exito = true;
 
@@ -101,7 +156,7 @@ include('includes/header.php');
                 </div>
             <?php endif; ?>
 
-            <form method="post" class="formulario">
+            <form method="post" enctype="multipart/form-data" class="formulario">
 
                 <div class="filtro">
                     <label for="nombre">Nombre del animal:</label>
@@ -191,6 +246,11 @@ include('includes/header.php');
 
                 <label for="descripcion">Descripción:</label>
                 <textarea name="descripcion" id="descripcion" rows="4"><?= htmlspecialchars($_POST['descripcion'] ?? '') ?></textarea>
+
+                <div class="filtro">
+                    <label for="fotos">Fotos del animal:</label>
+                    <input type="file" name="fotos[]" id="fotos" multiple accept="image/*">
+                </div>
 
                 <button type="submit" class="btn-primary">
                     <i class="fa-solid fa-floppy-disk"></i> Guardar animal
