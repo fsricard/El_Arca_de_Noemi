@@ -378,28 +378,20 @@ form button:hover i {
 /* END Paginación */
 
 /* Iconos */
-/* Animación infernal */
-.sidebar i {
-    transition: transform 0.25s ease, filter 0.25s ease;
-}
-
-.sidebar i:hover {
-    transform: scale(1.15);
-    filter: drop-shadow(0 0 6px currentColor);
-}
-
 /* Colores principales */
 .icon-inicio { color: #d00000; }
 .icon-frases { color: #ff6d00; }
 .fa-book-open { color: #625acf; }
 .icon-bd { color: #4387ee; }
 .icon-logout { color: #d00000; }
+.icon-adopciones { width: 20px; height: 20px; object-fit: contain; vertical-align: middle;}
+
 
 /* Subitems Frases */
 .icon-frases-frases { color: #ff6d00; }
 .icon-frases-listado { color: #ff8e3c; }
 .icon-frases-bichillos,
-.icon-frases-loco { color: #d00000; }
+.icon-frases-loco { color: #ff8e3c; }
 .icon-frases-bichillos-listado,
 .icon-frases-scroll { color: #9d0208; }
 
@@ -412,6 +404,13 @@ form button:hover i {
 .icon-bd-logs { color: #4cc9f0; }
 .icon-bd-usuarios { color: #4361ee; }
 .icon-bd-tablas { color: #3a0ca3; }
+
+/* Subitems Adopciones */
+.icon-adopciones-raza { color: #d00000; }
+.icon-adopciones-incluir { color: #ff6d00; }
+.icon-adopciones-listado { color: #4361ee; }
+.icon-adopciones-adoptante { color: #3a0ca3; }
+.icon-adopciones-listado-adoptantes { color: #9d0208; }
 
 /* Quill */
 .emoji-popup {

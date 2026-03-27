@@ -16,19 +16,24 @@ function esSoloMovil() {
 function tituloPagina($pagina) {
     // Array asociativo de títulos
     $titulos = [
-        'logs'                        => 'Registro de logs',
-        'contacto'                    => 'Mensajes de contacto',
-        'usuarios'                    => 'Gestión de Usuarios',
-        'dashboard'                   => 'Panel de Control',
-        'noemi_dice'                  => 'Frases de Noemí',
-        'asi_es_noemi'                => 'Así es Noemí',
-        'contacto_intro'              => 'Invocación al contacto',
-        'noemi_bichillos'             => 'Gestión de los bichillos de Noemí',
-        'tablas_de_datos'             => 'Tablas de la base de datos',
-        'noemi_dice_listado'          => 'Listado de las frases de Noemí',
-        'tablas_de_datos_ver'         => 'Contenido de la tabla de la base datos',
-        'noemi_bichillos_listado'     => 'Listado de los bichillos de Noemí',
-        'politica_de_privacidad'      => 'Política de privacidad'
+        'logs'                              => 'Registro de logs',
+        'contacto'                          => 'Mensajes de contacto',
+        'usuarios'                          => 'Gestión de Usuarios',
+        'dashboard'                         => 'Panel de Control',
+        'adopciones'                        => 'Gestión de Adopciones',
+        'noemi_dice'                        => 'Frases de Noemí',
+        'asi_es_noemi'                      => 'Así es Noemí',
+        'contacto_intro'                    => 'Invocación al contacto',
+        'noemi_bichillos'                   => 'Gestión de los bichillos de Noemí',
+        'tablas_de_datos'                   => 'Tablas de la base de datos',
+        'noemi_dice_listado'                => 'Listado de las frases de Noemí',
+        'adopciones_incluir'                => 'Incluir nuevo animal',
+        'adopciones_listado'                => 'Listado de adopciones',
+        'tablas_de_datos_ver'               => 'Contenido de la tabla de la base datos',
+        'adopciones_adoptante'              => 'Incluir un nuevo adoptante',
+        'politica_de_privacidad'            => 'Política de privacidad',
+        'noemi_bichillos_listado'           => 'Listado de los bichillos de Noemí',
+        'adopciones_listado_adoptantes'     => 'Listado de adoptantes'
     ];
 
     // Si existe en el array, devolvemos el título; si no, uno genérico

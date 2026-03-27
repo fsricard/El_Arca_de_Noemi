@@ -5,6 +5,22 @@
         <i class="fa-solid fa-house icon-inicio"></i> Inicio
     </a>
 
+    <!-- Adopciones -->
+    <div class="submenu">
+        <button class="submenu-toggle">
+            <img src="<?= asset('/img/adopciones_20260327_0002.png') ?>" class="icon-adopciones" /> Adopciones
+            <i class="fa-solid fa-chevron-down flecha"></i>
+        </button>
+
+        <ul class="submenu-items">
+            <li><a href="<?= asset('admin/adopciones_incluir.php') ?>"><i class="fa-solid fa-paw-simple icon-adopciones-raza"></i> Incluir nueva raza</a></li>
+            <li><a href="<?= asset('admin/adopciones.php') ?>"><i class="fa-solid fa-file-circle-plus icon-adopciones-incluir"></i> Incluir nueva adopción</a></li>
+            <li><a href="<?= asset('admin/adopciones_listado.php') ?>"><i class="fa-solid fa-list-check icon-adopciones-listado"></i> Listado de adopciones</a></li>
+            <li><a href="<?= asset('admin/adopciones_adoptante.php') ?>"><i class="fa-solid fa-user-plus icon-adopciones-adoptante"></i> Incluir nuevo adoptante</a></li>
+            <li><a href="<?= asset('admin/adopciones_listado_adoptantes.php') ?>"><i class="fa-solid fa-users-rectangle icon-adopciones-listado-adoptantes"></i> Listado de adoptantes</a></li>
+        </ul>
+    </div>
+
     <!-- Frases -->
     <div class="submenu">
         <button class="submenu-toggle">
