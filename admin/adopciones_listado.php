@@ -168,7 +168,7 @@ include('includes/header.php');
                             <!-- ACCIONES -->
                             <td>
                                 <button class="btn btn-warning"
-                                        onclick="window.location='editar_animal.php?id=<?= $animal['id'] ?>'">
+                                        onclick="window.location='adopciones_editar.php?id=<?= $animal['id'] ?>'">
                                     <i class="fa-solid fa-pen-to-square"></i> Editar
                                 </button>
 
