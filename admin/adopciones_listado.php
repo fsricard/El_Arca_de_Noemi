@@ -9,11 +9,16 @@ if (!isLoggedIn()) {
     exit;
 }
 
-// Obtener razas para el filtro
-$razas = $pdo->query("SELECT id, nombre, especie FROM razas_animales WHERE activo = 1 ORDER BY especie, nombre")->fetchAll();
+// Obtener especies para el filtro
+$especies = $pdo->query("
+    SELECT DISTINCT especie 
+    FROM razas_animales 
+    WHERE activo = 1 
+    ORDER BY especie
+")->fetchAll(PDO::FETCH_COLUMN);
 
 // Filtros
-$filtro_raza = $_GET['raza'] ?? '';
+$filtro_especie = $_GET['especie'] ?? '';
 $filtro_desde = $_GET['desde'] ?? '';
 $filtro_hasta = $_GET['hasta'] ?? '';
 $filtro_estado = $_GET['estado'] ?? '';
@@ -29,10 +34,10 @@ $query = "
 
 $params = [];
 
-// Filtro por raza
-if ($filtro_raza !== '') {
-    $query .= " AND a.id_raza = ? ";
-    $params[] = $filtro_raza;
+// Filtro por especie
+if ($filtro_especie !== '') {
+    $query .= " AND r.especie = ? ";
+    $params[] = $filtro_especie;
 }
 
 // Filtro por fecha de rescate
@@ -76,11 +81,12 @@ include('includes/header.php');
 
                 <div class="filtro">
                     <label for="raza">Raza / Especie:</label>
-                    <select name="raza" id="raza">
+                    <select name="especie">
                         <option value="">Todas</option>
-                        <?php foreach ($razas as $raza): ?>
-                            <option value="<?= $raza['id'] ?>" <?= $filtro_raza == $raza['id'] ? 'selected' : '' ?>>
-                                <?= htmlspecialchars($raza['especie'] . " – " . $raza['nombre']) ?>
+                        <?php foreach ($especies as $esp): ?>
+                            <option value="<?= htmlspecialchars($esp) ?>"
+                                <?= $filtro_especie === $esp ? 'selected' : '' ?>>
+                                <?= htmlspecialchars($esp) ?>
                             </option>
                         <?php endforeach; ?>
                     </select>
@@ -108,6 +114,10 @@ include('includes/header.php');
 
                 <button type="submit" class="btn-primary">
                     <i class="fa-solid fa-filter"></i> Filtrar
+                </button>
+
+                <button type="button" onclick="window.location='adopciones_listado.php'">
+                    <i class="fa-solid fa-rotate-left"></i> Limpiar filtros
                 </button>
             </form>
 

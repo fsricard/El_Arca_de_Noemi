@@ -13,15 +13,23 @@ if (!isLoggedIn()) {
 $errores = [];
 $exito = false;
 
-// Obtener razas activas
-$stmt = $pdo->query("SELECT id, nombre, especie FROM razas_animales WHERE activo = 1 ORDER BY especie, nombre");
-$razas = $stmt->fetchAll();
+/* ---------------------------------------------------------
+   1. OBTENER ESPECIES (solo especies únicas)
+--------------------------------------------------------- */
+$especies = $pdo->query("
+    SELECT DISTINCT especie
+    FROM razas_animales
+    WHERE activo = 1
+    ORDER BY especie
+")->fetchAll(PDO::FETCH_COLUMN);
 
-// Procesar formulario
+/* ---------------------------------------------------------
+   2. PROCESAR FORMULARIO
+--------------------------------------------------------- */
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $nombre = trim($_POST['nombre'] ?? '');
-    $id_raza = intval($_POST['id_raza'] ?? 0);
+    $especie = trim($_POST['especie'] ?? '');
     $sexo = $_POST['sexo'] ?? 'desconocido';
     $edad = trim($_POST['edad'] ?? '');
     $fecha_nacimiento = $_POST['fecha_nacimiento'] ?? null;
@@ -42,13 +50,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $descripcion = trim($_POST['descripcion'] ?? '');
 
-    // Validaciones
+    /* ---------------------------------------------------------
+       VALIDACIONES
+    --------------------------------------------------------- */
     if ($nombre === '') {
         $errores[] = "El nombre del animal no puede estar vacío.";
     }
 
-    if ($id_raza <= 0) {
-        $errores[] = "Debes seleccionar una raza.";
+    if ($especie === '') {
+        $errores[] = "Debes seleccionar una especie.";
+    } else {
+        // Buscar una raza interna para esa especie
+        $stmt = $pdo->prepare("
+            SELECT id 
+            FROM razas_animales 
+            WHERE especie = ? AND activo = 1 
+            ORDER BY id ASC 
+            LIMIT 1
+        ");
+        $stmt->execute([$especie]);
+        $id_raza = $stmt->fetchColumn();
+
+        if (!$id_raza) {
+            $errores[] = "No existe una raza interna para esta especie.";
+        }
     }
 
     if ($fecha_ingreso === null || $fecha_ingreso === '') {
@@ -65,9 +90,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
+    /* ---------------------------------------------------------
+       SI NO HAY ERRORES → INSERTAR ANIMAL
+    --------------------------------------------------------- */
     if (empty($errores)) {
         try {
-            // Insertar animal
+
             $stmt = $pdo->prepare("
                 INSERT INTO animales 
                 (nombre, id_raza, sexo, edad, fecha_nacimiento, tamano, peso, estado_salud, esterilizado, vacunado, desparasitado, microchip, fecha_ingreso, fecha_rescate, adoptable, descripcion)
@@ -82,14 +110,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $id_animal = $pdo->lastInsertId();
 
-            // Crear carpeta del animal
+            /* ---------------------------------------------------------
+               SUBIDA DE FOTOS
+            --------------------------------------------------------- */
             $carpeta = __DIR__ . '/../uploads/adopciones/' . $id_animal;
 
             if (!is_dir($carpeta)) {
                 mkdir($carpeta, 0777, true);
             }
 
-            // Procesar fotos
             if (!empty($_FILES['fotos']['name'][0])) {
 
                 foreach ($_FILES['fotos']['tmp_name'] as $index => $tmpName) {
@@ -99,7 +128,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         $nombreOriginal = basename($_FILES['fotos']['name'][$index]);
                         $extension = strtolower(pathinfo($nombreOriginal, PATHINFO_EXTENSION));
 
-                        // Validar extensión
                         if (!in_array($extension, ['jpg', 'jpeg', 'png', 'webp'])) {
                             continue;
                         }
@@ -164,17 +192,18 @@ include('includes/header.php');
                 </div>
 
                 <div class="filtro">
-                    <label for="id_raza">Raza:</label>
-                    <select name="id_raza" id="id_raza">
-                        <option value="">Selecciona una raza</option>
-                        <?php foreach ($razas as $raza): ?>
-                            <option value="<?= $raza['id'] ?>" <?= (($_POST['id_raza'] ?? '') == $raza['id']) ? 'selected' : '' ?>>
-                                <?= htmlspecialchars($raza['especie'] . " – " . $raza['nombre']) ?>
+                    <label for="especie">Especie:</label>
+                    <select name="especie" id="especie">
+                        <option value="">Selecciona una especie</option>
+                        <?php foreach ($especies as $esp): ?>
+                            <option value="<?= htmlspecialchars($esp) ?>"
+                                <?= (($_POST['especie'] ?? '') == $esp) ? 'selected' : '' ?>>
+                                <?= htmlspecialchars($esp) ?>
                             </option>
                         <?php endforeach; ?>
                     </select>
                 </div>
-
+                
                 <div class="filtro">
                     <label for="sexo">Sexo:</label>
                     <select name="sexo" id="sexo">
