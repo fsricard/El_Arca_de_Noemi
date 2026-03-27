@@ -87,9 +87,5 @@ require_once(__DIR__ . '/../config/funciones.php');
                 ?>
 
             </div>
-            
-            <div class="titulo-header">
-                <h1><?php mostrarTextoPersonalizado(); ?></h1>
-            </div>
 
         </header>
