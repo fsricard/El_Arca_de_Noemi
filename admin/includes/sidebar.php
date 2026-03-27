@@ -44,9 +44,9 @@
 
         <ul class="submenu-items">
             <li><a href="<?= asset('admin/adopciones_incluir.php') ?>"><i class="fa-solid fa-paw-simple icon-adopciones-raza"></i> Incluir nueva raza</a></li>
-            <li><a href="<?= asset('admin/adopciones.php') ?>"><i class="fa-solid fa-file-circle-plus icon-adopciones-incluir"></i> Incluir nueva adopción</a></li>
-            <li><a href="<?= asset('admin/adopciones_listado.php') ?>"><i class="fa-solid fa-list-check icon-adopciones-listado"></i> Listado de adopciones</a></li>
-            <li><a href="<?= asset('admin/adopciones_adoptante.php') ?>"><i class="fa-solid fa-user-plus icon-adopciones-adoptante"></i> Incluir nuevo adoptante</a></li>
+            <li><a href="<?= asset('admin/adopciones.php') ?>"><i class="fa-solid fa-file-circle-plus icon-adopciones-incluir"></i> Incluir animal para adoptar</a></li>
+            <li><a href="<?= asset('admin/adopciones_listado.php') ?>"><i class="fa-solid fa-list-check icon-adopciones-listado"></i> Listado de animales en adopción</a></li>
+            <li><a href="<?= asset('admin/adopciones_adoptante.php') ?>"><i class="fa-solid fa-user-plus icon-adopciones-adoptante"></i> Incluir un nuevo adoptante</a></li>
             <li><a href="<?= asset('admin/adopciones_listado_adoptantes.php') ?>"><i class="fa-solid fa-users-rectangle icon-adopciones-listado-adoptantes"></i> Listado de adoptantes</a></li>
         </ul>
     </div>

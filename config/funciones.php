@@ -20,7 +20,6 @@ function tituloPagina($pagina) {
         'contacto'                          => 'Mensajes de contacto',
         'usuarios'                          => 'Gestión de Usuarios',
         'dashboard'                         => 'Panel de Control',
-        'adopciones'                        => 'Gestión de Adopciones',
         'noemi_dice'                        => 'Frases de Noemí',
         'asi_es_noemi'                      => 'Así es Noemí',
         'contacto_intro'                    => 'Invocación al contacto',
@@ -28,12 +27,16 @@ function tituloPagina($pagina) {
         'tablas_de_datos'                   => 'Tablas de la base de datos',
         'adopciones_editar'                 => 'Editar adopción',
         'noemi_dice_listado'                => 'Listado de las frases de Noemí',
-        'adopciones_incluir'                => 'Incluir nuevo animal',
         'adopciones_listado'                => 'Listado de adopciones',
         'tablas_de_datos_ver'               => 'Contenido de la tabla de la base datos',
         'adopciones_adoptante'              => 'Incluir un nuevo adoptante',
+        'adopciones_adoptante'              => 'Incluir un nuevo adoptante',
         'politica_de_privacidad'            => 'Política de privacidad',
+        'adopciones_incluir_raza'           => 'Incluir nuevo animal',
         'noemi_bichillos_listado'           => 'Listado de los bichillos de Noemí',
+        'adopciones_por_adoptante'          => 'Adopciones por adoptante',
+        'adopciones_incluir_animal'         => 'Gestión de Adopciones',
+        'adopciones_editar_adoptante'       => 'Edición de adoptantes',
         'adopciones_listado_adoptantes'     => 'Listado de adoptantes'
     ];
 
