@@ -19,6 +19,9 @@
   /* Fondos y bordes */
   --color-bg-light: #FFF8F5;
   --color-border: #9B1C1C;
+  --fondo-blockquote: #1e000073;
+  --border-left-blockquote: #BDC453;
+  --fondo-lista-desordenada: #b1a8a8;
 
   /* Estados y efectos */
   --color-success: #4CAF50;
@@ -44,6 +47,7 @@
   --font-general: "Poppins", sans-serif;
   --font-botones: "Lato", sans-serif;
   --font-blockquote: "Mynerve", cursive;
+  --font-lista-desordenada: "Mynerve", cursive;
 }
 /* END ROOT */
 
@@ -181,14 +185,17 @@ h3 {
     text-shadow: 2px 2px 0 var(--color-primary-dark);
 }
 .destacado-content ul {
+    font-family: var(--font-lista-desordenada);
+    font-size: 1.8rem;
+    color: var(--noemi-text);
     list-style: none;
     max-width: 100%;
     margin: 0 20px;
     box-sizing: content-box;
-    padding: 5px 15px 5px 15px;
+    padding: 10px 20px 10px 30px;
     text-align: justify;
-    border-radius: 10px;
-    background-color: #b1a8a8;
+    border-radius: 20px;
+    background-color: var(--fondo-lista-desordenada);
 }
 .destacado-content ul li {
     position: relative;
@@ -197,9 +204,9 @@ h3 {
     font-weight: 500;
 }
 .destacado-content ul li::before {
-    content: "🔥";
+    content: "🐰";
     position: absolute;
-    left: -0.5rem;
+    left: -1rem;
     top: 0.1rem;
     font-size: 1.6rem;
     color: var(--noemi-accent);
@@ -239,28 +246,27 @@ blockquote {
     position: relative;
     padding: 2.5rem 2.5rem;
     margin: 20px 20px;
-    background: rgba(30, 0, 0, 0.45);
-    border-left: 4px solid var(--noemi-accent);
+    background: var(--fondo-blockquote);
+    border-left: 4px solid var(--border-left-blockquote);
     color: var(--noemi-text);
-    font-style: italic;
-    font-size: 1.4rem;
-    font-family: var(--font-general-kings);
+    font-size: 1.8rem;
+    font-family: var(--font-blockquote);
     border-radius: 10px;
-    box-shadow: 0 0 12px rgba(255, 40, 40, 0.25);
+    box-shadow: 0 0 12px var(--fondo-blockquote);
     backdrop-filter: blur(3px);
 }
 blockquote::before {
-    content: "😈";
+    content: "🐱";
     position: absolute;
     left: -1.2rem;
     top: -1.2rem;
     font-size: 2.4rem;
     color: var(--noemi-accent);
     text-shadow:
-            0 0 8px rgba(255, 70, 70, 1),
-            0 0 18px rgba(255, 40, 40, 0.8),
-            0 0 28px rgba(255, 10, 10, 0.6),
-            0 0 40px rgba(255, 0, 0, 0.4);
+            0 0 8px #BDC453,
+            0 0 18px #b9c23e,
+            0 0 28px #b6c024,
+            0 0 40px #9aa504;
     animation: noemi-pulse-blockquote 2.2s infinite ease-in-out;
 }
 blockquote::after {
@@ -273,7 +279,7 @@ blockquote::after {
     background: linear-gradient(
         90deg,
         transparent,
-        var(--noemi-accent),
+        var(--border-left-blockquote),
         transparent
     );
     filter: blur(2px);
