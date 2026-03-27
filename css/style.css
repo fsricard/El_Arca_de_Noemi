@@ -48,6 +48,7 @@
   --font-botones: "Lato", sans-serif;
   --font-blockquote: "Mynerve", cursive;
   --font-lista-desordenada: "Mynerve", cursive;
+  --font-lista-ordenada: "Mynerve", cursive;
 }
 /* END ROOT */
 
@@ -215,6 +216,8 @@ h3 {
     animation: noemi-glow 1.8s infinite ease-in-out;
 }
 .destacado-content ol {
+    font-family: var(--font-lista-ordenada);
+    font-size: 1.8rem;
     counter-reset: noemi-counter;
     list-style: none;
     padding: 5px 40px;
@@ -229,12 +232,12 @@ h3 {
 .destacado-content ol li::before {
     content: counter(noemi-counter) "✦";
     position: absolute;
-    left: 0;
+    left: -1rem;
     top: 0.05rem;
     font-size: 1.6rem;
     font-weight: 700;
-    color: var(--noemi-accent);
-    text-shadow: 0 0 6px rgba(255, 60, 60, 0.75);
+    color: var(--noemi-glow-fuerte);
+    text-shadow: 0 0 6px var(--noemi-glow-suave));
     animation: noemi-glow 1.8s infinite ease-in-out;
 }
 @keyframes noemi-glow {
