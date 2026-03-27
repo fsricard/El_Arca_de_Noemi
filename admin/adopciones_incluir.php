@@ -18,7 +18,7 @@ include('includes/header.php');
     <main>
         <section>
             <div class="container">
-                <h2></h2>
+                <h2>Incluir una nueva raza de animal a la base de datos</h2>
 
                 
 
