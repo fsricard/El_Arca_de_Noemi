@@ -71,7 +71,7 @@ include('includes/header.php');
             <form method="post" class="formulario">
 
                 <div class="filtro">
-                    <label for="nombre">Nombre de la raza:</label>
+                    <label for="nombre">Raza:</label>
                     <input type="text" name="nombre" id="nombre" value="<?= htmlspecialchars($_POST['nombre'] ?? '') ?>" />
                 </div>
 

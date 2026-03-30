@@ -13,15 +13,21 @@ if (!isLoggedIn()) {
 $errores = [];
 $exito = false;
 
-/* ---------------------------------------------------------
-   1. OBTENER ESPECIES (solo especies únicas)
---------------------------------------------------------- */
+// Obtener especies únicas
 $especies = $pdo->query("
     SELECT DISTINCT especie
     FROM razas_animales
     WHERE activo = 1
     ORDER BY especie
 ")->fetchAll(PDO::FETCH_COLUMN);
+
+// Obtener todas las razas (las filtraremos por JS)
+$razas = $pdo->query("
+    SELECT id, nombre, especie
+    FROM razas_animales
+    WHERE activo = 1
+    ORDER BY especie, nombre
+")->fetchAll(PDO::FETCH_ASSOC);
 
 /* ---------------------------------------------------------
    2. PROCESAR FORMULARIO
@@ -59,21 +65,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($especie === '') {
         $errores[] = "Debes seleccionar una especie.";
-    } else {
-        // Buscar una raza interna para esa especie
-        $stmt = $pdo->prepare("
-            SELECT id 
-            FROM razas_animales 
-            WHERE especie = ? AND activo = 1 
-            ORDER BY id ASC 
-            LIMIT 1
-        ");
-        $stmt->execute([$especie]);
-        $id_raza = $stmt->fetchColumn();
+    }
 
-        if (!$id_raza) {
-            $errores[] = "No existe una raza interna para esta especie.";
-        }
+    $id_raza = intval($_POST['id_raza'] ?? 0);
+
+    if ($id_raza <= 0) {
+        $errores[] = "Debes seleccionar una raza.";
     }
 
     if ($fecha_ingreso === null || $fecha_ingreso === '') {
@@ -203,6 +200,20 @@ include('includes/header.php');
                         <?php endforeach; ?>
                     </select>
                 </div>
+
+                <div class="filtro">
+                    <label for="id_raza">Raza:</label>
+                    <select name="id_raza" id="id_raza">
+                        <option value="">Selecciona una raza</option>
+                        <?php foreach ($razas as $raza): ?>
+                            <option value="<?= $raza['id'] ?>"
+                                data-especie="<?= htmlspecialchars($raza['especie']) ?>"
+                                <?= (($_POST['id_raza'] ?? '') == $raza['id']) ? 'selected' : '' ?>>
+                                <?= htmlspecialchars($raza['nombre']) ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
                 
                 <div class="filtro">
                     <label for="sexo">Sexo:</label>
@@ -289,5 +300,38 @@ include('includes/header.php');
         </div>
     </section>
 </main>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const selectEspecie = document.getElementById("especie");
+        const selectRaza = document.getElementById("id_raza");
+
+        function filtrarRazas() {
+            const especieSeleccionada = selectEspecie.value;
+
+            // Mostrar solo las razas de esa especie
+            for (const option of selectRaza.options) {
+                if (option.value === "") continue; // "Selecciona una raza"
+
+                const especieRaza = option.getAttribute("data-especie");
+
+                option.style.display = (especieRaza === especieSeleccionada) ? "block" : "none";
+            }
+
+            // Resetear selección si no coincide
+            if (selectRaza.selectedOptions.length > 0) {
+                const actual = selectRaza.selectedOptions[0];
+                if (actual.getAttribute("data-especie") !== especieSeleccionada) {
+                    selectRaza.value = "";
+                }
+            }
+        }
+
+        selectEspecie.addEventListener("change", filtrarRazas);
+
+        // Ejecutar al cargar si hay POST previo
+        filtrarRazas();
+    });
+</script>
 
 <?php include('includes/footer.php');

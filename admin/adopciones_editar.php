@@ -37,6 +37,14 @@ $especies = $pdo->query("
     ORDER BY especie
 ")->fetchAll(PDO::FETCH_COLUMN);
 
+// Obtener razas para el selector
+$razas = $pdo->query("
+    SELECT id, nombre, especie
+    FROM razas_animales
+    WHERE activo = 1
+    ORDER BY especie, nombre
+")->fetchAll(PDO::FETCH_ASSOC);
+
 // Obtener fotos del animal
 $stmt = $pdo->prepare("SELECT * FROM animales_fotos WHERE id_animal = ? ORDER BY es_principal DESC, id ASC");
 $stmt->execute([$id]);
@@ -107,21 +115,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($nombre === '') $errores[] = "El nombre no puede estar vacío.";
     if ($especie === '') {
         $errores[] = "Debes seleccionar una especie.";
-    } else {
-        // Buscar una raza interna para esa especie
-        $stmt = $pdo->prepare("
-            SELECT id 
-            FROM razas_animales 
-            WHERE especie = ? AND activo = 1 
-            ORDER BY id ASC 
-            LIMIT 1
-        ");
-        $stmt->execute([$especie]);
-        $id_raza = $stmt->fetchColumn();
+    }
 
-        if (!$id_raza) {
-            $errores[] = "No existe una raza interna para esta especie.";
-        }
+    $id_raza = intval($_POST['id_raza'] ?? 0);
+
+    if ($id_raza <= 0) {
+        $errores[] = "Debes seleccionar una raza.";
     }
     if ($fecha_ingreso === '') $errores[] = "La fecha de ingreso es obligatoria.";
 
@@ -230,6 +229,20 @@ include('includes/header.php');
                             <option value="<?= htmlspecialchars($esp) ?>"
                                 <?= ($animal['especie'] == $esp) ? 'selected' : '' ?>>
                                 <?= htmlspecialchars($esp) ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+
+                <div class="filtro">
+                    <label for="id_raza">Raza:</label>
+                    <select name="id_raza" id="id_raza">
+                        <option value="">Selecciona una raza</option>
+                        <?php foreach ($razas as $raza): ?>
+                            <option value="<?= $raza['id'] ?>"
+                                data-especie="<?= htmlspecialchars($raza['especie']) ?>"
+                                <?= ($animal['id_raza'] == $raza['id']) ? 'selected' : '' ?>>
+                                <?= htmlspecialchars($raza['nombre']) ?>
                             </option>
                         <?php endforeach; ?>
                     </select>
@@ -427,6 +440,7 @@ include('includes/header.php');
     </style>
 
     <script>
+        // Funcionalidad del modal para ver imagen en grande
         document.addEventListener("DOMContentLoaded", function() {
 
             const modal = document.getElementById("modalAnimal");
@@ -450,6 +464,35 @@ include('includes/header.php');
                 }
             });
 
+        });
+
+        // Filtrar razas según especie seleccionada
+        document.addEventListener("DOMContentLoaded", () => {
+            const selectEspecie = document.getElementById("especie");
+            const selectRaza = document.getElementById("id_raza");
+
+            function filtrarRazas() {
+                const especieSeleccionada = selectEspecie.value;
+
+                for (const option of selectRaza.options) {
+                    if (option.value === "") continue;
+
+                    const especieRaza = option.getAttribute("data-especie");
+
+                    option.style.display = (especieRaza === especieSeleccionada) ? "block" : "none";
+                }
+
+                // Si la raza seleccionada no coincide con la especie → reset
+                const selected = selectRaza.selectedOptions[0];
+                if (selected && selected.getAttribute("data-especie") !== especieSeleccionada) {
+                    selectRaza.value = "";
+                }
+            }
+
+            selectEspecie.addEventListener("change", filtrarRazas);
+
+            // Ejecutar al cargar para mostrar solo las razas correctas
+            filtrarRazas();
         });
     </script>
 

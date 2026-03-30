@@ -17,8 +17,17 @@ $especies = $pdo->query("
     ORDER BY especie
 ")->fetchAll(PDO::FETCH_COLUMN);
 
+// Obtener razas para el filtro
+$razas = $pdo->query("
+    SELECT id, nombre, especie
+    FROM razas_animales
+    WHERE activo = 1
+    ORDER BY especie, nombre
+")->fetchAll(PDO::FETCH_ASSOC);
+
 // Filtros
 $filtro_especie = $_GET['especie'] ?? '';
+$filtro_raza = $_GET['raza'] ?? '';
 $filtro_desde = $_GET['desde'] ?? '';
 $filtro_hasta = $_GET['hasta'] ?? '';
 $filtro_estado = $_GET['estado'] ?? '';
@@ -40,12 +49,19 @@ if ($filtro_especie !== '') {
     $params[] = $filtro_especie;
 }
 
-// Filtro por fecha de rescate
+// Filtro por raza
+if ($filtro_raza !== '') {
+    $query .= " AND a.id_raza = ? ";
+    $params[] = $filtro_raza;
+}
+
+// Filtro por fecha de rescate "desde"
 if ($filtro_desde !== '') {
     $query .= " AND a.fecha_rescate >= ? ";
     $params[] = $filtro_desde;
 }
 
+// Filtro por fecha de rescate "hasta"
 if ($filtro_hasta !== '') {
     $query .= " AND a.fecha_rescate <= ? ";
     $params[] = $filtro_hasta;
@@ -80,13 +96,27 @@ include('includes/header.php');
             <form method="get" class="formulario filtros">
 
                 <div class="filtro">
-                    <label for="raza">Raza / Especie:</label>
+                    <label for="raza">Especie:</label>
                     <select name="especie">
                         <option value="">Todas</option>
                         <?php foreach ($especies as $esp): ?>
                             <option value="<?= htmlspecialchars($esp) ?>"
                                 <?= $filtro_especie === $esp ? 'selected' : '' ?>>
                                 <?= htmlspecialchars($esp) ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+
+                <div class="filtro">
+                    <label for="raza">Raza:</label>
+                    <select name="raza" id="raza">
+                        <option value="">Todas</option>
+                        <?php foreach ($razas as $raza): ?>
+                            <option value="<?= $raza['id'] ?>"
+                                data-especie="<?= htmlspecialchars($raza['especie']) ?>"
+                                <?= $filtro_raza == $raza['id'] ? 'selected' : '' ?>>
+                                <?= htmlspecialchars($raza['nombre']) ?>
                             </option>
                         <?php endforeach; ?>
                     </select>
@@ -316,6 +346,37 @@ include('includes/header.php');
             }
         });
 
+    });
+
+    // Filtrar razas según especie seleccionada
+    document.addEventListener("DOMContentLoaded", () => {
+        const selectEspecie = document.querySelector("select[name='especie']");
+        const selectRaza = document.querySelector("select[name='raza']");
+
+        function filtrarRazas() {
+            const especieSeleccionada = selectEspecie.value;
+
+            for (const option of selectRaza.options) {
+                if (option.value === "") continue;
+
+                const especieRaza = option.getAttribute("data-especie");
+
+                option.style.display = (especieRaza === especieSeleccionada || especieSeleccionada === "") 
+                    ? "block" 
+                    : "none";
+            }
+
+            // Si la raza seleccionada no coincide con la especie → reset
+            const selected = selectRaza.selectedOptions[0];
+            if (selected && selected.getAttribute("data-especie") !== especieSeleccionada) {
+                selectRaza.value = "";
+            }
+        }
+
+        selectEspecie.addEventListener("change", filtrarRazas);
+
+        // Ejecutar al cargar (útil si hay filtros activos)
+        filtrarRazas();
     });
 </script>
 
