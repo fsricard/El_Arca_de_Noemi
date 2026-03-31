@@ -426,6 +426,7 @@ form button:hover i {
 .icon-bd { color: #4387ee; }
 .icon-logout { color: #d00000; }
 .icon-adopciones { color: #43afee; }
+.icon-registro { color: #ffae00; }
 
 
 /* Subitems Frases */
@@ -446,12 +447,15 @@ form button:hover i {
 .icon-bd-usuarios { color: #4361ee; }
 .icon-bd-tablas { color: #3a0ca3; }
 
+/* Subitems Registros */
+.icon-registros-raza { color: #d00000; }
+.icon-registros-incluir { color: #ff6d00; }
+.icon-registros-listado { color: #4361ee; }
+.icon-registros-adoptante { color: #3a0ca3; }
+.icon-registros-listado-adoptantes { color: #9d0208; }
+
 /* Subitems Adopciones */
-.icon-adopciones-raza { color: #d00000; }
-.icon-adopciones-incluir { color: #ff6d00; }
-.icon-adopciones-listado { color: #4361ee; }
-.icon-adopciones-adoptante { color: #3a0ca3; }
-.icon-adopciones-listado-adoptantes { color: #9d0208; }
+.icon-iniciar-adopcion { color: #006cd0; }
 
 /* Quill */
 .emoji-popup {
