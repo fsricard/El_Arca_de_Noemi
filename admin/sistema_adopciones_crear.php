@@ -84,7 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $exito = true;
 
             /* Redirigir a editar adopción */
-            header("Location: adopciones_editar.php?id=" . $id_adopcion);
+            header("Location: sistema_adopciones_editar_adoptantes.php?id=" . $id_adopcion);
             exit;
 
         } catch (PDOException $e) {
