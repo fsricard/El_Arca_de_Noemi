@@ -88,15 +88,26 @@ $total_registros = $stmt->fetchColumn();
 --------------------------------------------------------- */
 $query = "
     SELECT ad.*,
+
+        /* Total de adopciones */
         (SELECT COUNT(*) 
          FROM adopciones 
          WHERE id_adoptante = ad.id) AS total_adopciones,
 
+        /* Último estado */
         (SELECT estado 
          FROM adopciones 
          WHERE id_adoptante = ad.id 
          ORDER BY fecha_adopcion DESC 
-         LIMIT 1) AS ultimo_estado
+         LIMIT 1) AS ultimo_estado,
+
+        /* ID de la última adopción → NECESARIO PARA EDITAR */
+        (SELECT id 
+         FROM adopciones 
+         WHERE id_adoptante = ad.id 
+         ORDER BY fecha_adopcion DESC 
+         LIMIT 1) AS id_ultima_adopcion
+
     FROM adoptantes ad
     WHERE 1
 ";
@@ -274,10 +285,17 @@ include('includes/header.php');
                             <td><?= (int)$a['total_adopciones'] ?></td>
 
                             <td>
-                                <button class="btn btn-warning"
-                                        onclick="window.location='sistema_adopciones_editar_adoptante.php?id=<?= $a['id'] ?>'">
-                                    <i class="fa-solid fa-pen-to-square"></i> Editar
-                                </button>
+
+                                <?php if ($a['id_ultima_adopcion']): ?>
+                                    <button class="btn btn-warning"
+                                            onclick="window.location='sistema_adopciones_editar_adoptante.php?id=<?= $a['id_ultima_adopcion'] ?>'">
+                                        <i class="fa-solid fa-pen-to-square"></i> Editar
+                                    </button>
+                                <?php else: ?>
+                                    <button class="btn btn-warning" disabled>
+                                        <i class="fa-solid fa-pen-to-square"></i> Editar
+                                    </button>
+                                <?php endif; ?>
 
                                 <button class="btn update-user"
                                         onclick="window.location='sistema_adopciones_por_adoptante.php?id=<?= $a['id'] ?>'">

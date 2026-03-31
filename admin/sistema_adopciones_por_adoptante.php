@@ -10,7 +10,7 @@ if (!isLoggedIn()) {
     exit;
 }
 
-$pagina='adopciones_por_adoptante';
+$pagina='sistema_adopciones_por_adoptante';
 
 include('includes/header.php');
 ?>
