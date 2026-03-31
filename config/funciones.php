@@ -34,6 +34,7 @@ function tituloPagina($pagina) {
         'politica_de_privacidad'                    => 'Política de privacidad',
         'adopciones_incluir_raza'                   => 'Incluir nuevo animal',
         'noemi_bichillos_listado'                   => 'Listado de los bichillos de Noemí',
+        'sistema_adopciones_crear'                  => 'Crear nueva adopción',
         'adopciones_incluir_animal'                 => 'Gestión de Adopciones',
         'sistema_adopciones_iniciar'                => 'Iniciar nueva adopción',
         'sistema_adopciones_por_adoptante'          => 'Adopciones por adoptante',
