@@ -452,10 +452,10 @@ form button:hover i {
 .icon-registros-incluir { color: #ff6d00; }
 .icon-registros-listado { color: #4361ee; }
 .icon-registros-adoptante { color: #3a0ca3; }
-.icon-registros-listado-adoptantes { color: #9d0208; }
 
 /* Subitems Adopciones */
 .icon-iniciar-adopcion { color: #006cd0; }
+.icon-listado-adoptantes { color: #4492db; }
 
 /* Quill */
 .emoji-popup {

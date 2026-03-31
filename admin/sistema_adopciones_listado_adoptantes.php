@@ -12,39 +12,111 @@ if (!isLoggedIn()) {
 /* ---------------------------------------------------------
    1. Filtros
 --------------------------------------------------------- */
-$filtro_nombre = trim($_GET['nombre'] ?? '');
+$filtro_nombre        = trim($_GET['nombre'] ?? '');
 $filtro_id_adoptante = intval($_GET['id_adoptante'] ?? 0);
-$filtro_estado = $_GET['estado'] ?? '';
-$filtro_desde = $_GET['desde'] ?? '';
-$filtro_hasta = $_GET['hasta'] ?? '';
+$filtro_estado       = $_GET['estado'] ?? '';
+$filtro_desde        = $_GET['desde'] ?? '';
+$filtro_hasta        = $_GET['hasta'] ?? '';
 
 /* ---------------------------------------------------------
-   2. Construcción dinámica de la consulta
+   2. Paginación
+--------------------------------------------------------- */
+$por_pagina = 20;
+$pagina_actual = max(1, intval($_GET['p'] ?? 1));
+$offset = ($pagina_actual - 1) * $por_pagina;
+
+/* ---------------------------------------------------------
+   3. Consulta base (para total)
+--------------------------------------------------------- */
+$query_total = "
+    SELECT COUNT(*) 
+    FROM adoptantes ad
+    WHERE 1
+";
+
+$params_total = [];
+
+/* --- Filtro por ID adoptante --- */
+if ($filtro_id_adoptante > 0) {
+    $query_total .= " AND ad.id = ? ";
+    $params_total[] = $filtro_id_adoptante;
+}
+
+/* --- Filtro por nombre --- */
+if ($filtro_id_adoptante === 0 && $filtro_nombre !== '') {
+    $query_total .= " AND (ad.nombre LIKE ? OR ad.apellidos LIKE ?) ";
+    $params_total[] = "%$filtro_nombre%";
+    $params_total[] = "%$filtro_nombre%";
+}
+
+/* --- Filtro por estado --- */
+if ($filtro_estado !== '') {
+    $query_total .= "
+        AND ad.id IN (
+            SELECT id_adoptante FROM adopciones WHERE estado = ?
+        )
+    ";
+    $params_total[] = $filtro_estado;
+}
+
+/* --- Filtro por fechas --- */
+if ($filtro_desde !== '') {
+    $query_total .= "
+        AND ad.id IN (
+            SELECT id_adoptante FROM adopciones WHERE fecha_adopcion >= ?
+        )
+    ";
+    $params_total[] = $filtro_desde;
+}
+
+if ($filtro_hasta !== '') {
+    $query_total .= "
+        AND ad.id IN (
+            SELECT id_adoptante FROM adopciones WHERE fecha_adopcion <= ?
+        )
+    ";
+    $params_total[] = $filtro_hasta;
+}
+
+/* Ejecutar total */
+$stmt = $pdo->prepare($query_total);
+$stmt->execute($params_total);
+$total_registros = $stmt->fetchColumn();
+
+/* ---------------------------------------------------------
+   4. Consulta final con datos + paginación
 --------------------------------------------------------- */
 $query = "
-    SELECT ad.*, 
-    (SELECT COUNT(*) FROM adopciones WHERE id_adoptante = ad.id) AS total_adopciones,
-    (SELECT estado FROM adopciones WHERE id_adoptante = ad.id ORDER BY fecha_adopcion DESC LIMIT 1) AS ultimo_estado
+    SELECT ad.*,
+        (SELECT COUNT(*) 
+         FROM adopciones 
+         WHERE id_adoptante = ad.id) AS total_adopciones,
+
+        (SELECT estado 
+         FROM adopciones 
+         WHERE id_adoptante = ad.id 
+         ORDER BY fecha_adopcion DESC 
+         LIMIT 1) AS ultimo_estado
     FROM adoptantes ad
     WHERE 1
 ";
 
 $params = [];
 
-/* --- Filtro por ID (si se seleccionó del autocomplete) --- */
+/* --- Filtro por ID adoptante --- */
 if ($filtro_id_adoptante > 0) {
     $query .= " AND ad.id = ? ";
     $params[] = $filtro_id_adoptante;
 }
 
-/* --- Filtro por nombre (solo si NO hay ID seleccionado) --- */
+/* --- Filtro por nombre --- */
 if ($filtro_id_adoptante === 0 && $filtro_nombre !== '') {
     $query .= " AND (ad.nombre LIKE ? OR ad.apellidos LIKE ?) ";
     $params[] = "%$filtro_nombre%";
     $params[] = "%$filtro_nombre%";
 }
 
-/* --- Filtro por estado de adopción --- */
+/* --- Filtro por estado --- */
 if ($filtro_estado !== '') {
     $query .= "
         AND ad.id IN (
@@ -73,13 +145,16 @@ if ($filtro_hasta !== '') {
     $params[] = $filtro_hasta;
 }
 
-$query .= " ORDER BY ad.nombre ASC, ad.apellidos ASC ";
+$query .= " 
+    ORDER BY ad.nombre ASC, ad.apellidos ASC
+    LIMIT $offset, $por_pagina
+";
 
 $stmt = $pdo->prepare($query);
 $stmt->execute($params);
 $adoptantes = $stmt->fetchAll();
 
-$pagina='adopciones_listado_adoptantes';
+$pagina='sistema_adopciones_listado_adoptantes';
 
 include('includes/header.php');
 ?>
@@ -93,21 +168,20 @@ include('includes/header.php');
             <form method="get" class="filtros">
                 <div class="fila">
 
-                    <!-- AUTOCOMPLETE AVANZADO -->
+                    <!-- AUTOCOMPLETE -->
                     <div class="autocomplete-wrapper">
                         <label>Nombre / Apellidos:</label>
 
                         <input type="text"
-                               id="buscador"
-                               name="nombre"
-                               autocomplete="off"
-                               value="<?= htmlspecialchars($filtro_nombre) ?>">
+                            id="buscador"
+                            name="nombre"
+                            autocomplete="off"
+                            value="<?= htmlspecialchars($filtro_nombre) ?>">
 
-                        <!-- ID oculto del adoptante -->
                         <input type="hidden"
-                               id="id_adoptante"
-                               name="id_adoptante"
-                               value="<?= $filtro_id_adoptante ?>">
+                            id="id_adoptante"
+                            name="id_adoptante"
+                            value="<?= $filtro_id_adoptante ?>">
 
                         <div id="sugerencias" class="autocomplete-list"></div>
                     </div>
@@ -138,7 +212,7 @@ include('includes/header.php');
                             <i class="fa-solid fa-filter"></i> Filtrar
                         </button>
 
-                        <button type="button" onclick="window.location='adopciones_listado_adoptantes.php'">
+                        <button type="button" onclick="window.location='sistema_adopciones_listado_adoptantes.php'">
                             <i class="fa-solid fa-rotate-left"></i> Limpiar filtros
                         </button>
                     </div>
@@ -201,12 +275,12 @@ include('includes/header.php');
 
                             <td>
                                 <button class="btn btn-warning"
-                                        onclick="window.location='adopciones_editar_adoptante.php?id=<?= $a['id'] ?>'">
+                                        onclick="window.location='sistema_adopciones_editar_adoptante.php?id=<?= $a['id'] ?>'">
                                     <i class="fa-solid fa-pen-to-square"></i> Editar
                                 </button>
 
                                 <button class="btn update-user"
-                                        onclick="window.location='adopciones_por_adoptante.php?id=<?= $a['id'] ?>'">
+                                        onclick="window.location='sistema_adopciones_por_adoptante.php?id=<?= $a['id'] ?>'">
                                     <i class="fa-solid fa-paw"></i> Ver adopciones
                                 </button>
                             </td>
@@ -215,6 +289,8 @@ include('includes/header.php');
                     <?php endforeach; ?>
                 </tbody>
             </table>
+
+            <?= paginador($total_registros, $por_pagina, $pagina_actual, $_GET); ?>
 
         </div>
     </section>
