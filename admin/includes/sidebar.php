@@ -45,7 +45,6 @@
         <ul class="submenu-items">
             <li><a href="<?= asset('admin/adopciones_incluir.php') ?>"><i class="fa-solid fa-paw-simple icon-registros-raza"></i> Incluir nueva raza</a></li>
             <li><a href="<?= asset('admin/adopciones.php') ?>"><i class="fa-solid fa-file-circle-plus icon-registros-incluir"></i> Incluir animal para adoptar</a></li>
-            <li><a href="<?= asset('admin/adopciones_listado.php') ?>"><i class="fa-solid fa-list-check icon-registros-listado"></i> Listado de animales en adopción</a></li>
             <li><a href="<?= asset('admin/adopciones_adoptante.php') ?>"><i class="fa-solid fa-user-plus icon-registros-adoptante"></i> Incluir un nuevo adoptante</a></li>
         </ul>
     </div>
@@ -60,6 +59,7 @@
         <ul class="submenu-items">
             <li><a href="<?= asset('admin/sistema_adopciones_iniciar.php') ?>"><i class="fa-classic fa-solid fa-gears icon-iniciar-adopcion"></i> Iniciar nueva adopción</a></li>
             <li><a href="<?= asset('admin/sistema_adopciones_listado_adoptantes.php') ?>"><i class="fa-solid fa-users-rectangle icon-listado-adoptantes"></i> Listado de adoptantes</a></li>
+            <li><a href="<?= asset('admin/sistema_adopciones_listado.php') ?>"><i class="fa-solid fa-list-check icon-listado-animales-adoptantes"></i> Listado de animales en adopción</a></li>
         </ul>
     </div>
 

@@ -239,6 +239,7 @@ body[data-pagina="tablas_de_datos_ver"][data-tabla="usuarios"] h2 strong {
 .badge-success { background: #28a745; }
 .badge-info { background: #17a2b8; }
 .badge-warning { background: #ffc107; color: #000; }
+.badge-danger { background-color: #d9534f;}
 /* Texto secundario */
 .texto-secundario {
     color: #666;
@@ -479,12 +480,12 @@ form button:hover i {
 /* Subitems Registros */
 .icon-registros-raza { color: #d00000; }
 .icon-registros-incluir { color: #ff6d00; }
-.icon-registros-listado { color: #4361ee; }
 .icon-registros-adoptante { color: #3a0ca3; }
 
 /* Subitems Adopciones */
 .icon-iniciar-adopcion { color: #006cd0; }
 .icon-listado-adoptantes { color: #4492db; }
+.icon-listado-animales-adoptantes { color: #3c7aa3; }
 
 /* Quill */
 .emoji-popup {

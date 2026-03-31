@@ -9,78 +9,107 @@ if (!isLoggedIn()) {
     exit;
 }
 
-// Obtener especies para el filtro
-$especies = $pdo->query("
-    SELECT DISTINCT especie 
-    FROM razas_animales 
-    WHERE activo = 1 
-    ORDER BY especie
-")->fetchAll(PDO::FETCH_COLUMN);
-
-// Obtener razas para el filtro
-$razas = $pdo->query("
-    SELECT id, nombre, especie
-    FROM razas_animales
-    WHERE activo = 1
-    ORDER BY especie, nombre
-")->fetchAll(PDO::FETCH_ASSOC);
-
-// Filtros
+/* -----------------------------------------
+   1. Filtros
+----------------------------------------- */
 $filtro_especie = $_GET['especie'] ?? '';
 $filtro_raza = $_GET['raza'] ?? '';
 $filtro_desde = $_GET['desde'] ?? '';
 $filtro_hasta = $_GET['hasta'] ?? '';
-$filtro_estado = $_GET['estado'] ?? '';
 
-// Construcción dinámica de la consulta
-$query = "
-    SELECT a.*, r.nombre AS raza_nombre, r.especie,
-    (SELECT ruta FROM animales_fotos WHERE id_animal = a.id AND es_principal = 1 LIMIT 1) AS foto
+/* ESTADO DEL ANIMAL */
+$filtro_estado_animal = $_GET['estado_animal'] ?? '';
+
+/* ESTADO DE ADOPCIÓN */
+$filtro_estado_adopcion = $_GET['estado_adopcion'] ?? '';
+
+/* -----------------------------------------
+   2. Paginación
+----------------------------------------- */
+$por_pagina = 20;
+$pagina_actual = max(1, intval($_GET['p'] ?? 1));
+$offset = ($pagina_actual - 1) * $por_pagina;
+
+/* -----------------------------------------
+   3. Consulta base (con JOIN a adopciones)
+----------------------------------------- */
+$query_base = "
     FROM animales a
     INNER JOIN razas_animales r ON a.id_raza = r.id
+    LEFT JOIN adopciones ad ON ad.id = a.id_adopcion
     WHERE 1
 ";
 
 $params = [];
 
-// Filtro por especie
+/* -----------------------------------------
+   4. Aplicar filtros
+----------------------------------------- */
+
+/* Especie */
 if ($filtro_especie !== '') {
-    $query .= " AND r.especie = ? ";
+    $query_base .= " AND r.especie = ? ";
     $params[] = $filtro_especie;
 }
 
-// Filtro por raza
+/* Raza */
 if ($filtro_raza !== '') {
-    $query .= " AND a.id_raza = ? ";
+    $query_base .= " AND a.id_raza = ? ";
     $params[] = $filtro_raza;
 }
 
-// Filtro por fecha de rescate "desde"
+/* Fecha rescate desde */
 if ($filtro_desde !== '') {
-    $query .= " AND a.fecha_rescate >= ? ";
+    $query_base .= " AND a.fecha_rescate >= ? ";
     $params[] = $filtro_desde;
 }
 
-// Filtro por fecha de rescate "hasta"
+/* Fecha rescate hasta */
 if ($filtro_hasta !== '') {
-    $query .= " AND a.fecha_rescate <= ? ";
+    $query_base .= " AND a.fecha_rescate <= ? ";
     $params[] = $filtro_hasta;
 }
 
-// Filtro por estado de adopción
-if ($filtro_estado === 'adoptable') {
-    $query .= " AND a.adoptable = 1 ";
-} elseif ($filtro_estado === 'no_adoptable') {
-    $query .= " AND a.adoptable = 0 ";
-} elseif ($filtro_estado === 'adoptado') {
-    $query .= " AND a.id_adopcion IS NOT NULL ";
+/* ESTADO DEL ANIMAL */
+if ($filtro_estado_animal === 'adoptable') {
+    $query_base .= " AND a.adoptable = 1 AND a.id_adopcion IS NULL ";
+}
+elseif ($filtro_estado_animal === 'no_adoptable') {
+    $query_base .= " AND a.adoptable = 0 AND a.id_adopcion IS NULL ";
 }
 
-$query .= " ORDER BY a.fecha_ingreso DESC ";
+/* ESTADO DE ADOPCIÓN */
+if ($filtro_estado_adopcion !== '') {
+    $query_base .= " AND ad.estado = ? ";
+    $params[] = $filtro_estado_adopcion;
+}
+
+/* -----------------------------------------
+   5. Total registros
+----------------------------------------- */
+$stmt = $pdo->prepare("SELECT COUNT(*) " . $query_base);
+$stmt->execute($params);
+$total_registros = $stmt->fetchColumn();
+
+/* -----------------------------------------
+   6. Consulta final con LIMIT
+----------------------------------------- */
+$query = "
+    SELECT a.*, 
+           r.nombre AS raza_nombre, 
+           r.especie,
+           ad.estado AS estado_adopcion,
+           ad.id AS id_adopcion,
+           (SELECT ruta FROM animales_fotos 
+            WHERE id_animal = a.id AND es_principal = 1 LIMIT 1) AS foto
+    " . $query_base . "
+    ORDER BY a.fecha_ingreso DESC
+    LIMIT $offset, $por_pagina
+";
 
 $stmt = $pdo->prepare($query);
 $stmt->execute($params);
-$animales = $stmt->fetchAll();
+$animales = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 $pagina='adopciones_listado';
 
@@ -95,8 +124,9 @@ include('includes/header.php');
             <!-- Filtros -->
             <form method="get" class="formulario filtros">
 
+                <!-- ESPECIE -->
                 <div class="filtro">
-                    <label for="raza">Especie:</label>
+                    <label>Especie:</label>
                     <select name="especie">
                         <option value="">Todas</option>
                         <?php foreach ($especies as $esp): ?>
@@ -108,8 +138,9 @@ include('includes/header.php');
                     </select>
                 </div>
 
+                <!-- RAZA -->
                 <div class="filtro">
-                    <label for="raza">Raza:</label>
+                    <label>Raza:</label>
                     <select name="raza" id="raza">
                         <option value="">Todas</option>
                         <?php foreach ($razas as $raza): ?>
@@ -122,24 +153,37 @@ include('includes/header.php');
                     </select>
                 </div>
 
+                <!-- ESTADO DEL ANIMAL -->
                 <div class="filtro">
-                    <label for="desde">Rescatado desde:</label>
-                    <input type="date" name="desde" id="desde" value="<?= htmlspecialchars($filtro_desde) ?>">
-                </div>
-
-                <div class="filtro">
-                    <label for="hasta">Rescatado hasta:</label>
-                    <input type="date" name="hasta" id="hasta" value="<?= htmlspecialchars($filtro_hasta) ?>">
-                </div>
-
-                <div class="filtro">
-                    <label for="estado">Estado:</label>
-                    <select name="estado" id="estado">
+                    <label>Estado del animal:</label>
+                    <select name="estado_animal">
                         <option value="">Todos</option>
-                        <option value="adoptable" <?= $filtro_estado === 'adoptable' ? 'selected' : '' ?>>Adoptable</option>
-                        <option value="no_adoptable" <?= $filtro_estado === 'no_adoptable' ? 'selected' : '' ?>>No adoptable</option>
-                        <option value="adoptado" <?= $filtro_estado === 'adoptado' ? 'selected' : '' ?>>Adoptado</option>
+                        <option value="adoptable" <?= $filtro_estado_animal === 'adoptable' ? 'selected' : '' ?>>Adoptable</option>
+                        <option value="no_adoptable" <?= $filtro_estado_animal === 'no_adoptable' ? 'selected' : '' ?>>No adoptable</option>
                     </select>
+                </div>
+
+                <!-- ESTADO DE ADOPCIÓN -->
+                <div class="filtro">
+                    <label>Estado de adopción:</label>
+                    <select name="estado_adopcion">
+                        <option value="">Todos</option>
+                        <option value="pendiente"   <?= $filtro_estado_adopcion === 'pendiente' ? 'selected' : '' ?>>Pendiente</option>
+                        <option value="en_proceso"  <?= $filtro_estado_adopcion === 'en_proceso' ? 'selected' : '' ?>>En proceso</option>
+                        <option value="finalizada"  <?= $filtro_estado_adopcion === 'finalizada' ? 'selected' : '' ?>>Finalizada</option>
+                        <option value="cancelada"   <?= $filtro_estado_adopcion === 'cancelada' ? 'selected' : '' ?>>Cancelada</option>
+                    </select>
+                </div>
+
+                <!-- FECHAS -->
+                <div class="filtro">
+                    <label>Rescatado desde:</label>
+                    <input type="date" name="desde" value="<?= htmlspecialchars($filtro_desde) ?>">
+                </div>
+
+                <div class="filtro">
+                    <label>Rescatado hasta:</label>
+                    <input type="date" name="hasta" value="<?= htmlspecialchars($filtro_hasta) ?>">
                 </div>
 
                 <button type="submit" class="btn-primary">
@@ -149,6 +193,7 @@ include('includes/header.php');
                 <button type="button" onclick="window.location='adopciones_listado.php'">
                     <i class="fa-solid fa-rotate-left"></i> Limpiar filtros
                 </button>
+
             </form>
 
             <!-- LISTADO -->
@@ -190,38 +235,58 @@ include('includes/header.php');
 
                             <!-- ESTADO -->
                             <td>
-                                <?php if ($animal['id_adopcion']): ?>
-                                    <span class="badge badge-success">
-                                        <i class="fa-solid fa-heart"></i> Adoptado
+                                <?php if ($animal['estado_adopcion']): ?>
+
+                                    <?php
+                                        $estado = $animal['estado_adopcion'];
+                                        $clase = [
+                                            'pendiente'   => 'badge-warning',
+                                            'en_proceso'  => 'badge-info',
+                                            'finalizada'  => 'badge-success',
+                                            'cancelada'   => 'badge-danger'
+                                        ][$estado] ?? 'badge-secondary';
+                                    ?>
+
+                                    <span class="badge <?= $clase ?>">
+                                        <?= ucfirst(str_replace('_',' ', $estado)) ?>
                                     </span>
-                                <?php elseif ($animal['adoptable']): ?>
-                                    <span class="badge badge-info">
-                                        <i class="fa-solid fa-paw"></i> Adoptable
-                                    </span>
+
                                 <?php else: ?>
-                                    <span class="badge badge-warning">
-                                        <i class="fa-solid fa-ban"></i> No adoptable
-                                    </span>
+
+                                    <?php if ($animal['adoptable']): ?>
+                                        <span class="badge badge-info">
+                                            <i class="fa-solid fa-paw"></i> Adoptable
+                                        </span>
+                                    <?php else: ?>
+                                        <span class="badge badge-warning">
+                                            <i class="fa-solid fa-ban"></i> No adoptable
+                                        </span>
+                                    <?php endif; ?>
+
                                 <?php endif; ?>
                             </td>
 
                             <!-- ACCIONES -->
                             <td>
-                                <button class="btn btn-warning"
-                                        onclick="window.location='adopciones_editar.php?id=<?= $animal['id'] ?>'">
-                                    <i class="fa-solid fa-pen-to-square"></i> Editar
-                                </button>
-
-                                <button class="btn delete-user"
-                                        onclick="if(confirm('¿Eliminar este animal?')) window.location='eliminar_animal.php?id=<?= $animal['id'] ?>'">
-                                    <i class="fa-solid fa-skull-crossbones"></i> Eliminar
-                                </button>
+                                <?php if ($animal['id_adopcion']): ?>
+                                    <button class="btn btn-warning"
+                                            onclick="window.location='sistema_adopciones_editar_adoptante.php?id=<?= $animal['id_adopcion'] ?>'">
+                                        <i class="fa-solid fa-pen-to-square"></i> Editar adopción
+                                    </button>
+                                <?php else: ?>
+                                    <button class="btn btn-success"
+                                            onclick="window.location='sistema_adopciones_crear.php?id_animal=<?= $animal['id'] ?>'">
+                                        <i class="fa-solid fa-heart"></i> Crear adopción
+                                    </button>
+                                <?php endif; ?>
                             </td>
 
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>
+
+            <?= paginador($total_registros, $por_pagina, $pagina_actual, $_GET); ?>
 
         </div>
     </section>
