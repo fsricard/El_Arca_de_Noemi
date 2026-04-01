@@ -25,7 +25,6 @@ function tituloPagina($pagina) {
         'contacto_intro'                            => 'Invocación al contacto',
         'noemi_bichillos'                           => 'Gestión de los bichillos de Noemí',
         'tablas_de_datos'                           => 'Tablas de la base de datos',
-        'adopciones_editar'                         => 'Editar adopción',
         'noemi_dice_listado'                        => 'Listado de las frases de Noemí',
         'adopciones_listado'                        => 'Listado de adopciones',
         'tablas_de_datos_ver'                       => 'Contenido de la tabla de la base datos',
@@ -38,6 +37,7 @@ function tituloPagina($pagina) {
         'adopciones_incluir_animal'                 => 'Gestión de Adopciones',
         'sistema_adopciones_iniciar'                => 'Iniciar nueva adopción',
         'sistema_adopciones_por_adoptante'          => 'Adopciones por adoptante',
+        'sistema_adopciones_editar_animales'        => 'Editar animal en adopción',
         'sistema_adopciones_editar_adoptante'       => 'Edición de adoptantes',
         'sistema_adopciones_listado_adoptantes'     => 'Listado de adoptantes'
     ];

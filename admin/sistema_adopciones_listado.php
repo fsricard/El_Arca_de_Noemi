@@ -268,17 +268,31 @@ include('includes/header.php');
 
                             <!-- ACCIONES -->
                             <td>
+
+                                <!-- EDITAR ANIMAL (siempre disponible) -->
+                                <button class="btn btn-success"
+                                        onclick="window.location='sistema_adopciones_editar_animales.php?id=<?= $animal['id'] ?>'">
+                                    <i class="fa-solid fa-dog"></i> Editar animal
+                                </button>
+
                                 <?php if ($animal['id_adopcion']): ?>
+
+                                    <!-- EDITAR ADOPCIÓN -->
                                     <button class="btn btn-warning"
                                             onclick="window.location='sistema_adopciones_editar_adoptante.php?id=<?= $animal['id_adopcion'] ?>'">
                                         <i class="fa-solid fa-pen-to-square"></i> Editar adopción
                                     </button>
+
                                 <?php else: ?>
-                                    <button class="btn btn-success"
+
+                                    <!-- CREAR ADOPCIÓN -->
+                                    <button class="btn update-user"
                                             onclick="window.location='sistema_adopciones_crear.php?id_animal=<?= $animal['id'] ?>'">
                                         <i class="fa-solid fa-heart"></i> Crear adopción
                                     </button>
+
                                 <?php endif; ?>
+
                             </td>
 
                         </tr>

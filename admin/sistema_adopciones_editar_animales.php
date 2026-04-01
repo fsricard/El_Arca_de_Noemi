@@ -68,7 +68,7 @@ if (isset($_GET['borrar_foto'])) {
         $pdo->prepare("DELETE FROM animales_fotos WHERE id = ?")->execute([$id_foto]);
     }
 
-    header("Location: adopciones_editar.php?id=$id");
+    header("Location: sistema_adopciones_editar_animales.php?id=$id");
     exit;
 }
 
@@ -81,7 +81,7 @@ if (isset($_GET['principal'])) {
     $pdo->prepare("UPDATE animales_fotos SET es_principal = 0 WHERE id_animal = ?")->execute([$id]);
     $pdo->prepare("UPDATE animales_fotos SET es_principal = 1 WHERE id = ?")->execute([$id_foto]);
 
-    header("Location: adopciones_editar.php?id=$id");
+    header("Location: sistema_adopciones_editar_animales.php?id=$id");
     exit;
 }
 
@@ -176,7 +176,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $exito = true;
 
-            header("Location: adopciones_editar.php?id=$id&ok=1");
+            header("Location: sistema_adopciones_editar_animales.php?id=$id&ok=1");
             exit;
 
         } catch (PDOException $e) {
@@ -185,7 +185,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-$pagina='adopciones_editar';
+$pagina='sistema_adopciones_editar_animales';
 
 include('includes/header.php');
 ?>
