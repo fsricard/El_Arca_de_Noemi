@@ -11,9 +11,12 @@ $noemiFrase = noemi_frase_random($pdo);
         </h3>
 
         <div class="noemi-container">
-            <div class="noemi-avatar">
-                <img src="<?= asset('/img/logo_20260320_0002.png') ?>" alt="Logo de El Arca de Noemi">
-            </div>
+
+            <?php if (!esSoloMovil()): ?>
+                <div class="noemi-avatar">
+                    <img src="<?= asset('/img/logo_20260320_0002.png') ?>" alt="Logo de El Arca de Noemi">
+                </div>
+            <?php endif; ?>
 
             <p class="noemi-frase">
                 <?= htmlspecialchars($noemiFrase) ?>

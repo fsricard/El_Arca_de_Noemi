@@ -12,6 +12,18 @@ function esSoloMovil() {
     return preg_match('/(android.*mobile|iphone|ipod|blackberry|windows phone|webos)/i', $ua);
 }
 
+// Función para limitar el número de palabras en un texto a 20 palabras
+function limitar_palabras($texto, $max_palabras = 20) {
+    $palabras = preg_split('/\s+/', trim($texto));
+
+    if (count($palabras) <= $max_palabras) {
+        return $texto;
+    }
+
+    $corte = array_slice($palabras, 0, $max_palabras);
+    return implode(' ', $corte) . '...';
+}
+
 // Función para imprimir los textos dinámicos en el header del BackEnd
 function tituloPagina($pagina) {
     // Array asociativo de títulos
@@ -250,4 +262,30 @@ function paginador($total_registros, $por_pagina, $pagina_actual, $filtros = [],
     $html .= '</div>';
 
     return $html;
+}
+
+// Función para obtener un animal en adopción random para la página de inicio
+function obtener_animal_adopcion_random(PDO $pdo){
+    $sql = "
+        SELECT 
+            a.id,
+            a.nombre,
+            a.descripcion,
+            r.nombre AS raza,
+            r.especie,
+            (
+                SELECT ruta
+                FROM animales_fotos 
+                WHERE id_animal = a.id AND es_principal = 1 
+                LIMIT 1
+            ) AS imagen_principal
+        FROM animales a
+        INNER JOIN razas_animales r ON r.id = a.id_raza
+        WHERE a.adoptable = 1
+        ORDER BY RAND()
+        LIMIT 1
+    ";
+
+    $stmt = $pdo->query($sql);
+    return $stmt->fetch(PDO::FETCH_ASSOC);
 }

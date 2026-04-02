@@ -16,6 +16,7 @@ $rutas_validas = [
     'inicio',
     'contacto',
     'asi-es-noemi',
+    'ficha-adopcion',
     'politica-de-privacidad'
 ];
 
@@ -67,6 +68,14 @@ elseif ($view === 'politica-de-privacidad') {
 // ---------------------------
 elseif ($view === 'asi-es-noemi') {
     require __DIR__ . '/views/asi-es-noemi.php';
+}
+
+// ---------------------------
+//  FICHA DE ADOPCIÓN INDIVIDUAL
+//  /ficha-adopcion
+// ---------------------------
+elseif ($view === 'ficha-adopcion') {
+    require __DIR__ . '/views/ficha-adopcion.php';
 }
 
 // ---------------------------
