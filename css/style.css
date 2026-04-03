@@ -1082,6 +1082,10 @@ footer h4 {
 }
 /* END módulo "Adopciones" pagina de inicio */
 
+/* Ficha individual de adopciones */
+
+/* END ficha individual de adopciones */
+
 /* Responsive */
 @media (max-width: 992px) {
     .noemi-adopcion-item {

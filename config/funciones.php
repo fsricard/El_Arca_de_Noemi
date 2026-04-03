@@ -63,15 +63,25 @@ function mostrarTextoPersonalizado() {
     // Recupera la ruta desde la variable global
     $pagina = $GLOBALS['pagina_actual'] ?? '';
 
+    // Recupera el nombre del animal si existe
+    $nombreAnimal = $GLOBALS['nombre_animal'] ?? '';
+
     // Define los textos personalizados
     $textos = [
         ''                          => 'El Arca de Noemi',
         '404'                       => '!!Vaya por Dios¡¡, que situación más vergonzosa',
-        'inicio'                    => '',
-        'contacto'                  => 'Contacta con Noemi',
-        'asi-es-noemi'              => '',
+        'inicio'                    => 'El Arca de Noemí',
+        'contacto'                  => 'Contacta con Noemí',
+        'asi-es-noemi'              => 'Esta es Noemí, descubre su historia.',
+        'ficha-adopcion'            => 'Ficha individual para adoptar a ',
         'politica-de-privacidad'    => 'Política de privacidad',
     ];
+
+    // Si estamos en ficha-adopcion y tenemos nombre del animal → título dinámico
+    if ($pagina === 'ficha-adopcion' && !empty($nombreAnimal)) {
+        echo $textos[$pagina] . $nombreAnimal;
+        return;
+    }
 
     // Imprime el texto correspondiente o uno por defecto
     echo $textos[$pagina] ?? 'El Arca de Noemi';

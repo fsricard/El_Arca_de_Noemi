@@ -29,6 +29,30 @@ if (!in_array($view, $rutas_validas)) {
 
 // Define página actual para el header y el footer
 $GLOBALS['pagina_actual'] = $view;
+$GLOBALS['nombre_animal'] = '';
+
+// ==========================================
+//  CARGA PREVIA DE DATOS SEGÚN LA VISTA
+// ==========================================
+
+if ($view === 'ficha-adopcion') {
+
+    $idAnimal = $_GET['id'] ?? null;
+
+    if ($idAnimal) {
+
+        if (!isset($pdo)) {
+            require_once(__DIR__ . '/config/database.php');
+        }
+
+        $sql = "SELECT nombre FROM animales WHERE id = ?";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$idAnimal]);
+        $animal = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        $GLOBALS['nombre_animal'] = $animal['nombre'] ?? '';
+    }
+}
 
 // ==========================================
 //  CARGAR HEADER

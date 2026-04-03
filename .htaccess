@@ -29,8 +29,8 @@ RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/?$ index.php?vie
 # /view/slug
 RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/?$ index.php?view=$1&slug=$2 [L]
 
-# /view
-RewriteRule ^([a-zA-Z0-9_-]+)/?$ index.php?view=$1 [L]
+# /view  ← AQUÍ EL CAMBIO
+RewriteRule ^([a-zA-Z0-9_-]+)/?$ index.php?view=$1 [QSA,L]
 
 # 404
 ErrorDocument 404 /404.php
