@@ -135,11 +135,6 @@ h3 {
     border-radius: 20px;
     padding: 25px;
     box-shadow: 0 4px 10px var(--shadow-soft);
-    transition: transform .25s ease, box-shadow .25s ease;
-}
-.destacado-block:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 14px var(--shadow-strong);
 }
 .destacado-title {
     font-family: var(--font-titulo);
@@ -712,6 +707,14 @@ footer h4 {
 .fa-youtube {
     color: #FF0000;
 }
+.icon-verde {
+    color: #28a745 !important;
+    text-shadow: 0 0 5px rgba(40,167,69,0.4);
+}
+.icon-rojo {
+    color: #dc3545 !important;
+    text-shadow: 0 0 5px rgba(220,53,69,0.4);
+}
 /* END iconos */
 
 /* Botón volver arriba */
@@ -1083,7 +1086,156 @@ footer h4 {
 /* END módulo "Adopciones" pagina de inicio */
 
 /* Ficha individual de adopciones */
-
+.ficha-animal {
+    margin: 0 auto;
+    padding: 20px;
+}
+.ficha-titulo {
+    font-size: 2rem;
+    margin-bottom: 25px;
+    text-align: center;
+    color: #333;
+}
+.ficha-contenido {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+.ficha-imagen-principal {
+    width: 100%;
+    text-align: center;
+}
+.ficha-imagen-principal img {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 12px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+.ficha-nombre {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.ficha-nombre i {
+    font-size: 1.8rem;
+    color: #ff7a00;
+}
+.ficha-especie-raza {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #666;
+    margin-bottom: 20px;
+}
+.ficha-especie-raza i {
+    color: #999;
+}
+.bloque-datos {
+    padding: 15px;
+    background: #fafafa;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+.bloque-booleanos {
+    padding: 15px;
+    background: #fff7e6;
+    border: 1px solid #ffe0b3;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+.bloque-booleanos p {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+}
+.bloque-fechas p {
+    font-size: 0.9rem;
+    color: #999;
+    margin: 3px 0;
+}
+.descripcion-animal {
+    background: #f7f7f7;
+    border-left: 4px solid #ff7a00;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+.personalidad {
+    margin-top: 20px;
+}
+.personalidad h4 {
+    margin-bottom: 10px;
+    color: #444;
+}
+.personalidad .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+.personalidad .tag {
+    background: #ff7a00;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+.galeria-fotos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: 10px;
+    margin-top: 30px;
+}
+.galeria-fotos .miniatura {
+    width: 100%;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: transform .2s;
+}
+.galeria-fotos .miniatura:hover {
+    transform: scale(1.05);
+}
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    padding: 20px;
+}
+.lightbox.activo {
+    display: flex;
+}
+.lightbox-img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+.lightbox .cerrar {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.lightbox .cerrar:hover {
+    color: #ff6b6b;
+}
 /* END ficha individual de adopciones */
 
 /* Responsive */
@@ -1140,6 +1292,16 @@ footer h4 {
     .sections-footer-right {
         margin-top: 20px;
     }
+    .ficha-contenido {
+        flex-direction: column;
+        align-items: center;
+    }
+    .ficha-imagen-principal img {
+        max-width: 100%;
+    }
+    .ficha-info {
+        width: 100%;
+    }
 }
 @media (max-width: 768px) {
     .noemi-apadrinamientos-inicio,
@@ -1188,6 +1350,21 @@ footer h4 {
     .adopcion-boton {
         align-self: center;
         margin-top: 15px;
+    }
+}
+@media (max-width: 600px) {
+    .ficha-nombre {
+        font-size: 1.6rem;
+    }
+    .ficha-especie-raza {
+        font-size: 1rem;
+    }
+    .descripcion-animal {
+        font-size: 0.95rem;
+    }
+    .personalidad .tag {
+        font-size: 0.7rem;
+        padding: 3px 8px;
     }
 }
 @media (max-width: 480px) {
