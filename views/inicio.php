@@ -48,9 +48,9 @@
                                 <?php endif; ?>
 
                                 <?php if (!empty($animal['descripcion'])): ?>
-                                    <p class="adopcion-descripcion">
-                                        <?= nl2br(htmlspecialchars(limitar_palabras($animal['descripcion'], 20))) ?>
-                                    </p>
+                                    <div class="adopcion-descripcion">
+                                        <?= limitar_palabras($animal['descripcion'], 20) ?>
+                                </div>
                                 <?php endif; ?>
 
                                 <a href="<?= asset('/ficha-adopcion?id=' . $animal['id']) ?>" class="btn adopcion-boton">

@@ -22,6 +22,9 @@
   --fondo-blockquote: #1e000073;
   --border-left-blockquote: #BDC453;
   --fondo-lista-desordenada: #b1a8a8;
+  --fondo-bloque-datos: #fafafa;
+  --fondo-bloque-booleanos: #fff7e6;
+  --borde-bloque-datos-booleanos: #ffe0b3;
 
   /* Estados y efectos */
   --color-success: #4CAF50;
@@ -40,6 +43,7 @@
    --color-menu: #2A6432;
    --color-menu-hover: #C76A17;
    --color-botones: #ffffff;
+   --color-bloque-datos-span: #FF7A00;
 
   /* Tipografías */
   --font-titulo: "Quicksand", sans-serif;
@@ -84,9 +88,10 @@ a:hover {
     transform: scale(1.12);
 }
 p {
-    margin: 0.5rem 0;
+    margin: 5px 0 10px 0;
     font-family: var(--font-general);
     color: var(--color-general);
+    font-size: 1.6rem;
 }
 u {
     text-decoration: underline;
@@ -690,6 +695,10 @@ footer h4 {
     margin-top: 10px;
     align-self: flex-start;
 }
+.btn-adoptar {
+    font-size: 2.0rem;
+    margin: 30px 0;
+}
 /* END botones */
 
 /* Iconos */
@@ -1086,94 +1095,115 @@ footer h4 {
 /* END módulo "Adopciones" pagina de inicio */
 
 /* Ficha individual de adopciones */
-.ficha-animal {
-    margin: 0 auto;
-    padding: 20px;
-}
 .ficha-titulo {
-    font-size: 2rem;
-    margin-bottom: 25px;
+    display: block;
+    font-size: 2.8rem;
+    margin-bottom: 35px;
     text-align: center;
-    color: #333;
 }
 .ficha-contenido {
-    display: flex;
-    gap: 30px;
-    align-items: flex-start;
-    flex-wrap: wrap;
+    width: 100%;
+    display: block;
 }
 .ficha-imagen-principal {
     width: 100%;
     text-align: center;
+    border-radius: 10px;
 }
 .ficha-imagen-principal img {
     width: 100%;
-    max-width: 450px;
-    border-radius: 12px;
+    max-width: 500px;
+    border-radius: 10px;
     object-fit: cover;
     display: block;
     margin: 0 auto;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 20px var(--shadow-strong);
+}
+.ficha-identidad {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin: 25px 0 15px 0;
 }
 .ficha-nombre {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #333;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    font-size: 2.4rem;
+    color: var(--noemi-glow-suave);
+    text-shadow: 2px 2px 0 var(--color-primary-dark);
 }
 .ficha-nombre i {
     font-size: 1.8rem;
-    color: #ff7a00;
+    color: var(--color-bloque-datos-span)
 }
 .ficha-especie-raza {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 600;
-    color: #666;
-    margin-bottom: 20px;
 }
 .ficha-especie-raza i {
-    color: #999;
+    color: var(--color-secondary);
 }
 .bloque-datos {
+    font-size: 1.6rem;
     padding: 15px;
-    background: #fafafa;
+    background: var(--fondo-bloque-datos);
+    border: 1px solid var(--borde-bloque-datos-booleanos);
     border-radius: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+}
+.bloque-datos i,
+.bloque-datos span {
+    color: var(--color-bloque-datos-span);
+    font-size: 1.8rem;
 }
 .bloque-booleanos {
+    font-size: 1.6rem;
     padding: 15px;
-    background: #fff7e6;
-    border: 1px solid #ffe0b3;
+    background: var(--fondo-bloque-booleanos);
+    border: 1px solid var(--borde-bloque-datos-booleanos);
     border-radius: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
-.bloque-booleanos p {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+.bloque-booleanos i,
+.bloque-booleanos span {
+    font-size: 1.8rem;
     font-weight: 600;
 }
+.bloque-fechas {
+    width: 100%;
+    display: block;
+    text-align: center;
+    margin-bottom: 25px;
+}
 .bloque-fechas p {
-    font-size: 0.9rem;
-    color: #999;
+    font-size: 1.1rem;
+    color: var(--color-secondary);
     margin: 3px 0;
 }
+.bloque-fechas span {
+    font-weight: 600;
+}
 .descripcion-animal {
-    background: #f7f7f7;
-    border-left: 4px solid #ff7a00;
+    background: var(--fondo-bloque-datos);
+    border-left: 4px solid var(--noemi-rojo);
     padding: 15px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    line-height: 1.6;
+    border-radius: 10px;
+    margin: 20px 0 25px 0;
+    font-size: 1.6rem;
 }
 .personalidad {
-    margin-top: 20px;
+    margin: 20px 0 25px 0;
 }
 .personalidad h4 {
     margin-bottom: 10px;
-    color: #444;
+    font-family: var(--font-titulo);
+    color: var(--noemi-glow-suave);
+    text-shadow: 2px 2px 0 var(--color-primary-dark);
+    margin-bottom: 20px;
+}
+.personalidad i {
+    color: var(--color-primary-icon);
+    font-size: 2.6rem;
+    filter: drop-shadow(0 0 4px #ff3c00);
+    animation: glownoemi 2s ease-in-out infinite alternate;
 }
 .personalidad .tags {
     display: flex;
@@ -1181,13 +1211,29 @@ footer h4 {
     gap: 6px;
 }
 .personalidad .tag {
-    background: #ff7a00;
-    color: white;
+    background: var(--color-warning);
+    color: var(--color-botones);
     padding: 4px 10px;
     border-radius: 20px;
-    font-size: 0.75rem;
+    font-size: 1.0rem;
     font-weight: 600;
     letter-spacing: 0.3px;
+}
+.galeria-fotos-titulo {
+    font-family: var(--font-titulo);
+    color: var(--noemi-glow-suave);
+    text-shadow: 2px 2px 0 var(--color-primary-dark);
+    margin-top: 15px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.galeria-fotos-titulo i {
+    color: var(--color-primary-icon);
+    font-size: 2.6rem;
+    filter: drop-shadow(0 0 4px #ff3c00);
+    animation: glownoemi 2s ease-in-out infinite alternate;
 }
 .galeria-fotos {
     display: grid;
@@ -1302,6 +1348,9 @@ footer h4 {
     .ficha-info {
         width: 100%;
     }
+    .btn-adoptar {
+        font-size: 1.4rem;
+    }
 }
 @media (max-width: 768px) {
     .noemi-apadrinamientos-inicio,
@@ -1358,13 +1407,6 @@ footer h4 {
     }
     .ficha-especie-raza {
         font-size: 1rem;
-    }
-    .descripcion-animal {
-        font-size: 0.95rem;
-    }
-    .personalidad .tag {
-        font-size: 0.7rem;
-        padding: 3px 8px;
     }
 }
 @media (max-width: 480px) {

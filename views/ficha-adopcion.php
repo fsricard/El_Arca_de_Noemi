@@ -60,12 +60,12 @@ foreach ($palabrasClave as $palabra) {
 
 <main class="layout-home">
 
-    <section class="destacados ficha-animal">
+    <section class="destacados">
 
         <article class="destacado-block">
 
             <!-- Título principal -->
-            <h2 class="ficha-titulo">
+            <h2 class="destacado-title ficha-titulo">
                 <i class="fa-solid fa-paw"></i>
                 <?= htmlspecialchars($animal['nombre']) ?> está deseando irse contigo.
             </h2>
@@ -94,30 +94,41 @@ foreach ($palabrasClave as $palabra) {
                         </p>
                     </div>
 
+                    <!-- Fechas discretas -->
+                    <div class="bloque-fechas">
+                        <?php if (!empty($animal['fecha_ingreso'])): ?>
+                            <p>Ingreso: <span><?= date('d/m/Y', strtotime($animal['fecha_ingreso'])) ?></span></p>
+                        <?php endif; ?>
+
+                        <?php if ($tiempoRefugio !== null): ?>
+                            <p>Llevo <span><?= $tiempoRefugio ?></span> días en el santuario.</p>
+                        <?php endif; ?>
+                    </div>
+
                     <!-- Datos condicionales -->
                     <div class="bloque-datos">
                         <?php if (!empty($animal['sexo'])): ?>
-                            <p><i class="fa-solid fa-venus-mars"></i> Sexo: <?= ucfirst($animal['sexo']) ?></p>
+                            <p><i class="fa-solid fa-venus-mars"></i> <span>Sexo:</span> <?= ucfirst($animal['sexo']) ?></p>
                         <?php endif; ?>
 
                         <?php if (!empty($animal['edad'])): ?>
-                            <p><i class="fa-solid fa-hourglass-half"></i> Edad: <?= htmlspecialchars($animal['edad']) ?></p>
+                            <p><i class="fa-solid fa-hourglass-half"></i> <span>Edad:</span> <?= htmlspecialchars($animal['edad']) ?></p>
                         <?php endif; ?>
 
                         <?php if (!empty($animal['fecha_nacimiento'])): ?>
-                            <p><i class="fa-solid fa-cake-candles"></i> Nacimiento: <?= date('d/m/Y', strtotime($animal['fecha_nacimiento'])) ?></p>
+                            <p><i class="fa-solid fa-cake-candles"></i> <span>Nacimiento:</span> <?= date('d/m/Y', strtotime($animal['fecha_nacimiento'])) ?></p>
                         <?php endif; ?>
 
                         <?php if (!empty($animal['tamano'])): ?>
-                            <p><i class="fa-solid fa-ruler-vertical"></i> Tamaño: <?= ucfirst(str_replace('_',' ',$animal['tamano'])) ?></p>
+                            <p><i class="fa-solid fa-ruler-vertical"></i> <span>Tamaño:</span> <?= ucfirst(str_replace('_',' ',$animal['tamano'])) ?></p>
                         <?php endif; ?>
 
                         <?php if (!empty($animal['peso'])): ?>
-                            <p><i class="fa-solid fa-weight-scale"></i> Peso: <?= $animal['peso'] ?> kg</p>
+                            <p><i class="fa-solid fa-weight-scale"></i> <span>Peso:</span> <?= $animal['peso'] ?> kg</p>
                         <?php endif; ?>
 
                         <?php if (!empty($animal['estado_salud'])): ?>
-                            <p><i class="fa-solid fa-heart-pulse"></i> Salud: <?= nl2br(htmlspecialchars($animal['estado_salud'])) ?></p>
+                            <p><i class="fa-solid fa-heart-pulse"></i> <span>Salud:</span> <?= nl2br(htmlspecialchars($animal['estado_salud'])) ?></p>
                         <?php endif; ?>
                     </div>
 
@@ -125,42 +136,31 @@ foreach ($palabrasClave as $palabra) {
                     <div class="bloque-booleanos">
                         <p>
                             <i class="fa-solid fa-scissors <?= $animal['esterilizado'] ? 'icon-verde' : 'icon-rojo' ?>"></i>
-                            Esterilizado: <?= $animal['esterilizado'] ? 'Sí' : 'No' ?>
+                            <span>Esterilizado:</span> <?= $animal['esterilizado'] ? 'Sí' : 'No' ?>
                         </p>
 
                         <p>
                             <i class="fa-solid fa-syringe <?= $animal['vacunado'] ? 'icon-verde' : 'icon-rojo' ?>"></i>
-                            Vacunado: <?= $animal['vacunado'] ? 'Sí' : 'No' ?>
+                            <span>Vacunado:</span> <?= $animal['vacunado'] ? 'Sí' : 'No' ?>
                         </p>
 
                         <p>
                             <i class="fa-solid fa-bug-slash <?= $animal['desparasitado'] ? 'icon-verde' : 'icon-rojo' ?>"></i>
-                            Desparasitado: <?= $animal['desparasitado'] ? 'Sí' : 'No' ?>
+                            <span>Desparasitado:</span> <?= $animal['desparasitado'] ? 'Sí' : 'No' ?>
                         </p>
 
                         <p>
                             <i class="fa-solid fa-microchip <?= !empty($animal['microchip']) ? 'icon-verde' : 'icon-rojo' ?>"></i>
-                            Microchip: <?= !empty($animal['microchip']) ? htmlspecialchars($animal['microchip']) : 'No' ?>
+                            <span>Microchip:</span> <?= !empty($animal['microchip']) ? htmlspecialchars($animal['microchip']) : 'No' ?>
                         </p>
                     </div>
 
-                    <!-- Fechas discretas -->
-                    <div class="bloque-fechas">
-                        <?php if (!empty($animal['fecha_ingreso'])): ?>
-                            <p>Ingreso: <?= date('d/m/Y', strtotime($animal['fecha_ingreso'])) ?></p>
-                        <?php endif; ?>
-
-                        <?php if ($tiempoRefugio !== null): ?>
-                            <p>Lleva <?= $tiempoRefugio ?> días en el santuario.</p>
+                    <!-- Datos de salud -->
+                    <div class="bloque-datos">
+                        <?php if (!empty($animal['estado_salud'])): ?>
+                            <p><i class="fa-solid fa-heart-pulse"></i> <span>Salud:</span> <?= nl2br(htmlspecialchars($animal['estado_salud'])) ?></p>
                         <?php endif; ?>
                     </div>
-
-                    <!-- Descripción -->
-                    <?php if (!empty($animal['descripcion'])): ?>
-                        <div class="descripcion-animal">
-                            <?= nl2br(htmlspecialchars($animal['descripcion'])) ?>
-                        </div>
-                    <?php endif; ?>
 
                     <!-- Personalidad -->
                     <?php if (!empty($personalidad)): ?>
@@ -171,6 +171,13 @@ foreach ($palabrasClave as $palabra) {
                                     <span class="tag"><?= htmlspecialchars($tag) ?></span>
                                 <?php endforeach; ?>
                             </div>
+                        </div>
+                    <?php endif; ?>
+
+                    <!-- Descripción -->
+                    <?php if (!empty($animal['descripcion'])): ?>
+                        <div class="descripcion-animal">
+                            <?= $animal['descripcion'] ?>
                         </div>
                     <?php endif; ?>
 
@@ -186,6 +193,9 @@ foreach ($palabrasClave as $palabra) {
 
             <!-- Galería -->
             <?php if (count($fotos) > 1): ?>
+                <div class="galeria-fotos-titulo">
+                    <h4><i class="fa-classic fa-solid fa-images"></i> Galería de fotos de <?= htmlspecialchars($animal['nombre']) ?></h4>
+                </div>
                 <div class="galeria-fotos">
                     <?php foreach ($fotos as $foto): ?>
                         <img 

@@ -318,7 +318,12 @@ include('includes/header.php');
                 </div>
 
                 <label>Descripción:</label>
-                <textarea name="descripcion" rows="4"><?= htmlspecialchars($animal['descripcion']) ?></textarea>
+                <div id="editor-descripcion" class="quill-editor">
+                    <?= !empty($animal['descripcion']) ? $animal['descripcion'] : '<p></p>' ?>
+                </div>
+                <textarea id="descripcion" name="descripcion" class="editor-html" style="display:none;">
+                    <?= htmlspecialchars($animal['descripcion'] ?? '') ?>
+                </textarea>
 
                 <div class="filtro">
                     <label>Nuevas fotos:</label>
