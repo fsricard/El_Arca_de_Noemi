@@ -1,9 +1,10 @@
 <?php
-require_once __DIR__ . '/includes/session.php';
-require_once __DIR__ . '/includes/auth.php';
-require_once __DIR__ . '/../config/database.php';
-require_once(__DIR__ . '/../config/funciones.php');
+require_once __DIR__ . '/../includes/session.php';
+require_once __DIR__ . '/../includes/auth.php';
+require_once __DIR__ . '/../../config/database.php';
+require_once(__DIR__ . '/../../config/funciones.php');
 
+// Si no está logueado, redirigimos al login
 if (!isLoggedIn()) {
     header("Location: index.php");
     exit;
@@ -167,7 +168,7 @@ $adoptantes = $stmt->fetchAll();
 
 $pagina='sistema_adopciones_listado_adoptantes';
 
-include('includes/header.php');
+include('../includes/header.php');
 ?>
 
 <main>
@@ -465,4 +466,4 @@ include('includes/header.php');
     });
 </script>
 
-<?php include('includes/footer.php');
+<?php include('../includes/footer.php');

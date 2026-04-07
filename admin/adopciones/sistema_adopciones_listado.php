@@ -1,9 +1,10 @@
 <?php
-require_once __DIR__ . '/includes/session.php';
-require_once __DIR__ . '/includes/auth.php';
-require_once __DIR__ . '/../config/database.php';
-require_once(__DIR__ . '/../config/funciones.php');
+require_once __DIR__ . '/../includes/session.php';
+require_once __DIR__ . '/../includes/auth.php';
+require_once __DIR__ . '/../../config/database.php';
+require_once(__DIR__ . '/../../config/funciones.php');
 
+// Si no está logueado, redirigimos al login
 if (!isLoggedIn()) {
     header("Location: index.php");
     exit;
@@ -33,6 +34,20 @@ $offset = ($pagina_actual - 1) * $por_pagina;
 /* -----------------------------------------
    3. Consulta base (con JOIN a adopciones)
 ----------------------------------------- */
+$especies = $pdo->query("
+    SELECT DISTINCT especie AS especie
+    FROM razas_animales
+    WHERE activo = 1
+    ORDER BY especie
+")->fetchAll(PDO::FETCH_COLUMN);
+
+$razas = $pdo->query("
+    SELECT id, nombre, especie
+    FROM razas_animales
+    WHERE activo = 1
+    ORDER BY especie, nombre
+")->fetchAll(PDO::FETCH_ASSOC);
+
 $query_base = "
     FROM animales a
     INNER JOIN razas_animales r ON a.id_raza = r.id
@@ -113,7 +128,7 @@ $animales = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 $pagina='adopciones_listado';
 
-include('includes/header.php');
+include('../includes/header.php');
 ?>
 
 <main>
@@ -127,7 +142,7 @@ include('includes/header.php');
                 <!-- ESPECIE -->
                 <div class="filtro">
                     <label>Especie:</label>
-                    <select name="especie">
+                    <select name="especie" id="especie">
                         <option value="">Todas</option>
                         <?php foreach ($especies as $esp): ?>
                             <option value="<?= htmlspecialchars($esp) ?>"
@@ -141,8 +156,9 @@ include('includes/header.php');
                 <!-- RAZA -->
                 <div class="filtro">
                     <label>Raza:</label>
-                    <select name="raza" id="raza">
+                    <select name="raza" id="raza" <?= empty($filtro_especie) ? 'disabled' : '' ?>>
                         <option value="">Todas</option>
+
                         <?php foreach ($razas as $raza): ?>
                             <option value="<?= $raza['id'] ?>"
                                 data-especie="<?= htmlspecialchars($raza['especie']) ?>"
@@ -190,7 +206,7 @@ include('includes/header.php');
                     <i class="fa-solid fa-filter"></i> Filtrar
                 </button>
 
-                <button type="button" onclick="window.location='adopciones_listado.php'">
+                <button type="button" onclick="window.location='sistema_adopciones_listado.php'">
                     <i class="fa-solid fa-rotate-left"></i> Limpiar filtros
                 </button>
 
@@ -313,6 +329,11 @@ include('includes/header.php');
 </div>
 
 <style>
+    .select:disabled {
+        background: #f0f0f0;
+        color: #777;
+        cursor: not-allowed;
+    }
     .modal-bichillo {
         display: none;
         position: fixed;
@@ -429,34 +450,46 @@ include('includes/header.php');
 
     // Filtrar razas según especie seleccionada
     document.addEventListener("DOMContentLoaded", () => {
+
         const selectEspecie = document.querySelector("select[name='especie']");
         const selectRaza = document.querySelector("select[name='raza']");
 
         function filtrarRazas() {
             const especieSeleccionada = selectEspecie.value;
 
+            // Si no hay especie → deshabilitar select de razas
+            if (especieSeleccionada === "") {
+                selectRaza.disabled = true;
+                selectRaza.value = "";
+                return;
+            }
+
+            // Habilitar select
+            selectRaza.disabled = false;
+
+            // Mostrar/ocultar opciones según especie
             for (const option of selectRaza.options) {
                 if (option.value === "") continue;
 
                 const especieRaza = option.getAttribute("data-especie");
 
-                option.style.display = (especieRaza === especieSeleccionada || especieSeleccionada === "") 
-                    ? "block" 
-                    : "none";
+                option.style.display =
+                    especieRaza === especieSeleccionada ? "block" : "none";
             }
 
-            // Si la raza seleccionada no coincide con la especie → reset
+            // Reset si la raza seleccionada no coincide
             const selected = selectRaza.selectedOptions[0];
-            if (selected && selected.getAttribute("data-especie") !== especieSeleccionada) {
+            if (selected && selected.style.display === "none") {
                 selectRaza.value = "";
             }
         }
 
-        selectEspecie.addEventListener("change", filtrarRazas);
-
-        // Ejecutar al cargar (útil si hay filtros activos)
+        // Ejecutar al cargar (si hay filtros activos)
         filtrarRazas();
+
+        // Evento al cambiar especie
+        selectEspecie.addEventListener("change", filtrarRazas);
     });
 </script>
 
-<?php include('includes/footer.php');
+<?php include('../includes/footer.php');

@@ -1,9 +1,10 @@
 <?php
-require_once __DIR__ . '/includes/session.php';
-require_once __DIR__ . '/includes/auth.php';
-require_once __DIR__ . '/../config/database.php';
-require_once(__DIR__ . '/../config/funciones.php');
+require_once __DIR__ . '/../includes/session.php';
+require_once __DIR__ . '/../includes/auth.php';
+require_once __DIR__ . '/../../config/database.php';
+require_once(__DIR__ . '/../../config/funciones.php');
 
+// Si no está logueado, redirigimos al login
 if (!isLoggedIn()) {
     header("Location: index.php");
     exit;
@@ -64,7 +65,7 @@ if (isset($_GET['borrar_foto'])) {
     $foto = $stmt->fetch();
 
     if ($foto) {
-        @unlink(__DIR__ . '/../' . $foto['ruta']);
+        @unlink(__DIR__ . '/../../' . $foto['ruta']);
         $pdo->prepare("DELETE FROM animales_fotos WHERE id = ?")->execute([$id_foto]);
     }
 
@@ -143,7 +144,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ]);
 
             /* SUBIDA DE NUEVAS FOTOS */
-            $carpeta = __DIR__ . '/../uploads/adopciones/' . $id;
+            $carpeta = __DIR__ . '/../../uploads/adopciones/' . $id;
             if (!is_dir($carpeta)) mkdir($carpeta, 0777, true);
 
             if (!empty($_FILES['fotos']['name'][0])) {
@@ -187,7 +188,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 $pagina='sistema_adopciones_editar_animales';
 
-include('includes/header.php');
+include('../includes/header.php');
 ?>
 
 <main>
@@ -343,9 +344,9 @@ include('includes/header.php');
             <div class="galeria-fotos">
                 <?php foreach ($fotos as $foto): ?>
                     <div class="foto-item">
-                        <img src="../<?= htmlspecialchars($foto['ruta']) ?>"
+                        <img src="../../<?= htmlspecialchars($foto['ruta']) ?>"
                              class="thumb-animal"
-                             data-img="../<?= htmlspecialchars($foto['ruta']) ?>">
+                             data-img="../../<?= htmlspecialchars($foto['ruta']) ?>">
 
                         <?php if ($foto['es_principal']): ?>
                             <span class="badge badge-success">Principal</span>
@@ -503,4 +504,4 @@ include('includes/header.php');
 
 </main>
 
-<?php include('includes/footer.php');
+<?php include('../includes/footer.php');
