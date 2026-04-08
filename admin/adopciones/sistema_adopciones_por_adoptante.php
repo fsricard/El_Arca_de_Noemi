@@ -55,13 +55,15 @@ $total_registros = $stmt->fetchColumn();
    5. Obtener adopciones del adoptante
 --------------------------------------------------------- */
 $stmt = $pdo->prepare("
-    SELECT a.*,
-           ani.nombre AS nombre_animal,
-           r.especie,
-           r.nombre AS raza
+    SELECT 
+        a.*,
+        ani.nombre AS nombre_animal,
+        e.nombre  AS especie,
+        r.nombre  AS raza
     FROM adopciones a
-    INNER JOIN animales ani ON a.id_animal = ani.id
-    INNER JOIN razas_animales r ON ani.id_raza = r.id
+    INNER JOIN animales ani         ON a.id_animal = ani.id
+    INNER JOIN razas_animales r     ON ani.id_raza = r.id
+    INNER JOIN especies_animales e  ON r.especie_id = e.id
     WHERE a.id_adoptante = ?
     ORDER BY a.fecha_adopcion DESC
     LIMIT $offset, $por_pagina
@@ -96,65 +98,65 @@ include('../includes/header.php');
 
                 <?php else: ?>
 
-                <table class="tabla">
-                    <thead>
-                        <tr>
-                            <th>Animal</th>
-                            <th>Especie / Raza</th>
-                            <th>Fecha adopción</th>
-                            <th>Estado</th>
-                            <th>Notas</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <?php foreach ($adopciones as $a): ?>
+                    <table class="tabla">
+                        <thead>
                             <tr>
-                                <td><strong><?= htmlspecialchars($a['nombre_animal']) ?></strong></td>
-
-                                <td><?= htmlspecialchars($a['especie']) ?> - <?= htmlspecialchars($a['raza']) ?></td>
-
-                                <td><?= htmlspecialchars($a['fecha_adopcion']) ?></td>
-
-                                <td>
-                                    <?php
-                                        $estado = $a['estado'];
-                                        $clase = [
-                                            'pendiente'   => 'badge-warning',
-                                            'en_proceso'  => 'badge-info',
-                                            'finalizada'  => 'badge-success',
-                                            'cancelada'   => 'badge-danger'
-                                        ][$estado] ?? 'badge-secondary';
-                                    ?>
-                                    <span class="badge <?= $clase ?>">
-                                        <?= ucfirst(str_replace('_',' ', $estado)) ?>
-                                    </span>
-                                </td>
-
-                                <td>
-                                    <?php if ($a['notas']): ?>
-                                        <?= nl2br(htmlspecialchars(substr($a['notas'], 0, 80))) ?>...
-                                    <?php else: ?>
-                                        <em>Sin notas</em>
-                                    <?php endif; ?>
-                                </td>
-
-                                <td>
-                                    <button class="btn btn-warning"
-                                            onclick="window.location='sistema_adopciones_editar_adoptante.php?id=<?= $a['id'] ?>'">
-                                        <i class="fa-solid fa-pen-to-square"></i> Editar
-                                    </button>
-                                </td>
+                                <th>Animal</th>
+                                <th>Especie / Raza</th>
+                                <th>Fecha adopción</th>
+                                <th>Estado</th>
+                                <th>Notas</th>
+                                <th>Acciones</th>
                             </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
+                        </thead>
 
-                <!-- PAGINADOR -->
-                <div style="margin-top: 20px;">
-                    <?= paginador($total_registros, $por_pagina, $pagina_actual, $_GET); ?>
-                </div>
+                        <tbody>
+                            <?php foreach ($adopciones as $a): ?>
+                                <tr>
+                                    <td><strong><?= htmlspecialchars($a['nombre_animal']) ?></strong></td>
+
+                                    <td><?= htmlspecialchars($a['especie']) ?> - <?= htmlspecialchars($a['raza']) ?></td>
+
+                                    <td><?= htmlspecialchars($a['fecha_adopcion']) ?></td>
+
+                                    <td>
+                                        <?php
+                                            $estado = $a['estado'];
+                                            $clase = [
+                                                'pendiente'   => 'badge-warning',
+                                                'en_proceso'  => 'badge-info',
+                                                'finalizada'  => 'badge-success',
+                                                'cancelada'   => 'badge-danger'
+                                            ][$estado] ?? 'badge-secondary';
+                                        ?>
+                                        <span class="badge <?= $clase ?>">
+                                            <?= ucfirst(str_replace('_',' ', $estado)) ?>
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <?php if ($a['notas']): ?>
+                                            <?= nl2br(htmlspecialchars(substr($a['notas'], 0, 80))) ?>...
+                                        <?php else: ?>
+                                            <em>Sin notas</em>
+                                        <?php endif; ?>
+                                    </td>
+
+                                    <td>
+                                        <button class="btn btn-warning"
+                                                onclick="window.location='sistema_adopciones_editar_adoptante.php?id=<?= $a['id'] ?>'">
+                                            <i class="fa-solid fa-pen-to-square"></i> Editar
+                                        </button>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+
+                    <!-- PAGINADOR -->
+                    <div style="margin-top: 20px;">
+                        <?= paginador($total_registros, $por_pagina, $pagina_actual, $_GET); ?>
+                    </div>
 
                 <?php endif; ?>
             </div>
