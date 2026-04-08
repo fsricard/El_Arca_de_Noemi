@@ -676,20 +676,19 @@ footer h4 {
     display: inline-block;
     font-family: var(--font-botones);
     font-size: 1.4rem;
-    padding: 0.6rem 1.2rem;
+    padding: 10px 20px;
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    background: linear-gradient(to right, var(--noemi-glow-suave), var(--noemi-glow-fuerte));
+    background: var(--color-primary-dark);
     color: var(--color-botones);
     font-weight: 600;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    text-decoration: none;
+    transition: 0.2s ease;
 }
 .btn:hover {
-    color: var(--color-botones);
-    transform: scale(1.06);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.22);
+    background: var(--color-menu-hover);
+    box-shadow: 0 0 10px var(--noemi-glow-fuerte);
 }
 .adopcion-boton {
     margin-top: 10px;
@@ -1091,6 +1090,47 @@ footer h4 {
     font-size: 1.6rem;
     color: var(--color-general);
     line-height: 1.5;
+}
+.vacio-adopciones {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.vacio-wrapper {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    font-family: var(--font-general);
+    color: var(--color-general);
+}
+.vacio-icono i {
+    font-size: 48px;
+    color: var(--color-primary-dark);
+    text-shadow: 0 0 10px var(--noemi-glow-suave);
+}
+.vacio-titulo {
+    font-family: var(--font-titulo);
+    font-size: 28px;
+    margin: 10px 0;
+    color: var(--color-primary-dark);
+}
+.vacio-texto {
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--color-general);
+}
+.vacio-texto i {
+    color: var(--noemi-rojo);
+}
+.vacio-pillin {
+    font-style: italic;
+    color: var(--noemi-accent);
+    font-weight: 600;
+}
+.vacio-cta {
+    margin-top: 15px;
 }
 /* END módulo "Adopciones" pagina de inicio */
 

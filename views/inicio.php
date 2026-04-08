@@ -4,17 +4,65 @@
                 <?php
                     $animal = obtener_animal_adopcion_random($pdo);
 
+                    if (!$animal) {
+                        // No hay animales adoptables → mostramos un bloque alternativo
+                        ?>
+                            <section class="destacados noemi-adopciones-inicio">
+                                <article class="destacado-block">
+                                    <div class="vacio-adopciones">
+                                        <div class="vacio-wrapper">
+                                            <div class="vacio-icono">
+                                                <i class="fa-solid fa-paw"></i>
+                                            </div>
+
+                                            <h2 class="vacio-titulo">
+                                                ¡Ups… hoy no hay peludetes en adopción!
+                                            </h2>
+
+                                            <p class="vacio-texto">
+                                                <i class="fa-solid fa-heart"></i>
+                                                Pero tranqui, Noemí está por ahí <strong>rescatando, bañando, achuchando</strong>  
+                                                y preparando nuevas historias de amor.  
+                                                <br>
+                                                <span class="vacio-pillin">
+                                                    (Y tú no te escapes… que te tengo fichado para la próxima adopción 😉)
+                                                </span>
+                                            </p>
+
+                                            <div class="vacio-cta">
+                                                <a href="<?= asset('/contacto') ?>" class="btn">
+                                                    <i class="fa-solid fa-hand-holding-heart"></i>  
+                                                    ¿Quieres ayudar mientras tanto?
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+
+                                <?php include('includes/aside/noemi-frases.php'); ?>
+
+                            </section>
+                        <?php
+                        return;
+                    }
+
                     // Iconos por especie (Font Awesome Pro 7.0.1)
+                    // Ahora mapeamos por el nombre REAL de la especie en la BD
                     $iconosEspecie = [
-                        'perro'   => 'fa-dog',
-                        'gato'    => 'fa-cat',
-                        'conejo'  => 'fa-rabbit-running',
-                        'ave'     => 'fa-dove',
-                        'hurón'   => 'fa-otter',
-                        'tortuga' => 'fa-turtle',
+                        'perro'     => 'fa-dog',
+                        'gato'      => 'fa-cat',
+                        'conejo'    => 'fa-rabbit-running',
+                        'ave'       => 'fa-dove',
+                        'hurón'     => 'fa-otter',
+                        'huron'     => 'fa-otter', // por si viene sin tilde
+                        'tortuga'   => 'fa-turtle',
                     ];
 
-                    $icono = $iconosEspecie[strtolower($animal['especie'])] ?? 'fa-paw';
+                    // Normalizamos la especie para evitar problemas con mayúsculas/acentos
+                    $especie_normalizada = strtolower(trim($animal['especie']));
+                    $especie_normalizada = str_replace(['á','é','í','ó','ú'], ['a','e','i','o','u'], $especie_normalizada);
+
+                    $icono = $iconosEspecie[$especie_normalizada] ?? 'fa-paw';
                 ?>
 
                 <section class="destacados noemi-adopciones-inicio">
@@ -50,7 +98,7 @@
                                 <?php if (!empty($animal['descripcion'])): ?>
                                     <div class="adopcion-descripcion">
                                         <?= limitar_palabras($animal['descripcion'], 20) ?>
-                                </div>
+                                    </div>
                                 <?php endif; ?>
 
                                 <a href="<?= asset('/ficha-adopcion?id=' . $animal['id']) ?>" class="btn adopcion-boton">

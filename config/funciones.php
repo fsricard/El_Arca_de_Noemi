@@ -281,16 +281,21 @@ function obtener_animal_adopcion_random(PDO $pdo){
             a.id,
             a.nombre,
             a.descripcion,
+
             r.nombre AS raza,
-            r.especie,
+            e.nombre AS especie,
+
             (
                 SELECT ruta
                 FROM animales_fotos 
                 WHERE id_animal = a.id AND es_principal = 1 
                 LIMIT 1
             ) AS imagen_principal
+
         FROM animales a
         INNER JOIN razas_animales r ON r.id = a.id_raza
+        INNER JOIN especies_animales e ON e.id = r.especie_id
+
         WHERE a.adoptable = 1
         ORDER BY RAND()
         LIMIT 1
