@@ -16,11 +16,18 @@ if ($id <= 0) {
     die("ID de animal no válido.");
 }
 
-// Obtener datos del animal
+/* ---------------------------------------------------------
+   OBTENER DATOS DEL ANIMAL
+--------------------------------------------------------- */
 $stmt = $pdo->prepare("
-    SELECT a.*, r.nombre AS raza_nombre, r.especie
+    SELECT 
+        a.*,
+        r.nombre AS raza_nombre,
+        r.especie_id,
+        e.nombre AS especie_nombre
     FROM animales a
-    INNER JOIN razas_animales r ON a.id_raza = r.id
+    INNER JOIN razas_animales r     ON a.id_raza = r.id
+    INNER JOIN especies_animales e  ON r.especie_id = e.id
     WHERE a.id = ?
 ");
 $stmt->execute([$id]);
@@ -30,24 +37,35 @@ if (!$animal) {
     die("Animal no encontrado.");
 }
 
-// Obtener especies para el selector
+/* ---------------------------------------------------------
+   OBTENER ESPECIES PARA EL SELECTOR
+--------------------------------------------------------- */
 $especies = $pdo->query("
-    SELECT DISTINCT especie
-    FROM razas_animales
+    SELECT id, nombre
+    FROM especies_animales
     WHERE activo = 1
-    ORDER BY especie
-")->fetchAll(PDO::FETCH_COLUMN);
-
-// Obtener razas para el selector
-$razas = $pdo->query("
-    SELECT id, nombre, especie
-    FROM razas_animales
-    WHERE activo = 1
-    ORDER BY especie, nombre
+    ORDER BY nombre
 ")->fetchAll(PDO::FETCH_ASSOC);
 
-// Obtener fotos del animal
-$stmt = $pdo->prepare("SELECT * FROM animales_fotos WHERE id_animal = ? ORDER BY es_principal DESC, id ASC");
+/* ---------------------------------------------------------
+   OBTENER RAZAS PARA EL SELECTOR
+--------------------------------------------------------- */
+$razas = $pdo->query("
+    SELECT id, nombre, especie_id
+    FROM razas_animales
+    WHERE activo = 1
+    ORDER BY nombre
+")->fetchAll(PDO::FETCH_ASSOC);
+
+/* ---------------------------------------------------------
+   OBTENER FOTOS DEL ANIMAL
+--------------------------------------------------------- */
+$stmt = $pdo->prepare("
+    SELECT *
+    FROM animales_fotos
+    WHERE id_animal = ?
+    ORDER BY es_principal DESC, id ASC
+");
 $stmt->execute([$id]);
 $fotos = $stmt->fetchAll();
 
@@ -60,7 +78,11 @@ $exito = false;
 if (isset($_GET['borrar_foto'])) {
     $id_foto = intval($_GET['borrar_foto']);
 
-    $stmt = $pdo->prepare("SELECT ruta FROM animales_fotos WHERE id = ? AND id_animal = ?");
+    $stmt = $pdo->prepare("
+        SELECT ruta 
+        FROM animales_fotos 
+        WHERE id = ? AND id_animal = ?
+    ");
     $stmt->execute([$id_foto, $id]);
     $foto = $stmt->fetch();
 
@@ -92,7 +114,7 @@ if (isset($_GET['principal'])) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $nombre = trim($_POST['nombre'] ?? '');
-    $especie = trim($_POST['especie'] ?? '');
+    $especie_id = intval($_POST['especie_id'] ?? 0);   // ← CAMBIO IMPORTANTE
     $sexo = $_POST['sexo'] ?? 'desconocido';
     $edad = trim($_POST['edad'] ?? '');
     $fecha_nacimiento = $_POST['fecha_nacimiento'] ?? null;
@@ -113,8 +135,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $descripcion = trim($_POST['descripcion'] ?? '');
 
+    /* VALIDACIONES */
     if ($nombre === '') $errores[] = "El nombre no puede estar vacío.";
-    if ($especie === '') {
+
+    if ($especie_id <= 0) {
         $errores[] = "Debes seleccionar una especie.";
     }
 
@@ -123,8 +147,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($id_raza <= 0) {
         $errores[] = "Debes seleccionar una raza.";
     }
-    if ($fecha_ingreso === '') $errores[] = "La fecha de ingreso es obligatoria.";
 
+    if ($fecha_ingreso === '') {
+        $errores[] = "La fecha de ingreso es obligatoria.";
+    }
+
+    /* SI NO HAY ERRORES → ACTUALIZAR */
     if (empty($errores)) {
         try {
             $stmt = $pdo->prepare("
@@ -217,31 +245,36 @@ include('../includes/header.php');
             <!-- FORMULARIO -->
             <form method="post" enctype="multipart/form-data" class="formulario">
 
+                <!-- NOMBRE -->
                 <div class="filtro">
                     <label>Nombre:</label>
                     <input type="text" name="nombre" value="<?= htmlspecialchars($animal['nombre']) ?>">
                 </div>
 
+                <!-- ESPECIE -->
                 <div class="filtro">
                     <label>Especie:</label>
-                    <select name="especie" id="especie">
+                    <select name="especie_id" id="especie_id">
                         <option value="">Selecciona una especie</option>
+
                         <?php foreach ($especies as $esp): ?>
-                            <option value="<?= htmlspecialchars($esp) ?>"
-                                <?= ($animal['especie'] == $esp) ? 'selected' : '' ?>>
-                                <?= htmlspecialchars($esp) ?>
+                            <option value="<?= $esp['id'] ?>"
+                                <?= ($animal['especie_id'] == $esp['id']) ? 'selected' : '' ?>>
+                                <?= htmlspecialchars($esp['nombre']) ?>
                             </option>
                         <?php endforeach; ?>
                     </select>
                 </div>
 
+                <!-- RAZA -->
                 <div class="filtro">
                     <label for="id_raza">Raza:</label>
                     <select name="id_raza" id="id_raza">
                         <option value="">Selecciona una raza</option>
+
                         <?php foreach ($razas as $raza): ?>
                             <option value="<?= $raza['id'] ?>"
-                                data-especie="<?= htmlspecialchars($raza['especie']) ?>"
+                                data-especie="<?= $raza['especie_id'] ?>"
                                 <?= ($animal['id_raza'] == $raza['id']) ? 'selected' : '' ?>>
                                 <?= htmlspecialchars($raza['nombre']) ?>
                             </option>
@@ -249,6 +282,7 @@ include('../includes/header.php');
                     </select>
                 </div>
 
+                <!-- SEXO -->
                 <div class="filtro">
                     <label>Sexo:</label>
                     <select name="sexo">
@@ -258,16 +292,19 @@ include('../includes/header.php');
                     </select>
                 </div>
 
+                <!-- EDAD -->
                 <div class="filtro">
                     <label>Edad:</label>
                     <input type="text" name="edad" value="<?= htmlspecialchars($animal['edad']) ?>">
                 </div>
 
+                <!-- FECHA NACIMIENTO -->
                 <div class="filtro">
                     <label>Fecha nacimiento:</label>
                     <input type="date" name="fecha_nacimiento" value="<?= htmlspecialchars($animal['fecha_nacimiento']) ?>">
                 </div>
 
+                <!-- TAMAÑO -->
                 <div class="filtro">
                     <label>Tamaño:</label>
                     <select name="tamano">
@@ -279,14 +316,17 @@ include('../includes/header.php');
                     </select>
                 </div>
 
+                <!-- PESO -->
                 <div class="filtro">
                     <label>Peso (kg):</label>
                     <input type="number" step="0.01" name="peso" value="<?= htmlspecialchars($animal['peso']) ?>">
                 </div>
 
+                <!-- ESTADO SALUD -->
                 <label>Estado de salud:</label>
                 <textarea name="estado_salud" rows="3"><?= htmlspecialchars($animal['estado_salud']) ?></textarea>
 
+                <!-- CHECKBOXES -->
                 <div class="filtro">
                     <label><input type="checkbox" name="esterilizado" <?= $animal['esterilizado']?'checked':'' ?>> Esterilizado</label>
                 </div>
@@ -299,11 +339,13 @@ include('../includes/header.php');
                     <label><input type="checkbox" name="desparasitado" <?= $animal['desparasitado']?'checked':'' ?>> Desparasitado</label>
                 </div>
 
+                <!-- MICROCHIP -->
                 <div class="filtro">
                     <label>Microchip:</label>
                     <input type="text" name="microchip" value="<?= htmlspecialchars($animal['microchip']) ?>">
                 </div>
 
+                <!-- FECHAS -->
                 <div class="filtro">
                     <label>Fecha ingreso:</label>
                     <input type="date" name="fecha_ingreso" value="<?= htmlspecialchars($animal['fecha_ingreso']) ?>">
@@ -314,18 +356,22 @@ include('../includes/header.php');
                     <input type="date" name="fecha_rescate" value="<?= htmlspecialchars($animal['fecha_rescate']) ?>">
                 </div>
 
+                <!-- ADOPTABLE -->
                 <div class="filtro">
                     <label><input type="checkbox" name="adoptable" <?= $animal['adoptable']?'checked':'' ?>> Disponible para adopción</label>
                 </div>
 
+                <!-- DESCRIPCIÓN (QUILL) -->
                 <label>Descripción:</label>
                 <div id="editor-descripcion" class="quill-editor">
                     <?= !empty($animal['descripcion']) ? $animal['descripcion'] : '<p></p>' ?>
                 </div>
+
                 <textarea id="descripcion" name="descripcion" class="editor-html" style="display:none;">
                     <?= htmlspecialchars($animal['descripcion'] ?? '') ?>
                 </textarea>
 
+                <!-- FOTOS -->
                 <div class="filtro">
                     <label>Nuevas fotos:</label>
                     <input type="file" name="fotos[]" multiple accept="image/*">
@@ -474,31 +520,35 @@ include('../includes/header.php');
 
         // Filtrar razas según especie seleccionada
         document.addEventListener("DOMContentLoaded", () => {
-            const selectEspecie = document.getElementById("especie");
+
+            const selectEspecie = document.getElementById("especie_id");
             const selectRaza = document.getElementById("id_raza");
 
             function filtrarRazas() {
                 const especieSeleccionada = selectEspecie.value;
 
+                // Mostrar/ocultar opciones según especie
                 for (const option of selectRaza.options) {
-                    if (option.value === "") continue;
+                    if (option.value === "") continue; // opción "Selecciona una raza"
 
                     const especieRaza = option.getAttribute("data-especie");
 
-                    option.style.display = (especieRaza === especieSeleccionada) ? "block" : "none";
+                    option.style.display =
+                        especieRaza === especieSeleccionada ? "block" : "none";
                 }
 
-                // Si la raza seleccionada no coincide con la especie → reset
+                // Si la raza seleccionada no coincide → reset
                 const selected = selectRaza.selectedOptions[0];
                 if (selected && selected.getAttribute("data-especie") !== especieSeleccionada) {
                     selectRaza.value = "";
                 }
             }
 
-            selectEspecie.addEventListener("change", filtrarRazas);
-
             // Ejecutar al cargar para mostrar solo las razas correctas
             filtrarRazas();
+
+            // Evento al cambiar especie
+            selectEspecie.addEventListener("change", filtrarRazas);
         });
     </script>
 
