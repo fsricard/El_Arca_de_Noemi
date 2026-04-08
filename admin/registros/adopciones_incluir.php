@@ -193,28 +193,6 @@ include('../includes/header.php');
     </section>
 </main>
 
-<!-- Modal de aviso -->
-<div class="modal fade" id="modalAviso" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-
-      <div class="modal-header bg-warning">
-        <h5 class="modal-title" id="modalTitulo">Aviso</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-
-      <div class="modal-body" id="modalMensaje">
-        <!-- Mensaje dinámico -->
-      </div>
-
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Entendido</button>
-      </div>
-
-    </div>
-  </div>
-</div>
-
 <script>
     // Script para cargar espercies y razas de la base de datos en el módulo "Incluir nueva especie animal"
     document.addEventListener("DOMContentLoaded", function () {
@@ -335,15 +313,6 @@ include('../includes/header.php');
         });
 
     });
-
-    // Script para mostrar el modal
-    function mostrarModal(titulo, mensaje) {
-        document.getElementById("modalTitulo").innerHTML = titulo;
-        document.getElementById("modalMensaje").innerHTML = mensaje;
-
-        const modal = new bootstrap.Modal(document.getElementById("modalAviso"));
-        modal.show();
-    }
 </script>
 
 <?php include('../includes/footer.php');

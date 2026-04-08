@@ -13,20 +13,12 @@ if (!isLoggedIn()) {
 $errores = [];
 $exito = false;
 
-// Obtener especies únicas
+// Obtener especies
 $especies = $pdo->query("
-    SELECT DISTINCT especie
-    FROM razas_animales
+    SELECT id, nombre
+    FROM especies_animales
     WHERE activo = 1
-    ORDER BY especie
-")->fetchAll(PDO::FETCH_COLUMN);
-
-// Obtener todas las razas (las filtraremos por JS)
-$razas = $pdo->query("
-    SELECT id, nombre, especie
-    FROM razas_animales
-    WHERE activo = 1
-    ORDER BY especie, nombre
+    ORDER BY nombre
 ")->fetchAll(PDO::FETCH_ASSOC);
 
 /* ---------------------------------------------------------
@@ -35,7 +27,7 @@ $razas = $pdo->query("
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $nombre = trim($_POST['nombre'] ?? '');
-    $especie = trim($_POST['especie'] ?? '');
+    $especie_id = intval($_POST['especie_id'] ?? 0); // <- CAMBIO
     $sexo = $_POST['sexo'] ?? 'desconocido';
     $edad = trim($_POST['edad'] ?? '');
     $fecha_nacimiento = $_POST['fecha_nacimiento'] ?? null;
@@ -63,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errores[] = "El nombre del animal no puede estar vacío.";
     }
 
-    if ($especie === '') {
+    if ($especie_id <= 0) {
         $errores[] = "Debes seleccionar una especie.";
     }
 
@@ -185,36 +177,33 @@ include('../includes/header.php');
 
                 <div class="filtro">
                     <label for="nombre">Nombre del animal:</label>
-                    <input type="text" name="nombre" id="nombre" value="<?= htmlspecialchars($_POST['nombre'] ?? '') ?>" />
+                    <input type="text" name="nombre" id="nombre"
+                        value="<?= htmlspecialchars($_POST['nombre'] ?? '') ?>" />
                 </div>
 
+                <!-- ESPECIE -->
                 <div class="filtro">
-                    <label for="especie">Especie:</label>
-                    <select name="especie" id="especie">
+                    <label for="especie_id">Especie:</label>
+                    <select name="especie_id" id="especie_id">
                         <option value="">Selecciona una especie</option>
                         <?php foreach ($especies as $esp): ?>
-                            <option value="<?= htmlspecialchars($esp) ?>"
-                                <?= (($_POST['especie'] ?? '') == $esp) ? 'selected' : '' ?>>
-                                <?= htmlspecialchars($esp) ?>
+                            <option value="<?= $esp['id'] ?>"
+                                <?= (($_POST['especie_id'] ?? '') == $esp['id']) ? 'selected' : '' ?>>
+                                <?= htmlspecialchars($esp['nombre']) ?>
                             </option>
                         <?php endforeach; ?>
                     </select>
                 </div>
 
+                <!-- RAZA -->
                 <div class="filtro">
                     <label for="id_raza">Raza:</label>
-                    <select name="id_raza" id="id_raza">
+                    <select name="id_raza" id="raza_id">
                         <option value="">Selecciona una raza</option>
-                        <?php foreach ($razas as $raza): ?>
-                            <option value="<?= $raza['id'] ?>"
-                                data-especie="<?= htmlspecialchars($raza['especie']) ?>"
-                                <?= (($_POST['id_raza'] ?? '') == $raza['id']) ? 'selected' : '' ?>>
-                                <?= htmlspecialchars($raza['nombre']) ?>
-                            </option>
-                        <?php endforeach; ?>
+                        <!-- Se cargan por AJAX -->
                     </select>
                 </div>
-                
+
                 <div class="filtro">
                     <label for="sexo">Sexo:</label>
                     <select name="sexo" id="sexo">
@@ -226,12 +215,14 @@ include('../includes/header.php');
 
                 <div class="filtro">
                     <label for="edad">Edad:</label>
-                    <input type="text" name="edad" id="edad" value="<?= htmlspecialchars($_POST['edad'] ?? '') ?>" />
+                    <input type="text" name="edad" id="edad"
+                        value="<?= htmlspecialchars($_POST['edad'] ?? '') ?>" />
                 </div>
 
                 <div class="filtro">
                     <label for="fecha_nacimiento">Fecha de nacimiento:</label>
-                    <input type="date" name="fecha_nacimiento" id="fecha_nacimiento" value="<?= htmlspecialchars($_POST['fecha_nacimiento'] ?? '') ?>" />
+                    <input type="date" name="fecha_nacimiento" id="fecha_nacimiento"
+                        value="<?= htmlspecialchars($_POST['fecha_nacimiento'] ?? '') ?>" />
                 </div>
 
                 <div class="filtro">
@@ -247,45 +238,60 @@ include('../includes/header.php');
 
                 <div class="filtro">
                     <label for="peso">Peso (kg):</label>
-                    <input type="number" step="0.01" name="peso" id="peso" value="<?= htmlspecialchars($_POST['peso'] ?? '') ?>" />
+                    <input type="number" step="0.01" name="peso" id="peso"
+                        value="<?= htmlspecialchars($_POST['peso'] ?? '') ?>" />
                 </div>
 
                 <label for="estado_salud">Estado de salud:</label>
-                <textarea name="estado_salud" id="estado_salud" rows="3"><?= htmlspecialchars($_POST['estado_salud'] ?? '') ?></textarea>
+                <textarea name="estado_salud" id="estado_salud" rows="3">
+                    <?= htmlspecialchars($_POST['estado_salud'] ?? '') ?>
+                </textarea>
 
                 <div class="filtro">
-                    <label><input type="checkbox" name="esterilizado" <?= isset($_POST['esterilizado']) ? 'checked' : '' ?> /> Esterilizado</label>
+                    <label><input type="checkbox" name="esterilizado"
+                        <?= isset($_POST['esterilizado']) ? 'checked' : '' ?> /> Esterilizado</label>
                 </div>
 
                 <div class="filtro">
-                    <label><input type="checkbox" name="vacunado" <?= isset($_POST['vacunado']) ? 'checked' : '' ?> /> Vacunado</label>
+                    <label><input type="checkbox" name="vacunado"
+                        <?= isset($_POST['vacunado']) ? 'checked' : '' ?> /> Vacunado</label>
                 </div>
 
                 <div class="filtro">
-                    <label><input type="checkbox" name="desparasitado" <?= isset($_POST['desparasitado']) ? 'checked' : '' ?> /> Desparasitado</label>
+                    <label><input type="checkbox" name="desparasitado"
+                        <?= isset($_POST['desparasitado']) ? 'checked' : '' ?> /> Desparasitado</label>
                 </div>
 
                 <div class="filtro">
                     <label for="microchip">Microchip:</label>
-                    <input type="text" name="microchip" id="microchip" value="<?= htmlspecialchars($_POST['microchip'] ?? '') ?>" />
+                    <input type="text" name="microchip" id="microchip"
+                        value="<?= htmlspecialchars($_POST['microchip'] ?? '') ?>" />
                 </div>
 
                 <div class="filtro">
                     <label for="fecha_ingreso">Fecha de ingreso:</label>
-                    <input type="date" name="fecha_ingreso" id="fecha_ingreso" value="<?= htmlspecialchars($_POST['fecha_ingreso'] ?? '') ?>" />
+                    <input type="date" name="fecha_ingreso" id="fecha_ingreso"
+                        value="<?= htmlspecialchars($_POST['fecha_ingreso'] ?? '') ?>" />
                 </div>
 
                 <div class="filtro">
                     <label for="fecha_rescate">Fecha de rescate:</label>
-                    <input type="date" name="fecha_rescate" id="fecha_rescate" value="<?= htmlspecialchars($_POST['fecha_rescate'] ?? '') ?>" />
+                    <input type="date" name="fecha_rescate" id="fecha_rescate"
+                        value="<?= htmlspecialchars($_POST['fecha_rescate'] ?? '') ?>" />
                 </div>
 
                 <div class="filtro">
-                    <label><input type="checkbox" name="adoptable" <?= isset($_POST['adoptable']) ? 'checked' : '' ?> /> Disponible para adopción</label>
+                    <label><input type="checkbox" name="adoptable"
+                        <?= isset($_POST['adoptable']) ? 'checked' : '' ?> /> Disponible para adopción</label>
                 </div>
 
                 <label for="descripcion">Descripción:</label>
-                <textarea name="descripcion" id="descripcion" rows="4"><?= htmlspecialchars($_POST['descripcion'] ?? '') ?></textarea>
+                <div id="editor-descripcion" class="quill-editor">
+                    <?= !empty($_POST['descripcion']) ? $_POST['descripcion'] : '<p></p>' ?>
+                </div>
+                <textarea id="descripcion" name="descripcion" class="editor-html" style="display:none;">
+                    <?= htmlspecialchars($_POST['descripcion'] ?? '') ?>
+                </textarea>
 
                 <div class="filtro">
                     <label for="fotos">Fotos del animal:</label>
@@ -302,35 +308,39 @@ include('../includes/header.php');
 </main>
 
 <script>
+    // Script para cargar las razas según la especie elegida
     document.addEventListener("DOMContentLoaded", () => {
-        const selectEspecie = document.getElementById("especie");
-        const selectRaza = document.getElementById("id_raza");
 
-        function filtrarRazas() {
-            const especieSeleccionada = selectEspecie.value;
+        const selectEspecie = document.getElementById("especie_id");
+        const selectRaza = document.getElementById("raza_id");
 
-            // Mostrar solo las razas de esa especie
-            for (const option of selectRaza.options) {
-                if (option.value === "") continue; // "Selecciona una raza"
+        // Cuando cambia la especie → cargar razas por AJAX
+        selectEspecie.addEventListener("change", function () {
 
-                const especieRaza = option.getAttribute("data-especie");
+            const especieId = this.value;
 
-                option.style.display = (especieRaza === especieSeleccionada) ? "block" : "none";
+            if (especieId === "") {
+                selectRaza.innerHTML = '<option value="">Selecciona una raza</option>';
+                return;
             }
 
-            // Resetear selección si no coincide
-            if (selectRaza.selectedOptions.length > 0) {
-                const actual = selectRaza.selectedOptions[0];
-                if (actual.getAttribute("data-especie") !== especieSeleccionada) {
-                    selectRaza.value = "";
-                }
-            }
-        }
+            fetch("ajax/ajax_razas.php?especie_id=" + especieId)
+                .then(response => response.json())
+                .then(data => {
 
-        selectEspecie.addEventListener("change", filtrarRazas);
+                    selectRaza.innerHTML = '<option value="">Selecciona una raza</option>';
 
-        // Ejecutar al cargar si hay POST previo
-        filtrarRazas();
+                    data.forEach(raza => {
+                        const option = document.createElement("option");
+                        option.value = raza.id;
+                        option.textContent = raza.nombre;
+                        selectRaza.appendChild(option);
+                    });
+
+                })
+                .catch(err => console.error("Error cargando razas:", err));
+        });
+
     });
 </script>
 
