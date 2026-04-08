@@ -17,11 +17,16 @@ $exito = false;
    OBTENER ANIMALES ADOPTABLES
 --------------------------------------------------------- */
 $animales = $pdo->query("
-    SELECT a.id, a.nombre, r.especie, r.nombre AS raza
+    SELECT 
+        a.id,
+        a.nombre,
+        e.nombre AS especie,
+        r.nombre AS raza
     FROM animales a
     INNER JOIN razas_animales r ON a.id_raza = r.id
+    INNER JOIN especies_animales e ON r.especie_id = e.id
     WHERE a.adoptable = 1
-    ORDER BY r.especie, r.nombre, a.nombre
+    ORDER BY e.nombre, r.nombre, a.nombre
 ")->fetchAll(PDO::FETCH_ASSOC);
 
 /* ---------------------------------------------------------
@@ -111,7 +116,8 @@ include('../includes/header.php');
                         <select name="id_animal" id="id_animal">
                             <option value="">Selecciona un animal</option>
                             <?php foreach ($animales as $a): ?>
-                                <option value="<?= $a['id'] ?>">
+                                <option value="<?= $a['id'] ?>"
+                                    <?= (($_POST['id_animal'] ?? '') == $a['id']) ? 'selected' : '' ?>>
                                     <?= htmlspecialchars($a['nombre']) ?> 
                                     (<?= htmlspecialchars($a['especie']) ?> - <?= htmlspecialchars($a['raza']) ?>)
                                 </option>
@@ -124,7 +130,8 @@ include('../includes/header.php');
                         <select name="id_adoptante" id="id_adoptante">
                             <option value="">Selecciona un adoptante</option>
                             <?php foreach ($adoptantes as $ad): ?>
-                                <option value="<?= $ad['id'] ?>">
+                                <option value="<?= $ad['id'] ?>"
+                                    <?= (($_POST['id_adoptante'] ?? '') == $ad['id']) ? 'selected' : '' ?>>
                                     <?= htmlspecialchars($ad['nombre'] . ' ' . $ad['apellidos']) ?>
                                 </option>
                             <?php endforeach; ?>
@@ -133,11 +140,12 @@ include('../includes/header.php');
 
                     <div class="filtro">
                         <label for="fecha_adopcion">Fecha de inicio:</label>
-                        <input type="date" name="fecha_adopcion" id="fecha_adopcion" value="<?= date('Y-m-d') ?>">
+                        <input type="date" name="fecha_adopcion" id="fecha_adopcion"
+                            value="<?= htmlspecialchars($_POST['fecha_adopcion'] ?? date('Y-m-d')) ?>">
                     </div>
 
                     <label for="notas">Notas iniciales:</label>
-                    <textarea name="notas" id="notas" rows="4"></textarea>
+                    <textarea name="notas" id="notas" rows="4"><?= htmlspecialchars($_POST['notas'] ?? '') ?></textarea>
 
                     <button type="submit" class="btn-primary">
                         <i class="fa-solid fa-paw"></i> Iniciar adopción
