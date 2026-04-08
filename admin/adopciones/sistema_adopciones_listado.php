@@ -13,8 +13,8 @@ if (!isLoggedIn()) {
 /* -----------------------------------------
    1. Filtros
 ----------------------------------------- */
-$filtro_especie = $_GET['especie'] ?? '';
-$filtro_raza = $_GET['raza'] ?? '';
+$filtro_especie = intval($_GET['especie'] ?? 0);
+$filtro_raza = intval($_GET['raza'] ?? 0);
 $filtro_desde = $_GET['desde'] ?? '';
 $filtro_hasta = $_GET['hasta'] ?? '';
 
@@ -32,25 +32,29 @@ $pagina_actual = max(1, intval($_GET['p'] ?? 1));
 $offset = ($pagina_actual - 1) * $por_pagina;
 
 /* -----------------------------------------
-   3. Consulta base (con JOIN a adopciones)
+   3. Obtener especies y razas
 ----------------------------------------- */
 $especies = $pdo->query("
-    SELECT DISTINCT especie AS especie
-    FROM razas_animales
+    SELECT id, nombre
+    FROM especies_animales
     WHERE activo = 1
-    ORDER BY especie
-")->fetchAll(PDO::FETCH_COLUMN);
-
-$razas = $pdo->query("
-    SELECT id, nombre, especie
-    FROM razas_animales
-    WHERE activo = 1
-    ORDER BY especie, nombre
+    ORDER BY nombre
 ")->fetchAll(PDO::FETCH_ASSOC);
 
+$razas = $pdo->query("
+    SELECT id, nombre, especie_id
+    FROM razas_animales
+    WHERE activo = 1
+    ORDER BY nombre
+")->fetchAll(PDO::FETCH_ASSOC);
+
+/* -----------------------------------------
+   4. Consulta base
+----------------------------------------- */
 $query_base = "
     FROM animales a
     INNER JOIN razas_animales r ON a.id_raza = r.id
+    INNER JOIN especies_animales e ON r.especie_id = e.id
     LEFT JOIN adopciones ad ON ad.id = a.id_adopcion
     WHERE 1
 ";
@@ -58,18 +62,18 @@ $query_base = "
 $params = [];
 
 /* -----------------------------------------
-   4. Aplicar filtros
+   5. Aplicar filtros
 ----------------------------------------- */
 
 /* Especie */
-if ($filtro_especie !== '') {
-    $query_base .= " AND r.especie = ? ";
+if ($filtro_especie > 0) {
+    $query_base .= " AND e.id = ? ";
     $params[] = $filtro_especie;
 }
 
 /* Raza */
-if ($filtro_raza !== '') {
-    $query_base .= " AND a.id_raza = ? ";
+if ($filtro_raza > 0) {
+    $query_base .= " AND r.id = ? ";
     $params[] = $filtro_raza;
 }
 
@@ -100,23 +104,24 @@ if ($filtro_estado_adopcion !== '') {
 }
 
 /* -----------------------------------------
-   5. Total registros
+   6. Total registros
 ----------------------------------------- */
 $stmt = $pdo->prepare("SELECT COUNT(*) " . $query_base);
 $stmt->execute($params);
 $total_registros = $stmt->fetchColumn();
 
 /* -----------------------------------------
-   6. Consulta final con LIMIT
+   7. Consulta final
 ----------------------------------------- */
 $query = "
-    SELECT a.*, 
-           r.nombre AS raza_nombre, 
-           r.especie,
-           ad.estado AS estado_adopcion,
-           ad.id AS id_adopcion,
-           (SELECT ruta FROM animales_fotos 
-            WHERE id_animal = a.id AND es_principal = 1 LIMIT 1) AS foto
+    SELECT 
+        a.*,
+        r.nombre AS raza_nombre,
+        e.nombre AS especie,
+        ad.estado AS estado_adopcion,
+        ad.id AS id_adopcion,
+        (SELECT ruta FROM animales_fotos 
+         WHERE id_animal = a.id AND es_principal = 1 LIMIT 1) AS foto
     " . $query_base . "
     ORDER BY a.fecha_ingreso DESC
     LIMIT $offset, $por_pagina
@@ -145,9 +150,9 @@ include('../includes/header.php');
                     <select name="especie" id="especie">
                         <option value="">Todas</option>
                         <?php foreach ($especies as $esp): ?>
-                            <option value="<?= htmlspecialchars($esp) ?>"
-                                <?= $filtro_especie === $esp ? 'selected' : '' ?>>
-                                <?= htmlspecialchars($esp) ?>
+                            <option value="<?= $esp['id'] ?>"
+                                <?= $filtro_especie == $esp['id'] ? 'selected' : '' ?>>
+                                <?= htmlspecialchars($esp['nombre']) ?>
                             </option>
                         <?php endforeach; ?>
                     </select>
@@ -161,7 +166,7 @@ include('../includes/header.php');
 
                         <?php foreach ($razas as $raza): ?>
                             <option value="<?= $raza['id'] ?>"
-                                data-especie="<?= htmlspecialchars($raza['especie']) ?>"
+                                data-especie="<?= $raza['especie_id'] ?>"
                                 <?= $filtro_raza == $raza['id'] ? 'selected' : '' ?>>
                                 <?= htmlspecialchars($raza['nombre']) ?>
                             </option>
@@ -457,17 +462,14 @@ include('../includes/header.php');
         function filtrarRazas() {
             const especieSeleccionada = selectEspecie.value;
 
-            // Si no hay especie → deshabilitar select de razas
             if (especieSeleccionada === "") {
                 selectRaza.disabled = true;
                 selectRaza.value = "";
                 return;
             }
 
-            // Habilitar select
             selectRaza.disabled = false;
 
-            // Mostrar/ocultar opciones según especie
             for (const option of selectRaza.options) {
                 if (option.value === "") continue;
 
@@ -477,17 +479,13 @@ include('../includes/header.php');
                     especieRaza === especieSeleccionada ? "block" : "none";
             }
 
-            // Reset si la raza seleccionada no coincide
             const selected = selectRaza.selectedOptions[0];
             if (selected && selected.style.display === "none") {
                 selectRaza.value = "";
             }
         }
 
-        // Ejecutar al cargar (si hay filtros activos)
         filtrarRazas();
-
-        // Evento al cambiar especie
         selectEspecie.addEventListener("change", filtrarRazas);
     });
 </script>
