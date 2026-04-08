@@ -642,6 +642,37 @@ footer h4 {
     height: auto;
     vertical-align: middle;
 }
+.noemi-bichillos-vacio {
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+    font-family: var(--font-general);
+    color: var(--color-general);
+}
+.noemi-bichillos-icono i {
+    font-size: 42px;
+    color: var(--color-primary-dark);
+    text-shadow: 0 0 8px var(--noemi-glow-suave);
+}
+.noemi-bichillos-titulo {
+    font-family: var(--font-titulo);
+    font-size: 22px;
+    margin: 8px 0;
+    color: var(--color-primary-dark);
+}
+.noemi-bichillos-texto {
+    font-size: 15px;
+    line-height: 1.4;
+    color: var(--color-general);
+}
+.noemi-bichillos-texto i {
+    color: var(--noemi-rojo);
+}
+.noemi-bichillos-pillin {
+    font-style: italic;
+    color: var(--noemi-accent);
+    font-weight: 600;
+}
 /* END aside */
 
 /* Módulo "Así es Noemi" */

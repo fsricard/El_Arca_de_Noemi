@@ -11,9 +11,22 @@ $noemibichillos = noemi_bichillos_random($pdo);
         </h3>
 
         <div class="noemi-bichillos-container">
-            <p class="noemi-bichillo">
-                <img src="<?= asset($noemibichillos) ?>" alt="Logotipo del Arca de Noemi" />
-            </p>
+            <?php if ($noemibichillos): ?>
+                <p class="noemi-bichillo">
+                    <img src="<?= asset($noemibichillos) ?>" alt="Los bichillos de Noemí" />
+                </p>
+            <?php else: ?>
+                <div class="noemi-bichillos-vacio">
+                    <div class="noemi-bichillos-icono">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <h4 class="noemi-bichillos-titulo">Ups… ¡no hay bichillos!</h4>
+                    <p class="noemi-bichillos-texto">
+                        Parece que hoy están <span class="noemi-bichillos-pillin">tramando alguna travesura</span> por ahí…  
+                        <i class="fa-solid fa-face-grin-wink"></i>
+                    </p>
+                </div>
+            <?php endif; ?>
         </div>
     </section>
 </aside>
