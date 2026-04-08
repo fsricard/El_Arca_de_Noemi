@@ -70,7 +70,6 @@
 
         Quill.register('modules/emojiPicker', EmojiPicker);
 
-
         /********************************************
          *  INICIALIZACIÓN DE QUILL
          ********************************************/
@@ -92,7 +91,6 @@
                 emojiPicker: true
             }
         });
-
 
         /********************************************
          *  TOOLTIP TRADUCIDOS
@@ -121,7 +119,6 @@
                 el.setAttribute('aria-label', tooltips[format[1]]);
             }
         });
-
 
         /********************************************
          *  SINCRONIZACIÓN CON TEXTAREA
