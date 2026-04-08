@@ -18,9 +18,13 @@
                             <i class="fa-solid fa-user-secret"></i> Aviso legal:
                         </h2>
 
+                        <?php if($politica): ?>
+
                         <div class="destacado-content">
                             <?= $politica['contenido'] ?>
                         </div>
+
+                        <?php endif; ?>
 
                     </article>
 

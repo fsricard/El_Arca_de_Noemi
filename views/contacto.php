@@ -54,11 +54,15 @@ if (isset($_POST['enviar'])) {
                 ");
 
                 $intro_contacto = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                if($intro_contacto):
             ?>
 
-            <div class="destacado-content">
-                <?= $intro_contacto['contenido'] ?>
-            </div>
+                <div class="destacado-content">
+                    <?= $intro_contacto['contenido'] ?>
+                </div>
+
+            <?php endif; ?>
 
             <div class="destacado-content">
 

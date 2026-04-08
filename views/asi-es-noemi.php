@@ -14,13 +14,18 @@ $noemi = $stmt->fetch(PDO::FETCH_ASSOC);
                 <section class="destacados">
 
                     <article class="destacado-block destacado-asi-es-noemi">
-                        <h2 class="destacado-title">
-                            <i class="fa-classic fa-solid fa-hand-wave"></i> <?= htmlspecialchars($noemi['titulo']) ?>
-                        </h2>
 
-                        <div class="destacado-content">
-                            <?= $noemi['contenido'] ?>
-                        </div>
+                        <?php if($noemi): ?>
+
+                            <h2 class="destacado-title">
+                                <i class="fa-classic fa-solid fa-hand-wave"></i> <?= htmlspecialchars($noemi['titulo']) ?>
+                            </h2>
+
+                            <div class="destacado-content">
+                                <?= $noemi['contenido'] ?>
+                            </div>
+
+                        <?php endif; ?>
 
                     </article>
 
