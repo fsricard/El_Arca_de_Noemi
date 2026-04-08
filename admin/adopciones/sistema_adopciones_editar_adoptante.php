@@ -20,20 +20,26 @@ if ($id <= 0) {
    OBTENER DATOS DE LA ADOPCIÓN
 --------------------------------------------------------- */
 $stmt = $pdo->prepare("
-    SELECT adop.*,
-           ani.id        AS id_animal,
-           ani.nombre    AS nombre_animal,
-           r.especie     AS especie,
-           r.nombre      AS raza,
-           ado.id        AS id_adoptante,
-           ado.nombre    AS nombre_adoptante,
-           ado.apellidos AS apellidos_adoptante,
-           ado.telefono,
-           ado.email
+    SELECT 
+        adop.*,
+
+        ani.id        AS id_animal,
+        ani.nombre    AS nombre_animal,
+
+        e.nombre      AS especie,
+        r.nombre      AS raza,
+
+        ado.id        AS id_adoptante,
+        ado.nombre    AS nombre_adoptante,
+        ado.apellidos AS apellidos_adoptante,
+        ado.telefono,
+        ado.email
+
     FROM adopciones adop
-    INNER JOIN animales ani       ON adop.id_animal = ani.id
-    INNER JOIN razas_animales r   ON ani.id_raza = r.id
-    INNER JOIN adoptantes ado     ON adop.id_adoptante = ado.id
+    INNER JOIN animales ani         ON adop.id_animal = ani.id
+    INNER JOIN razas_animales r     ON ani.id_raza = r.id
+    INNER JOIN especies_animales e  ON r.especie_id = e.id
+    INNER JOIN adoptantes ado       ON adop.id_adoptante = ado.id
     WHERE adop.id = ?
 ");
 $stmt->execute([$id]);
@@ -100,22 +106,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $exito = true;
 
-            // Refrescar datos de la adopción
+            // Refrescar datos actualizados
             $stmt = $pdo->prepare("
-                SELECT adop.*,
-                       ani.id        AS id_animal,
-                       ani.nombre    AS nombre_animal,
-                       r.especie     AS especie,
-                       r.nombre      AS raza,
-                       ado.id        AS id_adoptante,
-                       ado.nombre    AS nombre_adoptante,
-                       ado.apellidos AS apellidos_adoptante,
-                       ado.telefono,
-                       ado.email
+                SELECT 
+                    adop.*,
+                    ani.id        AS id_animal,
+                    ani.nombre    AS nombre_animal,
+                    e.nombre      AS especie,
+                    r.nombre      AS raza,
+                    ado.id        AS id_adoptante,
+                    ado.nombre    AS nombre_adoptante,
+                    ado.apellidos AS apellidos_adoptante,
+                    ado.telefono,
+                    ado.email
                 FROM adopciones adop
-                INNER JOIN animales ani       ON adop.id_animal = ani.id
-                INNER JOIN razas_animales r   ON ani.id_raza = r.id
-                INNER JOIN adoptantes ado     ON adop.id_adoptante = ado.id
+                INNER JOIN animales ani         ON adop.id_animal = ani.id
+                INNER JOIN razas_animales r     ON ani.id_raza = r.id
+                INNER JOIN especies_animales e  ON r.especie_id = e.id
+                INNER JOIN adoptantes ado       ON adop.id_adoptante = ado.id
                 WHERE adop.id = ?
             ");
             $stmt->execute([$id]);
@@ -179,9 +187,9 @@ include('../includes/header.php');
                 <div class="filtro">
                     <label for="fecha_adopcion">Fecha de adopción / inicio:</label>
                     <input type="date"
-                           name="fecha_adopcion"
-                           id="fecha_adopcion"
-                           value="<?= htmlspecialchars($adopcion['fecha_adopcion']) ?>">
+                        name="fecha_adopcion"
+                        id="fecha_adopcion"
+                        value="<?= htmlspecialchars($adopcion['fecha_adopcion']) ?>">
                 </div>
 
                 <div class="filtro">
@@ -207,7 +215,6 @@ include('../includes/header.php');
                 </button>
 
             </form>
-
         </div>
     </section>
 </main>
