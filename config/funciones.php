@@ -45,6 +45,7 @@ function tituloPagina($pagina) {
         'apadrina_editar_animal'                    => 'Editar animal para apadrinar',
         'apadrinamiento_incluir'                    => 'Gestión de apadrinamientos',
         'politica_de_privacidad'                    => 'Política de privacidad',
+        'apadrina_editar_padrino'                   => 'Edición de padrinos',
         'adopciones_incluir_raza'                   => 'Incluir nuevo animal',
         'noemi_bichillos_listado'                   => 'Listado de los bichillos de Noemí',
         'sistema_adopciones_crear'                  => 'Crear nueva adopción',
