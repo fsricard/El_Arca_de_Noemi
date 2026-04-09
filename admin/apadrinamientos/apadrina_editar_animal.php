@@ -306,12 +306,15 @@ include('../includes/header.php');
 
                                 <td>
                                     <?php if ($p['estado'] === 'activo'): ?>
-                                        <button class="btn btn-danger btn-sm"
-                                            onclick="cancelarPadrino(<?= $p['id'] ?>)">
+                                        <button class="btn btn-warning"
+                                                onclick="cancelarPadrino(<?= $p['id'] ?>)">
                                             <i class="fa-solid fa-ban"></i> Cancelar
                                         </button>
                                     <?php else: ?>
-                                        <span class="texto-secundario">—</span>
+                                        <button class="btn btn-success"
+                                                onclick="reactivarPadrino(<?= $p['id'] ?>)">
+                                            <i class="fa-solid fa-rotate-right"></i> Reactivar
+                                        </button>
                                     <?php endif; ?>
                                 </td>
 
@@ -487,12 +490,9 @@ include('../includes/header.php');
         selectEspecie.addEventListener("change", filtrarRazas);
     });
 
-    // Script para cancelar un apadrinamiento
+    // Script para cancelar/reactivar un apadrinamiento
     function cancelarPadrino(idRelacion) {
-
-        if (!confirm("¿Seguro que quieres cancelar este apadrinamiento?")) {
-            return;
-        }
+        if (!confirm("¿Seguro que quieres cancelar este apadrinamiento?")) return;
 
         fetch("ajax/apadrina_cancelar_padrino.php", {
             method: "POST",
@@ -504,9 +504,29 @@ include('../includes/header.php');
             if (data.ok) {
                 location.reload();
             } else {
-                alert("Error al cancelar el padrino");
+                alert(data.error || "Error al cancelar el padrino");
             }
-        });
+        })
+        .catch(() => alert("Error de comunicación con el servidor"));
+    }
+
+    function reactivarPadrino(idRelacion) {
+        if (!confirm("¿Deseas reactivar este apadrinamiento?")) return;
+
+        fetch("ajax/apadrina_reactivar_padrino.php", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ id: idRelacion })
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.ok) {
+                location.reload();
+            } else {
+                alert(data.error || "Error al reactivar el padrino");
+            }
+        })
+        .catch(() => alert("Error de comunicación con el servidor"));
     }
 </script>
 

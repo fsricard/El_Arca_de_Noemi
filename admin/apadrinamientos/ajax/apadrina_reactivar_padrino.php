@@ -10,16 +10,17 @@ if ($id <= 0) {
 }
 
 try {
+    // Reactivar: marcar activo y limpiar fecha_cancelacion
     $stmt = $pdo->prepare("
         UPDATE sponsors_animals
-        SET estado = 'cancelado',
-            fecha_cancelacion = NOW()
-        WHERE id = ? AND estado = 'activo'
+        SET estado = 'activo',
+            fecha_cancelacion = NULL
+        WHERE id = ? AND estado = 'cancelado'
     ");
     $stmt->execute([$id]);
 
     if ($stmt->rowCount() === 0) {
-        echo json_encode(['ok' => false, 'error' => 'No se pudo cancelar (ya cancelado o no existe)']);
+        echo json_encode(['ok' => false, 'error' => 'No se pudo reactivar (ya activo o no existe)']);
     } else {
         echo json_encode(['ok' => true]);
     }
