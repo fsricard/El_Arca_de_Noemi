@@ -31,6 +31,26 @@ if (!$animal) {
     exit;
 }
 
+// Obtenemos los padrinos del animal
+$stmt = $pdo->prepare("
+    SELECT 
+        sa.id,
+        sa.estado,
+        sa.fecha_inicio,
+        sa.fecha_cancelacion,
+        s.nombre_apellidos,
+        s.email,
+        s.telefono,
+        s.direccion,
+        s.mensaje
+    FROM sponsors_animals sa
+    INNER JOIN sponsors s ON sa.sponsor_id = s.id
+    WHERE sa.animal_id = ?
+    ORDER BY sa.fecha_inicio DESC
+");
+$stmt->execute([$id_animal]);
+$padrinos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 // Obtenemos las especies
 $especies = $pdo->query("
     SELECT id, nombre
@@ -235,6 +255,73 @@ include('../includes/header.php');
 
                 </form>
 
+                <hr>
+
+                <h2>Padrinos de este animal</h2>
+
+                <?php if (empty($padrinos)): ?>
+                    <p class="texto-secundario">Este animal todavía no tiene padrinos.</p>
+                <?php else: ?>
+
+                <table class="tabla">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Contacto</th>
+                            <th>Mensaje</th>
+                            <th>Inicio</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <?php foreach ($padrinos as $p): ?>
+                            <tr>
+
+                                <td>
+                                    <strong><?= htmlspecialchars($p['nombre_apellidos']) ?></strong><br>
+                                    <small class="texto-secundario"><?= htmlspecialchars($p['direccion']) ?></small>
+                                </td>
+
+                                <td>
+                                    <?= htmlspecialchars($p['email']) ?><br>
+                                    <small><?= htmlspecialchars($p['telefono'] ?: '-') ?></small>
+                                </td>
+
+                                <td>
+                                    <?= $p['mensaje'] ? nl2br(htmlspecialchars($p['mensaje'])) : '<span class="texto-secundario">—</span>' ?>
+                                </td>
+
+                                <td><?= htmlspecialchars($p['fecha_inicio']) ?></td>
+
+                                <td>
+                                    <?php if ($p['estado'] === 'activo'): ?>
+                                        <span class="badge badge-success">Activo</span>
+                                    <?php else: ?>
+                                        <span class="badge badge-warning">Cancelado</span><br>
+                                        <small><?= htmlspecialchars($p['fecha_cancelacion']) ?></small>
+                                    <?php endif; ?>
+                                </td>
+
+                                <td>
+                                    <?php if ($p['estado'] === 'activo'): ?>
+                                        <button class="btn btn-danger btn-sm"
+                                            onclick="cancelarPadrino(<?= $p['id'] ?>)">
+                                            <i class="fa-solid fa-ban"></i> Cancelar
+                                        </button>
+                                    <?php else: ?>
+                                        <span class="texto-secundario">—</span>
+                                    <?php endif; ?>
+                                </td>
+
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+
+                <?php endif; ?>
+
             </div>
         </section>
 
@@ -399,6 +486,28 @@ include('../includes/header.php');
         // Evento al cambiar especie
         selectEspecie.addEventListener("change", filtrarRazas);
     });
+
+    // Script para cancelar un apadrinamiento
+    function cancelarPadrino(idRelacion) {
+
+        if (!confirm("¿Seguro que quieres cancelar este apadrinamiento?")) {
+            return;
+        }
+
+        fetch("ajax/apadrina_cancelar_padrino.php", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ id: idRelacion })
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.ok) {
+                location.reload();
+            } else {
+                alert("Error al cancelar el padrino");
+            }
+        });
+    }
 </script>
 
 <?php include('../includes/footer.php');
