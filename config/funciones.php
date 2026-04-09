@@ -42,6 +42,7 @@ function tituloPagina($pagina) {
         'tablas_de_datos_ver'                       => 'Contenido de la tabla de la base datos',
         'adopciones_adoptante'                      => 'Incluir un nuevo adoptante',
         'adopciones_adoptante'                      => 'Incluir un nuevo adoptante',
+        'apadrinamiento_incluir'                    => 'Gestión de apadrinamientos',
         'politica_de_privacidad'                    => 'Política de privacidad',
         'adopciones_incluir_raza'                   => 'Incluir nuevo animal',
         'noemi_bichillos_listado'                   => 'Listado de los bichillos de Noemí',

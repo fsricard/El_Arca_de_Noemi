@@ -480,7 +480,8 @@ form button:hover i {
 /* Subitems Registros */
 .icon-registros-raza { color: #d00000; }
 .icon-registros-incluir { color: #ff6d00; }
-.icon-registros-adoptante { color: #3a0ca3; }
+.icon-registros-adoptante { color: #7751cf; }
+.icon-registros-incluir-apadrinar { color: #dd813b; }
 
 /* Subitems Adopciones */
 .icon-iniciar-adopcion { color: #006cd0; }
