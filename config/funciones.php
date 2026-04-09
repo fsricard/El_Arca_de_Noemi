@@ -307,3 +307,35 @@ function obtener_animal_adopcion_random(PDO $pdo){
     $stmt = $pdo->query($sql);
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
+
+// Función para crear el slug de las fichas de apadrinamientos
+function generarSlug($cadena) {
+    // Convertir a minúsculas
+    $cadena = strtolower($cadena);
+
+    // Reemplazar caracteres acentuados
+    $acentos = [
+        'á' => 'a', 'é' => 'e', 'í' => 'i',
+        'ó' => 'o', 'ú' => 'u', 'ñ' => 'n',
+        'ä' => 'a', 'ë' => 'e', 'ï' => 'i',
+        'ö' => 'o', 'ü' => 'u'
+    ];
+    $cadena = strtr($cadena, $acentos);
+
+    // Reemplazar cualquier cosa que no sea letra, número o espacio por nada
+    $cadena = preg_replace('/[^a-z0-9\s-]/', '', $cadena);
+
+    // Reemplazar espacios múltiples por uno solo
+    $cadena = preg_replace('/\s+/', ' ', $cadena);
+
+    // Reemplazar espacios por guiones
+    $cadena = str_replace(' ', '-', $cadena);
+
+    // Eliminar guiones duplicados
+    $cadena = preg_replace('/-+/', '-', $cadena);
+
+    // Recortar guiones al inicio y final
+    $cadena = trim($cadena, '-');
+
+    return $cadena;
+}
