@@ -201,15 +201,15 @@ include('../includes/header.php');
 
                 <div style="display:flex; gap:10px; align-items:center; margin-top:12px;">
                     <button class="btn btn-primary">Guardar cambios</button>
-                    <a href="apadrina_listado_padrinos.php" class="btn">Volver</a>
+                    <a href="apadrina_listado_padrinos.php" class="btn btn-volver">Volver</a>
 
                     <!-- Exportar CSV -->
-                    <button type="button" class="btn btn-outline-secondary" id="btnExportarCSV">
+                    <button type="button" class="btn btn-exportar-pdf" id="btnExportarCSV">
                         <i class="fa-solid fa-file-csv"></i> Exportar CSV
                     </button>
 
                     <!-- Eliminar padrino -->
-                    <button type="button" class="btn btn-danger" id="btnEliminarPadrino">
+                    <button type="button" class="btn delete-user" id="btnEliminarPadrino">
                         <i class="fa-solid fa-trash"></i> Eliminar padrino
                     </button>
                 </div>
@@ -260,13 +260,13 @@ include('../includes/header.php');
                                 <td><?= htmlspecialchars($r['paypal_subscription_id'] ?? '-') ?></td>
 
                                 <td>
-                                    <button class="btn btn-sm btn-outline-primary"
+                                    <button class="btn btn-relacion"
                                         onclick="window.location='apadrina_editar_relacion.php?id=<?= (int)$r['id'] ?>'">
                                         <i class="fa-solid fa-pen"></i> Editar relación
                                     </button>
 
                                     <?php if ($r['id_animal']): ?>
-                                        <button class="btn btn-sm"
+                                        <button class="btn btn-ver"
                                             onclick="window.location='apadrina_editar_animal.php?id=<?= (int)$r['id_animal'] ?>'">
                                             <i class="fa-solid fa-paw"></i> Ver animal
                                         </button>

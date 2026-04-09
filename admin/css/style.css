@@ -319,9 +319,9 @@ body[data-pagina="tablas_de_datos_ver"][data-tabla="usuarios"] h2 strong {
 }
 .btn-ver {
     background: var(--color-info);
-    color: #fff;
-    padding: 6px 12px;
-    border-radius: 4px;
+}
+.btn-ver:hover {
+    background: rgb(0, 60, 255);
 }
 .btn-peligro {
     background: var(--color-danger);
@@ -347,6 +347,18 @@ form button:hover i {
 .delete-user:hover i {
     color: #ffe0e0;
     transform: scale(1.1);
+}
+.btn-relacion {
+    background: #dd813b;
+}
+.btn-relacion:hover {
+    background: #ecaa77;
+}
+.btn-ver-apadrinamientos {
+    background: #aa7750;
+}
+.btn-ver-apadrinamientos:hover {
+    background: #b99171;
 }
 /* END Botones de acción */
 

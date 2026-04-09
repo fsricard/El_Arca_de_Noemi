@@ -233,18 +233,18 @@ include('../includes/header.php');
                                     <td><?= htmlspecialchars($p['fecha_registro']) ?></td>
 
                                     <td>
-                                        <button class="btn btn-success btn-sm"
+                                        <button class="btn btn-success"
                                             onclick="window.location='apadrina_editar_padrino.php?id=<?= $p['id'] ?>'">
                                             <i class="fa-solid fa-pen"></i> Editar
                                         </button>
 
-                                        <button class="btn btn-secondary btn-sm"
+                                        <button class="btn btn-ver-apadrinamientos"
                                             onclick="window.location='apadrina_ver_apadrinamientos.php?sponsor_id=<?= $p['id'] ?>'">
                                             <i class="fa-solid fa-list"></i> Ver apadrinamientos
                                         </button>
 
                                         <?php if (!empty($p['id_ultima_relacion'])): ?>
-                                            <button class="btn btn-outline-primary btn-sm"
+                                            <button class="btn btn-relacion"
                                                 onclick="window.location='apadrina_editar_relacion.php?id=<?= $p['id_ultima_relacion'] ?>'">
                                                 <i class="fa-solid fa-link"></i> Última relación
                                             </button>
