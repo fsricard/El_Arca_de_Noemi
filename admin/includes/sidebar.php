@@ -67,12 +67,13 @@
     <!-- Apadrinamientos -->
     <div class="submenu">
         <button class="submenu-toggle">
-            <i class="fa-solid fa-family icon-adopciones"></i> Apadrinamientos
+            <i class="fa-duotone fa-solid fa-money-bill-1-wave icon-apadrinamientos"></i> Apadrinamientos
             <i class="fa-solid fa-chevron-down flecha"></i>
         </button>
 
         <ul class="submenu-items">
-            <li><a href="<?= asset('admin/apadrinamientos/apadrina_listado_animales.php') ?>"><i class="fa-classic fa-solid fa-gears icon-iniciar-adopcion"></i> Listado de animales</a></li>
+            <li><a href="<?= asset('admin/apadrinamientos/apadrina_listado_animales.php') ?>"><i class="fa-classic fa-solid fa-magnifying-glass-play icon-apadrina-listado-animales"></i> Listado de animales</a></li>
+            <li><a href="<?= asset('admin/apadrinamientos/apadrina_listado_padrinos.php') ?>"><i class="fa-classic fa-solid fa-person icon-apadrina-listado-padrinos"></i> Listado de padrinos</a></li>
         </ul>
     </div>
 

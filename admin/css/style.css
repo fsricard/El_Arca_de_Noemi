@@ -457,6 +457,7 @@ form button:hover i {
 .icon-logout { color: #d00000; }
 .icon-adopciones { color: #43afee; }
 .icon-registro { color: #ffae00; }
+.icon-apadrinamientos { color: #07c25b; }
 
 
 /* Subitems Frases */
@@ -487,6 +488,10 @@ form button:hover i {
 .icon-iniciar-adopcion { color: #006cd0; }
 .icon-listado-adoptantes { color: #4492db; }
 .icon-listado-animales-adoptantes { color: #3c7aa3; }
+
+/* Subitems Apadrinamientos */
+.icon-apadrina-listado-animales { color: #62e99f; }
+.icon-apadrina-listado-padrinos { color: #56886c; }
 
 /* Quill */
 .emoji-popup {
