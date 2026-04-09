@@ -22,9 +22,13 @@ if ($id_animal <= 0) {
    2. Obtener datos del animal
 --------------------------------------------------------- */
 $stmt = $pdo->prepare("
-    SELECT a.*, r.especie, r.nombre AS raza
+    SELECT 
+        a.*,
+        r.nombre AS raza,
+        e.nombre AS especie
     FROM animales a
-    INNER JOIN razas_animales r ON a.id_raza = r.id
+    INNER JOIN razas_animales r     ON a.id_raza = r.id
+    INNER JOIN especies_animales e  ON r.especie_id = e.id
     WHERE a.id = ?
 ");
 $stmt->execute([$id_animal]);
@@ -199,7 +203,7 @@ include('../includes/header.php');
 </style>
 
 <script>
-    // Script para el autocomplete de adoptantes
+    // Autocomplete adoptantes
     document.addEventListener("DOMContentLoaded", () => {
 
         const input = document.getElementById("buscador");
@@ -208,21 +212,41 @@ include('../includes/header.php');
 
         let timeout = null;
 
+        // Cerrar sugerencias al hacer clic fuera
+        document.addEventListener("click", (e) => {
+            if (!lista.contains(e.target) && e.target !== input) {
+                lista.innerHTML = "";
+            }
+        });
+
         input.addEventListener("input", function () {
             const texto = this.value.trim();
 
             clearTimeout(timeout);
 
+            // Si escribe menos de 2 caracteres → limpiar
             if (texto.length < 2) {
                 lista.innerHTML = "";
+                inputID.value = "";
                 return;
             }
 
             timeout = setTimeout(() => {
+
                 fetch("ajax/buscar_adoptantes.php?q=" + encodeURIComponent(texto))
                     .then(res => res.json())
                     .then(data => {
+
                         lista.innerHTML = "";
+
+                        if (!Array.isArray(data) || data.length === 0) {
+                            lista.innerHTML = `
+                                <div class="item-sugerencia sin-resultados">
+                                    <i class="fa-solid fa-circle-info"></i>  
+                                    No se encontraron adoptantes
+                                </div>`;
+                            return;
+                        }
 
                         data.forEach(item => {
                             const div = document.createElement("div");
@@ -238,7 +262,15 @@ include('../includes/header.php');
 
                             lista.appendChild(div);
                         });
+                    })
+                    .catch(() => {
+                        lista.innerHTML = `
+                            <div class="item-sugerencia sin-resultados">
+                                <i class="fa-solid fa-triangle-exclamation"></i>  
+                                Error al buscar adoptantes
+                            </div>`;
                     });
+
             }, 200);
         });
 
