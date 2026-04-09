@@ -308,6 +308,7 @@ include('../includes/header.php');
 </style>
 
 <script>
+    // Script para el modal de la imagen
     document.addEventListener("DOMContentLoaded", function() {
 
         const modal = document.getElementById("modalAnimal");
