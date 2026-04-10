@@ -1,8 +1,8 @@
 <?php
-require_once __DIR__ . '/includes/session.php';
-require_once __DIR__ . '/includes/auth.php';
-require_once __DIR__ . '/../config/database.php';
-require_once(__DIR__ . '/../config/funciones.php');
+require_once __DIR__ . '/../includes/session.php';
+require_once __DIR__ . '/../includes/auth.php';
+require_once __DIR__ . '/../../config/database.php';
+require_once(__DIR__ . '/../../config/funciones.php');
 
 // Si no está logueado, redirigimos al login
 if (!isLoggedIn()) {
@@ -18,13 +18,13 @@ $mensaje = mostrarAlerta('', '');
 
 $pagina='tablas_de_datos';
 
-include('includes/header.php');
+include('../includes/header.php');
 ?>
 
     <main>
         <section>
             <div class="container">
-                <h2>Gestión de las tablas de la base de datos ... ¡¡CUIDADO DIABLILLO!!</h2>
+                <h2>Gestión de las tablas de la base de datos ... ¡¡CUIDADO NOEMÍ!!</h2>
 
                 <?php
                     if (isset($_SESSION['mensaje_tablas'])) {
@@ -82,4 +82,4 @@ include('includes/header.php');
         </section>
     </main>
 
-<?php include('includes/footer.php');
+<?php include('../includes/footer.php');
