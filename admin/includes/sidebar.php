@@ -13,8 +13,8 @@
         </button>
 
         <ul class="submenu-items">
-            <li><a href="<?= asset('admin/contacto.php') ?>"><i class="fa-solid fa-envelope icon-doc-contacto"></i> Contacto</a></li>
-            <li><a href="<?= asset('admin/contacto_intro.php') ?>"><i class="fa-solid fa-envelope icon-doc-contacto"></i> Contacto intro</a></li>
+            <li><a href="<?= asset('admin/contacto/contacto.php') ?>"><i class="fa-solid fa-envelope icon-doc-contacto"></i> Contacto</a></li>
+            <li><a href="<?= asset('admin/contacto/contacto_intro.php') ?>"><i class="fa-solid fa-envelope icon-doc-contacto"></i> Contacto intro</a></li>
             <li><a href="<?= asset('admin/asi_es_noemi.php') ?>"><i class="fa-solid fa-person-burst icon-asi-es-noemi"></i> Así es Noemí</a></li>
             <li><a href="<?= asset('admin/politica_de_privacidad.php') ?>"><i class="fa-solid fa-shield-halved icon-doc-privacidad"></i> Política de privacidad</a></li>
 

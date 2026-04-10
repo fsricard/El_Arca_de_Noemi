@@ -1,8 +1,8 @@
 <?php
-require_once __DIR__ . '/includes/session.php';
-require_once __DIR__ . '/includes/auth.php';
-require_once __DIR__ . '/../config/database.php';
-require_once __DIR__ . '/../config/funciones.php';
+require_once __DIR__ . '/../includes/session.php';
+require_once __DIR__ . '/../includes/auth.php';
+require_once __DIR__ . '/../../config/database.php';
+require_once(__DIR__ . '/../../config/funciones.php');
 
 // Si no está logueado, redirigimos al login
 if (!isLoggedIn()) {
@@ -49,7 +49,7 @@ $where_sql = $where ? "WHERE " . implode(" AND ", $where) : "";
 // Expotación del archivo ".PDF"
 if (isset($_GET['exportar_pdf']) && $_GET['exportar_pdf'] == 1) {
 
-    require_once __DIR__ . '/../includes/fpdf/fpdf.php';
+    require_once __DIR__ . '/../../includes/fpdf/fpdf.php';
 
     try {
         $sql_export = "SELECT * FROM mensajes_contacto $where_sql ORDER BY fecha DESC";
@@ -178,7 +178,7 @@ if (isset($_GET['exportar_pdf']) && $_GET['exportar_pdf'] == 1) {
 
     //   CREAR PDF
     $pdf = new PDF_MC_Table('L', 'mm', 'A4');
-    $pdf->logo = __DIR__ . '/../img/logo_0001.png';
+    $pdf->logo = __DIR__ . '/../../img/logo_0001.png';
     $pdf->AliasNbPages();
     $pdf->AddPage();
 
@@ -255,7 +255,7 @@ try {
 
 $pagina = 'contacto';
 
-include('includes/header.php');
+include('../includes/header.php');
 ?>
 
     <main>
@@ -359,4 +359,4 @@ include('includes/header.php');
         });
     </script>
 
-<?php include('includes/footer.php');
+<?php include('../includes/footer.php');
