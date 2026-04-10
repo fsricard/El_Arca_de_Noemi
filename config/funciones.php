@@ -314,6 +314,48 @@ function obtener_animal_adopcion_random(PDO $pdo){
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
 
+function obtener_animal_apadrinamiento_random(PDO $pdo) {
+    $sql = "
+        SELECT
+            a.id,
+            a.nombre,
+            a.historia,
+            a.foto_principal,
+            COALESCE(
+                NULLIF(a.foto_principal, ''),
+                (
+                    SELECT ruta
+                    FROM animales_fotos af
+                    WHERE af.id_animal = a.id AND af.es_principal = 1
+                    LIMIT 1
+                )
+            ) AS imagen_principal,
+            e.nombre AS especie,
+            r.nombre AS raza,
+            (
+                SELECT COUNT(*)
+                FROM sponsors_animals sa
+                WHERE sa.animal_id = a.id AND sa.estado = 'activo'
+            ) AS total_padrinos
+        FROM animals_sponsor a
+        INNER JOIN especies_animales e ON a.especie_id = e.id
+        LEFT JOIN razas_animales r ON a.raza_id = r.id
+        WHERE a.estado = 'activo'
+        ORDER BY RAND()
+        LIMIT 1
+    ";
+
+    try {
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $row ?: null;
+    } catch (PDOException $e) {
+        error_log('obtener_animal_apadrinamiento_random error: ' . $e->getMessage());
+        return null;
+    }
+}
+
 // Función para crear el slug de las fichas de apadrinamientos
 function generarSlug($cadena) {
     // Convertir a minúsculas

@@ -155,19 +155,104 @@
                 </section>
 
                 <!-- Módulo apadrinamientos -->
+
+                <?php
+                    $randomApadrinamiento = obtener_animal_apadrinamiento_random($pdo);
+
+                    // Iconos por especie
+                    $iconosEspecieApadrina = [
+                        'perro'     => 'fa-dog',
+                        'gato'      => 'fa-cat',
+                        'conejo'    => 'fa-rabbit-running',
+                        'ave'       => 'fa-dove',
+                        'huron'     => 'fa-otter',
+                        'hurón'     => 'fa-otter',
+                        'tortuga'   => 'fa-turtle',
+                    ];
+
+                    $especie_normalizada_apadrina = strtolower(trim($randomApadrinamiento['especie']));
+                    $especie_normalizada_apadrina = str_replace(['á','é','í','ó','ú'], ['a','e','i','o','u'], $especie_normalizada_apadrina);
+
+                    $iconoApadrina = $iconosEspecieApadrina[$especie_normalizada_apadrina] ?? 'fa-paw';
+                ?>
+
                 <section class="destacados noemi-apadrinamientos-inicio">
 
                     <?php include('includes/aside/noemi-bichillos.php'); ?>
 
                     <article class="destacado-block">
-
+                            
                         <h2 class="destacado-title">
-
+                            <i class="fa-classic fa-solid fa-hands-holding-child"></i> ¿Quieres ser mi padrin@?
                         </h2>
 
-                        <div class="destacado-content">
+                        <?php if ($randomApadrinamiento): ?>
+
+                        <div class="destacado-content noemi-apadrinamientos-item">
+
+                            <!-- Información -->
+                            <div class="apadrinamientos-info">
+
+                                <?php if (!empty($randomApadrinamiento['nombre'])): ?>
+                                    <h3 class="apadrinamientos-nombre">
+                                        <i class="fa-solid <?= $iconoApadrina ?>"></i>
+                                        <?= htmlspecialchars($randomApadrinamiento['nombre'], ENT_QUOTES, 'UTF-8') ?>
+                                    </h3>
+                                <?php endif; ?>
+
+                                <?php if (!empty($randomApadrinamiento['especie']) || !empty($randomApadrinamiento['raza'])): ?>
+                                    <p class="apadrinamientos-meta">
+                                        <?php if (!empty($randomApadrinamiento['especie'])): ?>
+                                            <span class="apadrinamientos-especie"><?= htmlspecialchars($randomApadrinamiento['especie'], ENT_QUOTES, 'UTF-8') ?></span>
+                                        <?php endif; ?>
+                                        <?php if (!empty($randomApadrinamiento['raza'])): ?>
+                                            <span class="apadrinamientos-raza"><?= htmlspecialchars($randomApadrinamiento['raza'], ENT_QUOTES, 'UTF-8') ?></span>
+                                        <?php endif; ?>
+                                    </p>
+                                <?php endif; ?>
+
+                                <?php if (!empty($randomApadrinamiento['historia'])): ?>
+                                    <div class="apadrinamientos-descripcion">
+                                        <?= limitar_palabras(strip_tags($randomApadrinamiento['historia']), 20) ?>
+                                    </div>
+                                <?php endif; ?>
+
+                                <?php if (isset($randomApadrinamiento['total_padrinos'])):
+                                    $count = intval($randomApadrinamiento['total_padrinos']);
+                                    $label = ($count === 1) ? 'Padrino' : 'Padrinos';
+                                ?>
+                                <div class="apadrinamientos-padrinos" role="status" aria-live="polite" aria-atomic="true" aria-label="<?= $count . ' ' . $label ?>">
+                                    <span class="badge" aria-hidden="true">
+                                        <span class="count"><?= $count ?></span>
+                                        <span class="label"><?= $label ?></span>
+                                    </span>
+                                </div>
+                                <?php endif; ?>
+
+                                <?php if (!empty($randomApadrinamiento['id'])): ?>
+                                    <a href="<?= asset('/ficha-apadrinamiento?id=' . $randomApadrinamiento['id']) ?>" 
+                                    class="btn adopcion-boton">
+                                        Ir a la ficha individual
+                                    </a>
+                                <?php endif; ?>
+
+                            </div>
+
+                            <!-- Imagen -->
+                            <div class="apadrinamientos-imagen">
+                                <?php if (!empty($randomApadrinamiento['imagen_principal'])): ?>
+                                    <img src="<?= asset($randomApadrinamiento['imagen_principal']) ?>"
+                                        alt="Foto de <?= htmlspecialchars($randomApadrinamiento['nombre'] ?? 'animal', ENT_QUOTES, 'UTF-8') ?>">
+                                <?php endif; ?>
+                            </div>
 
                         </div>
+
+                        <?php else: ?>
+
+                            <p>No hay animales disponibles para apadrinar en este momento.</p>
+
+                        <?php endif; ?>
 
                     </article>
 

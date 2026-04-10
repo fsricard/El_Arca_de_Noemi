@@ -1165,6 +1165,54 @@ footer h4 {
 }
 /* END módulo "Adopciones" pagina de inicio */
 
+/* Módulo "Apadrinamientos" pagina de inicio */
+.noemi-apadrinamientos-item {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 25px;
+    align-items: start;
+}
+.apadrinamientos-imagen img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 18px;
+    border: 2px solid var(--color-primary);
+    box-shadow: 0 4px 10px var(--shadow-soft);
+}
+.apadrinamientos-info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.apadrinamientos-nombre {
+    font-family: var(--font-titulo);
+    font-size: 2.4rem;
+    color: var(--noemi-glow-suave);
+    text-shadow: 2px 2px 0 var(--color-primary-dark);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.apadrinamientos-nombre i {
+    font-size: 2.6rem;
+    color: var(--color-primary-icon);
+    filter: drop-shadow(0 0 4px #ff3c00);
+    animation: glownoemi 2s ease-in-out infinite alternate;
+}
+.apadrinamientos-raza {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--color-primary-dark);
+    opacity: 0.85;
+}
+.apadrinamientos-descripcion {
+    font-size: 1.6rem;
+    color: var(--color-general);
+    line-height: 1.5;
+}
+/* END módulo "Apadrinamientos" pagina de inicio */
+
 /* Ficha individual de adopciones */
 .ficha-titulo {
     display: block;
@@ -1429,6 +1477,7 @@ footer h4 {
     }
 }
 @media (max-width: 768px) {
+    .noemi-apadrinamientos-item,
     .noemi-apadrinamientos-inicio,
     .noemi-adopciones-inicio,
     .layout-home {
@@ -1479,6 +1528,9 @@ footer h4 {
     .adopta-bloque-datos {
         display: block;
     }
+    .apadrinamientos-imagen {
+        margin-top: 35px;
+    }
 }
 @media (max-width: 600px) {
     .ficha-nombre {
@@ -1500,4 +1552,175 @@ footer h4 {
         font-size: 1.4rem;
     }
 }
+@media (max-width: 420px) {
+  .apadrinamientos-padrinos{
+    gap: 6px;
+    font-size: 0.95rem;
+  }
+  .apadrinamientos-padrinos .label{
+    display: block;
+    margin-left: 0;
+    margin-top: 6px;
+    font-size: 0.85rem;
+    color: #666;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .apadrinamientos-padrinos .badge,
+  .apadrinamientos-padrinos .badge:hover,
+  .apadrinamientos-padrinos .badge:focus {
+    animation: none;
+    transition: none;
+    transform: none;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.06);
+  }
+}
 /* END responsive */
+
+/* Contador de padrinos */
+:root{
+    --apad-bg-start: #fff7f0;
+    --apad-bg-end:   #fff2e6;
+    --apad-accent:   #ff7a59;
+    --apad-border:   #ffd6c6;
+    --apad-text:     #2b2b2b;
+    --apad-shadow-1: rgba(255,122,89,0.18);
+    --apad-shadow-2: rgba(255,122,89,0.10);
+    --apad-glow:     rgba(255,122,89,0.12);
+    --apad-font:     system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+.apadrinamientos-padrinos{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 12px 0;
+    font-family: var(--apad-font);
+    font-size: 1.05rem;
+    color: var(--apad-text);
+    -webkit-font-smoothing: antialiased;
+}
+.apadrinamientos-padrinos .badge{
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 14px;
+    box-sizing: border-box;
+    border-radius: 14px;
+    background: linear-gradient(180deg, var(--apad-bg-start), var(--apad-bg-end));
+    border: 1px solid var(--apad-border);
+    color: var(--apad-accent);
+    font-weight: 700;
+    font-size: 1.05rem;
+    line-height: 1;
+    position: relative;
+    overflow: visible;
+    /* sombras apiladas para efecto "fusionado" */
+    box-shadow:
+    0 10px 24px var(--apad-shadow-1),
+    0 2px 8px var(--apad-shadow-2),
+    inset 0 1px 0 rgba(255,255,255,0.6);
+    transition: transform 280ms cubic-bezier(.2,.9,.2,1), box-shadow 280ms ease, filter 280ms ease;
+    will-change: transform, box-shadow, filter;
+    /* animaciones: entrada + flotación sutil */
+    animation: apad-entrance 640ms cubic-bezier(.2,.9,.2,1) both,
+                apad-float 6s ease-in-out 700ms infinite alternate;
+}
+.apadrinamientos-padrinos .badge::after{
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 120%;
+    border-radius: 16px;
+    background: radial-gradient(closest-side, var(--apad-glow), transparent 60%);
+    filter: blur(10px);
+    pointer-events: none;
+    opacity: 0.95;
+    mix-blend-mode: screen;
+}
+.apadrinamientos-padrinos .count{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    height: 44px;
+    padding: 0 10px;
+    border-radius: 10px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.15));
+    color: var(--apad-accent);
+    font-weight: 800;
+    font-size: 1.25rem;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.6);
+    display: inline-grid;
+    place-items: center;
+}
+.apadrinamientos-padrinos .label{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--apad-accent);
+    font-weight: 800;
+    font-size: 1.1rem;
+    line-height: 1;
+    padding-right: 4px;
+}
+@media (hover: hover) and (pointer: fine) {
+    .apadrinamientos-padrinos .badge:hover,
+    .apadrinamientos-padrinos .badge:focus {
+        transform: translateY(-6px) scale(1.02);
+        box-shadow:
+            0 20px 44px rgba(255,122,89,0.22),
+            0 6px 18px rgba(0,0,0,0.08),
+            inset 0 1px 0 rgba(255,255,255,0.7);
+        filter: saturate(1.04);
+        cursor: default;
+    }
+}
+@keyframes apad-entrance {
+    0%   { transform: translateY(10px) scale(.98); opacity: 0; }
+    60%  { transform: translateY(-4px) scale(1.02); opacity: 1; }
+    100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+@keyframes apad-float {
+    0%   { transform: translateY(0) }
+    100% { transform: translateY(-6px) }
+}
+.apadrinamientos-padrinos.compact .badge{
+    padding: 6px 10px;
+    border-radius: 10px;
+}
+.apadrinamientos-padrinos.compact .count{
+    min-width: 36px;
+    height: 36px;
+    font-size: 1rem;
+    border-radius: 8px;
+}
+.apadrinamientos-padrinos.compact .label{
+    font-size: 0.85rem;
+}
+@media (max-width: 420px) {
+    .apadrinamientos-padrinos .badge{
+        flex-direction: column;
+        gap: 6px;
+        padding: 10px 12px;
+    }
+    .apadrinamientos-padrinos .count,
+    .apadrinamientos-padrinos .label{
+        height: auto;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .apadrinamientos-padrinos .badge{
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
+        box-shadow: 0 6px 12px rgba(0,0,0,0.06) !important;
+    }
+    .apadrinamientos-padrinos .badge::after{
+        display: none;
+    }
+}
+/* END contador de padrinos */
