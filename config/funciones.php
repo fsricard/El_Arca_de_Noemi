@@ -54,6 +54,7 @@ function tituloPagina($pagina) {
         'apadrina_listado_animales'                 => 'Listado de animales',
         'adopciones_incluir_animal'                 => 'Gestión de Adopciones',
         'sistema_adopciones_iniciar'                => 'Iniciar nueva adopción',
+        'apadrina_ver_apadrinamientos'              => 'Listado individual',
         'sistema_adopciones_por_adoptante'          => 'Adopciones por adoptante',
         'sistema_adopciones_editar_animales'        => 'Editar animal en adopción',
         'sistema_adopciones_editar_adoptante'       => 'Edición de adoptantes',
