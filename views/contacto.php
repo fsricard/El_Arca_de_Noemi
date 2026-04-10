@@ -25,11 +25,9 @@ if (isset($_POST['enviar'])) {
             ]);
 
             $mensaje_ok = "Tu mensaje ha sido enviado correctamente. Noemi lo revisará pronto y te contestará en breve.";
-        
         } catch (Exception $e) {
             $mensaje_error = "!!Algo salió mal¡¡. Inténtalo más tarde.";
         }
-
     } else {
         $mensaje_error = "Todos los campos son obligatorios.";
     }
@@ -46,33 +44,25 @@ if (isset($_POST['enviar'])) {
             </h2>
 
             <?php
-                $stmt = $pdo->query("
+            $stmt = $pdo->query("
                     SELECT contenido, actualizado
                     FROM intro_contacto
                     ORDER BY id DESC
                     LIMIT 1
                 ");
 
-                $intro_contacto = $stmt->fetch(PDO::FETCH_ASSOC);
-
-                if($intro_contacto):
+            $intro_contacto = $stmt->fetch(PDO::FETCH_ASSOC);
             ?>
-
-                <div class="destacado-content">
-                    <?= $intro_contacto['contenido'] ?>
-                </div>
-
-            <?php endif; ?>
 
             <div class="destacado-content">
 
-                <?php if(isset($mensaje_ok)): ?>
+                <?php if (isset($mensaje_ok)): ?>
                     <div class="alert alert-ok">
                         <?= $mensaje_ok ?>
                     </div>
                 <?php endif; ?>
 
-                <?php if(isset($mensaje_error)): ?>
+                <?php if (isset($mensaje_error)): ?>
                     <div class="alert alert-error">
                         <?= $mensaje_error ?>
                     </div>
@@ -80,29 +70,41 @@ if (isset($_POST['enviar'])) {
 
                 <form action="" method="POST" class="form-noemi">
 
-                    <div class="form-group">
-                        <label for="nombre">Tu nombre</label>
-                        <input type="text" id="nombre" name="nombre" required>
-                    </div>
+                    <?php
+                    if ($intro_contacto):
+                    ?>
 
-                    <div class="form-group">
-                        <label for="email">Tu email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
+                        <div class="destacado-content">
+                            <?= $intro_contacto['contenido'] ?>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="asunto">Asunto</label>
-                        <input type="text" id="asunto" name="asunto" required>
-                    </div>
+                    <?php endif; ?>
 
-                    <div class="form-group">
-                        <label for="mensaje">Mensaje</label>
-                        <textarea id="mensaje" name="mensaje" rows="6" required></textarea>
-                    </div>
+                    <div class="form-noemi-container">
+                        <div class="form-group">
+                            <label for="nombre">Tu nombre</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                        </div>
 
-                    <button type="submit" name="enviar" class="btn-noemi">
-                        Enviar
-                    </button>
+                        <div class="form-group">
+                            <label for="email">Tu email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="asunto">Asunto</label>
+                            <input type="text" id="asunto" name="asunto" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje</label>
+                            <textarea id="mensaje" name="mensaje" rows="6" required></textarea>
+                        </div>
+
+                        <button type="submit" name="enviar" class="btn">
+                            Enviar
+                        </button>
+                    </div>
 
                 </form>
 

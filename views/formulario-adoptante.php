@@ -341,7 +341,7 @@ if (!$animal) {
                             </div>
                         </fieldset>
 
-                        <button type="submit" class="btn-enviar">Enviar formulario</button>
+                        <button type="submit" class="btn">Enviar formulario</button>
 
                     </form>
                 </div>
