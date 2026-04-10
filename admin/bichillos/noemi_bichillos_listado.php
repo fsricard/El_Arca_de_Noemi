@@ -1,8 +1,8 @@
 <?php
-require_once __DIR__ . '/includes/session.php';
-require_once __DIR__ . '/includes/auth.php';
-require_once __DIR__ . '/../config/database.php';
-require_once __DIR__ . '/../config/funciones.php';
+require_once __DIR__ . '/../includes/session.php';
+require_once __DIR__ . '/../includes/auth.php';
+require_once __DIR__ . '/../../config/database.php';
+require_once(__DIR__ . '/../../config/funciones.php');
 
 // Si no está logueado, redirigimos al login
 if (!isLoggedIn()) {
@@ -109,7 +109,7 @@ $bichillos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 $pagina = 'noemi_bichillos_listado';
 
-include('includes/header.php');
+include('../includes/header.php');
 ?>
 
 <main>
@@ -168,10 +168,10 @@ include('includes/header.php');
                     <?php foreach ($bichillos as $b): ?>
                         <tr>
                             <td>
-                                <img src="../<?= htmlspecialchars($b['bichillo']) ?>"
+                                <img src="../../<?= htmlspecialchars($b['bichillo']) ?>"
                                     alt="bichillo"
                                     class="thumb-bichillo"
-                                    data-img="../<?= htmlspecialchars($b['bichillo']) ?>"
+                                    data-img="../../<?= htmlspecialchars($b['bichillo']) ?>"
                                     style="width:70px; height:70px; object-fit:cover; border-radius:6px; cursor:pointer;">
                             </td>
 
@@ -289,4 +289,4 @@ include('includes/header.php');
     });
 </script>
 
-<?php include('includes/footer.php');
+<?php include('../includes/footer.php');
