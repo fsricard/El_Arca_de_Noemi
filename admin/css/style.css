@@ -647,6 +647,9 @@ form button:hover i {
 }
 .submenu-items a,
 .submenu-items-nested a {
+    pointer-events: auto;
+    display: inline-flex;
+    align-items: center;
     justify-content: flex-start;
 }
 /* END menú desplegable */
@@ -857,7 +860,7 @@ form input, form select, form button {
     }
     .submenu-toggle {
         position: relative;
-        z-index: 4000;
+        z-index: 5000;
         pointer-events: auto;
     }
     .submenu.open > .submenu-items,

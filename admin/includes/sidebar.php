@@ -17,21 +17,6 @@
             <li><a href="<?= asset('admin/contacto_intro.php') ?>"><i class="fa-solid fa-envelope icon-doc-contacto"></i> Contacto intro</a></li>
             <li><a href="<?= asset('admin/asi_es_noemi.php') ?>"><i class="fa-solid fa-person-burst icon-asi-es-noemi"></i> Así es Noemí</a></li>
             <li><a href="<?= asset('admin/politica_de_privacidad.php') ?>"><i class="fa-solid fa-shield-halved icon-doc-privacidad"></i> Política de privacidad</a></li>
-        </ul>
-    </div>
-
-    <!-- Registros -->
-    <div class="submenu">
-        <button class="submenu-toggle">
-            <i class="fa-classic fa-solid fa-cash-register icon-registro"></i> Registros
-            <i class="fa-solid fa-chevron-down flecha"></i>
-        </button>
-
-        <ul class="submenu-items">
-            <li><a href="<?= asset('admin/registros/adopciones_incluir.php') ?>"><i class="fa-solid fa-paw-simple icon-registros-raza"></i> Incluir nueva raza</a></li>
-            <li><a href="<?= asset('admin/registros/adopciones.php') ?>"><i class="fa-solid fa-file-circle-plus icon-registros-incluir"></i> Incluir animal para adoptar</a></li>
-            <li><a href="<?= asset('admin/registros/adopciones_adoptante.php') ?>"><i class="fa-solid fa-user-plus icon-registros-adoptante"></i> Incluir un nuevo adoptante</a></li>
-            <li><a href="<?= asset('admin/registros/apadrinamiento_incluir.php') ?>"><i class="fa-solid fa-file-circle-plus icon-registros-incluir-apadrinar"></i> Incluir animal para apadrinar</a></li>
 
             <!-- Frases -->
             <li class="submenu-nested">
@@ -48,6 +33,21 @@
                 </ul>
             </li>
 
+        </ul>
+    </div>
+
+    <!-- Registros -->
+    <div class="submenu">
+        <button class="submenu-toggle">
+            <i class="fa-classic fa-solid fa-cash-register icon-registro"></i> Registros
+            <i class="fa-solid fa-chevron-down flecha"></i>
+        </button>
+
+        <ul class="submenu-items">
+            <li><a href="<?= asset('admin/registros/adopciones_incluir.php') ?>"><i class="fa-solid fa-paw-simple icon-registros-raza"></i> Incluir nueva raza</a></li>
+            <li><a href="<?= asset('admin/registros/adopciones.php') ?>"><i class="fa-solid fa-file-circle-plus icon-registros-incluir"></i> Incluir animal para adoptar</a></li>
+            <li><a href="<?= asset('admin/registros/adopciones_adoptante.php') ?>"><i class="fa-solid fa-user-plus icon-registros-adoptante"></i> Incluir un nuevo adoptante</a></li>
+            <li><a href="<?= asset('admin/registros/apadrinamiento_incluir.php') ?>"><i class="fa-solid fa-file-circle-plus icon-registros-incluir-apadrinar"></i> Incluir animal para apadrinar</a></li>
         </ul>
     </div>
 
@@ -102,10 +102,8 @@
 <script>
     // Script para abrir/cerrar los submenús
     (function () {
-    // tiempo en ms durante el cual ignoramos clicks en subitems tras abrir
     const IGNORE_MS = 350;
 
-    // cerrar todos
     function closeAll() {
         document.querySelectorAll('.submenu.open, .submenu-nested.open')
         .forEach(el => {
@@ -114,40 +112,45 @@
         });
     }
 
-    // delegado pointerdown para touch/mouse
+    // Delegado pointerdown: touch + mouse
     document.addEventListener('pointerdown', function (e) {
         const btn = e.target.closest('.submenu-toggle');
+
+        // Si pulsamos un toggle (nivel 1 o nested)
         if (btn) {
-        // evita que el mismo toque active un enlace debajo
         e.preventDefault();
         e.stopPropagation();
 
-        const container = btn.closest('.submenu') || btn.closest('.submenu-nested');
+        // buscar primero nested, luego principal
+        const container = btn.closest('.submenu-nested') || btn.closest('.submenu');
         if (!container) return;
 
         const willOpen = !container.classList.contains('open');
 
-        // si quieres solo 1 abierto a la vez, descomenta:
-        // closeAll();
-
+        // No cerramos el padre cuando abrimos un nested; solo toggle en el contenedor encontrado
         container.classList.toggle('open', willOpen);
 
-        // marcar como "recién abierto" para bloquear activación accidental
         if (willOpen) {
             container.classList.add('just-opened');
-            // quitar la marca pasado IGNORE_MS
             setTimeout(() => container.classList.remove('just-opened'), IGNORE_MS);
         } else {
             container.classList.remove('just-opened');
         }
+
         return;
         }
 
-        // si no tocamos un toggle, cerramos menús abiertos
+        // Si el pointerdown ocurre dentro de cualquier .submenu o .submenu-nested,
+        // no cerramos nada: permitimos que los enlaces reciban el evento normalmente.
+        if (e.target.closest('.submenu') || e.target.closest('.submenu-nested')) {
+        return;
+        }
+
+        // Si no es ni toggle ni dentro de un submenu, cerramos todo
         closeAll();
     }, { passive: false });
 
-    // bloquear clicks en enlaces de submenus si el contenedor está "just-opened"
+    // Evitar navegación accidental en el primer click tras abrir
     document.addEventListener('click', function (e) {
         const link = e.target.closest('.submenu-items a, .submenu-items-nested a');
         if (!link) return;
@@ -157,18 +160,20 @@
         // primer click tras abrir: evitar navegación accidental
         e.preventDefault();
         e.stopPropagation();
-        // opcional: abrir el submenu (ya está abierto) y quitar la marca
         parentSub.classList.remove('just-opened');
         return;
         }
+        // si no está "just-opened", dejamos que el enlace navegue
+    }, true); // captura para interceptar antes que otros handlers
 
-        // si el click es en un link normal, dejamos que navegue
-    }, true); // use capture to intercept early
-
-    // hover en desktop (no sustituye al click)
+    // Hover en desktop (no sustituye al click)
     function enableDesktopHover() {
         const isDesktop = window.matchMedia('(min-width: 769px)').matches;
         document.querySelectorAll('.submenu').forEach(s => {
+        s.onmouseenter = isDesktop ? () => s.classList.add('open') : null;
+        s.onmouseleave = isDesktop ? () => s.classList.remove('open') : null;
+        });
+        document.querySelectorAll('.submenu-nested').forEach(s => {
         s.onmouseenter = isDesktop ? () => s.classList.add('open') : null;
         s.onmouseleave = isDesktop ? () => s.classList.remove('open') : null;
         });
