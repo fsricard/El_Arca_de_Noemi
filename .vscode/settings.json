@@ -1,0 +1,6 @@
+{
+    "github.copilot.enable": {
+        "php": true,
+        "*": false
+    }
+}
