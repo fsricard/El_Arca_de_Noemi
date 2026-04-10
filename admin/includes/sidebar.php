@@ -5,21 +5,6 @@
         <i class="fa-solid fa-house icon-inicio"></i> Inicio
     </a>
 
-    <!-- Frases -->
-    <div class="submenu">
-        <button class="submenu-toggle">
-            <i class="fa-solid fa-hand-horns icon-frases"></i> Sarcásmo y humor
-            <i class="fa-solid fa-chevron-down flecha"></i>
-        </button>
-
-        <ul class="submenu-items">
-            <li><a href="<?= asset('admin/noemi_dice.php') ?>"><i class="fa-solid fa-face-grin-tongue-wink icon-frases-loco"></i> Noemí dice</a></li>
-            <li><a href="<?= asset('admin/noemi_dice_listado.php') ?>"><i class="fa-solid fa-scroll icon-frases-scroll"></i> El listado de Noemí dice</a></li>
-            <li><a href="<?= asset('admin/noemi_bichillos.php') ?>"><i class="fa-solid fa-paw icon-frases-bichillos"></i> Los bichillos de Noemí</a></li>
-            <li><a href="<?= asset('admin/noemi_bichillos_listado.php') ?>"><i class="fa-solid fa-images icon-frases-bichillos-listado"></i> El listado bichillos de Noemí</a></li>
-        </ul>
-    </div>
-
     <!-- Documentos -->
     <div class="submenu">
         <button class="submenu-toggle">
@@ -47,6 +32,22 @@
             <li><a href="<?= asset('admin/registros/adopciones.php') ?>"><i class="fa-solid fa-file-circle-plus icon-registros-incluir"></i> Incluir animal para adoptar</a></li>
             <li><a href="<?= asset('admin/registros/adopciones_adoptante.php') ?>"><i class="fa-solid fa-user-plus icon-registros-adoptante"></i> Incluir un nuevo adoptante</a></li>
             <li><a href="<?= asset('admin/registros/apadrinamiento_incluir.php') ?>"><i class="fa-solid fa-file-circle-plus icon-registros-incluir-apadrinar"></i> Incluir animal para apadrinar</a></li>
+
+            <!-- Frases -->
+            <li class="submenu-nested">
+                <button class="submenu-toggle">
+                    <i class="fa-solid fa-hand-horns icon-frases"></i> Sarcásmo y humor
+                    <i class="fa-solid fa-chevron-down flecha"></i>
+                </button>
+
+                <ul class="submenu-items-nested">
+                    <li><a href="<?= asset('admin/noemi_dice.php') ?>"><i class="fa-solid fa-face-grin-tongue-wink icon-frases-loco"></i> Noemí dice</a></li>
+                    <li><a href="<?= asset('admin/noemi_dice_listado.php') ?>"><i class="fa-solid fa-scroll icon-frases-scroll"></i> El listado de Noemí dice</a></li>
+                    <li><a href="<?= asset('admin/noemi_bichillos.php') ?>"><i class="fa-solid fa-paw icon-frases-bichillos"></i> Los bichillos de Noemí</a></li>
+                    <li><a href="<?= asset('admin/noemi_bichillos_listado.php') ?>"><i class="fa-solid fa-images icon-frases-bichillos-listado"></i> El listado bichillos de Noemí</a></li>
+                </ul>
+            </li>
+
         </ul>
     </div>
 
@@ -97,3 +98,82 @@
     </a>
 
 </nav>
+
+<script>
+    // Script para abrir/cerrar los submenús
+    (function () {
+    // tiempo en ms durante el cual ignoramos clicks en subitems tras abrir
+    const IGNORE_MS = 350;
+
+    // cerrar todos
+    function closeAll() {
+        document.querySelectorAll('.submenu.open, .submenu-nested.open')
+        .forEach(el => {
+            el.classList.remove('open');
+            el.classList.remove('just-opened');
+        });
+    }
+
+    // delegado pointerdown para touch/mouse
+    document.addEventListener('pointerdown', function (e) {
+        const btn = e.target.closest('.submenu-toggle');
+        if (btn) {
+        // evita que el mismo toque active un enlace debajo
+        e.preventDefault();
+        e.stopPropagation();
+
+        const container = btn.closest('.submenu') || btn.closest('.submenu-nested');
+        if (!container) return;
+
+        const willOpen = !container.classList.contains('open');
+
+        // si quieres solo 1 abierto a la vez, descomenta:
+        // closeAll();
+
+        container.classList.toggle('open', willOpen);
+
+        // marcar como "recién abierto" para bloquear activación accidental
+        if (willOpen) {
+            container.classList.add('just-opened');
+            // quitar la marca pasado IGNORE_MS
+            setTimeout(() => container.classList.remove('just-opened'), IGNORE_MS);
+        } else {
+            container.classList.remove('just-opened');
+        }
+        return;
+        }
+
+        // si no tocamos un toggle, cerramos menús abiertos
+        closeAll();
+    }, { passive: false });
+
+    // bloquear clicks en enlaces de submenus si el contenedor está "just-opened"
+    document.addEventListener('click', function (e) {
+        const link = e.target.closest('.submenu-items a, .submenu-items-nested a');
+        if (!link) return;
+
+        const parentSub = link.closest('.submenu, .submenu-nested');
+        if (parentSub && parentSub.classList.contains('just-opened')) {
+        // primer click tras abrir: evitar navegación accidental
+        e.preventDefault();
+        e.stopPropagation();
+        // opcional: abrir el submenu (ya está abierto) y quitar la marca
+        parentSub.classList.remove('just-opened');
+        return;
+        }
+
+        // si el click es en un link normal, dejamos que navegue
+    }, true); // use capture to intercept early
+
+    // hover en desktop (no sustituye al click)
+    function enableDesktopHover() {
+        const isDesktop = window.matchMedia('(min-width: 769px)').matches;
+        document.querySelectorAll('.submenu').forEach(s => {
+        s.onmouseenter = isDesktop ? () => s.classList.add('open') : null;
+        s.onmouseleave = isDesktop ? () => s.classList.remove('open') : null;
+        });
+    }
+    enableDesktopHover();
+    window.addEventListener('resize', enableDesktopHover);
+    })();
+</script>
