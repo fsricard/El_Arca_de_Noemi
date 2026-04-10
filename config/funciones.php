@@ -86,6 +86,7 @@ function mostrarTextoPersonalizado()
         'contacto'                  => 'Contacta con Noemí',
         'asi-es-noemi'              => 'Esta es Noemí, descubre su historia.',
         'ficha-adopcion'            => 'Ficha individual para adoptar a ',
+        'formulario-adoptante'      => 'Formulario con los datos necesarios para intentar adoptar a ',
         'ficha-apadrinamiento'      => 'Ficha individual para apadrinar a ',
         'politica-de-privacidad'    => 'Política de privacidad',
     ];
@@ -98,6 +99,12 @@ function mostrarTextoPersonalizado()
 
     // Si estamos en ficha-apadrinamiento y tenemos nombre del animal → título dinámico
     if ($pagina === 'ficha-apadrinamiento' && !empty($nombreAnimal)) {
+        echo $textos[$pagina] . $nombreAnimal;
+        return;
+    }
+
+    // Si estamos en formulario-adopciones y tenemos nombre del animal → título dinámico
+    if ($pagina === 'formulario-adoptante' && !empty($nombreAnimal)) {
         echo $textos[$pagina] . $nombreAnimal;
         return;
     }

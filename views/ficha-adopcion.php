@@ -200,7 +200,7 @@ $especieNombre= htmlspecialchars($especie['nombre'] ?? 'Especie desconocida');
                     <?php endif; ?>
 
                     <!-- CTA -->
-                    <a href="formulario-adoptante.php?id=<?= $animal['id'] ?>" 
+                    <a href="formulario-adoptante?id=<?= $animal['id'] ?>" 
                     class="btn btn-adoptar">
                         <i class="fa-solid fa-heart"></i> 
                         Quiero adoptar a <?= htmlspecialchars($animal['nombre']) ?>

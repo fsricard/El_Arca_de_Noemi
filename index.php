@@ -18,6 +18,7 @@ $rutas_validas = [
     'asi-es-noemi',
     'ficha-adopcion',
     'ficha-apadrinamiento',
+    'formulario-adoptante',
     'politica-de-privacidad'
 ];
 
@@ -68,6 +69,26 @@ if ($view === 'ficha-apadrinamiento') {
         }
 
         $sql = "SELECT nombre FROM animals_sponsor WHERE id = ?";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$idAnimal]);
+        $animal = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        $GLOBALS['nombre_animal'] = $animal['nombre'] ?? '';
+    }
+}
+
+// Si entras a el formulario de adopciones
+if ($view === 'formulario-adoptante') {
+
+    $idAnimal = isset($_GET['id']) ? (int) $_GET['id'] : null;
+
+    if ($idAnimal) {
+
+        if (!isset($pdo)) {
+            require_once(__DIR__ . '/config/database.php');
+        }
+
+        $sql = "SELECT nombre FROM animales WHERE id = ?";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$idAnimal]);
         $animal = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -130,6 +151,14 @@ elseif ($view === 'ficha-adopcion') {
 // ---------------------------
 elseif ($view === 'ficha-apadrinamiento') {
     require __DIR__ . '/views/ficha-apadrinamiento.php';
+}
+
+// -------------------------------------
+//  FICHA DE EL FORMULARIO DE ADOPCIONES
+//  /formulario-adoptante
+// -------------------------------------
+elseif ($view === 'formulario-adoptante') {
+    require __DIR__ . '/views/formulario-adoptante.php';
 }
 
 // ---------------------------
