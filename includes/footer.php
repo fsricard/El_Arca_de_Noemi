@@ -9,7 +9,7 @@
                             <li><a href="<?= asset('/politica-de-privacidad') ?>">Política de privacidad</a></li>
                         </ul>
                     </div>
-        
+
                     <div class="sections-footer-center">
                         <h3>Mis bichillos son sociales</h3>
                         <ul>
@@ -18,17 +18,17 @@
                             <li><a href="<?= asset('/') ?>" target="_blank"><i class="fa-brands fa-youtube"></i> YouTube</a></li>
                         </ul>
                     </div>
-        
+
                     <div class="sections-footer-right">
                         <img src="<?= asset('/img/logo_20260317_0001.png') ?>" alt="Logotipo de el Arca de Noemí" class="footer-logo" />
                     </div>
                 </div>
-        
+
                 <hr />
-        
+
                 <h4>
                     <?php
-                        echo CopyrightRicardFS();
+                    echo CopyrightRicardFS();
                     ?>
                 </h4>
             </div>
@@ -71,7 +71,7 @@
                 const menu = document.getElementById('menuMovil');
                 menu.style.left = (menu.style.left === '0px') ? '-100%' : '0px';
             }
-            
+
             // Script para el aviso de cookies
             document.addEventListener("DOMContentLoaded", () => {
 
@@ -112,5 +112,6 @@
                 });
             })();
         </script>
-    </body>
-</html>
+        </body>
+
+        </html>

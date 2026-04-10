@@ -17,6 +17,7 @@ $rutas_validas = [
     'contacto',
     'asi-es-noemi',
     'ficha-adopcion',
+    'ficha-apadrinamiento',
     'politica-de-privacidad'
 ];
 
@@ -35,6 +36,7 @@ $GLOBALS['nombre_animal'] = '';
 //  CARGA PREVIA DE DATOS SEGÚN LA VISTA
 // ==========================================
 
+// Si entras a una ficha de adopción
 if ($view === 'ficha-adopcion') {
 
     $idAnimal = $_GET['id'] ?? null;
@@ -46,6 +48,26 @@ if ($view === 'ficha-adopcion') {
         }
 
         $sql = "SELECT nombre FROM animales WHERE id = ?";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$idAnimal]);
+        $animal = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        $GLOBALS['nombre_animal'] = $animal['nombre'] ?? '';
+    }
+}
+
+// Si entras a una ficha de apadrinamientos
+if ($view === 'ficha-apadrinamiento') {
+
+    $idAnimal = isset($_GET['id']) ? (int) $_GET['id'] : null;
+
+    if ($idAnimal) {
+
+        if (!isset($pdo)) {
+            require_once(__DIR__ . '/config/database.php');
+        }
+
+        $sql = "SELECT nombre FROM animals_sponsor WHERE id = ?";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$idAnimal]);
         $animal = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -100,6 +122,14 @@ elseif ($view === 'asi-es-noemi') {
 // ---------------------------
 elseif ($view === 'ficha-adopcion') {
     require __DIR__ . '/views/ficha-adopcion.php';
+}
+
+// ---------------------------
+//  FICHA DE APADRINAMIENTO INDIVIDUAL
+//  /ficha-apadrinamiento
+// ---------------------------
+elseif ($view === 'ficha-apadrinamiento') {
+    require __DIR__ . '/views/ficha-apadrinamiento.php';
 }
 
 // ---------------------------

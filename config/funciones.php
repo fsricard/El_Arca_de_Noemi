@@ -1,19 +1,22 @@
 <?php
 // Función para restringir contenido solo para el rol "admin"
-function tienePermiso(): bool {
-    $rolesPermitidos = ['admin']; 
-    
+function tienePermiso(): bool
+{
+    $rolesPermitidos = ['admin'];
+
     return in_array($_SESSION['rol'], $rolesPermitidos, true);
 }
 
 // Función para detectar dispositos móviles
-function esSoloMovil() {
+function esSoloMovil()
+{
     $ua = strtolower($_SERVER['HTTP_USER_AGENT']);
     return preg_match('/(android.*mobile|iphone|ipod|blackberry|windows phone|webos)/i', $ua);
 }
 
 // Función para limitar el número de palabras en un texto a 20 palabras
-function limitar_palabras($texto, $max_palabras = 20) {
+function limitar_palabras($texto, $max_palabras = 20)
+{
     $palabras = preg_split('/\s+/', trim($texto));
 
     if (count($palabras) <= $max_palabras) {
@@ -25,7 +28,8 @@ function limitar_palabras($texto, $max_palabras = 20) {
 }
 
 // Función para imprimir los textos dinámicos en el header del BackEnd
-function tituloPagina($pagina) {
+function tituloPagina($pagina)
+{
     // Array asociativo de títulos
     $titulos = [
         'logs'                                      => 'Registro de logs',
@@ -66,7 +70,8 @@ function tituloPagina($pagina) {
 }
 
 // Función para imprimir textos personalizados en "header.php" del FrontEnd
-function mostrarTextoPersonalizado() {
+function mostrarTextoPersonalizado()
+{
     // Recupera la ruta desde la variable global
     $pagina = $GLOBALS['pagina_actual'] ?? '';
 
@@ -81,6 +86,7 @@ function mostrarTextoPersonalizado() {
         'contacto'                  => 'Contacta con Noemí',
         'asi-es-noemi'              => 'Esta es Noemí, descubre su historia.',
         'ficha-adopcion'            => 'Ficha individual para adoptar a ',
+        'ficha-apadrinamiento'      => 'Ficha individual para apadrinar a ',
         'politica-de-privacidad'    => 'Política de privacidad',
     ];
 
@@ -90,19 +96,27 @@ function mostrarTextoPersonalizado() {
         return;
     }
 
+    // Si estamos en ficha-apadrinamiento y tenemos nombre del animal → título dinámico
+    if ($pagina === 'ficha-apadrinamiento' && !empty($nombreAnimal)) {
+        echo $textos[$pagina] . $nombreAnimal;
+        return;
+    }
+
     // Imprime el texto correspondiente o uno por defecto
     echo $textos[$pagina] ?? 'El Arca de Noemi';
 }
 
 // Función para mostrar el CopyRight en el footer
-function CopyrightRicardFS($startYear = 2024) {
+function CopyrightRicardFS($startYear = 2024)
+{
     $currentYear = date('Y');
     $yearDisplay = ($startYear == $currentYear) ? $currentYear : "$startYear – $currentYear";
     return "&copy; $yearDisplay El Arca de Noemí - Todos los derechos reservados";
 }
 
 // Función para las frases cortas de Noemí
-function noemi_frase_random(PDO $pdo): string {
+function noemi_frase_random(PDO $pdo): string
+{
     $stmt = $pdo->query("
         SELECT frase 
         FROM noemi_frases 
@@ -115,7 +129,8 @@ function noemi_frase_random(PDO $pdo): string {
 }
 
 // Función para las imágenes aleatorias de "Los bichillos de Noemí"
-function noemi_bichillos_random(PDO $pdo): ?string {
+function noemi_bichillos_random(PDO $pdo): ?string
+{
     $stmt = $pdo->query("
         SELECT bichillo 
         FROM noemi_bichillos 
@@ -130,7 +145,8 @@ function noemi_bichillos_random(PDO $pdo): ?string {
 }
 
 // Función para crear rutas absolutas
-function base_url(): string {
+function base_url(): string
+{
     $protocolo = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https://' : 'http://';
     $host = $_SERVER['HTTP_HOST'];
 
@@ -148,12 +164,14 @@ function base_url(): string {
 }
 
 // Genera rutas absolutas correctas para assets.
-function asset(string $ruta): string {
+function asset(string $ruta): string
+{
     return base_url() . '/' . ltrim($ruta, '/');
 }
 
 // Registra eventos en un archivo de log con bloqueo de escritura.
-function registrarLog(string $mensaje, string $nivel = 'INFO', ?int $usuarioId = null, ?string $modulo = null): void {
+function registrarLog(string $mensaje, string $nivel = 'INFO', ?int $usuarioId = null, ?string $modulo = null): void
+{
     // Ruta del log
     $logDir = __DIR__ . '/../logs';
     $logFile = $logDir . '/app.log';
@@ -183,7 +201,8 @@ function registrarLog(string $mensaje, string $nivel = 'INFO', ?int $usuarioId =
 }
 
 // IP del cliente considerando cabeceras comunes de proxies.
-function obtenerIpCliente(): string {
+function obtenerIpCliente(): string
+{
     $candidatas = [
         'HTTP_X_FORWARDED_FOR',
         'HTTP_CLIENT_IP',
@@ -201,13 +220,15 @@ function obtenerIpCliente(): string {
 }
 
 // Determina el "módulo actual" para logging según el script.
-function obtenerModuloActual(): string {
+function obtenerModuloActual(): string
+{
     $script = isset($_SERVER['SCRIPT_NAME']) ? basename($_SERVER['SCRIPT_NAME']) : 'cli';
     return $script;
 }
 
 // Función para el sistema de mensajes de alerta modular
-function mostrarAlerta(string $mensaje, string $tipo = 'success'): string {
+function mostrarAlerta(string $mensaje, string $tipo = 'success'): string
+{
     $tipos = [
         'success' => [
             'icon' => 'fa-circle-check',
@@ -247,7 +268,8 @@ function mostrarAlerta(string $mensaje, string $tipo = 'success'): string {
 }
 
 // Función para crear un sistema de paginación modular
-function paginador($total_registros, $por_pagina, $pagina_actual, $filtros = [], $param_pagina = 'p') {
+function paginador($total_registros, $por_pagina, $pagina_actual, $filtros = [], $param_pagina = 'p')
+{
 
     $total_paginas = max(1, ceil($total_registros / $por_pagina));
 
@@ -284,7 +306,8 @@ function paginador($total_registros, $por_pagina, $pagina_actual, $filtros = [],
 }
 
 // Función para obtener un animal en adopción random para la página de inicio
-function obtener_animal_adopcion_random(PDO $pdo){
+function obtener_animal_adopcion_random(PDO $pdo)
+{
     $sql = "
         SELECT 
             a.id,
@@ -314,7 +337,8 @@ function obtener_animal_adopcion_random(PDO $pdo){
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
 
-function obtener_animal_apadrinamiento_random(PDO $pdo) {
+function obtener_animal_apadrinamiento_random(PDO $pdo)
+{
     $sql = "
         SELECT
             a.id,
@@ -357,16 +381,24 @@ function obtener_animal_apadrinamiento_random(PDO $pdo) {
 }
 
 // Función para crear el slug de las fichas de apadrinamientos
-function generarSlug($cadena) {
+function generarSlug($cadena)
+{
     // Convertir a minúsculas
     $cadena = strtolower($cadena);
 
     // Reemplazar caracteres acentuados
     $acentos = [
-        'á' => 'a', 'é' => 'e', 'í' => 'i',
-        'ó' => 'o', 'ú' => 'u', 'ñ' => 'n',
-        'ä' => 'a', 'ë' => 'e', 'ï' => 'i',
-        'ö' => 'o', 'ü' => 'u'
+        'á' => 'a',
+        'é' => 'e',
+        'í' => 'i',
+        'ó' => 'o',
+        'ú' => 'u',
+        'ñ' => 'n',
+        'ä' => 'a',
+        'ë' => 'e',
+        'ï' => 'i',
+        'ö' => 'o',
+        'ü' => 'u'
     ];
     $cadena = strtr($cadena, $acentos);
 
