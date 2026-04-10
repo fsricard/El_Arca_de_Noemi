@@ -1212,6 +1212,11 @@ footer h4 {
 .ficha-especie-raza i {
     color: var(--color-secondary);
 }
+.adopta-bloque-datos {
+    display: grid;
+    grid-template-columns: 2.0fr 2.0fr;
+    gap: 35px;
+}
 .bloque-datos {
     font-size: 1.6rem;
     padding: 15px;
@@ -1470,6 +1475,9 @@ footer h4 {
     .adopcion-boton {
         align-self: center;
         margin-top: 15px;
+    }
+    .adopta-bloque-datos {
+        display: block;
     }
 }
 @media (max-width: 600px) {
