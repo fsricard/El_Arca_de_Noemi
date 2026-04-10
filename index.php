@@ -17,9 +17,11 @@ $rutas_validas = [
     'contacto',
     'asi-es-noemi',
     'ficha-adopcion',
+    'listado-adopciones',
     'ficha-apadrinamiento',
     'formulario-adoptante',
-    'politica-de-privacidad'
+    'politica-de-privacidad',
+    'listado-apadrinamientos'
 ];
 
 // Si la vista no existe → 404
@@ -159,6 +161,22 @@ elseif ($view === 'ficha-apadrinamiento') {
 // -------------------------------------
 elseif ($view === 'formulario-adoptante') {
     require __DIR__ . '/views/formulario-adoptante.php';
+}
+
+// ----------------------------------
+//  FICHA DE EL LISTADO DE ADOPCIONES
+//  /listado-adopciones
+// ----------------------------------
+elseif ($view === 'listado-adopciones') {
+    require __DIR__ . '/views/listado-adopciones.php';
+}
+
+// ---------------------------------------
+//  FICHA DE EL LISTADO DE APADRINAMIENTOS
+//  /listado-apadrinamientos
+// ---------------------------------------
+elseif ($view === 'listado-apadrinamientos') {
+    require __DIR__ . '/views/listado-apadrinamientos.php';
 }
 
 // ---------------------------

@@ -86,9 +86,11 @@ function mostrarTextoPersonalizado()
         'contacto'                  => 'Contacta con Noemí',
         'asi-es-noemi'              => 'Esta es Noemí, descubre su historia.',
         'ficha-adopcion'            => 'Ficha individual para adoptar a ',
+        'listado-adopciones'        => 'Listado de todos los animales listos para adoptar en el santuario de "El Arca de Noemí',
         'formulario-adoptante'      => 'Formulario con los datos necesarios para intentar adoptar a ',
         'ficha-apadrinamiento'      => 'Ficha individual para apadrinar a ',
         'politica-de-privacidad'    => 'Política de privacidad',
+        'listado-apadrinamientos'   => 'Listado de todos los animales listos para apdrinar de "El Arca de Noemí',
     ];
 
     // Si estamos en ficha-adopcion y tenemos nombre del animal → título dinámico
