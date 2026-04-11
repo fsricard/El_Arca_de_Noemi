@@ -1,8 +1,8 @@
 <?php
-require_once __DIR__ . '/includes/session.php';
-require_once __DIR__ . '/includes/auth.php';
-require_once __DIR__ . '/../config/database.php';
-require_once(__DIR__ . '/../config/funciones.php');
+require_once __DIR__ . '/../includes/session.php';
+require_once __DIR__ . '/../includes/auth.php';
+require_once __DIR__ . '/../../config/database.php';
+require_once(__DIR__ . '/../../config/funciones.php');
 
 // Si no está logueado, redirigimos al login
 if (!isLoggedIn()) {
@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 $pagina='asi_es_noemi';
 
-include('includes/header.php');
+include('../includes/header.php');
 ?>
 
     <main>
@@ -96,4 +96,4 @@ include('includes/header.php');
         </section>
     </main>
 
-<?php include('includes/footer.php');
+<?php include('../includes/footer.php');
