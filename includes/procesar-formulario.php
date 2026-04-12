@@ -1,44 +1,55 @@
 <?php
 // includes/procesar-formulario.php
-// Requisitos: 
-// - config/database.php debe inicializar $pdo (PDO).
-// - includes/PHPMailer (autoload o files) y includes/fpdf (fpdf.php) presentes.
-// - Sesión activa para CSRF y mensajes flash.
+// Versión que carga la configuración desde config/.env mediante require_once
+// Usa PHPMailer y FPDF, guarda PDFs temporales en uploads/tmp
+// NOTA: Asegúrate de que config/.env existe y contiene las variables necesarias.
 
 session_start();
+
+// -------------------- CARGAR DB Y .env --------------------
+
+// Cargar DB (debe inicializar $pdo)
 require_once __DIR__ . '/../config/database.php';
 
-// PHPMailer (ajusta rutas si usas autoload)
+// Incluir el .env tal y como indicaste
+require_once __DIR__ . '/../config/.env';
+
+// Intentar obtener variables de entorno desde getenv() / $_ENV
+// (si tu .env no exporta variables al entorno, ajusta .env para que lo haga o usa parse_ini_file)
+$SMTP_HOST = getenv('SMTP_HOST') ?: ($_ENV['SMTP_HOST'] ?? null);
+$SMTP_PORT = getenv('SMTP_PORT') ?: ($_ENV['SMTP_PORT'] ?? null);
+$SMTP_SECURE = getenv('SMTP_SECURE') ?: ($_ENV['SMTP_SECURE'] ?? null);
+$SMTP_USER = getenv('SMTP_USER_CONTACTO') ?: ($_ENV['SMTP_USER_CONTACTO'] ?? null);
+$SMTP_PASS = getenv('SMTP_PASS_CONTACTO') ?: ($_ENV['SMTP_PASS_CONTACTO'] ?? null);
+
+// ADMIN / FROM se toman exclusivamente de la variable SMTP_USER_CONTACTO
+$ADMIN_EMAIL = $SMTP_USER;
+$FROM_EMAIL  = $SMTP_USER;
+$FROM_NAME   = 'El Arca de Noemí';
+
+// -------------------- RUTAS Y REDIRECCIONES --------------------
+$REDIRECT_SUCCESS = '/gracias.php';
+$REDIRECT_ERROR   = '/formulario-adoptante.php?id=' . urlencode($_POST['animal_id'] ?? '');
+
+// Carpeta temporal para PDFs (solicitada): uploads/tmp
+$TMP_DIR = __DIR__ . '/../uploads/tmp';
+if (!is_dir($TMP_DIR)) {
+    @mkdir($TMP_DIR, 0755, true);
+}
+
+// -------------------- DEPENDENCIAS --------------------
+// PHPMailer (rutas relativas a includes/)
 require_once __DIR__ . '/PHPMailer/src/Exception.php';
 require_once __DIR__ . '/PHPMailer/src/PHPMailer.php';
 require_once __DIR__ . '/PHPMailer/src/SMTP.php';
 
-// FPDF
+// FPDF (ruta relativa a includes/)
 require_once __DIR__ . '/fpdf/fpdf.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-// ---------- CONFIGURACIÓN (ajusta antes de desplegar) ----------
-$ADMIN_EMAIL = 'noemi@tuasociacion.org';
-$FROM_EMAIL = 'no-reply@tuasociacion.org';
-$FROM_NAME  = 'El Arca de Noemí';
-
-$SMTP_ENABLED = true;
-$SMTP_HOST = 'smtp.tuservidor.com';
-$SMTP_PORT = 587;
-$SMTP_USER = 'smtp_user';
-$SMTP_PASS = 'smtp_password';
-$SMTP_SECURE = 'tls';
-
-$REDIRECT_SUCCESS = '/gracias.php';
-$REDIRECT_ERROR   = '/formulario-adoptante.php?id=' . urlencode($_POST['animal_id'] ?? '');
-
-// Carpeta temporal para PDFs
-$TMP_DIR = __DIR__ . '/../uploads/tmp';
-if (!is_dir($TMP_DIR)) mkdir($TMP_DIR, 0755, true);
-
-// ---------- FUNCIONES AUXILIARES ----------
+// -------------------- FUNCIONES AUXILIARES --------------------
 function flash_errors(array $errors) {
     $_SESSION['form_errors'] = $errors;
 }
@@ -54,7 +65,7 @@ function sanitize_text($s) {
     return $s === '' ? null : $s;
 }
 
-// ---------- CSRF: comprobar token ----------
+// -------------------- CSRF --------------------
 $token_post = $_POST['csrf_token'] ?? '';
 $token_sess = $_SESSION['csrf_token'] ?? '';
 if (empty($token_post) || empty($token_sess) || !hash_equals($token_sess, $token_post)) {
@@ -63,7 +74,7 @@ if (empty($token_post) || empty($token_sess) || !hash_equals($token_sess, $token
     exit;
 }
 
-// ---------- DEFINICIÓN DE CAMPOS Y SANEADO ----------
+// -------------------- CAMPOS Y SANEADO --------------------
 $fields = [
     'animal_id' => FILTER_VALIDATE_INT,
     'animal_nombre' => FILTER_SANITIZE_STRING,
@@ -130,12 +141,12 @@ if (!empty($errors)) {
     exit;
 }
 
-// Normalizar algunos campos
+// Normalizar strings
 foreach ($input as $k => $v) {
     if (is_string($v)) $input[$k] = sanitize_text($v);
 }
 
-// ---------- INSERCIÓN EN BD Y VINCULACIÓN ----------
+// -------------------- INSERCIÓN EN BD Y VINCULACIÓN --------------------
 try {
     // Buscar coincidencia en adoptantes por dni o email
     $adoptante_id = null;
@@ -231,7 +242,7 @@ try {
     exit;
 }
 
-// ---------- GENERAR PDF RESUMEN (FPDF) ----------
+// -------------------- GENERAR PDF RESUMEN (FPDF) --------------------
 $pdfFile = $TMP_DIR . '/formulario_' . time() . '_' . $insertId . '.pdf';
 try {
     $pdf = new FPDF();
@@ -249,7 +260,7 @@ try {
     };
 
     $addLine('ID formulario:', $insertId);
-    $addLine('Animal:', $input['animal_nombre'] . ' (ID: ' . ($input['animal_id'] ?? '') . ')');
+    $addLine('Animal:', ($input['animal_nombre'] ?? '') . ' (ID: ' . ($input['animal_id'] ?? '') . ')');
     $addLine('Nombre:', $input['nombre_completo']);
     $addLine('DNI/Pasaporte:', $input['dni_pasaporte']);
     $addLine('Email:', $input['email']);
@@ -263,43 +274,46 @@ try {
     $pdf->Output('F', $pdfFile);
 } catch (Exception $e) {
     error_log("Error generando PDF: " . $e->getMessage());
-    // No abortamos el proceso por un fallo en el PDF; continuamos sin adjunto
     $pdfFile = null;
 }
 
-// ---------- ENVIAR CORREO CON PHPMailer ----------
+// -------------------- ENVIAR CORREO CON PHPMailer --------------------
 try {
     $mail = new PHPMailer(true);
 
-    if ($SMTP_ENABLED) {
+    // Configuración SMTP usando exclusivamente variables cargadas desde .env
+    if (!empty($SMTP_HOST) && !empty($SMTP_USER) && !empty($SMTP_PASS)) {
         $mail->isSMTP();
         $mail->Host = $SMTP_HOST;
         $mail->SMTPAuth = true;
         $mail->Username = $SMTP_USER;
         $mail->Password = $SMTP_PASS;
-        $mail->SMTPSecure = $SMTP_SECURE;
-        $mail->Port = $SMTP_PORT;
+        // SMTPSecure puede ser 'tls' o 'ssl' según .env
+        if (!empty($SMTP_SECURE)) $mail->SMTPSecure = $SMTP_SECURE;
+        if (!empty($SMTP_PORT)) $mail->Port = (int)$SMTP_PORT;
     } else {
+        // Si faltan variables, usar mail() como fallback (no recomendado en producción)
         $mail->isMail();
     }
 
     $mail->setFrom($FROM_EMAIL, $FROM_NAME);
-    $mail->addAddress($ADMIN_EMAIL); // a Noemí
-    if (!empty($input['email'])) {
-        $mail->addAddress($input['email']); // copia al usuario (si existe)
-    }
 
-    // Asunto y cuerpo (texto y HTML simple)
+    // Destinatarios: primero Noemí (admin), luego el usuario si hay email
+    if (!empty($ADMIN_EMAIL)) $mail->addAddress($ADMIN_EMAIL);
+    if (!empty($input['email'])) $mail->addAddress($input['email']);
+
     $subject = "Nuevo formulario de adopción: " . ($input['nombre_completo'] ?? 'Sin nombre');
     $mail->Subject = $subject;
 
-    // Plantilla HTML básica
-    $html = '<h2>Nuevo formulario de adopción recibido</h2>';
+    // Plantilla HTML simple
+    $html = '<div style="font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#222">';
+    $html .= '<h2 style="color:#2e7d32">Nuevo formulario de adopción recibido</h2>';
     $html .= '<p><strong>Animal:</strong> ' . htmlspecialchars($input['animal_nombre'] ?? '') . '</p>';
     $html .= '<p><strong>Nombre:</strong> ' . htmlspecialchars($input['nombre_completo'] ?? '') . '</p>';
     $html .= '<p><strong>Email:</strong> ' . htmlspecialchars($input['email'] ?? '') . '</p>';
-    $html .= '<p>Se ha adjuntado un resumen en PDF con los datos del formulario.</p>';
-    $html .= '<p>Para ver todos los detalles, accede al panel de administración.</p>';
+    $html .= '<p>Se adjunta un resumen en PDF con los datos del formulario.</p>';
+    $html .= '<p>Saludos,<br>El Arca de Noemí</p>';
+    $html .= '</div>';
 
     $text = "Nuevo formulario de adopción recibido.\n\n";
     $text .= "Animal: " . ($input['animal_nombre'] ?? '') . "\n";
@@ -312,7 +326,6 @@ try {
     $mail->Body = $html;
     $mail->AltBody = $text;
 
-    // Adjuntar PDF si se generó
     if (!empty($pdfFile) && file_exists($pdfFile)) {
         $mail->addAttachment($pdfFile, 'formulario_adopcion_' . $insertId . '.pdf');
     }
@@ -321,16 +334,15 @@ try {
 
 } catch (Exception $e) {
     error_log("PHPMailer error: " . $e->getMessage());
-    // No abortamos: el formulario ya está guardado. Informamos al admin por log.
+    // No abortamos: el formulario ya está guardado. Continuamos.
 }
 
-// ---------- LIMPIEZA TEMPORAL ----------
+// -------------------- LIMPIEZA TEMPORAL --------------------
 if (!empty($pdfFile) && file_exists($pdfFile)) {
-    // opcional: eliminar el PDF tras enviar
     @unlink($pdfFile);
 }
 
-// ---------- ÉXITO ----------
+// -------------------- ÉXITO --------------------
 flash_success('Formulario enviado correctamente. Gracias por tu interés.');
 header('Location: ' . $REDIRECT_SUCCESS);
 exit;

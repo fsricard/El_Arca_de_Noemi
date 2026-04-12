@@ -25,7 +25,7 @@ if (!$animal) {
 
                     <h2 class="form-title">Formulario de adopción para <?= htmlspecialchars($animal['nombre']) ?></h2>
 
-                    <form action="procesar-formulario.php" method="POST" class="adopta-form">
+                    <form action="includes/procesar-formulario.php" method="POST" class="adopta-form">
 
                         <?php
                         if (empty($_SESSION['csrf_token'])) $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
