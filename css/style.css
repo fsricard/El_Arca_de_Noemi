@@ -2055,7 +2055,7 @@ textarea {
         position: fixed;
         top: 0;
         right: -100%;
-        width: 70%;
+        width: 60%;
         height: 100%;
         padding-top: 100px;
         transition: right .3s ease;
@@ -2115,7 +2115,7 @@ textarea {
     }
 
     .btn-adoptar {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
     }
 
 }
@@ -2203,6 +2203,18 @@ textarea {
 
     .form-row {
         flex-direction: column;
+    }
+
+    .sections-footer h3 {
+        font-size: 1.6rem;
+    }
+
+    .sections-footer ul li a  {
+        font-size: 1.2rem;
+    }
+
+    footer h4 {
+        font-size: 1.0rem;
     }
 }
 
