@@ -12,11 +12,22 @@ function esSoloMovil()
 {
     $ua = strtolower($_SERVER['HTTP_USER_AGENT'] ?? '');
 
-    // Lista ampliada de dispositivos móviles
+    // Detectores de móvil
     $moviles = [
-        'iphone', 'ipod', 'android', 'blackberry', 'windows phone',
-        'opera mini', 'mobile', 'webos', 'kindle', 'silk'
+        'iphone',
+        'ipod',
+        'android',
+        'blackberry',
+        'windows phone',
+        'opera mini',
+        'mobile',
+        'webos'
     ];
+
+    // Si es tablet, no es móvil
+    if (esSoloTablet()) {
+        return false;
+    }
 
     foreach ($moviles as $m) {
         if (strpos($ua, $m) !== false) {
@@ -25,6 +36,39 @@ function esSoloMovil()
     }
 
     return false;
+}
+
+// Función para detectar tablets
+function esSoloTablet()
+{
+    $ua = strtolower($_SERVER['HTTP_USER_AGENT'] ?? '');
+
+    // Detectores de tablet
+    $tablets = [
+        'ipad',
+        'tablet',
+        'kindle',
+        'silk'
+    ];
+
+    foreach ($tablets as $t) {
+        if (strpos($ua, $t) !== false) {
+            return true;
+        }
+    }
+
+    // Caso especial: Android tablet (Android sin "mobile")
+    if (strpos($ua, 'android') !== false && strpos($ua, 'mobile') === false) {
+        return true;
+    }
+
+    return false;
+}
+
+// Función combinada para detectar dispositivos móviles y tablets
+function esMovilOtablet()
+{
+    return esSoloMovil() || esSoloTablet();
 }
 
 // Función para limitar el número de palabras en un texto a 20 palabras

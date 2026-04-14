@@ -129,7 +129,7 @@ if (isset($_GET['ajax']) && $_GET['ajax'] == '1') {
                     <?php
                     $descripcion = $animal['descripcion'] ?? '';
 
-                    if (esSoloMovil()) {
+                    if (esMovilOtablet()) {
                         $descripcion = limitar_palabras($descripcion, 30);
                     }
                     ?>

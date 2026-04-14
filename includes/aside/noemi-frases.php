@@ -12,7 +12,7 @@ $noemiFrase = noemi_frase_random($pdo);
 
         <div class="noemi-container">
 
-            <?php if (!esSoloMovil()): ?>
+            <?php if (!esMovilOtablet()): ?>
                 <div class="noemi-avatar">
                     <img src="<?= asset('/img/logo_20260320_0002.png') ?>" alt="Logo de El Arca de Noemi">
                 </div>

@@ -83,7 +83,7 @@ require_once(__DIR__ . '/../config/funciones.php');
             </nav>
 
             <?php
-            if (esSoloMovil()) {
+            if (esMovilOtablet()) {
                 require_once __DIR__ . '/menu_responsive.php';
             }
             ?>
