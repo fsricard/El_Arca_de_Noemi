@@ -146,7 +146,7 @@
                             <?= $primeros_dos ?>
                         </div>
 
-                        <a href="<?= asset('/asi-es-noemi') ?>" class="btn">
+                        <a href="<?= asset('/asi-es-noemi') ?>" class="btn leer-mas">
                             Leer más...
                         </a>
 

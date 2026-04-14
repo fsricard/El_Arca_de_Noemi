@@ -678,7 +678,7 @@ footer h4 {
     font-family: var(--font-titulo);
     font-size: 2.0rem;
     color: var(--noemi-glow-suave);
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -687,6 +687,7 @@ footer h4 {
 
 .sidebar-title i {
     font-size: 3.0rem;
+    margin-right: 5px;
     color: var(--color-primary-icon);
     filter: drop-shadow(0 0 4px #ff3c00);
     animation: glownoemi 2s ease-in-out infinite alternate;
@@ -862,7 +863,6 @@ footer h4 {
 .destacado-asi-es-noemi .destacado-content {
     font-size: 1.6rem;
     line-height: 1.6;
-    color: var(--color-general);
 }
 
 /* END módulo "Así es Noemi" */
@@ -1627,6 +1627,7 @@ footer h4 {
     animation: glownoemi 2s ease-in-out infinite alternate;
 }
 
+.apadrinamientos-especie,
 .apadrinamientos-raza {
     font-size: 1.6rem;
     font-weight: 600;
@@ -2302,11 +2303,6 @@ textarea {
     .ficha-info {
         width: 100%;
     }
-
-    .btn-adoptar {
-        font-size: 1.2rem;
-    }
-
 }
 
 @media (max-width: 768px) {
@@ -2319,6 +2315,10 @@ textarea {
     .noemi-adopciones-inicio,
     .layout-home {
         display: block;
+    }
+
+    .destacado-title {
+        text-align: center;
     }
 
     .form-noemi-container {
@@ -2347,6 +2347,16 @@ textarea {
         display: block;
     }
 
+    .adopcion-imagen {
+        width: 100%;
+        display: block;
+        margin-bottom: 20px;
+    }
+
+    .adopcion-imagen img {
+        max-height: 350px;
+    }
+
     .adopcion-info {
         align-items: center;
     }
@@ -2357,13 +2367,14 @@ textarea {
     }
 
     .adopcion-raza {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         text-align: center;
     }
 
+    .content-presentacion p,
+    .apadrinamientos-descripcion,
     .adopcion-descripcion {
         font-size: 1.5rem;
-        max-width: 90%;
     }
 
     .adopcion-boton {
@@ -2376,12 +2387,22 @@ textarea {
         display: block;
     }
 
-    .adopcion-imagen img {
-        max-height: 350px;
+    .apadrinamientos-nombre  {
+        display: block;
+        text-align: center;
     }
 
     .apadrinamientos-imagen {
         margin-top: 35px;
+    }
+
+    .apadrinamientos-meta {
+        text-align: center;
+    }
+
+    .apadrinamientos-raza,
+    .apadrinamientos-especie {
+        font-size: 1.2rem;
     }
 
     .btn-acciones-individual {
@@ -2422,7 +2443,6 @@ textarea {
     }
 
     .listado-adopcion-item .adopcion-boton {
-        font-size: 1.2rem;
         text-align: center;
     }
 
@@ -2440,6 +2460,20 @@ textarea {
 
     .listado-filtro-select select {
         margin-bottom: 10px;
+    }
+
+    .noemi-frase {
+        font-size: 1.4rem;
+    }
+
+    .btn {
+        font-size: 1.2rem;
+    }
+
+    .destacado-politica-de-privacidad .destacado-content,
+    .destacado-asi-es-noemi .destacado-content {
+        font-size: 1.5rem;
+        overflow: auto;
     }
 }
 
