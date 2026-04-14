@@ -1,3 +1,15 @@
+        <div class="redes-footer">
+            <a href="" title="El Arca de Noemí en Instagram" target="_blank">
+                <i class="icon-redes-footer fa fa-instagram"></i>
+            </a>
+            <a href="" title="El Arca de Noemí en YouTube" target="_blank">
+                <i class="icon-redes-footer fa fa-youtube"></i>
+            </a>
+            <a href="" title="El Arca de Noemí en Facebook" target="_blank">
+                <i class="icon-redes-footer fa fa-facebook"></i>
+            </a>
+        </div>
+        
         <footer class="container-footer">
             <div class="footer">
                 <div class="sections-footer">
@@ -11,11 +23,11 @@
                     </div>
 
                     <div class="sections-footer-center">
-                        <h3>Mis bichillos son sociales</h3>
+                        <h3>Apoya a el Arca</h3>
                         <ul>
-                            <li><a href="<?= asset('/') ?>" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a></li>
-                            <li><a href="<?= asset('/') ?>" target="_blank"><i class="fa-brands fa-facebook"></i> Facebook</a></li>
-                            <li><a href="<?= asset('/') ?>" target="_blank"><i class="fa-brands fa-youtube"></i> YouTube</a></li>
+                            <li><a href="<?= asset('/listado-adopciones') ?>">Adopta</a></li>
+                            <li><a href="<?= asset('/listado-apadrinamientos') ?>">Apadrina</a></li>
+                            <li><a href="<?= asset('/colabora') ?>">Colabora</a></li>
                         </ul>
                     </div>
 
