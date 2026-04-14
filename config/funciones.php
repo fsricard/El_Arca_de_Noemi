@@ -10,17 +10,36 @@ function tienePermiso(): bool
 // Función para detectar dispositos móviles
 function esSoloMovil()
 {
-    $ua = strtolower($_SERVER['HTTP_USER_AGENT']);
-    return preg_match('/(android.*mobile|iphone|ipod|blackberry|windows phone|webos)/i', $ua);
+    $ua = strtolower($_SERVER['HTTP_USER_AGENT'] ?? '');
+
+    // Lista ampliada de dispositivos móviles
+    $moviles = [
+        'iphone', 'ipod', 'android', 'blackberry', 'windows phone',
+        'opera mini', 'mobile', 'webos', 'kindle', 'silk'
+    ];
+
+    foreach ($moviles as $m) {
+        if (strpos($ua, $m) !== false) {
+            return true;
+        }
+    }
+
+    return false;
 }
 
 // Función para limitar el número de palabras en un texto a 20 palabras
 function limitar_palabras($texto, $max_palabras = 20)
 {
-    $palabras = preg_split('/\s+/', trim($texto));
+    // Eliminar etiquetas HTML para evitar cortes feos
+    $texto_limpio = trim(strip_tags($texto));
+
+    // Convertir múltiples espacios en uno solo
+    $texto_limpio = preg_replace('/\s+/', ' ', $texto_limpio);
+
+    $palabras = explode(' ', $texto_limpio);
 
     if (count($palabras) <= $max_palabras) {
-        return $texto;
+        return $texto_limpio;
     }
 
     $corte = array_slice($palabras, 0, $max_palabras);
@@ -86,7 +105,7 @@ function mostrarTextoPersonalizado()
         'contacto'                  => 'Contacta con Noemí',
         'asi-es-noemi'              => 'Esta es Noemí, descubre su historia.',
         'ficha-adopcion'            => 'Ficha individual para adoptar a ',
-        'listado-adopciones'        => 'Listado de todos los animales listos para adoptar en el santuario de "El Arca de Noemí',
+        'listado-adopciones'        => 'Listado de todos los animales listos para adoptar en el santuario de "El Arca de Noemí"',
         'formulario-adoptante'      => 'Formulario con los datos necesarios para intentar adoptar a ',
         'ficha-apadrinamiento'      => 'Ficha individual para apadrinar a ',
         'politica-de-privacidad'    => 'Política de privacidad',

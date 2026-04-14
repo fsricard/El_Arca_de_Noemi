@@ -2,6 +2,12 @@ Options -Indexes
 RewriteEngine On
 
 # ============================================
+#  EXCEPCIÓN PARA AJAX (NO PASA POR EL ROUTER)
+# ============================================
+RewriteCond %{REQUEST_URI} ^/ajax/
+RewriteRule ^ - [L]
+
+# ============================================
 #  BACKEND /admin
 # ============================================
 

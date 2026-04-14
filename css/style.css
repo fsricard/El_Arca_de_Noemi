@@ -910,12 +910,13 @@ footer h4 {
 /* END botones */
 
 /* Iconos */
-.redes-footer{
+.redes-footer {
     display: flex;
     justify-content: center;
     margin-top: 20px;
 }
-.redes-footer .icon-redes-footer{
+
+.redes-footer .icon-redes-footer {
     font-size: 1.6rem;
     margin: 20px;
     background: var(--color-bg-light);
@@ -927,23 +928,27 @@ footer h4 {
     border-radius: 100%;
     color: #a2a2a2;
 }
+
 .redes-footer .fa-instagram,
 .redes-footer .fa-youtube,
-.redes-footer .fa-facebook{
+.redes-footer .fa-facebook {
     filter: drop-shadow(0 0 8px var(--shadow-strong));
     transition: background-color 400ms linear, transform .3s ease;
 }
-.redes-footer .fa-instagram:hover{
+
+.redes-footer .fa-instagram:hover {
     background: linear-gradient(to top right, #FCDE30, #E9712A, #D2313B, #AE4198, #7540A1, #5443A8);
     color: #fff;
     transform: scale(1.05);
 }
-.redes-footer .fa-youtube:hover{
+
+.redes-footer .fa-youtube:hover {
     background: #FF0033;
     color: #fff;
     transform: scale(1.05);
 }
-.redes-footer .fa-facebook:hover{
+
+.redes-footer .fa-facebook:hover {
     background: #41579A;
     color: #fff;
     transform: scale(1.05);
@@ -1220,6 +1225,140 @@ footer h4 {
 }
 
 /* END aviso de cookies */
+
+/* Paginación */
+#pagination {
+    margin-top: 15px;
+}
+
+.page-link {
+    display: inline-block;
+    margin: 0 4px;
+    padding: 6px 10px;
+    border-radius: 4px;
+    background: #7f9be9;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.8rem;
+    transition: background 0.2s ease;
+}
+
+.page-link:hover {
+    background: #4f7cff;
+    color: #000000;
+}
+
+.paginador {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pagination {
+    list-style: none;
+    padding: 0;
+    display: inline-flex;
+    gap: 8px;
+}
+
+.pagination li {
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    background: #f8f8f8;
+    border-radius: 4px;
+}
+
+.pagination li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.pagination li:hover {
+    background: #4f7cff;
+    color: #000000;
+}
+
+.pagination li.active {
+    margin: 0 4px;
+    padding: 6px 10px;
+    border-radius: 4px;
+    background: #7f9be9;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.8rem;
+    transition: background 0.2s ease;
+}
+
+.pagination li.disabled {
+    margin: 0 4px;
+    padding: 6px 10px;
+    border-radius: 4px;
+    background: #7f9be9;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.8rem;
+    transition: background 0.2s ease;
+}
+
+.paginacion {
+    margin-top: 25px;
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+}
+
+.paginacion a {
+    display: inline-block;
+    padding: 8px 14px;
+    background: #f0f0f0;
+    color: #333;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    transition: all 0.2s ease;
+}
+
+.paginacion a:hover {
+    background: #e0e0e0;
+    border-color: #ccc;
+}
+
+.paginacion a.activo {
+    background: #2196F3;
+    color: #fff;
+    border-color: #1976D2;
+    font-weight: bold;
+    cursor: default;
+}
+
+.paginacion a.activo:hover {
+    background: #2196F3;
+    border-color: #1976D2;
+}
+
+/* END Paginación */
+
+/* Filtros */
+.listado-adopcion-filtros {
+    width: 100%;
+    display: block;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.listado-filtro-select {
+    width: 30%;
+    display: inline-grid;
+    grid-template-columns: 2fr 2fr;
+    gap: 15px;
+}
+
+.listado-filtro-select select {
+    min-width: 250px;
+}
+
+/* END filtros */
 
 /* 404 */
 .layout-home-404 {
@@ -1864,6 +2003,41 @@ textarea {
 
 /* END formulario de adopciones */
 
+/* Listado de adopciones */
+.listado-adopcion-item {
+    border: 2px solid var(--color-primary);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 4px 10px var(--shadow-soft);
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    gap: 25px;
+    align-items: start;
+    margin-bottom: 40px;
+}
+
+.listado-adopcion-item .adopcion-imagen img {
+    max-height: 400px;
+}
+
+.listado-destacado-title {
+    font-size: 2.8rem;
+}
+
+.listado-destacado-title i {
+    font-size: 3.2rem;
+}
+
+.listado-adopcion-item .adopcion-info {
+    height: 100%;
+}
+
+.listado-adopcion-item .adopcion-boton {
+    margin-top: auto;
+}
+
+/* END listado de adopciones */
+
 /* Ficha individual de apadrinamientos */
 .destacado-content.apadrinamiento-ficha-individual {
     display: grid;
@@ -2049,10 +2223,6 @@ textarea {
         gap: 20px;
     }
 
-    .adopcion-imagen img {
-        max-height: 220px;
-    }
-
     .adopcion-nombre {
         font-size: 2.1rem;
     }
@@ -2081,18 +2251,16 @@ textarea {
         padding-top: 100px;
         transition: right .3s ease;
         z-index: 999;
-        background: linear-gradient(
-            to bottom,
-            #BDC453 0%,
-            #4CAF50 35%,
-            #16a34a 70%,
-            #2A6432 100%
-        );
+        background: linear-gradient(to bottom,
+                #BDC453 0%,
+                #4CAF50 35%,
+                #16a34a 70%,
+                #2A6432 100%);
         background-repeat: no-repeat;
         background-size: cover;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        box-shadow: inset 0 -6px 18px rgba(0,0,0,0.12);
+        box-shadow: inset 0 -6px 18px rgba(0, 0, 0, 0.12);
     }
 
     .menu-movil a,
@@ -2176,15 +2344,7 @@ textarea {
     }
 
     .noemi-adopcion-item {
-        grid-template-columns: 1fr;
-        text-align: center;
-        justify-items: center;
-    }
-
-    .adopcion-imagen img {
-        width: 90%;
-        max-height: 260px;
-        border-radius: 16px;
+        display: block;
     }
 
     .adopcion-info {
@@ -2198,6 +2358,7 @@ textarea {
 
     .adopcion-raza {
         font-size: 1.5rem;
+        text-align: center;
     }
 
     .adopcion-descripcion {
@@ -2206,12 +2367,17 @@ textarea {
     }
 
     .adopcion-boton {
+        text-align: center;
         align-self: center;
         margin-top: 15px;
     }
 
     .adopta-bloque-datos {
         display: block;
+    }
+
+    .adopcion-imagen img {
+        max-height: 350px;
     }
 
     .apadrinamientos-imagen {
@@ -2230,12 +2396,50 @@ textarea {
         font-size: 1.6rem;
     }
 
-    .sections-footer ul li a  {
+    .sections-footer ul li a {
         font-size: 1.2rem;
     }
 
     footer h4 {
         font-size: 1.0rem;
+    }
+
+    .listado-adopcion-item {
+        display: block;
+    }
+
+    .listado-destacado-title {
+        font-size: 2.0rem;
+        text-align: center;
+    }
+
+    .listado-destacado-title i {
+        font-size: 2.2rem;
+    }
+
+    .listado-adopcion-item img {
+        margin-bottom: 20px;
+    }
+
+    .listado-adopcion-item .adopcion-boton {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+
+    .listado-filtro-select {
+        width: 100%;
+        display: block;
+        text-align: center;
+    }
+
+    .listado-filtro-select label {
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+        display: block;
+    }
+
+    .listado-filtro-select select {
+        margin-bottom: 10px;
     }
 }
 
@@ -2249,11 +2453,21 @@ textarea {
     }
 }
 
-@media (max-width: 480px) {
-    .adopcion-imagen img {
-        width: 100%;
-        max-height: 220px;
+@media (max-width:520px) {
+    .card-media img {
+        height: 150px;
     }
+
+    .listado-adopcion-filtros {
+        gap: .4rem;
+    }
+
+    .filter-select {
+        min-width: 120px;
+    }
+}
+
+@media (max-width: 480px) {
 
     .adopcion-nombre {
         font-size: 2rem;
