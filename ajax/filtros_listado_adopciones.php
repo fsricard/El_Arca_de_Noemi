@@ -124,11 +124,11 @@ if (empty($animales)) {
 
                 <?php if (!empty($descripcion)): ?>
                     <div class="adopcion-descripcion">
-                        <?= $descripcion ?>
+                        <?= $descripcion = limitar_palabras($descripcion, 100); ?>
                     </div>
                 <?php endif; ?>
 
-                <a href="/ficha-adopcion?id=<?= $animal['id'] ?>" class="btn adopcion-boton">
+                <a href="<?= asset('/ficha-adopcion?id=' . $animal['id']) ?>" class="btn adopcion-boton">
                     Ir a la ficha individual
                 </a>
 

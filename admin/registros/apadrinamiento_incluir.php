@@ -178,7 +178,12 @@ include('../includes/header.php');
 
                 <div class="mb-3">
                     <label>Historia</label>
-                    <textarea name="historia" class="form-control" rows="5"></textarea>
+                    <div id="editor-descripcion" class="quill-editor">
+                        <?= !empty($_POST['historia']) ? $_POST['historia'] : '<p></p>' ?>
+                    </div>
+                    <textarea id="descripcion" name="historia" class="editor-html" style="display:none;">
+                        <?= htmlspecialchars($_POST['historia'] ?? '') ?>
+                    </textarea>
                 </div>
 
                 <div class="mb-3">

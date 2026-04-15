@@ -2217,6 +2217,60 @@ textarea {
 
 /* END ficha individual de apadrinamientos */
 
+/* Listado de apadrinamientos */
+.listado-apadrina-item {
+    border: 2px solid var(--color-primary);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 4px 10px var(--shadow-soft);
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 25px;
+    align-items: start;
+    margin-bottom: 40px;
+    background: #fff;
+}
+
+.apadrina-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.apadrina-nombre {
+    font-size: 2.4rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.apadrina-nombre i {
+    font-size: 2.6rem;
+    color: var(--color-primary);
+}
+
+.apadrina-especie-raza {
+    font-size: 1.4rem;
+    color: var(--color-text-light);
+    margin: 0;
+}
+
+.apadrina-historia {
+    font-size: 1.6rem;
+    line-height: 1.5;
+}
+
+.apadrina-imagen img {
+    width: 100%;
+    height: auto;
+    max-height: 350px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+/* END listado de apadrinamientos */
+
 /* Responsive */
 @media (max-width: 992px) {
     .noemi-adopcion-item {
@@ -2306,7 +2360,7 @@ textarea {
 }
 
 @media (max-width: 768px) {
-
+    .listado-apadrina-item,
     .form-noemi,
     .destacado-title,
     .destacado-content.apadrinamiento-ficha-individual,
@@ -2387,7 +2441,7 @@ textarea {
         display: block;
     }
 
-    .apadrinamientos-nombre  {
+    .apadrinamientos-nombre {
         display: block;
         text-align: center;
     }
@@ -2474,6 +2528,19 @@ textarea {
     .destacado-asi-es-noemi .destacado-content {
         font-size: 1.5rem;
         overflow: auto;
+    }
+
+    .listado-apadrina-item .adopcion-boton {
+        margin-bottom: 20px;
+    }
+
+    .apadrina-nombre {
+        display: block;
+        text-align: center;
+    }
+
+    .apadrina-especie-raza {
+        text-align: center;
     }
 }
 
