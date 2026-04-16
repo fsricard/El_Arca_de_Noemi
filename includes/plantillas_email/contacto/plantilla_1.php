@@ -41,7 +41,7 @@
                         <td style="padding:20px 30px; font-size:15px; line-height:1.6;">
 
                             <p style="margin:0 0 15px 0;">
-                                Hola Noemí, has recibido un nuevo mensaje a través del formulario de contacto.
+                                Hola Noemí, has recibido un nuevo mensaje a través del formulario de contacto de tu página web.
                             </p>
 
                             <div style="background:#fafafa; border-radius:10px; padding:15px; border:1px solid #e0e0e0;">
@@ -64,7 +64,8 @@
 
                     <tr>
                         <td align="center" style="padding:20px; background:#BDC453; color:#ffffff; font-size:13px; border-radius:0 0 10px 10px;">
-                            Este correo se ha generado automáticamente desde la web de El Arca de Noemí.
+                            <p>Este correo se ha generado automáticamente desde la web de El Arca de Noemí.</p>
+                            <p style="font-size: 10px; margin-top: 10px;">*Recuerda que en tu panel de control web también puedes encontrar este mensaje guardado.</p>
                         </td>
                     </tr>
 

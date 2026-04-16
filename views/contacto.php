@@ -1,4 +1,8 @@
 <?php
+date_default_timezone_set('Europe/Madrid');
+
+require_once(__DIR__ . '/../config/envLoader.php');
+cargarEnv(__DIR__ . '/../config/.env');
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -44,12 +48,12 @@ if (isset($_POST['enviar'])) {
             $mail->CharSet = 'UTF-8';
             $mail->Encoding = 'base64';
             $mail->isSMTP();
-            $mail->Host       = 'smtp.gmail.com';
+            $mail->Host       = getenv('SMTP_HOST');
             $mail->SMTPAuth   = true;
-            $mail->Username   = 'alnaseos@gmail.com';
-            $mail->Password   = 'nnbz nspb mplk akiu';
+            $mail->Username   = getenv('SMTP_USER_CONTACTO');
+            $mail->Password   = getenv('SMTP_PASS_CONTACTO');
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-            $mail->Port       = 587;
+            $mail->Port       = getenv('SMTP_PORT');
 
             // Opciones SSL para Laragon
             $mail->SMTPOptions = [
@@ -61,8 +65,8 @@ if (isset($_POST['enviar'])) {
             ];
 
             // Remitente y destinatario
-            $mail->setFrom('alnaseos@gmail.com', 'El Arca de Noemí');
-            $mail->addAddress('alnaseos@gmail.com', 'Noemí');
+            $mail->setFrom(getenv('SMTP_USER_CONTACTO'), 'El Arca de Noemí');
+            $mail->addAddress(getenv('SMTP_USER_CONTACTO'), 'Noemí');
 
             $mail->isHTML(true);
             $mail->Subject = 'Nuevo mensaje de contacto: ' . $asunto;
