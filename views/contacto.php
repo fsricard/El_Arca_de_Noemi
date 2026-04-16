@@ -56,18 +56,6 @@ if (isset($_POST['enviar'])) {
 
             <div class="destacado-content form-noemi">
 
-                <?php if (isset($mensaje_ok)): ?>
-                    <div class="alert alert-ok">
-                        <?= $mensaje_ok ?>
-                    </div>
-                <?php endif; ?>
-
-                <?php if (isset($mensaje_error)): ?>
-                    <div class="alert alert-error">
-                        <?= $mensaje_error ?>
-                    </div>
-                <?php endif; ?>
-
                 <?php
                 if ($intro_contacto):
                 ?>
@@ -79,6 +67,19 @@ if (isset($_POST['enviar'])) {
                 <?php endif; ?>
 
                 <form action="" method="POST">
+
+                    <?php if (isset($mensaje_ok)): ?>
+                        <div class="alert alert-ok">
+                            <?= $mensaje_ok ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <?php if (isset($mensaje_error)): ?>
+                        <div class="alert alert-error">
+                            <?= $mensaje_error ?>
+                        </div>
+                    <?php endif; ?>
+
 
                     <div class="form-noemi-container">
                         <div class="form-group">
