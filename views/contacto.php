@@ -1,4 +1,8 @@
 <?php
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
 $mensaje_ok = null;
 $mensaje_error = null;
 
@@ -12,6 +16,7 @@ if (isset($_POST['enviar'])) {
     if ($nombre !== "" && $email !== "" && $asunto !== "" && $mensaje !== "") {
 
         try {
+            // Guardar en la base de datos
             $stmt = $pdo->prepare("
                 INSERT INTO mensajes_contacto (nombre, email, asunto, mensaje)
                 VALUES (:nombre, :email, :asunto, :mensaje)
@@ -24,9 +29,61 @@ if (isset($_POST['enviar'])) {
                 ':mensaje' => $mensaje
             ]);
 
+            // Preparar datos para el email
+            $fecha_envio = date('d/m/Y H:i');
+
+            // Incluir PHPMailer (RUTAS CORRECTAS)
+            require_once(__DIR__ . '/../includes/PHPMailer/PHPMailer.php');
+            require_once(__DIR__ . '/../includes/PHPMailer/SMTP.php');
+            require_once(__DIR__ . '/../includes/PHPMailer/Exception.php');
+
+            // Crear instancia
+            $mail = new PHPMailer(true);
+
+            // Configurar PHPMailer
+            $mail->CharSet = 'UTF-8';
+            $mail->Encoding = 'base64';
+            $mail->isSMTP();
+            $mail->Host       = 'smtp.gmail.com';
+            $mail->SMTPAuth   = true;
+            $mail->Username   = 'alnaseos@gmail.com';
+            $mail->Password   = 'nnbz nspb mplk akiu';
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+            $mail->Port       = 587;
+
+            // Opciones SSL para Laragon
+            $mail->SMTPOptions = [
+                'ssl' => [
+                    'verify_peer' => false,
+                    'verify_peer_name' => false,
+                    'allow_self_signed' => true
+                ]
+            ];
+
+            // Remitente y destinatario
+            $mail->setFrom('alnaseos@gmail.com', 'El Arca de Noemí');
+            $mail->addAddress('alnaseos@gmail.com', 'Noemí');
+
+            $mail->isHTML(true);
+            $mail->Subject = 'Nuevo mensaje de contacto: ' . $asunto;
+
+            // Incrustar imágenes CID (RUTAS CORRECTAS)
+            $mail->addEmbeddedImage(__DIR__ . '/../img/header_20260320_0003.png', 'cid_header');
+            $mail->addEmbeddedImage(__DIR__ . '/../img/logo_20260320_0002.png', 'cid_logo');
+
+            // Renderizar plantilla (RUTA CORRECTA)
+            ob_start();
+            include __DIR__ . '/../includes/plantillas_email/contacto/plantilla_1.php';
+            $mail->Body = ob_get_clean();
+
+            // Enviar correo
+            $mail->send();
+
             $mensaje_ok = "Tu mensaje ha sido enviado correctamente. Noemi lo revisará pronto y te contestará en breve.";
         } catch (Exception $e) {
             $mensaje_error = "!!Algo salió mal¡¡. Inténtalo más tarde.";
+            // Para depurar:
+            // echo $e->getMessage();
         }
     } else {
         $mensaje_error = "Todos los campos son obligatorios.";
