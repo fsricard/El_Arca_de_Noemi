@@ -54,7 +54,7 @@ if (isset($_POST['enviar'])) {
             $intro_contacto = $stmt->fetch(PDO::FETCH_ASSOC);
             ?>
 
-            <div class="destacado-content">
+            <div class="destacado-content form-noemi">
 
                 <?php if (isset($mensaje_ok)): ?>
                     <div class="alert alert-ok">
@@ -68,17 +68,17 @@ if (isset($_POST['enviar'])) {
                     </div>
                 <?php endif; ?>
 
-                <form action="" method="POST" class="form-noemi">
+                <?php
+                if ($intro_contacto):
+                ?>
 
-                    <?php
-                    if ($intro_contacto):
-                    ?>
+                    <div class="destacado-content">
+                        <?= $intro_contacto['contenido'] ?>
+                    </div>
 
-                        <div class="destacado-content">
-                            <?= $intro_contacto['contenido'] ?>
-                        </div>
+                <?php endif; ?>
 
-                    <?php endif; ?>
+                <form action="" method="POST">
 
                     <div class="form-noemi-container">
                         <div class="form-group">
