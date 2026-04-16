@@ -52,6 +52,19 @@
         </ul>
     </div>
 
+    <!-- CrowdFunding -->
+    <div class="submenu">
+        <button class="submenu-toggle">
+            <i class="fa-duotone fa-solid fa-money-bill-1-wave icon icon-crowdfunding"></i> CrowdFunding
+            <i class="fa-solid fa-chevron-down flecha"></i>
+        </button>
+
+        <ul class="submenu-items">
+            <li><a href="<?= asset('admin/modulos/crowdfunding/crear_recaudacion.php') ?>"><i class="fa-classic fa-solid fa-bin-bottles-recycle icon icon-crear-crowdfunding"></i> Crear recaudación</a></li>
+            <li><a href="<?= asset('admin/modulos/crowdfunding/listado_recaudaciones.php') ?>"><i class="fa-classic fa-solid fa-toilet-paper icon icon-listado-crowdfunding"></i> Listado de recaudaciones</a></li>
+        </ul>
+    </div>
+
     <!-- Adopciones -->
     <div class="submenu">
         <button class="submenu-toggle">
@@ -69,7 +82,7 @@
     <!-- Apadrinamientos -->
     <div class="submenu">
         <button class="submenu-toggle">
-            <i class="fa-duotone fa-solid fa-money-bill-1-wave icon icon-apadrinamientos"></i> Apadrinamientos
+            <i class="fa-classic fa-solid fa-flower-tulip icon icon-apadrinamientos"></i> Apadrinamientos
             <i class="fa-solid fa-chevron-down flecha"></i>
         </button>
 

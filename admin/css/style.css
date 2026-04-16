@@ -23,6 +23,7 @@
     --c-naranja: #ff8f70;
     --c-rosa: #ff4fa3;
     --c-morado: #b084f5;
+    --c-rojo: #ff4f4f;
 }
 
 /* END root */
@@ -606,6 +607,10 @@ form button:hover i {
     color: var(--c-naranja);
 }
 
+.icon-crowdfunding {
+    color: var(--c-rojo);
+}
+
 /* Susmenús documentos */
 .icon-doc-contacto {
     color: var(--c-amarillo);
@@ -694,6 +699,15 @@ form button:hover i {
 
 .icon-bd-tablas {
     color: var(--c-morado);
+}
+
+/* Submenú crowdfunding */
+.icon-crear-crowdfunding {
+    color: var(--c-rojo);
+}
+
+.icon-listado-crowdfunding {
+    color: var(--c-rojo);
 }
 
 /* Quill */
