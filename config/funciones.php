@@ -90,6 +90,14 @@ function limitar_palabras($texto, $max_palabras = 20)
     return implode(' ', $corte) . '...';
 }
 
+// Función para limpiar las carpetas en "uploads"
+function limpiarNombreCarpeta($cadena)
+{
+    $cadena = strtolower($cadena);
+    $cadena = preg_replace('/[^a-z0-9_\-]/', '_', $cadena);
+    return $cadena;
+}
+
 // Función para imprimir los textos dinámicos en el header del BackEnd
 function tituloPagina($pagina)
 {
