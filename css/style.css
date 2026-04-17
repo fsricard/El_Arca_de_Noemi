@@ -2277,7 +2277,74 @@ textarea {
     grid-template-columns: 2.0fr 2.0fr;
     gap: 35px;
 }
+
 /* END pagina de contacto */
+
+/* Módulo crowdfunding página de inicio */
+.content-crowdfunding-block {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 30px;
+    align-items: center;
+}
+
+.imagen-crowdfunding img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px var(--shadow-soft));
+}
+
+.content-crowdfunding {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.crowdfunding-plataforma {
+    font-family: var(--font-titulo);
+    font-size: 2.4rem;
+    color: var(--noemi-glow-suave);
+    text-shadow: 2px 2px 0 var(--color-primary-dark);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.crowdfunding-plataforma i {
+    font-size: 2.6rem;
+    color: var(--color-primary-icon);
+    filter: drop-shadow(0 0 4px #ff3c00);
+    animation: glownoemi 2s ease-in-out infinite alternate;
+}
+
+.crowdfunding-descripcion {
+    font-family: var(--font-general);
+    font-size: 1.4rem;
+    color: var(--color-general);
+}
+
+.crowdfunding-cantidades {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    font-family: var(--font-general);
+    font-size: 1rem;
+}
+
+.crowdfunding-cantidades span {
+    color: var(--color-menu);
+}
+
+.crowdfunding-cantidades strong {
+    color: var(--color-primary-dark);
+}
+
+.crowdfunding-cantidades .objetivo {
+    margin-right: 50px;
+}
+
+/* END módulo crowdfunding página de inicio */
 
 /* Responsive */
 @media (max-width: 992px) {
@@ -2368,6 +2435,7 @@ textarea {
 }
 
 @media (max-width: 768px) {
+
     .listado-apadrina-item,
     .form-noemi,
     .destacado-title,
@@ -2553,6 +2621,35 @@ textarea {
 
     .apadrina-especie-raza {
         text-align: center;
+    }
+
+    .content-crowdfunding-block {
+        grid-template-columns: 1fr;
+    }
+
+    .imagen-crowdfunding {
+        width: 100%;
+        display: block;
+        text-align: center;
+    }
+
+    .imagen-crowdfunding img {
+        max-width: 50%;
+    }
+
+    .crowdfunding-plataforma {
+        display: block;
+        text-align: center;
+    }
+
+    .crowdfunding-cantidades {
+        flex-direction: column;
+        gap: 5px;
+        text-align: center;
+    }
+
+    .crowdfunding-cantidades .objetivo {
+        margin: 0;
     }
 }
 

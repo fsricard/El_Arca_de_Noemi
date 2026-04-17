@@ -258,4 +258,79 @@
 
                 </section>
 
+                <!-- Módulo CrowdFunding -->
+                <?php
+                $stmt = $pdo->prepare("
+                    SELECT r.*, p.nombre AS plataforma_nombre, p.logo AS plataforma_logo
+                    FROM crowdfunding_recaudaciones r
+                    INNER JOIN crowdfunding_plataformas p ON r.plataforma_id = p.id
+                    WHERE r.activa = 1 AND p.activo = 1
+                    ORDER BY RAND()
+                    LIMIT 1
+                ");
+
+                $stmt->execute();
+                $campania = $stmt->fetch(PDO::FETCH_ASSOC);
+                ?>
+
+                <section class="destacados">
+
+                    <article class="destacado-block">
+
+                        <h2 class="destacado-title title-crowdfunding">
+                            Crowdfunding destacado
+                        </h2>
+
+                        <?php if ($campania): ?>
+                            <div class="destacado-content content-crowdfunding-block">
+
+                                <div class="imagen-crowdfunding">
+                                    <img src="<?php echo htmlspecialchars($campania['plataforma_logo']); ?>"
+                                        alt="<?php echo htmlspecialchars($campania['plataforma_nombre']); ?>">
+                                </div>
+
+                                <div class="content-crowdfunding">
+
+                                    <h3 class="crowdfunding-plataforma">
+                                        <i class="fa-solid fa-hand-holding-dollar"></i>
+                                        <?php echo htmlspecialchars($campania['plataforma_nombre']); ?>
+                                    </h3>
+
+                                    <p class="crowdfunding-descripcion">
+                                        <?php echo limitar_palabras($campania['descripcion'], 100); ?>
+                                    </p>
+
+                                    <div class="crowdfunding-cantidades">
+                                        <span class="objetivo">
+                                            Objetivo:
+                                            <strong>
+                                                <?php echo number_format($campania['cantidad_objetivo'], 2); ?>
+                                                <?php echo $campania['moneda']; ?>
+                                            </strong>
+                                        </span>
+
+                                        <?php if (!empty($campania['cantidad_recaudada'])): ?>
+                                            <span class="recaudado">
+                                                Recaudado:
+                                                <strong>
+                                                    <?php echo number_format($campania['cantidad_recaudada'], 2); ?>
+                                                    <?php echo $campania['moneda']; ?>
+                                                </strong>
+                                            </span>
+                                        <?php endif; ?>
+                                    </div>
+
+                                    <a href="<?= asset('/listado-crowdfunding'); ?>" class="btn adopcion-boton">
+                                        Ir al listado
+                                    </a>
+
+                                </div>
+
+                            </div>
+                        <?php endif; ?>
+
+                    </article>
+
+                </section>
+
             </main>
