@@ -65,12 +65,9 @@ include('../../includes/header.php');
 
                 <form method="post" class="formulario">
                     <label>Texto invocatorio:</label>
-                    <div id="editor-descripcion" class="quill-editor">
-                        <?= !empty($contacto_intro['contenido']) ? $contacto_intro['contenido'] : '<p></p>' ?>
-                    </div>
-                    <textarea id="descripcion" name="contenido" class="editor-html" style="display:none;">
-                        <?= htmlspecialchars($contacto_intro['contenido'] ?? '') ?>
-                    </textarea>
+
+                    <!-- Editor visual de Quill -->
+                    <?= editor_quill('contenido', $contacto_intro['contenido'] ?? '') ?>
 
                     <button type="submit" id="btn-guardar" class="btn-primary">
                         <i class="fa-solid fa-floppy-disk"></i> Guardar

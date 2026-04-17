@@ -363,13 +363,9 @@ include('../../includes/header.php');
 
                 <!-- DESCRIPCIÓN (QUILL) -->
                 <label>Descripción:</label>
-                <div id="editor-descripcion" class="quill-editor">
-                    <?= !empty($animal['descripcion']) ? $animal['descripcion'] : '<p></p>' ?>
-                </div>
 
-                <textarea id="descripcion" name="descripcion" class="editor-html" style="display:none;">
-                    <?= htmlspecialchars($animal['descripcion'] ?? '') ?>
-                </textarea>
+                <!-- Editor visual de Quill -->
+                <?= editor_quill('descripcion', $animal['descripcion'] ?? '') ?>
 
                 <!-- FOTOS -->
                 <div class="filtro">
@@ -377,7 +373,7 @@ include('../../includes/header.php');
                     <input type="file" name="fotos[]" multiple accept="image/*">
                 </div>
 
-                <button type="submit" class="btn-primary">
+                <button type="submit" class="btn-primary" id="btn-guardar">
                     <i class="fa-solid fa-floppy-disk"></i> Guardar cambios
                 </button>
 

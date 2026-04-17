@@ -65,12 +65,9 @@ include('../../includes/header.php');
 
                 <form method="post" class="formulario">
                     <label>Contenido legal:</label>
-                    <div id="editor-descripcion" class="quill-editor">
-                        <?= !empty($politica['contenido']) ? $politica['contenido'] : '<p></p>' ?>
-                    </div>
-                    <textarea id="descripcion" name="contenido" class="editor-html" style="display:none;">
-                        <?= htmlspecialchars($politica['contenido'] ?? '') ?>
-                    </textarea>
+
+                    <!-- Editor visual de Quill -->
+                    <?= editor_quill('contenido', $politica['contenido'] ?? '') ?>
 
                     <button type="submit" id="btn-guardar" class="btn-primary">
                         <i class="fa-solid fa-floppy-disk"></i> Guardar

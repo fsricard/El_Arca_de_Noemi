@@ -3,6 +3,7 @@ require_once(__DIR__ . '/../../config/funciones.php');
 ?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -51,10 +52,11 @@ require_once(__DIR__ . '/../../config/funciones.php');
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <!-- Estilos y script de Quill -->
-    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet">
+    <link href="https://cdn.quilljs.com/1.3.7/quill.snow.css" rel="stylesheet">
+    <script src="https://cdn.quilljs.com/1.3.7/quill.js"></script>
     <!-- <link rel="stylesheet" href="<?= asset('admin/css/noemi.snow.css') ?>"> -->
 </head>
+
 <body data-pagina="<?= $pagina ?>" data-tabla="<?= $tabla ?>" class="preset-infernal-suave">
     <header>
         <div class="logo">
@@ -70,13 +72,13 @@ require_once(__DIR__ . '/../../config/funciones.php');
 
     <script>
         // Script para el menú móvil
-        $(document).ready(function(){
-            $("#menu-toggle").on("click", function(){
+        $(document).ready(function() {
+            $("#menu-toggle").on("click", function() {
                 $("#sidebar").toggleClass("active");
             });
 
             // Cerrar menú al hacer clic en un enlace (opcional)
-            $("#sidebar a").on("click", function(){
+            $("#sidebar a").on("click", function() {
                 if ($(window).width() <= 768) {
                     $("#sidebar").removeClass("active");
                 }

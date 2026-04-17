@@ -515,3 +515,16 @@ function obtenerLogoPlataforma($plataformas, $id)
     }
     return "";
 }
+
+// Función universal para cargar el editor visual de Quill
+function editor_quill($nombreCampo, $valor = '')
+{
+    $id = htmlspecialchars($nombreCampo);
+
+    return '
+        <div class="quill-editor" data-target="descripcion" id="editor-descripcion"></div>
+        <textarea id="descripcion" name="'.$id.'" class="editor-html form-control" style="display:none;">'
+            .$valor.
+        '</textarea>
+    ';
+}

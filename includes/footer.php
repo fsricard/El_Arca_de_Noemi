@@ -23,11 +23,11 @@
                     </div>
 
                     <div class="sections-footer-center">
-                        <h3>Apoya a el Arca</h3>
+                        <h3>Apoya a El Arca</h3>
                         <ul>
-                            <li><a href="<?= asset('/listado-adopciones') ?>">Adopta</a></li>
-                            <li><a href="<?= asset('/listado-apadrinamientos') ?>">Apadrina</a></li>
-                            <li><a href="<?= asset('/colabora') ?>">Colabora</a></li>
+                            <li><a href="<?= asset('/listado-adopciones') ?>">Adopta un bichi</a></li>
+                            <li><a href="<?= asset('/listado-apadrinamientos') ?>">Apadrina un bichi</a></li>
+                            <li><a href="<?= asset('/listado-crowdfunding') ?>">Colabora con El Arca</a></li>
                         </ul>
                     </div>
 

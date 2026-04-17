@@ -286,19 +286,16 @@ include('../../includes/header.php');
                 </div>
 
                 <label for="descripcion">Descripción:</label>
-                <div id="editor-descripcion" class="quill-editor">
-                    <?= !empty($_POST['descripcion']) ? $_POST['descripcion'] : '<p></p>' ?>
-                </div>
-                <textarea id="descripcion" name="descripcion" class="editor-html" style="display:none;">
-                    <?= htmlspecialchars($_POST['descripcion'] ?? '') ?>
-                </textarea>
+
+                <!-- Editor visual de Quill -->
+                <?= editor_quill('descripcion', $_POST['descripcion'] ?? '') ?>
 
                 <div class="filtro">
                     <label for="fotos">Fotos del animal:</label>
                     <input type="file" name="fotos[]" id="fotos" multiple accept="image/*">
                 </div>
 
-                <button type="submit" class="btn-primary">
+                <button type="submit" class="btn-primary" id="btn-guardar">
                     <i class="fa-solid fa-floppy-disk"></i> Guardar animal
                 </button>
 

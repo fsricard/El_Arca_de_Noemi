@@ -81,12 +81,9 @@ include('../../includes/header.php');
                     </div>
                     
                     <label for="descripcion">Contenido:</label>
-                    <div id="editor-descripcion" class="quill-editor">
-                        <?= !empty($asi_es_noemi['contenido']) ? $asi_es_noemi['contenido'] : '<p></p>' ?>
-                    </div>
-                    <textarea id="descripcion" name="contenido" class="editor-html" style="display:none;">
-                        <?= htmlspecialchars($asi_es_noemi['contenido'] ?? '') ?>
-                    </textarea>
+
+                    <!-- Editor visual de Quill -->
+                    <?= editor_quill('contenido', $asi_es_noemi['contenido'] ?? '') ?>
 
                     <button type="submit" id="btn-guardar" class="btn-primary">
                         <i class="fa-solid fa-floppy-disk"></i> Guardar

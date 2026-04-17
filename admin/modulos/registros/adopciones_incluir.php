@@ -184,7 +184,7 @@ include('../../includes/header.php');
                     ><?= htmlspecialchars($_POST['descripcion'] ?? '') ?></textarea>
                 </div>
 
-                <button type="submit" class="btn-primary">
+                <button type="submit" class="btn-primary" id="btn-guardar"
                     <i class="fa-solid fa-floppy-disk"></i> Guardar
                 </button>
 

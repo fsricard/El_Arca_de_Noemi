@@ -125,12 +125,8 @@ include('../../includes/header.php');
                 <div class="campo">
                     <label>Descripción:</label>
 
-                    <div id="editor-descripcion" class="quill-editor">
-                        <?= !empty($_POST['descripcion']) ? $_POST['descripcion'] : '<p></p>' ?>
-                    </div>
-                    <textarea id="descripcion" name="descripcion" class="editor-html" style="display:none;">
-                        <?= htmlspecialchars($_POST['descripcion'] ?? '') ?>
-                    </textarea>
+                    <!-- Editor visual de Quill -->
+                    <?= editor_quill('descripcion', $_POST['descripcion'] ?? '') ?>
 
                 </div>
 
@@ -143,7 +139,7 @@ include('../../includes/header.php');
                 </div>
 
                 <div class="campo">
-                    <button type="submit" class="btn-primario">Crear recaudación</button>
+                    <button type="submit" class="btn-primario" id="btn-guardar">Crear recaudación</button>
                 </div>
 
             </form>

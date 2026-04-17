@@ -222,12 +222,10 @@ include('../../includes/header.php');
 
                     <div class="mb-3">
                         <label>Historia</label>
-                        <div id="editor-descripcion" class="quill-editor">
-                            <?= !empty($animal['historia']) ? $animal['historia'] : '<p></p>' ?>
-                        </div>
-                        <textarea id="descripcion" name="historia" class="editor-html form-control" style="display:none;">
-                            <?= htmlspecialchars($animal['historia'] ?? '') ?>
-                        </textarea>
+
+                        <!-- Editor visual de Quill -->
+                        <?= editor_quill('historia', $animal['historia'] ?? '') ?>
+
                     </div>
 
                     <div class="mb-3">
