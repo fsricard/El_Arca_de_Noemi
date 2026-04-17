@@ -66,7 +66,7 @@ require_once(__DIR__ . '/../../config/funciones.php');
             <i class="fa-solid fa-bars"></i>
         </button>
 
-        <?php include('sidebar.php'); ?>
+        <?php if (($pagina ?? '') !== 'crear_usuario') include('sidebar.php'); ?>
 
     </header>
 
