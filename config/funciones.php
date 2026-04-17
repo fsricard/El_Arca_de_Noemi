@@ -115,6 +115,7 @@ function tituloPagina($pagina)
         'crear_recaudacion'                         => 'Crear campaña CrowdFunding',
         'noemi_dice_listado'                        => 'Listado de las frases de Noemí',
         'adopciones_listado'                        => 'Listado de adopciones',
+        'editar_recaudacion'                        => 'Editar recaudación',
         'tablas_de_datos_ver'                       => 'Contenido de la tabla de la base datos',
         'adopciones_adoptante'                      => 'Incluir un nuevo adoptante',
         'adopciones_adoptante'                      => 'Incluir un nuevo adoptante',
@@ -501,4 +502,15 @@ function generarSlug($cadena)
     $cadena = trim($cadena, '-');
 
     return $cadena;
+}
+
+// Función para el logotipo de las plataformas de CrowdFounding
+function obtenerLogoPlataforma($plataformas, $id)
+{
+    foreach ($plataformas as $p) {
+        if ($p['id'] == $id) {
+            return $p['logo'];
+        }
+    }
+    return "";
 }
