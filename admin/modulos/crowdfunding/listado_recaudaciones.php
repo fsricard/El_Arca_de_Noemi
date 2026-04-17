@@ -94,6 +94,13 @@ include('../../includes/header.php');
         <div class="container">
             <h2>Listado de todas las campañas de recaudaciones</h2>
 
+            <?php if (isset($_SESSION['mensaje'])): ?>
+                <div class="alerta <?= $_SESSION['tipo_mensaje'] ?>">
+                    <?= $_SESSION['mensaje'] ?>
+                </div>
+                <?php unset($_SESSION['mensaje'], $_SESSION['tipo_mensaje']); ?>
+            <?php endif; ?>
+
             <!-- Filtros -->
             <form method="GET" class="filtros">
 
