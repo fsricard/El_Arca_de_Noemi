@@ -162,6 +162,7 @@ function mostrarTextoPersonalizado()
         'asi-es-noemi'              => 'Esta es Noemí, descubre su historia.',
         'ficha-adopcion'            => 'Ficha individual para adoptar a ',
         'listado-adopciones'        => 'Listado de todos los animales listos para adoptar en el santuario de "El Arca de Noemí"',
+        'listado-crowdfunding'      => 'Listado de todas las campañas de CrowdFunding activas en El Arca de Noemí',
         'formulario-adoptante'      => 'Formulario con los datos necesarios para intentar adoptar a ',
         'ficha-apadrinamiento'      => 'Ficha individual para apadrinar a ',
         'politica-de-privacidad'    => 'Política de privacidad',

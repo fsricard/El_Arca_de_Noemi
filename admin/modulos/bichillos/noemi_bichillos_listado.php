@@ -188,18 +188,18 @@ include('../../includes/header.php');
                             <td>
                                 <?php if ($b['activo']): ?>
                                     <button class="btn btn-warning"
-                                            onclick="window.location='?accion=ocultar&id=<?= $b['id'] ?>'">
+                                        onclick="window.location='?accion=ocultar&id=<?= $b['id'] ?>'">
                                         <i class="fa-solid fa-eye-slash"></i> Ocultar
                                     </button>
                                 <?php else: ?>
                                     <button class="btn btn-success"
-                                            onclick="window.location='?accion=activar&id=<?= $b['id'] ?>'">
+                                        onclick="window.location='?accion=activar&id=<?= $b['id'] ?>'">
                                         <i class="fa-solid fa-check-circle"></i> Activar
                                     </button>
                                 <?php endif; ?>
 
                                 <button class="btn delete-user"
-                                        onclick="if(confirm('¿Eliminar imagen definitivamente?')) window.location='?accion=eliminar&id=<?= $b['id'] ?>'">
+                                    onclick="if(confirm('¿Eliminar imagen definitivamente?')) window.location='?accion=eliminar&id=<?= $b['id'] ?>'">
                                     <i class="fa-solid fa-skull-crossbones"></i> Eliminar
                                 </button>
                             </td>
@@ -210,7 +210,7 @@ include('../../includes/header.php');
 
             <!-- PAGINADOR -->
             <?php
-                echo paginador($total_registros, $por_pagina, $pagina_actual, $_GET, 'p');
+            echo paginador($total_registros, $por_pagina, $pagina_actual, $_GET, 'p');
             ?>
 
         </div>
@@ -233,8 +233,9 @@ include('../../includes/header.php');
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgba(0,0,0,0.85);
+            background-color: rgba(0, 0, 0, 0.85);
         }
+
         .modal-contenido {
             margin: auto;
             display: block;
@@ -243,6 +244,7 @@ include('../../includes/header.php');
             border-radius: 10px;
             box-shadow: 0 0 20px #000;
         }
+
         .cerrar-modal {
             position: absolute;
             top: 25px;
@@ -252,6 +254,7 @@ include('../../includes/header.php');
             font-weight: bold;
             cursor: pointer;
         }
+
         .cerrar-modal:hover {
             color: #ccc;
         }

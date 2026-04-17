@@ -18,6 +18,7 @@ $rutas_validas = [
     'asi-es-noemi',
     'ficha-adopcion',
     'listado-adopciones',
+    'listado-crowdfunding',
     'ficha-apadrinamiento',
     'formulario-adoptante',
     'politica-de-privacidad',
@@ -177,6 +178,14 @@ elseif ($view === 'listado-adopciones') {
 // ---------------------------------------
 elseif ($view === 'listado-apadrinamientos') {
     require __DIR__ . '/views/listado-apadrinamientos.php';
+}
+
+// ---------------------------------------
+//  FICHA DE EL LISTADO DE CROWDFUNDING
+//  /listado-crowdfunding
+// ---------------------------------------
+elseif ($view === 'listado-crowdfunding') {
+    require __DIR__ . '/views/listado-crowdfunding.php';
 }
 
 // ---------------------------

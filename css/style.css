@@ -385,6 +385,8 @@ blockquote::after {
 
 hr {
     border-bottom: 1px solid var(--noemi-glow);
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 
 /* END general */
@@ -2366,6 +2368,23 @@ textarea {
 
 /* END módulo crowdfunding página de inicio */
 
+/* Listado crowdfunding */
+.listado-crowdfunding .content-crowdfunding-block {}
+
+.listado-crowdfunding .crowdfunding-descripcion {
+    margin: 40px 0;
+}
+
+.listado-crowdfunding .title-crowdfunding {
+    font-size: 2.6rem;
+}
+
+.listado-crowdfunding .title-crowdfunding i {
+    font-size: 3.0rem;
+}
+
+/* END listado crowdfunding */
+
 /* Responsive */
 @media (max-width: 992px) {
     .noemi-adopcion-item {
@@ -2670,6 +2689,18 @@ textarea {
 
     .crowdfunding-cantidades .objetivo {
         margin: 0;
+    }
+
+    .listado-crowdfunding .title-crowdfunding {
+        font-size: 2.0rem;
+    }
+
+    .listado-crowdfunding .title-crowdfunding i {
+        font-size: 2.6rem;
+    }
+
+    .listado-crowdfunding .crowdfunding-descripcion p {
+        font-size: 1.5rem;
     }
 }
 
