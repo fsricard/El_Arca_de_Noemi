@@ -155,7 +155,6 @@
                 </section>
 
                 <!-- Módulo apadrinamientos -->
-
                 <?php
                 $randomApadrinamiento = obtener_animal_apadrinamiento_random($pdo);
 
@@ -297,7 +296,7 @@
                                     </h3>
 
                                     <p class="crowdfunding-descripcion">
-                                        <?php echo limitar_palabras($campania['descripcion'], 100); ?>
+                                        <?php echo limitar_palabras($campania['descripcion'], 65); ?>
                                     </p>
 
                                     <div class="crowdfunding-cantidades">

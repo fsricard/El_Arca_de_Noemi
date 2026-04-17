@@ -37,8 +37,8 @@ if (isset($_GET['accion'], $_GET['id'])) {
         $stmt->execute([':id' => $id]);
         $img = $stmt->fetchColumn();
 
-        if ($img && file_exists(__DIR__ . '/../' . $img)) {
-            unlink(__DIR__ . '/../' . $img);
+        if ($img && file_exists(__DIR__ . '/../../../' . $img)) {
+            unlink(__DIR__ . '/../../../' . $img);
         }
 
         // Eliminar registro
