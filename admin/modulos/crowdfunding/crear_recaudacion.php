@@ -30,15 +30,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $cantidad_recaudada = !empty($_POST['cantidad_recaudada']) ? $_POST['cantidad_recaudada'] : null;
     $descripcion = $_POST['descripcion'] ?? "";
     $activa = isset($_POST['activa']) ? 1 : 0;
+    $enlace = trim($_POST['enlace']);
 
-    if (empty($plataforma_id) || empty($cantidad_objetivo) || empty($moneda)) {
+    if (empty($plataforma_id) || empty($cantidad_objetivo) || empty($moneda) || empty($enlace)) {
         $mensaje = "Debes completar todos los campos obligatorios.";
         $tipo_mensaje = "error";
     } else {
         try {
             $sql = "INSERT INTO crowdfunding_recaudaciones 
-                    (plataforma_id, cantidad_objetivo, moneda, cantidad_recaudada, descripcion, activa)
-                    VALUES (:plataforma_id, :cantidad_objetivo, :moneda, :cantidad_recaudada, :descripcion, :activa)";
+                    (plataforma_id, cantidad_objetivo, moneda, cantidad_recaudada, enlace, descripcion, activa)
+                    VALUES (:plataforma_id, :cantidad_objetivo, :moneda, :cantidad_recaudada, :enlace, :descripcion, :activa)";
 
             $stmt = $pdo->prepare($sql);
 
@@ -48,6 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt->bindParam(':cantidad_recaudada', $cantidad_recaudada);
             $stmt->bindParam(':descripcion', $descripcion);
             $stmt->bindParam(':activa', $activa, PDO::PARAM_INT);
+            $stmt->bindParam(':enlace', $enlace);
 
             if ($stmt->execute()) {
                 $mensaje = "Recaudación creada correctamente.";
@@ -119,6 +121,12 @@ include('../../includes/header.php');
                 <div class="campo">
                     <label for="cantidad_recaudada">Cantidad recaudada (opcional):</label>
                     <input type="number" step="0.01" name="cantidad_recaudada" id="cantidad_recaudada">
+                </div>
+
+                <!-- Enlace a la campaña -->
+                <div class="campo">
+                    <label for="enlace">Enlace a la campaña:</label>
+                    <input type="url" name="enlace" id="enlace" placeholder="https://..." required>
                 </div>
 
                 <!-- Descripción con Quill -->
