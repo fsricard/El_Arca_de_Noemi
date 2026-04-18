@@ -160,7 +160,7 @@ include('../../includes/header.php');
                 <div class="campo">
                     <label for="enlace">Enlace a la campaña:</label>
                     <input type="url" name="enlace" id="enlace"
-                        value="<?= htmlspecialchars($recaudacion['enlace']) ?>"
+                        value="<?= htmlspecialchars($recaudacion['enlace'] ?? '') ?>"
                         placeholder="https://..." required>
                 </div>
 

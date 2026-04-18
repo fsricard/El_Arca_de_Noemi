@@ -142,7 +142,7 @@ include('../../includes/header.php');
                     <button type="submit">
                         <i class="fa-solid fa-filter"></i> Filtrar
                     </button>
-                    
+
                     <button type="button" onclick="window.location='listado_recaudaciones.php'">
                         <i class="fa-solid fa-rotate-left"></i> Limpiar filtros
                     </button>
@@ -163,6 +163,7 @@ include('../../includes/header.php');
                             <th>Objetivo</th>
                             <th>Recaudado</th>
                             <th>Descripción</th>
+                            <th>Enlace</th>
                             <th>Estado</th>
                             <th>Acciones</th>
                         </tr>
@@ -185,6 +186,12 @@ include('../../includes/header.php');
                                     <?= $r['cantidad_recaudada'] !== null
                                         ? number_format($r['cantidad_recaudada'], 2) . ' ' . $r['moneda']
                                         : '<span style="color:#999;">—</span>' ?>
+                                </td>
+
+                                <td>
+                                    <a href="<?= htmlspecialchars($r['enlace'] ?? '') ?>" target="_blank" class="btn btn-ver">
+                                        Ver campaña
+                                    </a>
                                 </td>
 
                                 <td><?= substr(strip_tags($r['descripcion']), 0, 80) ?>...</td>
