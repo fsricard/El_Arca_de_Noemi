@@ -8,6 +8,7 @@
                         <li><a href="<?= asset('/') ?>"><i class="fa-solid fa-house"></i> Inicio</a></li>
                         <li><a href="<?= asset('/listado-adopciones') ?>"><i class="fa-classic fa-solid fa-family"></i> Adopta</a></li>
                         <li><a href="<?= asset('/listado-apadrinamientos') ?>"><i class="fa-classic fa-solid fa-hands-holding-child"></i> Apadrina</a></li>
+                        <li><a href="<?= asset('/listado-crowdfunding') ?>"><i class="fa-solid fa-hand-holding-dollar"></i> Colabora</a></li>
                         <li><a href="<?= asset('/asi-es-noemi') ?>"><i class="fa-solid fa-user"></i> Sobre mí</a></li>
                         <li><a href="<?= asset('/contacto') ?>"><i class="fa-solid fa-envelope"></i> Contacto</a></li>
                     </ul>
