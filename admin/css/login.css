@@ -1,3 +1,4 @@
+/* --- EXISTENTE --- */
 :root {
     --bg: #0f1217;
     --panel: #1b2230;
@@ -8,9 +9,11 @@
     --error: #ff5c75;
     --warning: #ffb84d;
 }
+
 * {
     box-sizing: border-box;
 }
+
 body {
     margin: 0;
     font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -18,47 +21,56 @@ body {
     min-height: 100vh;
     display: grid;
     place-items: center;
+    padding: env(safe-area-inset-top) 16px env(safe-area-inset-bottom);
+    background: var(--bg);
 }
+
 .login-container {
     width: 100%;
     max-width: 420px;
     padding: 24px;
 }
+
 .login-form {
     background: radial-gradient(1000px 600px at 20% 10%, #B7C051 0%, #757a39 60%, #545a15 100%);
     backdrop-filter: blur(6px);
-    border: 1px solid rgba(255,255,255,0.08);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 16px;
     padding: 24px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
 }
+
 h1 {
     margin: 0 0 18px 0;
     font-size: 22px;
     letter-spacing: 0.2px;
 }
+
 label {
     display: block;
     margin: 12px 0 6px;
     color: var(--muted);
     font-size: 14px;
 }
+
 input[type="text"],
 input[type="password"] {
     width: 100%;
     padding: 12px 14px;
     border-radius: 10px;
-    border: 1px solid rgba(255,255,255,0.14);
-    background: rgba(12,16,24,0.7);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(12, 16, 24, 0.7);
     color: var(--text);
     outline: none;
     transition: border-color .2s, box-shadow .2s;
 }
+
 input[type="email"]:focus,
 input[type="password"]:focus {
     border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(79,124,255,0.18);
+    box-shadow: 0 0 0 3px rgba(79, 124, 255, 0.18);
 }
+
 button {
     margin-top: 18px;
     width: 100%;
@@ -72,21 +84,86 @@ button {
     cursor: pointer;
     transition: background .2s, transform .06s ease-in-out;
 }
-button:hover { background: var(--accent-hover); }
-button:active { transform: scale(0.99); }
+
+button:hover {
+    background: var(--accent-hover);
+}
+
+button:active {
+    transform: scale(0.99);
+}
+
 .alert {
     margin: 10px 0 14px;
     padding: 10px 12px;
     border-radius: 10px;
     font-size: 14px;
 }
+
 .alert-error {
     background: rgba(255, 92, 117, 0.12);
     border: 1px solid rgba(255, 92, 117, 0.35);
     color: #ffdbe1;
 }
+
 .alert-warning {
     background: rgba(255, 184, 77, 0.12);
     border: 1px solid rgba(255, 184, 77, 0.35);
     color: #fff3d6;
+}
+
+/* --- RESPONSIVE REAL --- */
+
+/* Móviles pequeños (≤ 380px) */
+@media (max-width: 380px) {
+    .login-container {
+        padding: 12px;
+    }
+
+    .login-form {
+        padding: 18px;
+        border-radius: 14px;
+    }
+
+    h1 {
+        font-size: 20px;
+        margin-bottom: 14px;
+    }
+
+    label {
+        font-size: 13px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        padding: 10px 12px;
+        font-size: 15px;
+    }
+
+    button {
+        padding: 12px;
+        font-size: 15px;
+    }
+}
+
+/* Móviles medianos (≤ 480px) */
+@media (max-width: 480px) {
+    body {
+        padding: 20px;
+    }
+
+    .login-form {
+        padding: 22px;
+    }
+}
+
+/* Tablets verticales (≤ 768px) */
+@media (max-width: 768px) {
+    .login-container {
+        max-width: 480px;
+    }
+
+    .login-form {
+        border-radius: 18px;
+    }
 }
