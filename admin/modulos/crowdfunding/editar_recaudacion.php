@@ -44,8 +44,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $cantidad_recaudada = !empty($_POST['cantidad_recaudada']) ? $_POST['cantidad_recaudada'] : null;
     $descripcion = $_POST['descripcion'] ?? "";
     $activa = isset($_POST['activa']) ? 1 : 0;
+    $enlace = trim($_POST['enlace']);
 
-    if (empty($plataforma_id) || empty($cantidad_objetivo) || empty($moneda)) {
+    if (empty($plataforma_id) || empty($cantidad_objetivo) || empty($moneda) || empty($enlace)) {
         $mensaje = "Debes completar todos los campos obligatorios.";
         $tipo_mensaje = "error";
     } else {
@@ -55,6 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         cantidad_objetivo = :cantidad_objetivo,
                         moneda = :moneda,
                         cantidad_recaudada = :cantidad_recaudada,
+                        enlace = :enlace,
                         descripcion = :descripcion,
                         activa = :activa,
                         updated_at = NOW()
@@ -69,6 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt->bindParam(':descripcion', $descripcion);
             $stmt->bindParam(':activa', $activa, PDO::PARAM_INT);
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->bindParam(':enlace', $enlace);
 
             if ($stmt->execute()) {
                 $mensaje = "Recaudación actualizada correctamente.";
@@ -151,6 +154,14 @@ include('../../includes/header.php');
                     <label for="cantidad_recaudada">Cantidad recaudada:</label>
                     <input type="number" step="0.01" name="cantidad_recaudada" id="cantidad_recaudada"
                         value="<?= $recaudacion['cantidad_recaudada'] ?>">
+                </div>
+
+                <!-- Enlace a la campaña -->
+                <div class="campo">
+                    <label for="enlace">Enlace a la campaña:</label>
+                    <input type="url" name="enlace" id="enlace"
+                        value="<?= htmlspecialchars($recaudacion['enlace']) ?>"
+                        placeholder="https://..." required>
                 </div>
 
                 <!-- Descripción -->
