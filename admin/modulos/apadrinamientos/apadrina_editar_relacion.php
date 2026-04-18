@@ -235,6 +235,11 @@ include('../../includes/header.php');
 
                 <div style="display:flex; gap:10px; align-items:center;">
                     <button class="btn btn-primary">Guardar cambios</button>
+
+                    <a href="paypal_cancel_subscription.php?id=<?= $relacion['paypal_subscription_id'] ?>" class="btn btn-peligro">
+                        Cancelar suscripción PayPal
+                    </a>
+
                     <a href="apadrina_listado_padrinos.php" class="btn btn-volver">Volver al listado</a>
                 </div>
             </form>

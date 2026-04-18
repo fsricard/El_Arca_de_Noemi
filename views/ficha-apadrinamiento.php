@@ -108,7 +108,6 @@ try {
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
     $padrinosActivos = (int) ($row['total'] ?? 0);
-
 } catch (Exception $e) {
     $padrinosActivos = 0;
 }
@@ -187,7 +186,16 @@ if ($padrinosActivos >= $metaPadrinos) {
             </div>
 
             <div class="ficha-acciones-individual">
-                <a href="<?= asset('/apadrinar.php?id=' . $id . '') ?>" class="btn btn-acciones-individual"><i class="fa-classic fa-solid fa-handshake"></i> Quiero apadrinar a <?php echo $nombre; ?></a>
+
+                <!-- Botón visual idéntico al tuyo -->
+                <button id="btn-apadrinar" class="btn btn-acciones-individual">
+                    <i class="fa-classic fa-solid fa-handshake"></i>
+                    Quiero apadrinar a <?= htmlspecialchars($nombre) ?>
+                </button>
+
+                <!-- Contenedor donde PayPal inyectará su ventana -->
+                <div id="paypal-container" style="margin-top:15px; display:none;"></div>
+
             </div>
 
         </article>
@@ -195,3 +203,59 @@ if ($padrinosActivos >= $metaPadrinos) {
     </section>
 
 </main>
+
+<!-- SDK de PayPal -->
+<script src="https://www.paypal.com/sdk/js?client-id=AdwHUt_L8WjpXKBboVmo0XtPvD8sr5CwaAP2vgHMapNbyejg80tO4nU9WyBp29jAJ5qKZS4BgcD5iFBo&vault=true&intent=subscription"></script>
+
+<script>
+    document.getElementById('btn-apadrinar').addEventListener('click', function() {
+
+        document.getElementById('btn-apadrinar').style.display = 'none';
+        document.getElementById('paypal-container').style.display = 'block';
+
+        paypal.Buttons({
+            style: {
+                shape: 'pill',
+                color: 'gold',
+                layout: 'vertical',
+                label: 'subscribe'
+            },
+
+            createSubscription: function(data, actions) {
+                return actions.subscription.create({
+                    plan_id: "P-9VB192991F117152NNHSAUYA",
+                    custom_id: "animal_<?= $id ?>"
+                });
+            },
+
+            onApprove: function(data, actions) {
+
+                fetch("<?= asset('/admin/modulos/apadrinamientos/paypal_create_subscription.php') ?>", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            subscription_id: data.subscriptionID,
+                            animal_id: <?= $id ?>
+                        })
+                    })
+                    .then(r => r.json())
+                    .then(res => {
+                        if (res.ok) {
+                            window.location.href = "<?= asset('/gracias-apadrinamiento.php') ?>";
+                        } else {
+                            alert("Hubo un problema registrando la suscripción.");
+                        }
+                    });
+            },
+
+            onError: function(err) {
+                console.error(err);
+                alert("Hubo un error con PayPal. Inténtalo de nuevo.");
+            }
+
+        }).render('#paypal-container');
+
+    });
+</script>
