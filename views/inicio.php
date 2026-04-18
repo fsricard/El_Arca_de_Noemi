@@ -319,8 +319,10 @@
                                         <?php endif; ?>
                                     </div>
 
-                                    <a href="<?= asset('/listado-crowdfunding'); ?>" class="btn adopcion-boton">
-                                        Ir al listado
+                                    <a href="<?= htmlspecialchars($campania['enlace'] ?? '#'); ?>"
+                                        target="_blank"
+                                        class="btn adopcion-boton">
+                                        Ir a la campaña
                                     </a>
 
                                 </div>

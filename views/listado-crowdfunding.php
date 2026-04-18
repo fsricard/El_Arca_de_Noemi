@@ -132,6 +132,12 @@ $recaudaciones = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                     <?php endif; ?>
                                 </div>
 
+                                <a href="<?= htmlspecialchars($r['enlace'] ?? '#'); ?>"
+                                    target="_blank"
+                                    class="btn adopcion-boton">
+                                    Ir a la campaña
+                                </a>
+
                             </div>
 
                         </div>
