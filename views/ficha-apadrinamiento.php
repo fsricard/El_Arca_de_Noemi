@@ -186,21 +186,48 @@ if ($padrinosActivos >= $metaPadrinos) {
             </div>
 
             <div class="ficha-acciones-individual">
-
-                <!-- Botón visual idéntico al tuyo -->
-                <button id="btn-apadrinar" class="btn btn-acciones-individual">
+                <button id="btnQuieroApadrinar" class="btn btn-acciones-individual">
                     <i class="fa-classic fa-solid fa-handshake"></i>
-                    Quiero apadrinar a <?= htmlspecialchars($nombre) ?>
+                    Quiero apadrinar a <?= htmlspecialchars($animal['nombre']) ?>
                 </button>
-
-                <!-- Contenedor donde PayPal inyectará su ventana -->
-                <div id="paypal-container" style="margin-top:15px; display:none;"></div>
-
             </div>
 
         </article>
 
     </section>
+
+    <!-- Modal Apadrinamiento -->
+    <div class="modal" id="modalApadrinar" style="opacity:0; pointer-events:none;">
+        <div class="modal-content">
+            <span class="close" id="cerrarModal">&times;</span>
+
+            <h2 class="modal-title">Apadrinar a <?= htmlspecialchars($animal['nombre']) ?></h2>
+
+            <form id="formApadrinar">
+                <input type="hidden" name="animal_id" value="<?= $animal['id'] ?>">
+
+                <label>Nombre y apellidos</label>
+                <input type="text" name="nombre_apellidos" required>
+
+                <label>Email</label>
+                <input type="email" name="email" required>
+
+                <label>Teléfono</label>
+                <input type="text" name="telefono">
+
+                <label>Dirección</label>
+                <input type="text" name="direccion" required>
+
+                <label>Mensaje (opcional)</label>
+                <textarea name="mensaje"></textarea>
+
+                <button type="submit" id="btnEnviarDatos" class="modal-btn">Guardar y continuar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Contenedor PayPal oculto -->
+    <div id="paypal-container" style="display:none; margin-top:20px;"></div>
 
 </main>
 
@@ -208,10 +235,10 @@ if ($padrinosActivos >= $metaPadrinos) {
 <script src="https://www.paypal.com/sdk/js?client-id=AdwHUt_L8WjpXKBboVmo0XtPvD8sr5CwaAP2vgHMapNbyejg80tO4nU9WyBp29jAJ5qKZS4BgcD5iFBo&vault=true&intent=subscription"></script>
 
 <script>
-    document.getElementById('btn-apadrinar').addEventListener('click', function() {
-
-        document.getElementById('btn-apadrinar').style.display = 'none';
-        document.getElementById('paypal-container').style.display = 'block';
+     /* -----------------------------
+       3. Botón PayPal dinámico
+    ------------------------------ */
+    function iniciarBotonPayPal(tempId, animalId) {
 
         paypal.Buttons({
             style: {
@@ -223,39 +250,71 @@ if ($padrinosActivos >= $metaPadrinos) {
 
             createSubscription: function(data, actions) {
                 return actions.subscription.create({
-                    plan_id: "P-9VB192991F117152NNHSAUYA",
-                    custom_id: "animal_<?= $id ?>"
+                    plan_id: "P-4PX43315HR267680ENHTFGQA",
+                    custom_id: "temp_" + tempId + "_animal_" + animalId
                 });
             },
 
             onApprove: function(data, actions) {
+                alert("Procesando confirmación…");
+            },
 
-                fetch("<?= asset('/admin/modulos/apadrinamientos/paypal_create_subscription.php') ?>", {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json"
-                        },
-                        body: JSON.stringify({
-                            subscription_id: data.subscriptionID,
-                            animal_id: <?= $id ?>
-                        })
+            onCancel: function() {
+                fetch("<?= asset('/ajax/ajax_cancelar_sponsor_temp.php') ?>", {
+                    method: "POST",
+                    body: new URLSearchParams({
+                        temp_id: tempId
                     })
-                    .then(r => r.json())
-                    .then(res => {
-                        if (res.ok) {
-                            window.location.href = "<?= asset('/gracias-apadrinamiento.php') ?>";
-                        } else {
-                            alert("Hubo un problema registrando la suscripción.");
-                        }
-                    });
+                });
             },
 
             onError: function(err) {
                 console.error(err);
-                alert("Hubo un error con PayPal. Inténtalo de nuevo.");
+                alert("Hubo un error con PayPal.");
             }
 
-        }).render('#paypal-container');
+        }).render("#paypal-container");
+    }
+    
+    /* -----------------------------
+    1. Abrir / cerrar modal
+    ------------------------------ */
+    const modal = document.getElementById("modalApadrinar");
 
-    });
+    document.getElementById("btnQuieroApadrinar").onclick = function() {
+        modal.style.opacity = "1";
+        modal.style.pointerEvents = "auto";
+    };
+
+    document.getElementById("cerrarModal").onclick = function() {
+        modal.style.opacity = "0";
+        modal.style.pointerEvents = "none";
+    };
+
+    /* -----------------------------
+       2. Guardar datos en sponsors_temp
+    ------------------------------ */
+    document.getElementById("formApadrinar").onsubmit = function(e) {
+        e.preventDefault();
+
+        const formData = new FormData(this);
+
+        fetch("<?= asset('/ajax/ajax_guardar_sponsor_temp.php') ?>", {
+                method: "POST",
+                body: formData
+            })
+            .then(r => r.json())
+            .then(data => {
+                if (data.ok) {
+                    window.tempSponsorId = data.temp_id;
+
+                    document.getElementById("modalApadrinar").style.display = "none";
+                    document.getElementById("paypal-container").style.display = "block";
+
+                    iniciarBotonPayPal(data.temp_id, formData.get("animal_id"));
+                } else {
+                    alert("Error guardando los datos.");
+                }
+            });
+    };
 </script>
