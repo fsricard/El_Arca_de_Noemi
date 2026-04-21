@@ -233,26 +233,43 @@ function noemi_bichillos_random(PDO $pdo): ?string
 // Función para crear rutas absolutas
 function base_url(): string
 {
-    $protocolo = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https://' : 'http://';
+    // Detectar protocolo
+    $protocolo = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
+        ? 'https://'
+        : 'http://';
+
+    // Host (dominio + puerto)
     $host = $_SERVER['HTTP_HOST'];
 
-    // Detectar la carpeta raíz del proyecto
-    // DOCUMENT_ROOT = /var/www/html
-    // __DIR__ = /var/www/html/config
-    // Resultado = / (raíz del proyecto)
-    $rootPath = realpath($_SERVER['DOCUMENT_ROOT']);
+    // Ruta absoluta del proyecto
     $projectPath = realpath(__DIR__ . '/..');
 
-    // Calcular subcarpeta si el proyecto no está en la raíz del servidor
-    $subcarpeta = str_replace($rootPath, '', $projectPath);
+    // Ruta absoluta del DOCUMENT_ROOT
+    $rootPath = realpath($_SERVER['DOCUMENT_ROOT']);
 
+    // Calcular subcarpeta correctamente
+    $subcarpeta = str_replace('\\', '/', $projectPath);
+    $rootPath   = str_replace('\\', '/', $rootPath);
+
+    $subcarpeta = str_replace($rootPath, '', $subcarpeta);
+
+    // Asegurar que empieza con "/"
+    $subcarpeta = '/' . ltrim($subcarpeta, '/');
+
+    // Asegurar que NO termina con "/"
     return rtrim($protocolo . $host . $subcarpeta, '/');
 }
 
 // Genera rutas absolutas correctas para assets.
 function asset(string $ruta): string
 {
-    return base_url() . '/' . ltrim($ruta, '/');
+    // Asegura que base_url() NO termina con "/"
+    $base = rtrim(base_url(), '/');
+
+    // Asegura que la ruta SÍ empieza con "/"
+    $ruta = '/' . ltrim($ruta, '/');
+
+    return $base . $ruta;
 }
 
 // Registra eventos en un archivo de log con bloqueo de escritura.
@@ -524,8 +541,8 @@ function editor_quill($nombreCampo, $valor = '')
 
     return '
         <div class="quill-editor" data-target="descripcion" id="editor-descripcion"></div>
-        <textarea id="descripcion" name="'.$id.'" class="editor-html form-control" style="display:none;">'
-            .$valor.
+        <textarea id="descripcion" name="' . $id . '" class="editor-html form-control" style="display:none;">'
+        . $valor .
         '</textarea>
     ';
 }

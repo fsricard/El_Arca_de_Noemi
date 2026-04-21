@@ -229,56 +229,28 @@ if ($padrinosActivos >= $metaPadrinos) {
     <!-- Contenedor PayPal oculto -->
     <div id="paypal-container" style="display:none; margin-top:20px;"></div>
 
+    <!-- Modal de agradecimiento -->
+    <div class="modal" id="modalGracias" style="opacity:0; pointer-events:none;">
+        <div class="modal-content">
+            <span class="close" id="cerrarGracias">&times;</span>
+
+            <h2 class="modal-title">¡Gracias por tu apoyo!</h2>
+
+            <p id="mensajeGracias" style="color:white; font-size:1.2rem; text-align:center; margin-top:1rem;">
+                <!-- Aquí insertaremos el mensaje dinámico -->
+            </p>
+        </div>
+    </div>
+
 </main>
 
 <!-- SDK de PayPal -->
 <script src="https://www.paypal.com/sdk/js?client-id=AdwHUt_L8WjpXKBboVmo0XtPvD8sr5CwaAP2vgHMapNbyejg80tO4nU9WyBp29jAJ5qKZS4BgcD5iFBo&vault=true&intent=subscription"></script>
 
 <script>
-     /* -----------------------------
-       3. Botón PayPal dinámico
-    ------------------------------ */
-    function iniciarBotonPayPal(tempId, animalId) {
-
-        paypal.Buttons({
-            style: {
-                shape: 'pill',
-                color: 'gold',
-                layout: 'vertical',
-                label: 'subscribe'
-            },
-
-            createSubscription: function(data, actions) {
-                return actions.subscription.create({
-                    plan_id: "P-4PX43315HR267680ENHTFGQA",
-                    custom_id: "temp_" + tempId + "_animal_" + animalId
-                });
-            },
-
-            onApprove: function(data, actions) {
-                alert("Procesando confirmación…");
-            },
-
-            onCancel: function() {
-                fetch("<?= asset('/ajax/ajax_cancelar_sponsor_temp.php') ?>", {
-                    method: "POST",
-                    body: new URLSearchParams({
-                        temp_id: tempId
-                    })
-                });
-            },
-
-            onError: function(err) {
-                console.error(err);
-                alert("Hubo un error con PayPal.");
-            }
-
-        }).render("#paypal-container");
-    }
-    
-    /* -----------------------------
-    1. Abrir / cerrar modal
-    ------------------------------ */
+    /* --------------------------------------
+    1. Abrir/cerrar modal para recoger datos
+    -------------------------------------- */
     const modal = document.getElementById("modalApadrinar");
 
     document.getElementById("btnQuieroApadrinar").onclick = function() {
@@ -291,9 +263,31 @@ if ($padrinosActivos >= $metaPadrinos) {
         modal.style.pointerEvents = "none";
     };
 
-    /* -----------------------------
-       2. Guardar datos en sponsors_temp
-    ------------------------------ */
+    /* ------------------------------------
+       2. Abrir/cerrar modal agradecimiento
+    ------------------------------------ */
+    function mostrarModalAgradecimiento() {
+
+        const nombre = document.querySelector("input[name='nombre_apellidos']").value;
+        const animal = "<?= htmlspecialchars($animal['nombre']) ?>";
+
+        document.getElementById("mensajeGracias").innerHTML =
+            `Gracias <strong>${nombre}</strong> por apadrinar a <strong>${animal}</strong>. Tu ayuda cambia vidas.`;
+
+        const modal = document.getElementById("modalGracias");
+        modal.style.opacity = "1";
+        modal.style.pointerEvents = "auto";
+    }
+
+    document.getElementById("cerrarGracias").onclick = function() {
+        const modal = document.getElementById("modalGracias");
+        modal.style.opacity = "0";
+        modal.style.pointerEvents = "none";
+    };
+
+    /* ---------------------------------
+       3. Guardar datos en sponsors_temp
+    --------------------------------- */
     document.getElementById("formApadrinar").onsubmit = function(e) {
         e.preventDefault();
 
@@ -317,4 +311,46 @@ if ($padrinosActivos >= $metaPadrinos) {
                 }
             });
     };
+
+    /* -----------------------------
+       4. Botón PayPal dinámico
+    ------------------------------ */
+    function iniciarBotonPayPal(tempId, animalId) {
+
+        paypal.Buttons({
+
+            style: {
+                shape: 'pill',
+                color: 'gold',
+                layout: 'vertical',
+                label: 'subscribe'
+            },
+
+            createSubscription: function(data, actions) {
+                return actions.subscription.create({
+                    plan_id: "P-4PX43315HR267680ENHTFGQA",
+                    custom_id: "temp_" + tempId + "_animal_" + animalId
+                });
+            },
+
+            onApprove: function(data, actions) {
+                mostrarModalAgradecimiento();
+            },
+
+            onCancel: function() {
+                fetch("<?= asset('/ajax/ajax_cancelar_sponsor_temp.php') ?>", {
+                    method: "POST",
+                    body: new URLSearchParams({
+                        temp_id: tempId
+                    })
+                });
+            },
+
+            onError: function(err) {
+                console.error(err);
+                alert("Hubo un error con PayPal.");
+            }
+
+        }).render("#paypal-container");
+    }
 </script>
