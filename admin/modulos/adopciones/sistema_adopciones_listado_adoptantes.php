@@ -10,47 +10,46 @@ if (!isLoggedIn()) {
     exit;
 }
 
-/* ---------------------------------------------------------
-   1. Filtros
---------------------------------------------------------- */
+// Filtros
 $filtro_nombre        = trim($_GET['nombre'] ?? '');
 $filtro_id_adoptante = intval($_GET['id_adoptante'] ?? 0);
 $filtro_estado       = $_GET['estado'] ?? '';
 $filtro_desde        = $_GET['desde'] ?? '';
 $filtro_hasta        = $_GET['hasta'] ?? '';
 
-/* ---------------------------------------------------------
-   2. Paginación
---------------------------------------------------------- */
+// Paginación
 $por_pagina = 20;
 $pagina_actual = max(1, intval($_GET['p'] ?? 1));
 $offset = ($pagina_actual - 1) * $por_pagina;
 
-/* ---------------------------------------------------------
-   3. Consulta base (para total)
---------------------------------------------------------- */
+// Consulta base
 $query_total = "
     SELECT COUNT(*) 
-    FROM adoptantes ad
+    FROM adoptantes_all ad
     WHERE 1
 ";
 
 $params_total = [];
 
-/* --- Filtro por ID adoptante --- */
+// Filtro por ID adoptante
 if ($filtro_id_adoptante > 0) {
     $query_total .= " AND ad.id = ? ";
     $params_total[] = $filtro_id_adoptante;
 }
 
-/* --- Filtro por nombre --- */
+// Filtro por nombre (nombre_completo + apellidos si existen)
 if ($filtro_id_adoptante === 0 && $filtro_nombre !== '') {
-    $query_total .= " AND (ad.nombre LIKE ? OR ad.apellidos LIKE ?) ";
+    $query_total .= " 
+        AND (
+            ad.nombre_completo LIKE ? 
+            OR ad.apellidos LIKE ?
+        )
+    ";
     $params_total[] = "%$filtro_nombre%";
     $params_total[] = "%$filtro_nombre%";
 }
 
-/* --- Filtro por estado --- */
+// Filtro por estado
 if ($filtro_estado !== '') {
     $query_total .= "
         AND ad.id IN (
@@ -60,7 +59,7 @@ if ($filtro_estado !== '') {
     $params_total[] = $filtro_estado;
 }
 
-/* --- Filtro por fechas --- */
+// Filtro por fechas
 if ($filtro_desde !== '') {
     $query_total .= "
         AND ad.id IN (
@@ -79,16 +78,15 @@ if ($filtro_hasta !== '') {
     $params_total[] = $filtro_hasta;
 }
 
-/* Ejecutar total */
+// Ejecutar total
 $stmt = $pdo->prepare($query_total);
 $stmt->execute($params_total);
 $total_registros = $stmt->fetchColumn();
 
-/* ---------------------------------------------------------
-   4. Consulta final con datos + paginación
---------------------------------------------------------- */
+// Consulta final con datos + paginación
 $query = "
-    SELECT ad.*,
+    SELECT 
+        ad.*,
 
         /* Total de adopciones */
         (SELECT COUNT(*) 
@@ -102,33 +100,38 @@ $query = "
          ORDER BY fecha_adopcion DESC 
          LIMIT 1) AS ultimo_estado,
 
-        /* ID de la última adopción → NECESARIO PARA EDITAR */
+        /* ID de la última adopción */
         (SELECT id 
          FROM adopciones 
          WHERE id_adoptante = ad.id 
          ORDER BY fecha_adopcion DESC 
          LIMIT 1) AS id_ultima_adopcion
 
-    FROM adoptantes ad
+    FROM adoptantes_all ad
     WHERE 1
 ";
 
 $params = [];
 
-/* --- Filtro por ID adoptante --- */
+// Filtro por ID adoptante
 if ($filtro_id_adoptante > 0) {
     $query .= " AND ad.id = ? ";
     $params[] = $filtro_id_adoptante;
 }
 
-/* --- Filtro por nombre --- */
+// Filtro por nombre
 if ($filtro_id_adoptante === 0 && $filtro_nombre !== '') {
-    $query .= " AND (ad.nombre LIKE ? OR ad.apellidos LIKE ?) ";
+    $query .= " 
+        AND (
+            ad.nombre_completo LIKE ? 
+            OR ad.apellidos LIKE ?
+        )
+    ";
     $params[] = "%$filtro_nombre%";
     $params[] = "%$filtro_nombre%";
 }
 
-/* --- Filtro por estado --- */
+// Filtro por estado
 if ($filtro_estado !== '') {
     $query .= "
         AND ad.id IN (
@@ -138,7 +141,7 @@ if ($filtro_estado !== '') {
     $params[] = $filtro_estado;
 }
 
-/* --- Filtro por fechas --- */
+// Filtro por fechas
 if ($filtro_desde !== '') {
     $query .= "
         AND ad.id IN (
@@ -158,7 +161,7 @@ if ($filtro_hasta !== '') {
 }
 
 $query .= " 
-    ORDER BY ad.nombre ASC, ad.apellidos ASC
+    ORDER BY ad.nombre_completo ASC
     LIMIT $offset, $por_pagina
 ";
 
@@ -166,7 +169,7 @@ $stmt = $pdo->prepare($query);
 $stmt->execute($params);
 $adoptantes = $stmt->fetchAll();
 
-$pagina='sistema_adopciones_listado_adoptantes';
+$pagina = 'sistema_adopciones_listado_adoptantes';
 
 include('../../includes/header.php');
 ?>
@@ -202,10 +205,10 @@ include('../../includes/header.php');
                         <label>Estado adopción:</label>
                         <select name="estado">
                             <option value="">Todos</option>
-                            <option value="pendiente"   <?= $filtro_estado==='pendiente'?'selected':'' ?>>Pendiente</option>
-                            <option value="en_proceso"  <?= $filtro_estado==='en_proceso'?'selected':'' ?>>En proceso</option>
-                            <option value="finalizada"  <?= $filtro_estado==='finalizada'?'selected':'' ?>>Finalizada</option>
-                            <option value="cancelada"   <?= $filtro_estado==='cancelada'?'selected':'' ?>>Cancelada</option>
+                            <option value="pendiente" <?= $filtro_estado === 'pendiente' ? 'selected' : '' ?>>Pendiente</option>
+                            <option value="en_proceso" <?= $filtro_estado === 'en_proceso' ? 'selected' : '' ?>>En proceso</option>
+                            <option value="finalizada" <?= $filtro_estado === 'finalizada' ? 'selected' : '' ?>>Finalizada</option>
+                            <option value="cancelada" <?= $filtro_estado === 'cancelada' ? 'selected' : '' ?>>Cancelada</option>
                         </select>
                     </div>
 
@@ -239,6 +242,7 @@ include('../../includes/header.php');
                         <th>Nombre</th>
                         <th>Contacto</th>
                         <th>Dirección</th>
+                        <th>Origen</th>
                         <th>Último estado</th>
                         <th>Total adopciones</th>
                         <th>Acciones</th>
@@ -249,47 +253,65 @@ include('../../includes/header.php');
                     <?php foreach ($adoptantes as $a): ?>
                         <tr>
 
+                            <!-- NOMBRE -->
                             <td>
-                                <strong><?= htmlspecialchars($a['nombre']) ?></strong><br>
-                                <?= htmlspecialchars($a['apellidos']) ?>
+                                <strong><?= htmlspecialchars($a['nombre_completo']) ?></strong><br>
+
+                                <?php if (!empty($a['apellidos'])): ?>
+                                    <small><?= htmlspecialchars($a['apellidos']) ?></small><br>
+                                <?php endif; ?>
                             </td>
 
+                            <!-- CONTACTO -->
                             <td>
                                 <?= htmlspecialchars($a['telefono']) ?><br>
                                 <small><?= htmlspecialchars($a['email']) ?></small>
                             </td>
 
+                            <!-- DIRECCIÓN -->
                             <td>
                                 <?= htmlspecialchars($a['direccion']) ?><br>
                                 <?= htmlspecialchars($a['ciudad']) ?> (<?= htmlspecialchars($a['provincia']) ?>)
                             </td>
 
+                            <!-- ORIGEN -->
+                            <td>
+                                <?php if ($a['origen'] === 'manual'): ?>
+                                    <span class="badge badge-info">Manual</span>
+                                <?php else: ?>
+                                    <span class="badge badge-success">Formulario</span>
+                                <?php endif; ?>
+                            </td>
+
+                            <!-- ÚLTIMO ESTADO -->
                             <td>
                                 <?php if ($a['ultimo_estado']): ?>
                                     <?php
-                                        $estado = $a['ultimo_estado'];
-                                        $clase = [
-                                            'pendiente'   => 'badge-warning',
-                                            'en_proceso'  => 'badge-info',
-                                            'finalizada'  => 'badge-success',
-                                            'cancelada'   => 'badge-danger'
-                                        ][$estado] ?? 'badge-secondary';
+                                    $estado = $a['ultimo_estado'];
+                                    $clase = [
+                                        'pendiente'   => 'badge-warning',
+                                        'en_proceso'  => 'badge-info',
+                                        'finalizada'  => 'badge-success',
+                                        'cancelada'   => 'badge-danger'
+                                    ][$estado] ?? 'badge-secondary';
                                     ?>
                                     <span class="badge <?= $clase ?>">
-                                        <?= ucfirst(str_replace('_',' ', $estado)) ?>
+                                        <?= ucfirst(str_replace('_', ' ', $estado)) ?>
                                     </span>
                                 <?php else: ?>
                                     <span class="badge badge-secondary">Sin adopciones</span>
                                 <?php endif; ?>
                             </td>
 
+                            <!-- TOTAL ADOPCIONES -->
                             <td><?= (int)$a['total_adopciones'] ?></td>
 
+                            <!-- ACCIONES -->
                             <td>
 
                                 <?php if ($a['id_ultima_adopcion']): ?>
                                     <button class="btn btn-warning"
-                                            onclick="window.location='sistema_adopciones_editar_adoptante.php?id=<?= $a['id_ultima_adopcion'] ?>'">
+                                        onclick="window.location='sistema_adopciones_editar_adoptante.php?id=<?= $a['id_ultima_adopcion'] ?>'">
                                         <i class="fa-solid fa-pen-to-square"></i> Editar
                                     </button>
                                 <?php else: ?>
@@ -299,7 +321,7 @@ include('../../includes/header.php');
                                 <?php endif; ?>
 
                                 <button class="btn update-user"
-                                        onclick="window.location='sistema_adopciones_por_adoptante.php?id=<?= $a['id'] ?>'">
+                                    onclick="window.location='sistema_adopciones_por_adoptante.php?id=<?= $a['id'] ?>'">
                                     <i class="fa-solid fa-paw"></i> Ver adopciones
                                 </button>
                             </td>
@@ -316,12 +338,13 @@ include('../../includes/header.php');
 </main>
 
 <style>
-/* Wrapper para el autocomplete */
+    /* Wrapper para el autocomplete */
     .autocomplete-wrapper {
         position: relative;
         display: flex;
         flex-direction: column;
     }
+
     .autocomplete-list {
         position: absolute;
         top: 100%;
@@ -335,7 +358,7 @@ include('../../includes/header.php');
         display: none;
         z-index: 9999;
         border-radius: 0 0 6px 6px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
     .autocomplete-item {
@@ -343,10 +366,12 @@ include('../../includes/header.php');
         cursor: pointer;
         transition: background 0.15s ease;
     }
+
     .autocomplete-item:hover,
     .autocomplete-item.active {
         background: #f0f0f0;
     }
+
     .autocomplete-highlight {
         font-weight: bold;
         color: #0077cc;
@@ -354,6 +379,7 @@ include('../../includes/header.php');
 </style>
 
 <script>
+    // Script para el select autocomplete de los nombres
     document.addEventListener("DOMContentLoaded", () => {
 
         const input = document.getElementById("buscador");
@@ -392,11 +418,21 @@ include('../../includes/header.php');
                 const regex = new RegExp("(" + texto.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ")", "gi");
                 const resaltado = nombre.replace(regex, "<span class='autocomplete-highlight'>$1</span>");
 
-                div.innerHTML = resaltado;
+                // Mostrar origen
+                const origenBadge = item.origen === "manual" ?
+                    "<span class='badge badge-info'>Manual</span>" :
+                    "<span class='badge badge-success'>Formulario</span>";
+
+                div.innerHTML = `
+                <div class="autocomplete-line">
+                    ${resaltado}
+                    <span class="autocomplete-origen">${origenBadge}</span>
+                </div>
+            `;
 
                 div.onclick = () => {
                     input.value = item.nombre_completo;
-                    inputID.value = item.id; // ← GUARDAMOS EL ID
+                    inputID.value = item.id;
                     lista.innerHTML = "";
                     lista.style.display = "none";
                 };
@@ -443,7 +479,7 @@ include('../../includes/header.php');
             }
 
             debounce(() => {
-                fetch("ajax_buscar_adoptantes.php?term=" + encodeURIComponent(texto))
+                fetch("ajax/buscar_adoptantes.php?term=" + encodeURIComponent(texto))
                     .then(res => res.json())
                     .then(data => {
                         sugerencias = data || [];
