@@ -1,6 +1,7 @@
 <?php
 // Obtener datos del animal por ID
-function getAnimal(int $id) {
+function getAnimal(int $id)
+{
     global $pdo;
     $sql = "SELECT * FROM animales WHERE id = :id";
     $stmt = $pdo->prepare($sql);
@@ -9,7 +10,8 @@ function getAnimal(int $id) {
 }
 
 // Obtener datos de la raza por ID
-function getRaza(int $idRaza) {
+function getRaza(int $idRaza)
+{
     global $pdo;
     $sql = "SELECT * FROM razas_animales WHERE id = :id";
     $stmt = $pdo->prepare($sql);
@@ -18,7 +20,8 @@ function getRaza(int $idRaza) {
 }
 
 // Obtener datos de la especie por ID
-function getEspecie(int $idEspecie) {
+function getEspecie(int $idEspecie)
+{
     global $pdo;
     $sql = "SELECT * FROM especies_animales WHERE id = :id";
     $stmt = $pdo->prepare($sql);
@@ -28,7 +31,8 @@ function getEspecie(int $idEspecie) {
 
 // Obtener raza y su especie en una sola consulta
 // Devuelve: ['raza' => [...], 'especie' => [...]] o false si no existe la raza
-function getRazaConEspecie(int $idRaza) {
+function getRazaConEspecie(int $idRaza)
+{
     global $pdo;
     $sql = "
         SELECT
@@ -78,7 +82,8 @@ function getRazaConEspecie(int $idRaza) {
 }
 
 // Obtener todas las fotos del animal (Incluye principal y galería)
-function getFotos(int $idAnimal) {
+function getFotos(int $idAnimal)
+{
     global $pdo;
     $sql = "SELECT * FROM animales_fotos 
             WHERE id_animal = :id

@@ -25,7 +25,7 @@ if (!$animal) {
 
                     <h2 class="form-title">Formulario de adopción para <?= htmlspecialchars($animal['nombre']) ?></h2>
 
-                    <form action="includes/procesar-formulario.php" method="POST" class="adopta-form">
+                    <form method="POST" class="adopta-form">
 
                         <?php
                         if (empty($_SESSION['csrf_token'])) $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
@@ -34,9 +34,7 @@ if (!$animal) {
 
                         <input type="hidden" name="animal_id" value="<?= $animal['id'] ?>">
 
-                        <!-- ============================
-                            1. DATOS PERSONALES
-                        ============================= -->
+                        <!-- Datos personales -->
                         <fieldset>
                             <legend>Datos personales</legend>
 
@@ -92,9 +90,7 @@ if (!$animal) {
                             </div>
                         </fieldset>
 
-                        <!-- ============================
-                            2. ANIMAL A ADOPTAR
-                        ============================= -->
+                        <!-- Animal y adoptar -->
                         <fieldset>
                             <legend>Animal a adoptar</legend>
 
@@ -110,9 +106,7 @@ if (!$animal) {
                             </div>
                         </fieldset>
 
-                        <!-- ============================
-                            3. ENTORNO FAMILIAR
-                        ============================= -->
+                        <!-- Entorno familiar -->
                         <fieldset>
                             <legend>Entorno familiar</legend>
 
@@ -174,9 +168,7 @@ if (!$animal) {
                             </div>
                         </fieldset>
 
-                        <!-- ============================
-                            4. ANTECEDENTES CON ANIMALES
-                        ============================= -->
+                        <!-- Antecedentes con animales -->
                         <fieldset>
                             <legend>Antecedentes con animales</legend>
 
@@ -215,9 +207,7 @@ if (!$animal) {
                             </div>
                         </fieldset>
 
-                        <!-- ============================
-                            5. VIVIENDA Y ENTORNO
-                        ============================= -->
+                        <!-- Vivienda y entorno -->
                         <fieldset>
                             <legend>Vivienda y entorno</legend>
 
@@ -259,9 +249,7 @@ if (!$animal) {
                             </div>
                         </fieldset>
 
-                        <!-- ============================
-                            6. ESTADO LABORAL Y DEDICACIÓN
-                        ============================= -->
+                        <!-- Estado laboral y dedicación -->
                         <fieldset>
                             <legend>Estado laboral y dedicación</legend>
 
@@ -306,9 +294,7 @@ if (!$animal) {
                             </div>
                         </fieldset>
 
-                        <!-- ============================
-                            7. OTRA INFORMACIÓN
-                        ============================= -->
+                        <!-- Otra información -->
                         <fieldset>
                             <legend>Otra información</legend>
 
@@ -352,4 +338,67 @@ if (!$animal) {
 
     </section>
 
+    <!-- Modal de agradecimiento -->
+    <div class="modal" id="modalGracias" style="opacity:0; pointer-events:none;">
+        <div class="modal-content">
+            <span class="close" id="cerrarGracias">&times;</span>
+
+            <h2 class="modal-title">¡Gracias por tu apoyo!</h2>
+
+            <p id="mensajeGracias" style="color:white; font-size:1.2rem; text-align:center; margin-top:1rem;">
+                <!-- Aquí insertaremos el mensaje dinámico -->
+            </p>
+        </div>
+    </div>
+
 </main>
+
+<script>
+    // Script para enviar el formulario por AJAX
+    document.querySelector(".adopta-form").addEventListener("submit", async function(e) {
+        e.preventDefault();
+
+        const form = e.target;
+        const formData = new FormData(form);
+
+        try {
+            const response = await fetch("includes/procesar_formulario.php", {
+                method: "POST",
+                body: formData
+            });
+
+            const result = await response.json();
+
+            if (result.status === "success") {
+                mostrarModalAgradecimiento();
+                form.reset();
+            } else {
+                alert("Hubo un error al enviar el formulario.");
+            }
+
+        } catch (error) {
+            console.error(error);
+            alert("Error inesperado al enviar el formulario.");
+        }
+    });
+
+    // Script para abrir/cerrar modal agradecimiento
+    function mostrarModalAgradecimiento() {
+
+        const nombre = document.querySelector("input[name='nombre_completo']").value;
+        const animal = "<?= htmlspecialchars($animal['nombre']) ?>";
+
+        document.getElementById("mensajeGracias").innerHTML =
+            `Gracias por envíar tu formulario, te contestaremos en la mayor brebedad posible.`;
+
+        const modal = document.getElementById("modalGracias");
+        modal.style.opacity = "1";
+        modal.style.pointerEvents = "auto";
+    }
+
+    document.getElementById("cerrarGracias").onclick = function() {
+        const modal = document.getElementById("modalGracias");
+        modal.style.opacity = "0";
+        modal.style.pointerEvents = "none";
+    };
+</script>
