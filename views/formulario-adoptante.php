@@ -27,11 +27,6 @@ if (!$animal) {
 
                     <form method="POST" class="adopta-form">
 
-                        <?php
-                        if (empty($_SESSION['csrf_token'])) $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
-                        ?>
-                        <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
-
                         <input type="hidden" name="animal_id" value="<?= $animal['id'] ?>">
 
                         <!-- Datos personales -->
@@ -362,7 +357,7 @@ if (!$animal) {
         const formData = new FormData(form);
 
         try {
-            const response = await fetch("includes/procesar_formulario.php", {
+            const response = await fetch("<?= asset('/includes/procesar_formulario.php') ?>", {
                 method: "POST",
                 body: formData
             });

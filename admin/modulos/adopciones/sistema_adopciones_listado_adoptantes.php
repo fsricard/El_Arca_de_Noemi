@@ -2,27 +2,32 @@
 require_once __DIR__ . '/../../includes/session.php';
 require_once __DIR__ . '/../../includes/auth.php';
 require_once __DIR__ . '/../../../config/database.php';
-require_once(__DIR__ . '/../../../config/funciones.php');
+require_once __DIR__ . '/../../../config/funciones.php';
 
-// Si no está logueado, redirigimos al login
 if (!isLoggedIn()) {
     header("Location: index.php");
     exit;
 }
 
-// Filtros
+/* ============================
+   FILTROS
+============================ */
 $filtro_nombre        = trim($_GET['nombre'] ?? '');
 $filtro_id_adoptante = intval($_GET['id_adoptante'] ?? 0);
 $filtro_estado       = $_GET['estado'] ?? '';
 $filtro_desde        = $_GET['desde'] ?? '';
 $filtro_hasta        = $_GET['hasta'] ?? '';
 
-// Paginación
+/* ============================
+   PAGINACIÓN
+============================ */
 $por_pagina = 20;
 $pagina_actual = max(1, intval($_GET['p'] ?? 1));
 $offset = ($pagina_actual - 1) * $por_pagina;
 
-// Consulta base
+/* ============================
+   CONSULTA TOTAL
+============================ */
 $query_total = "
     SELECT COUNT(*) 
     FROM adoptantes_all ad
@@ -31,39 +36,51 @@ $query_total = "
 
 $params_total = [];
 
-// Filtro por ID adoptante
+/* --- ESTADO INACTIVO --- */
+if ($filtro_estado === 'inactivo') {
+    $query_total .= " 
+        AND ad.origen COLLATE utf8mb4_unicode_ci = 'formulario'
+        AND ad.activo = 0
+    ";
+}
+
+/* --- FILTRO POR ID --- */
 if ($filtro_id_adoptante > 0) {
     $query_total .= " AND ad.id = ? ";
     $params_total[] = $filtro_id_adoptante;
 }
 
-// Filtro por nombre (nombre_completo + apellidos si existen)
+/* --- FILTRO POR NOMBRE --- */
 if ($filtro_id_adoptante === 0 && $filtro_nombre !== '') {
-    $query_total .= " 
+    $query_total .= "
         AND (
-            ad.nombre_completo LIKE ? 
-            OR ad.apellidos LIKE ?
+            ad.nombre_completo COLLATE utf8mb4_unicode_ci LIKE ?
+            OR COALESCE(ad.apellidos, '') COLLATE utf8mb4_unicode_ci LIKE ?
         )
     ";
     $params_total[] = "%$filtro_nombre%";
     $params_total[] = "%$filtro_nombre%";
 }
 
-// Filtro por estado
-if ($filtro_estado !== '') {
+/* --- ESTADOS DE ADOPCIÓN (excepto inactivo) --- */
+if ($filtro_estado !== '' && $filtro_estado !== 'inactivo') {
     $query_total .= "
         AND ad.id IN (
-            SELECT id_adoptante FROM adopciones WHERE estado = ?
+            SELECT id_adoptante 
+            FROM adopciones 
+            WHERE estado COLLATE utf8mb4_unicode_ci = ?
         )
     ";
     $params_total[] = $filtro_estado;
 }
 
-// Filtro por fechas
+/* --- FECHAS --- */
 if ($filtro_desde !== '') {
     $query_total .= "
         AND ad.id IN (
-            SELECT id_adoptante FROM adopciones WHERE fecha_adopcion >= ?
+            SELECT id_adoptante 
+            FROM adopciones 
+            WHERE fecha_adopcion >= ?
         )
     ";
     $params_total[] = $filtro_desde;
@@ -72,35 +89,36 @@ if ($filtro_desde !== '') {
 if ($filtro_hasta !== '') {
     $query_total .= "
         AND ad.id IN (
-            SELECT id_adoptante FROM adopciones WHERE fecha_adopcion <= ?
+            SELECT id_adoptante 
+            FROM adopciones 
+            WHERE fecha_adopcion <= ?
         )
     ";
     $params_total[] = $filtro_hasta;
 }
 
-// Ejecutar total
+/* --- EJECUTAR TOTAL --- */
 $stmt = $pdo->prepare($query_total);
 $stmt->execute($params_total);
 $total_registros = $stmt->fetchColumn();
 
-// Consulta final con datos + paginación
+/* ============================
+   CONSULTA PRINCIPAL
+============================ */
 $query = "
     SELECT 
         ad.*,
 
-        /* Total de adopciones */
         (SELECT COUNT(*) 
          FROM adopciones 
          WHERE id_adoptante = ad.id) AS total_adopciones,
 
-        /* Último estado */
         (SELECT estado 
          FROM adopciones 
          WHERE id_adoptante = ad.id 
          ORDER BY fecha_adopcion DESC 
          LIMIT 1) AS ultimo_estado,
 
-        /* ID de la última adopción */
         (SELECT id 
          FROM adopciones 
          WHERE id_adoptante = ad.id 
@@ -113,39 +131,51 @@ $query = "
 
 $params = [];
 
-// Filtro por ID adoptante
+/* --- ESTADO INACTIVO --- */
+if ($filtro_estado === 'inactivo') {
+    $query .= " 
+        AND ad.origen COLLATE utf8mb4_unicode_ci = 'formulario'
+        AND ad.activo = 0
+    ";
+}
+
+/* --- FILTRO POR ID --- */
 if ($filtro_id_adoptante > 0) {
     $query .= " AND ad.id = ? ";
     $params[] = $filtro_id_adoptante;
 }
 
-// Filtro por nombre
+/* --- FILTRO POR NOMBRE --- */
 if ($filtro_id_adoptante === 0 && $filtro_nombre !== '') {
-    $query .= " 
+    $query .= "
         AND (
-            ad.nombre_completo LIKE ? 
-            OR ad.apellidos LIKE ?
+            ad.nombre_completo COLLATE utf8mb4_unicode_ci LIKE ?
+            OR COALESCE(ad.apellidos, '') COLLATE utf8mb4_unicode_ci LIKE ?
         )
     ";
     $params[] = "%$filtro_nombre%";
     $params[] = "%$filtro_nombre%";
 }
 
-// Filtro por estado
-if ($filtro_estado !== '') {
+/* --- ESTADOS DE ADOPCIÓN (excepto inactivo) --- */
+if ($filtro_estado !== '' && $filtro_estado !== 'inactivo') {
     $query .= "
         AND ad.id IN (
-            SELECT id_adoptante FROM adopciones WHERE estado = ?
+            SELECT id_adoptante 
+            FROM adopciones 
+            WHERE estado COLLATE utf8mb4_unicode_ci = ?
         )
     ";
     $params[] = $filtro_estado;
 }
 
-// Filtro por fechas
+/* --- FECHAS --- */
 if ($filtro_desde !== '') {
     $query .= "
         AND ad.id IN (
-            SELECT id_adoptante FROM adopciones WHERE fecha_adopcion >= ?
+            SELECT id_adoptante 
+            FROM adopciones 
+            WHERE fecha_adopcion >= ?
         )
     ";
     $params[] = $filtro_desde;
@@ -154,13 +184,16 @@ if ($filtro_desde !== '') {
 if ($filtro_hasta !== '') {
     $query .= "
         AND ad.id IN (
-            SELECT id_adoptante FROM adopciones WHERE fecha_adopcion <= ?
+            SELECT id_adoptante 
+            FROM adopciones 
+            WHERE fecha_adopcion <= ?
         )
     ";
     $params[] = $filtro_hasta;
 }
 
-$query .= " 
+/* --- ORDEN + PAGINACIÓN --- */
+$query .= "
     ORDER BY ad.nombre_completo ASC
     LIMIT $offset, $por_pagina
 ";
@@ -201,10 +234,12 @@ include('../../includes/header.php');
                         <div id="sugerencias" class="autocomplete-list"></div>
                     </div>
 
+                    <!-- ESTADO -->
                     <div>
                         <label>Estado adopción:</label>
                         <select name="estado">
                             <option value="">Todos</option>
+                            <option value="inactivo" <?= $filtro_estado === 'inactivo' ? 'selected' : '' ?>>Inactivo</option>
                             <option value="pendiente" <?= $filtro_estado === 'pendiente' ? 'selected' : '' ?>>Pendiente</option>
                             <option value="en_proceso" <?= $filtro_estado === 'en_proceso' ? 'selected' : '' ?>>En proceso</option>
                             <option value="finalizada" <?= $filtro_estado === 'finalizada' ? 'selected' : '' ?>>Finalizada</option>
@@ -212,16 +247,19 @@ include('../../includes/header.php');
                         </select>
                     </div>
 
+                    <!-- FECHA DESDE -->
                     <div>
                         <label>Desde:</label>
                         <input type="date" name="desde" value="<?= htmlspecialchars($filtro_desde) ?>">
                     </div>
 
+                    <!-- FECHA HASTA -->
                     <div>
                         <label>Hasta:</label>
                         <input type="date" name="hasta" value="<?= htmlspecialchars($filtro_hasta) ?>">
                     </div>
 
+                    <!-- BOTONES -->
                     <div>
                         <button type="submit">
                             <i class="fa-solid fa-filter"></i> Filtrar
@@ -243,7 +281,7 @@ include('../../includes/header.php');
                         <th>Contacto</th>
                         <th>Dirección</th>
                         <th>Origen</th>
-                        <th>Último estado</th>
+                        <th>Estado</th>
                         <th>Total adopciones</th>
                         <th>Acciones</th>
                     </tr>
@@ -283,9 +321,14 @@ include('../../includes/header.php');
                                 <?php endif; ?>
                             </td>
 
-                            <!-- ÚLTIMO ESTADO -->
+                            <!-- ESTADO -->
                             <td>
-                                <?php if ($a['ultimo_estado']): ?>
+                                <?php if ($a['origen'] === 'formulario' && $a['activo'] == 0): ?>
+
+                                    <span class="badge badge-warning">En espera</span>
+
+                                <?php elseif ($a['ultimo_estado']): ?>
+
                                     <?php
                                     $estado = $a['ultimo_estado'];
                                     $clase = [
@@ -298,8 +341,11 @@ include('../../includes/header.php');
                                     <span class="badge <?= $clase ?>">
                                         <?= ucfirst(str_replace('_', ' ', $estado)) ?>
                                     </span>
+
                                 <?php else: ?>
+
                                     <span class="badge badge-secondary">Sin adopciones</span>
+
                                 <?php endif; ?>
                             </td>
 
@@ -309,6 +355,15 @@ include('../../includes/header.php');
                             <!-- ACCIONES -->
                             <td>
 
+                                <!-- BOTÓN ACTIVAR (solo formulario inactivo) -->
+                                <?php if ($a['origen'] === 'formulario' && $a['activo'] == 0): ?>
+                                    <button class="btn btn-success"
+                                        onclick="activarFormulario(<?= $a['id_formulario'] ?>)">
+                                        <i class="fa-solid fa-check"></i> Activar
+                                    </button>
+                                <?php endif; ?>
+
+                                <!-- BOTÓN EDITAR ADOPCIÓN -->
                                 <?php if ($a['id_ultima_adopcion']): ?>
                                     <button class="btn btn-warning"
                                         onclick="window.location='sistema_adopciones_editar_adoptante.php?id=<?= $a['id_ultima_adopcion'] ?>'">
@@ -320,10 +375,12 @@ include('../../includes/header.php');
                                     </button>
                                 <?php endif; ?>
 
+                                <!-- BOTÓN VER ADOPCIONES -->
                                 <button class="btn update-user"
                                     onclick="window.location='sistema_adopciones_por_adoptante.php?id=<?= $a['id'] ?>'">
                                     <i class="fa-solid fa-paw"></i> Ver adopciones
                                 </button>
+
                             </td>
 
                         </tr>
@@ -500,6 +557,33 @@ include('../../includes/header.php');
         });
 
     });
+
+    // Script para activar adoptantes
+    function activarFormulario(idFormulario) {
+
+        if (!confirm("¿Activar este adoptante y convertirlo en adoptante real?")) {
+            return;
+        }
+
+        fetch("convertir_formulario_a_adoptante.php", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: "id_formulario=" + encodeURIComponent(idFormulario)
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.status === "success") {
+                    alert("Adoptante activado correctamente");
+                    location.reload();
+                } else {
+                    alert("Error: " + data.message);
+                    console.error(data.debug);
+                }
+            })
+            .catch(err => console.error("Error:", err));
+    }
 </script>
 
 <?php include('../../includes/footer.php');
