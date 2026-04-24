@@ -185,6 +185,11 @@ include('../../includes/header.php');
                     <button type="submit" class="btn-primario" id="btn-guardar">Guardar cambios</button>
                 </div>
 
+                <button type="button" class="btn btn-volver"
+                    onclick="window.location='listado_recaudaciones.php'">
+                    <i class="fa-solid fa-arrow-left"></i> Volver
+                </button>
+
             </form>
 
         </div>
