@@ -85,8 +85,8 @@ if (empty($animales)) {
 
         $especie_normalizada = strtolower(trim($animal['especie']));
         $especie_normalizada = str_replace(
-            ['á','é','í','ó','ú'],
-            ['a','e','i','o','u'],
+            ['á', 'é', 'í', 'ó', 'ú'],
+            ['a', 'e', 'i', 'o', 'u'],
             $especie_normalizada
         );
 
@@ -104,7 +104,7 @@ if (empty($animales)) {
 
         $count = intval($animal['total_padrinos']);
         $label = ($count === 1) ? 'Padrino' : 'Padrinos';
-        ?>
+?>
 
         <article class="listado-apadrina-item">
 
@@ -131,10 +131,10 @@ if (empty($animales)) {
 
                 <?php if ($count >= 0): ?>
                     <div class="apadrinamientos-padrinos"
-                         role="status"
-                         aria-live="polite"
-                         aria-atomic="true"
-                         aria-label="<?= $count . ' ' . $label ?>">
+                        role="status"
+                        aria-live="polite"
+                        aria-atomic="true"
+                        aria-label="<?= $count . ' ' . $label ?>">
                         <span class="badge" aria-hidden="true">
                             <span class="count"><?= $count ?></span>
                             <span class="label"><?= $label ?></span>
@@ -143,21 +143,26 @@ if (empty($animales)) {
                 <?php endif; ?>
 
                 <a href="<?= asset('/ficha-apadrinamiento?id=' . $animal['id']) ?>"
-                   class="btn adopcion-boton">
+                    class="btn adopcion-boton">
                     Ir a la ficha individual
                 </a>
 
             </div>
 
             <!-- Imagen -->
+
+            <?php
+            $cache_buster = filemtime(__DIR__ . '/../' . $animal['foto_principal']);
+            ?>
+
             <div class="apadrina-imagen">
-                <img src="<?= htmlspecialchars($imagen) ?>"
-                     alt="Foto de <?= htmlspecialchars($animal['nombre']) ?>">
+                <img src="<?= htmlspecialchars($imagen) . '?v=' . $cache_buster ?>"
+                    alt="Foto de <?= htmlspecialchars($animal['nombre']) ?>">
             </div>
 
         </article>
 
-        <?php
+<?php
     }
 }
 

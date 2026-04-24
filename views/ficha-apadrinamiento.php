@@ -136,8 +136,12 @@ if ($padrinosActivos >= $metaPadrinos) {
 
             <div class="destacado-content apadrinamiento-ficha-individual">
 
+                <?php
+                $cache_buster = filemtime(__DIR__ . '/../' . $animal['foto_principal']);
+                ?>
+
                 <div class="ficha-media-individual">
-                    <img src="<?php echo htmlspecialchars($fotoUrl, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'); ?>" alt="Foto de <?php echo $nombre; ?>" class="ficha-imagen-individual">
+                    <img src="<?php echo htmlspecialchars($fotoUrl, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') . '?v=' . $cache_buster ?>" alt="Foto de <?php echo $nombre; ?>" class="ficha-imagen-individual">
                 </div>
 
                 <div class="ficha-datos-individual">

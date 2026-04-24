@@ -239,8 +239,12 @@
 
                                 <!-- Imagen -->
                                 <div class="apadrinamientos-imagen">
-                                    <?php if (!empty($randomApadrinamiento['imagen_principal'])): ?>
-                                        <img src="<?= asset($randomApadrinamiento['imagen_principal']) ?>"
+                                    <?php
+                                    if (!empty($randomApadrinamiento['imagen_principal'])):
+
+                                        $cache_buster = filemtime(__DIR__ . '/../' . $randomApadrinamiento['imagen_principal']);
+                                    ?>
+                                        <img src="<?= asset($randomApadrinamiento['imagen_principal']) . '?v=' . $cache_buster ?>"
                                             alt="Foto de <?= htmlspecialchars($randomApadrinamiento['nombre'] ?? 'animal', ENT_QUOTES, 'UTF-8') ?>">
                                     <?php endif; ?>
                                 </div>

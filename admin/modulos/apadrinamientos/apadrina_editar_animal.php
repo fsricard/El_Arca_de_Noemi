@@ -124,7 +124,7 @@ if (!empty($_FILES['foto_principal']['name']) && $_FILES['foto_principal']['erro
     $tmp = $_FILES['foto_principal']['tmp_name'];
     $ext = strtolower(pathinfo($_FILES['foto_principal']['name'], PATHINFO_EXTENSION));
 
-    if (in_array($ext, ['jpg','jpeg','png','webp'])) {
+    if (in_array($ext, ['jpg', 'jpeg', 'png', 'webp'])) {
 
         $carpeta = __DIR__ . '/../../../uploads/apadrinamientos/' . $id_animal;
 
@@ -149,117 +149,124 @@ if (!empty($_FILES['foto_principal']['name']) && $_FILES['foto_principal']['erro
     }
 }
 
-$pagina='apadrina_editar_animal';
+$pagina = 'apadrina_editar_animal';
 
 include('../../includes/header.php');
 ?>
 
-    <main>
-        <section>
-            <div class="container">
-                <h2>Editar animal apadrinable</h2>
+<main>
+    <section>
+        <div class="container">
+            <h2>Editar animal apadrinable</h2>
 
-                <?php if ($exito): ?>
-                    <div class="alert alert-success">Cambios guardados correctamente.</div>
-                <?php endif; ?>
+            <?php if ($exito): ?>
+                <div class="alert alert-success">Cambios guardados correctamente.</div>
+            <?php endif; ?>
 
-                <?php if ($errores): ?>
-                    <div class="alert alert-danger">
-                        <ul>
-                            <?php foreach ($errores as $e): ?>
-                                <li><?= htmlspecialchars($e) ?></li>
-                            <?php endforeach; ?>
-                        </ul>
-                    </div>
-                <?php endif; ?>
+            <?php if ($errores): ?>
+                <div class="alert alert-danger">
+                    <ul>
+                        <?php foreach ($errores as $e): ?>
+                            <li><?= htmlspecialchars($e) ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+            <?php endif; ?>
 
-                <form method="post" enctype="multipart/form-data">
+            <form method="post" enctype="multipart/form-data">
 
-                    <div class="mb-3">
-                        <label>Nombre *</label>
-                        <input type="text" name="nombre" class="form-control"
-                            value="<?= htmlspecialchars($animal['nombre']) ?>" required>
-                    </div>
+                <div class="mb-3">
+                    <label>Nombre *</label>
+                    <input type="text" name="nombre" class="form-control"
+                        value="<?= htmlspecialchars($animal['nombre']) ?>" required>
+                </div>
 
-                    <div class="mb-3">
-                        <label>Especie *</label>
-                        <select name="especie_id" id="especie_id" class="form-control" required>
-                            <option value="">Selecciona especie</option>
-                            <?php foreach ($especies as $esp): ?>
-                                <option value="<?= $esp['id'] ?>"
-                                    <?= $animal['especie_id'] == $esp['id'] ? 'selected' : '' ?>>
-                                    <?= htmlspecialchars($esp['nombre']) ?>
-                                </option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
+                <div class="mb-3">
+                    <label>Especie *</label>
+                    <select name="especie_id" id="especie_id" class="form-control" required>
+                        <option value="">Selecciona especie</option>
+                        <?php foreach ($especies as $esp): ?>
+                            <option value="<?= $esp['id'] ?>"
+                                <?= $animal['especie_id'] == $esp['id'] ? 'selected' : '' ?>>
+                                <?= htmlspecialchars($esp['nombre']) ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
 
-                    <div class="mb-3">
-                        <label>Raza</label>
-                        <select name="raza_id" id="raza_id" class="form-control">
-                            <option value="">Selecciona raza</option>
-                            <?php foreach ($razas as $raza): ?>
-                                <option value="<?= $raza['id'] ?>"
-                                        data-especie="<?= $raza['especie_id'] ?>"
-                                        <?= $animal['raza_id'] == $raza['id'] ? 'selected' : '' ?>>
-                                    <?= htmlspecialchars($raza['nombre']) ?>
-                                </option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
+                <div class="mb-3">
+                    <label>Raza</label>
+                    <select name="raza_id" id="raza_id" class="form-control">
+                        <option value="">Selecciona raza</option>
+                        <?php foreach ($razas as $raza): ?>
+                            <option value="<?= $raza['id'] ?>"
+                                data-especie="<?= $raza['especie_id'] ?>"
+                                <?= $animal['raza_id'] == $raza['id'] ? 'selected' : '' ?>>
+                                <?= htmlspecialchars($raza['nombre']) ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
 
-                    <div class="mb-3">
-                        <label>Fecha de ingreso</label>
-                        <input type="date" name="fecha_ingreso" class="form-control"
-                            value="<?= htmlspecialchars($animal['fecha_ingreso']) ?>">
-                    </div>
+                <div class="mb-3">
+                    <label>Fecha de ingreso</label>
+                    <input type="date" name="fecha_ingreso" class="form-control"
+                        value="<?= htmlspecialchars($animal['fecha_ingreso']) ?>">
+                </div>
 
-                    <div class="mb-3">
-                        <label>Mini descripción</label>
-                        <input type="text" name="mini_descripcion" class="form-control"
-                            value="<?= htmlspecialchars($animal['mini_descripcion']) ?>">
-                    </div>
+                <div class="mb-3">
+                    <label>Mini descripción</label>
+                    <input type="text" name="mini_descripcion" class="form-control"
+                        value="<?= htmlspecialchars($animal['mini_descripcion']) ?>">
+                </div>
 
-                    <div class="mb-3">
-                        <label>Historia</label>
+                <div class="mb-3">
+                    <label>Historia</label>
 
-                        <!-- Editor visual de Quill -->
-                        <?= editor_quill('historia', $animal['historia'] ?? '') ?>
+                    <!-- Editor visual de Quill -->
+                    <?= editor_quill('historia', $animal['historia'] ?? '') ?>
 
-                    </div>
+                </div>
 
-                    <div class="mb-3">
-                        <label>Estado</label>
-                        <select name="estado" class="form-control">
-                            <option value="activo" <?= $animal['estado'] === 'activo' ? 'selected' : '' ?>>Activo</option>
-                            <option value="oculto" <?= $animal['estado'] === 'oculto' ? 'selected' : '' ?>>Oculto</option>
-                        </select>
-                    </div>
+                <div class="mb-3">
+                    <label>Estado</label>
+                    <select name="estado" class="form-control">
+                        <option value="activo" <?= $animal['estado'] === 'activo' ? 'selected' : '' ?>>Activo</option>
+                        <option value="oculto" <?= $animal['estado'] === 'oculto' ? 'selected' : '' ?>>Oculto</option>
+                    </select>
+                </div>
 
-                    <div class="mb-3">
-                        <label>Foto principal</label><br>
-                        <?php if ($animal['foto_principal']): ?>
-                            <img
-                                src="<?= asset($animal['foto_principal']) ?>"
-                                data-img="<?= asset($animal['foto_principal']) ?>"
-                                class="thumb-animal"
-                            ><br><br>
-                        <?php endif; ?>
-                        <input type="file" name="foto_principal" class="form-control">
-                    </div>
+                <div class="mb-3">
+                    <label>Foto principal</label><br>
+                    <?php
+                    if ($animal['foto_principal']):
 
-                    <button class="btn btn-primary">Guardar cambios</button>
-                    <a href="apadrina_listado_animales.php" class="btn btn-volver">Volver</a>
+                        $cache_buster = filemtime(__DIR__ . '/../../../' . $animal['foto_principal']);
+                    ?>
+                        <img
+                            src="<?= asset($animal['foto_principal']) . '?v=' . $cache_buster ?>"
+                            data-img="<?= asset($animal['foto_principal']) . '?v=' . $cache_buster ?>"
+                            class="thumb-animal">
 
-                </form>
+                        <br>
+                        <br>
+                    <?php endif; ?>
 
-                <hr>
+                    <input type="file" name="foto_principal" class="form-control">
+                </div>
 
-                <h2>Padrinos de este animal</h2>
+                <button class="btn btn-primary">Guardar cambios</button>
+                <a href="apadrina_listado_animales.php" class="btn btn-volver">Volver</a>
 
-                <?php if (empty($padrinos)): ?>
-                    <p class="texto-secundario">Este animal todavía no tiene padrinos.</p>
-                <?php else: ?>
+            </form>
+
+            <hr>
+
+            <h2>Padrinos de este animal</h2>
+
+            <?php if (empty($padrinos)): ?>
+                <p class="texto-secundario">Este animal todavía no tiene padrinos.</p>
+            <?php else: ?>
 
                 <table class="tabla">
                     <thead>
@@ -305,12 +312,12 @@ include('../../includes/header.php');
                                 <td>
                                     <?php if ($p['estado'] === 'activo'): ?>
                                         <button class="btn btn-warning"
-                                                onclick="cancelarPadrino(<?= $p['id'] ?>)">
+                                            onclick="cancelarPadrino(<?= $p['id'] ?>)">
                                             <i class="fa-solid fa-ban"></i> Cancelar
                                         </button>
                                     <?php else: ?>
                                         <button class="btn btn-success"
-                                                onclick="reactivarPadrino(<?= $p['id'] ?>)">
+                                            onclick="reactivarPadrino(<?= $p['id'] ?>)">
                                             <i class="fa-solid fa-rotate-right"></i> Reactivar
                                         </button>
                                     <?php endif; ?>
@@ -321,12 +328,12 @@ include('../../includes/header.php');
                     </tbody>
                 </table>
 
-                <?php endif; ?>
+            <?php endif; ?>
 
-            </div>
-        </section>
+        </div>
+    </section>
 
-    </main>
+</main>
 
 <!-- MODAL PARA VER IMAGEN EN GRANDE -->
 <div id="modalAnimal" class="modal-bichillo">
@@ -340,6 +347,7 @@ include('../../includes/header.php');
         color: #777;
         cursor: not-allowed;
     }
+
     .modal-bichillo {
         display: none;
         position: fixed;
@@ -350,8 +358,9 @@ include('../../includes/header.php');
         width: 100%;
         height: 100%;
         overflow: auto;
-        background-color: rgba(0,0,0,0.85);
+        background-color: rgba(0, 0, 0, 0.85);
     }
+
     .modal-contenido {
         margin: auto;
         display: block;
@@ -360,6 +369,7 @@ include('../../includes/header.php');
         border-radius: 10px;
         box-shadow: 0 0 20px #000;
     }
+
     .cerrar-modal {
         position: absolute;
         top: 25px;
@@ -369,9 +379,11 @@ include('../../includes/header.php');
         font-weight: bold;
         cursor: pointer;
     }
+
     .cerrar-modal:hover {
         color: #ccc;
     }
+
     /* Miniaturas */
     .thumb-animal {
         width: 70px;
@@ -381,23 +393,29 @@ include('../../includes/header.php');
         cursor: pointer;
         transition: transform 0.2s ease;
     }
+
     .thumb-animal:hover {
         transform: scale(1.05);
     }
+
     /* Tabla */
     .tabla {
         width: 100%;
         border-collapse: collapse;
         margin-top: 20px;
     }
-    .tabla th, .tabla td {
+
+    .tabla th,
+    .tabla td {
         padding: 10px;
         border-bottom: 1px solid #ddd;
     }
+
     .tabla th {
         background: #f5f5f5;
         text-align: left;
     }
+
     /* Badges */
     .badge {
         padding: 4px 8px;
@@ -405,24 +423,38 @@ include('../../includes/header.php');
         font-size: 0.85em;
         color: #fff;
     }
-    .badge-success { background: #28a745; }
-    .badge-info { background: #17a2b8; }
-    .badge-warning { background: #ffc107; color: #000; }
+
+    .badge-success {
+        background: #28a745;
+    }
+
+    .badge-info {
+        background: #17a2b8;
+    }
+
+    .badge-warning {
+        background: #ffc107;
+        color: #000;
+    }
+
     /* Texto secundario */
     .texto-secundario {
         color: #666;
         font-size: 0.85em;
     }
+
     /* Filtros */
     .filtros .fila {
         display: flex;
         gap: 20px;
         margin-bottom: 20px;
     }
-    .filtros .fila > div {
+
+    .filtros .fila>div {
         display: flex;
         flex-direction: column;
     }
+
     .filtros button {
         margin-top: 22px;
     }
@@ -493,38 +525,46 @@ include('../../includes/header.php');
         if (!confirm("¿Seguro que quieres cancelar este apadrinamiento?")) return;
 
         fetch("ajax/apadrina_cancelar_padrino.php", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ id: idRelacion })
-        })
-        .then(res => res.json())
-        .then(data => {
-            if (data.ok) {
-                location.reload();
-            } else {
-                alert(data.error || "Error al cancelar el padrino");
-            }
-        })
-        .catch(() => alert("Error de comunicación con el servidor"));
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    id: idRelacion
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.ok) {
+                    location.reload();
+                } else {
+                    alert(data.error || "Error al cancelar el padrino");
+                }
+            })
+            .catch(() => alert("Error de comunicación con el servidor"));
     }
 
     function reactivarPadrino(idRelacion) {
         if (!confirm("¿Deseas reactivar este apadrinamiento?")) return;
 
         fetch("ajax/apadrina_reactivar_padrino.php", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ id: idRelacion })
-        })
-        .then(res => res.json())
-        .then(data => {
-            if (data.ok) {
-                location.reload();
-            } else {
-                alert(data.error || "Error al reactivar el padrino");
-            }
-        })
-        .catch(() => alert("Error de comunicación con el servidor"));
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    id: idRelacion
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.ok) {
+                    location.reload();
+                } else {
+                    alert(data.error || "Error al reactivar el padrino");
+                }
+            })
+            .catch(() => alert("Error de comunicación con el servidor"));
     }
 </script>
 

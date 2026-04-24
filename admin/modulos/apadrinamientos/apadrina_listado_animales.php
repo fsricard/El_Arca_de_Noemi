@@ -86,126 +86,132 @@ $stmt = $pdo->prepare($query);
 $stmt->execute($params);
 $animales = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-$pagina='apadrina_listado_animales';
+$pagina = 'apadrina_listado_animales';
 
 include('../../includes/header.php');
 ?>
 
-    <main>
-        <section>
-            <div class="container">
-                <h2>Listado de animales para apadrinar</h2>
+<main>
+    <section>
+        <div class="container">
+            <h2>Listado de animales para apadrinar</h2>
 
-                <!-- Filtros -->
-                <form method="get" class="formulario filtros">
+            <!-- Filtros -->
+            <form method="get" class="formulario filtros">
 
-                    <div class="filtro">
-                        <label>Especie:</label>
-                        <select name="especie">
-                            <option value="">Todas</option>
-                            <?php foreach ($especies as $esp): ?>
-                                <option value="<?= $esp['id'] ?>" <?= $filtro_especie == $esp['id'] ? 'selected' : '' ?>>
-                                    <?= htmlspecialchars($esp['nombre']) ?>
-                                </option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-
-                    <div class="filtro">
-                        <label>Raza:</label>
-                        <select name="raza" <?= empty($filtro_especie) ? 'disabled' : '' ?>>
-                            <option value="">Todas</option>
-                            <?php foreach ($razas as $raza): ?>
-                                <option value="<?= $raza['id'] ?>"
-                                        data-especie="<?= $raza['especie_id'] ?>"
-                                        <?= $filtro_raza == $raza['id'] ? 'selected' : '' ?>>
-                                    <?= htmlspecialchars($raza['nombre']) ?>
-                                </option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-
-                    <div class="filtro">
-                        <label>Estado:</label>
-                        <select name="estado">
-                            <option value="">Todos</option>
-                            <option value="activo" <?= $filtro_estado === 'activo' ? 'selected' : '' ?>>Activo</option>
-                            <option value="oculto" <?= $filtro_estado === 'oculto' ? 'selected' : '' ?>>Oculto</option>
-                        </select>
-                    </div>
-
-                    <button type="submit" class="btn-primary">
-                        <i class="fa-solid fa-filter"></i> Filtrar
-                    </button>
-
-                    <button type="button" onclick="window.location='apadrina_listado_animales.php'">
-                        <i class="fa-solid fa-rotate-left"></i> Limpiar filtros
-                    </button>
-
-                </form>
-
-                <!-- Listado -->
-                <table class="tabla">
-                    <thead>
-                        <tr>
-                            <th>Miniatura</th>
-                            <th>Nombre</th>
-                            <th>Especie / Raza</th>
-                            <th>Ingreso</th>
-                            <th>Padrinos</th>
-                            <th>Estado</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <?php foreach ($animales as $animal): ?>
-                            <tr>
-
-                                <td>
-                                    <img src="<?= asset($animal['foto_principal'] ?: 'img/sin_foto.png') ?>"
-                                        class="thumb-animal"
-                                        data-img="<?= asset($animal['foto_principal'] ?: 'img/sin_foto.png') ?>">
-                                </td>
-
-                                <td><?= htmlspecialchars($animal['nombre']) ?></td>
-
-                                <td>
-                                    <?= htmlspecialchars($animal['especie']) ?><br>
-                                    <small class="texto-secundario"><?= htmlspecialchars($animal['raza'] ?? '-') ?></small>
-                                </td>
-
-                                <td><?= htmlspecialchars($animal['fecha_ingreso']) ?></td>
-
-                                <td>
-                                    <span class="badge badge-info">
-                                        <?= (int)$animal['total_padrinos'] ?> padrinos
-                                    </span>
-                                </td>
-
-                                <td>
-                                    <span class="badge <?= $animal['estado'] === 'activo' ? 'badge-success' : 'badge-warning' ?>">
-                                        <?= ucfirst($animal['estado']) ?>
-                                    </span>
-                                </td>
-
-                                <td>
-                                    <button class="btn btn-success"
-                                        onclick="window.location='apadrina_editar_animal.php?id=<?= $animal['id'] ?>'">
-                                        <i class="fa-solid fa-pen"></i> Editar
-                                    </button>
-                                </td>
-
-                            </tr>
+                <div class="filtro">
+                    <label>Especie:</label>
+                    <select name="especie">
+                        <option value="">Todas</option>
+                        <?php foreach ($especies as $esp): ?>
+                            <option value="<?= $esp['id'] ?>" <?= $filtro_especie == $esp['id'] ? 'selected' : '' ?>>
+                                <?= htmlspecialchars($esp['nombre']) ?>
+                            </option>
                         <?php endforeach; ?>
-                    </tbody>
-                </table>
+                    </select>
+                </div>
 
-                <?= paginador($total_registros, $por_pagina, $pagina_actual, $_GET); ?>
+                <div class="filtro">
+                    <label>Raza:</label>
+                    <select name="raza" <?= empty($filtro_especie) ? 'disabled' : '' ?>>
+                        <option value="">Todas</option>
+                        <?php foreach ($razas as $raza): ?>
+                            <option value="<?= $raza['id'] ?>"
+                                data-especie="<?= $raza['especie_id'] ?>"
+                                <?= $filtro_raza == $raza['id'] ? 'selected' : '' ?>>
+                                <?= htmlspecialchars($raza['nombre']) ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
 
-            </div>
-        </section>
-    </main>
+                <div class="filtro">
+                    <label>Estado:</label>
+                    <select name="estado">
+                        <option value="">Todos</option>
+                        <option value="activo" <?= $filtro_estado === 'activo' ? 'selected' : '' ?>>Activo</option>
+                        <option value="oculto" <?= $filtro_estado === 'oculto' ? 'selected' : '' ?>>Oculto</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-primary">
+                    <i class="fa-solid fa-filter"></i> Filtrar
+                </button>
+
+                <button type="button" onclick="window.location='apadrina_listado_animales.php'">
+                    <i class="fa-solid fa-rotate-left"></i> Limpiar filtros
+                </button>
+
+            </form>
+
+            <!-- Listado -->
+            <table class="tabla">
+                <thead>
+                    <tr>
+                        <th>Miniatura</th>
+                        <th>Nombre</th>
+                        <th>Especie / Raza</th>
+                        <th>Ingreso</th>
+                        <th>Padrinos</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <?php foreach ($animales as $animal): ?>
+                        <tr>
+
+                            <td>
+
+                                <?php
+                                $cache_buster = filemtime(__DIR__ . '/../../../' . $animal['foto_principal']);
+                                ?>
+
+                                <img src="<?= asset($animal['foto_principal'] . '?v=' . $cache_buster ?: 'img/sin_foto.png') ?>"
+                                    class="thumb-animal"
+                                    data-img="<?= asset($animal['foto_principal'] . '?v=' . $cache_buster ?: 'img/sin_foto.png') ?>"
+                                    alt="<?= htmlspecialchars($animal['nombre']) ?>, <?= htmlspecialchars($animal['especie']) ?>">
+                            </td>
+
+                            <td><?= htmlspecialchars($animal['nombre']) ?></td>
+
+                            <td>
+                                <?= htmlspecialchars($animal['especie']) ?><br>
+                                <small class="texto-secundario"><?= htmlspecialchars($animal['raza'] ?? '-') ?></small>
+                            </td>
+
+                            <td><?= htmlspecialchars($animal['fecha_ingreso']) ?></td>
+
+                            <td>
+                                <span class="badge badge-info">
+                                    <?= (int)$animal['total_padrinos'] ?> padrinos
+                                </span>
+                            </td>
+
+                            <td>
+                                <span class="badge <?= $animal['estado'] === 'activo' ? 'badge-success' : 'badge-warning' ?>">
+                                    <?= ucfirst($animal['estado']) ?>
+                                </span>
+                            </td>
+
+                            <td>
+                                <button class="btn btn-success"
+                                    onclick="window.location='apadrina_editar_animal.php?id=<?= $animal['id'] ?>'">
+                                    <i class="fa-solid fa-pen"></i> Editar
+                                </button>
+                            </td>
+
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+
+            <?= paginador($total_registros, $por_pagina, $pagina_actual, $_GET); ?>
+
+        </div>
+    </section>
+</main>
 
 <!-- MODAL PARA VER IMAGEN EN GRANDE -->
 <div id="modalAnimal" class="modal-bichillo">
@@ -219,6 +225,7 @@ include('../../includes/header.php');
         color: #777;
         cursor: not-allowed;
     }
+
     .modal-bichillo {
         display: none;
         position: fixed;
@@ -229,8 +236,9 @@ include('../../includes/header.php');
         width: 100%;
         height: 100%;
         overflow: auto;
-        background-color: rgba(0,0,0,0.85);
+        background-color: rgba(0, 0, 0, 0.85);
     }
+
     .modal-contenido {
         margin: auto;
         display: block;
@@ -239,6 +247,7 @@ include('../../includes/header.php');
         border-radius: 10px;
         box-shadow: 0 0 20px #000;
     }
+
     .cerrar-modal {
         position: absolute;
         top: 25px;
@@ -248,9 +257,11 @@ include('../../includes/header.php');
         font-weight: bold;
         cursor: pointer;
     }
+
     .cerrar-modal:hover {
         color: #ccc;
     }
+
     /* Miniaturas */
     .thumb-animal {
         width: 70px;
@@ -260,23 +271,29 @@ include('../../includes/header.php');
         cursor: pointer;
         transition: transform 0.2s ease;
     }
+
     .thumb-animal:hover {
         transform: scale(1.05);
     }
+
     /* Tabla */
     .tabla {
         width: 100%;
         border-collapse: collapse;
         margin-top: 20px;
     }
-    .tabla th, .tabla td {
+
+    .tabla th,
+    .tabla td {
         padding: 10px;
         border-bottom: 1px solid #ddd;
     }
+
     .tabla th {
         background: #f5f5f5;
         text-align: left;
     }
+
     /* Badges */
     .badge {
         padding: 4px 8px;
@@ -284,24 +301,38 @@ include('../../includes/header.php');
         font-size: 0.85em;
         color: #fff;
     }
-    .badge-success { background: #28a745; }
-    .badge-info { background: #17a2b8; }
-    .badge-warning { background: #ffc107; color: #000; }
+
+    .badge-success {
+        background: #28a745;
+    }
+
+    .badge-info {
+        background: #17a2b8;
+    }
+
+    .badge-warning {
+        background: #ffc107;
+        color: #000;
+    }
+
     /* Texto secundario */
     .texto-secundario {
         color: #666;
         font-size: 0.85em;
     }
+
     /* Filtros */
     .filtros .fila {
         display: flex;
         gap: 20px;
         margin-bottom: 20px;
     }
-    .filtros .fila > div {
+
+    .filtros .fila>div {
         display: flex;
         flex-direction: column;
     }
+
     .filtros button {
         margin-top: 22px;
     }
