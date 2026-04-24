@@ -165,7 +165,7 @@ include('../../includes/header.php');
                         <i class="fa-solid fa-heart"></i> Crear adopción
                     </button>
 
-                    <button type="button"
+                    <button type="button" class="btn btn-volver"
                             onclick="window.location='sistema_adopciones_listado.php'">
                         <i class="fa-solid fa-arrow-left"></i> Volver
                     </button>

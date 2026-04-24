@@ -377,6 +377,11 @@ include('../../includes/header.php');
                     <i class="fa-solid fa-floppy-disk"></i> Guardar cambios
                 </button>
 
+                <button type="button" class="btn btn-volver"
+                    onclick="window.location='sistema_adopciones_listado.php'">
+                    <i class="fa-solid fa-arrow-left"></i> Volver
+                </button>
+
             </form>
 
             <hr>

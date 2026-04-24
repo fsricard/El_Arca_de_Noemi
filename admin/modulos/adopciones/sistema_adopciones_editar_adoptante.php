@@ -128,7 +128,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ");
             $stmt->execute([$id]);
             $adopcion = $stmt->fetch(PDO::FETCH_ASSOC);
-
         } catch (PDOException $e) {
             $pdo->rollBack();
             $errores[] = "Error al actualizar la adopción: " . $e->getMessage();
@@ -195,10 +194,10 @@ include('../../includes/header.php');
                 <div class="filtro">
                     <label for="estado">Estado de la adopción:</label>
                     <select name="estado" id="estado">
-                        <option value="pendiente"   <?= $adopcion['estado']==='pendiente'?'selected':'' ?>>Pendiente</option>
-                        <option value="en_proceso"  <?= $adopcion['estado']==='en_proceso'?'selected':'' ?>>En proceso</option>
-                        <option value="finalizada"  <?= $adopcion['estado']==='finalizada'?'selected':'' ?>>Finalizada</option>
-                        <option value="cancelada"   <?= $adopcion['estado']==='cancelada'?'selected':'' ?>>Cancelada</option>
+                        <option value="pendiente" <?= $adopcion['estado'] === 'pendiente' ? 'selected' : '' ?>>Pendiente</option>
+                        <option value="en_proceso" <?= $adopcion['estado'] === 'en_proceso' ? 'selected' : '' ?>>En proceso</option>
+                        <option value="finalizada" <?= $adopcion['estado'] === 'finalizada' ? 'selected' : '' ?>>Finalizada</option>
+                        <option value="cancelada" <?= $adopcion['estado'] === 'cancelada' ? 'selected' : '' ?>>Cancelada</option>
                     </select>
                 </div>
 
@@ -210,8 +209,13 @@ include('../../includes/header.php');
                 </button>
 
                 <button type="button"
-                        onclick="window.location='sistema_adopciones_por_adoptante.php?id=<?= $adopcion['id_adoptante'] ?>'">
+                    onclick="window.location='sistema_adopciones_por_adoptante.php?id=<?= $adopcion['id_adoptante'] ?>'">
                     <i class="fa-solid fa-paw"></i> Ver adopciones de este adoptante
+                </button>
+
+                <button type="button" class="btn btn-volver"
+                    onclick="window.location='sistema_adopciones_listado_adoptantes.php'">
+                    <i class="fa-solid fa-arrow-left"></i> Volver
                 </button>
 
             </form>

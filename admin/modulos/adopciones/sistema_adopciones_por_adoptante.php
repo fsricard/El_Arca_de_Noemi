@@ -71,96 +71,101 @@ $stmt = $pdo->prepare("
 $stmt->execute([$id_adoptante]);
 $adopciones = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-$pagina='sistema_adopciones_por_adoptante';
+$pagina = 'sistema_adopciones_por_adoptante';
 
 include('../../includes/header.php');
 ?>
 
-    <main>
-        <section>
-            <div class="container">
-                <h2>Adopciones de <?= htmlspecialchars($adoptante['nombre'] . ' ' . $adoptante['apellidos']) ?></h2>
+<main>
+    <section>
+        <div class="container">
+            <h2>Adopciones de <?= htmlspecialchars($adoptante['nombre'] . ' ' . $adoptante['apellidos']) ?></h2>
 
-                <div class="bloque-info" style="margin-bottom: 25px;">
-                    <h3>Datos del adoptante</h3>
-                    <p>
-                        <strong><?= htmlspecialchars($adoptante['nombre'] . ' ' . $adoptante['apellidos']) ?></strong><br>
-                        Tel: <?= htmlspecialchars($adoptante['telefono']) ?><br>
-                        Email: <?= htmlspecialchars($adoptante['email']) ?><br>
-                        <?= htmlspecialchars($adoptante['direccion']) ?>,
-                        <?= htmlspecialchars($adoptante['ciudad']) ?> (<?= htmlspecialchars($adoptante['provincia']) ?>)
-                    </p>
+            <div class="bloque-info" style="margin-bottom: 25px;">
+                <h3>Datos del adoptante</h3>
+                <p>
+                    <strong><?= htmlspecialchars($adoptante['nombre'] . ' ' . $adoptante['apellidos']) ?></strong><br>
+                    Tel: <?= htmlspecialchars($adoptante['telefono']) ?><br>
+                    Email: <?= htmlspecialchars($adoptante['email']) ?><br>
+                    <?= htmlspecialchars($adoptante['direccion']) ?>,
+                    <?= htmlspecialchars($adoptante['ciudad']) ?> (<?= htmlspecialchars($adoptante['provincia']) ?>)
+                </p>
+            </div>
+
+            <?php if (empty($adopciones)): ?>
+
+                <p class="alerta">Este adoptante no tiene adopciones registradas.</p>
+
+            <?php else: ?>
+
+                <table class="tabla">
+                    <thead>
+                        <tr>
+                            <th>Animal</th>
+                            <th>Especie / Raza</th>
+                            <th>Fecha adopción</th>
+                            <th>Estado</th>
+                            <th>Notas</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <?php foreach ($adopciones as $a): ?>
+                            <tr>
+                                <td><strong><?= htmlspecialchars($a['nombre_animal']) ?></strong></td>
+
+                                <td><?= htmlspecialchars($a['especie']) ?> - <?= htmlspecialchars($a['raza']) ?></td>
+
+                                <td><?= htmlspecialchars($a['fecha_adopcion']) ?></td>
+
+                                <td>
+                                    <?php
+                                    $estado = $a['estado'];
+                                    $clase = [
+                                        'pendiente'   => 'badge-warning',
+                                        'en_proceso'  => 'badge-info',
+                                        'finalizada'  => 'badge-success',
+                                        'cancelada'   => 'badge-danger'
+                                    ][$estado] ?? 'badge-secondary';
+                                    ?>
+                                    <span class="badge <?= $clase ?>">
+                                        <?= ucfirst(str_replace('_', ' ', $estado)) ?>
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <?php if ($a['notas']): ?>
+                                        <?= nl2br(htmlspecialchars(substr($a['notas'], 0, 80))) ?>...
+                                    <?php else: ?>
+                                        <em>Sin notas</em>
+                                    <?php endif; ?>
+                                </td>
+
+                                <td>
+                                    <button class="btn btn-warning"
+                                        onclick="window.location='sistema_adopciones_editar_adoptante.php?id=<?= $a['id'] ?>'">
+                                        <i class="fa-solid fa-pen-to-square"></i> Editar
+                                    </button>
+
+                                    <button type="button" class="btn btn-volver"
+                                        onclick="window.location='sistema_adopciones_listado_adoptantes.php'">
+                                        <i class="fa-solid fa-arrow-left"></i> Volver
+                                    </button>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+
+                <!-- PAGINADOR -->
+                <div style="margin-top: 20px;">
+                    <?= paginador($total_registros, $por_pagina, $pagina_actual, $_GET); ?>
                 </div>
 
-                <?php if (empty($adopciones)): ?>
-
-                    <p class="alerta">Este adoptante no tiene adopciones registradas.</p>
-
-                <?php else: ?>
-
-                    <table class="tabla">
-                        <thead>
-                            <tr>
-                                <th>Animal</th>
-                                <th>Especie / Raza</th>
-                                <th>Fecha adopción</th>
-                                <th>Estado</th>
-                                <th>Notas</th>
-                                <th>Acciones</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <?php foreach ($adopciones as $a): ?>
-                                <tr>
-                                    <td><strong><?= htmlspecialchars($a['nombre_animal']) ?></strong></td>
-
-                                    <td><?= htmlspecialchars($a['especie']) ?> - <?= htmlspecialchars($a['raza']) ?></td>
-
-                                    <td><?= htmlspecialchars($a['fecha_adopcion']) ?></td>
-
-                                    <td>
-                                        <?php
-                                            $estado = $a['estado'];
-                                            $clase = [
-                                                'pendiente'   => 'badge-warning',
-                                                'en_proceso'  => 'badge-info',
-                                                'finalizada'  => 'badge-success',
-                                                'cancelada'   => 'badge-danger'
-                                            ][$estado] ?? 'badge-secondary';
-                                        ?>
-                                        <span class="badge <?= $clase ?>">
-                                            <?= ucfirst(str_replace('_',' ', $estado)) ?>
-                                        </span>
-                                    </td>
-
-                                    <td>
-                                        <?php if ($a['notas']): ?>
-                                            <?= nl2br(htmlspecialchars(substr($a['notas'], 0, 80))) ?>...
-                                        <?php else: ?>
-                                            <em>Sin notas</em>
-                                        <?php endif; ?>
-                                    </td>
-
-                                    <td>
-                                        <button class="btn btn-warning"
-                                                onclick="window.location='sistema_adopciones_editar_adoptante.php?id=<?= $a['id'] ?>'">
-                                            <i class="fa-solid fa-pen-to-square"></i> Editar
-                                        </button>
-                                    </td>
-                                </tr>
-                            <?php endforeach; ?>
-                        </tbody>
-                    </table>
-
-                    <!-- PAGINADOR -->
-                    <div style="margin-top: 20px;">
-                        <?= paginador($total_registros, $por_pagina, $pagina_actual, $_GET); ?>
-                    </div>
-
-                <?php endif; ?>
-            </div>
-        </section>
-    </main>
+            <?php endif; ?>
+        </div>
+    </section>
+</main>
 
 <?php include('../../includes/footer.php');
