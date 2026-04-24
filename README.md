@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="RUTA_DEL_LOGO/logo-arca.png" width="200" alt="Logo Arca de Noemí">
+  <img src="/img/logo_20260320_0001.png" width="200" alt="Logo Arca de Noemí">
 </p>
 
 
