@@ -61,19 +61,20 @@ if (isset($_GET['exportar_pdf']) && $_GET['exportar_pdf'] == 1) {
 
         $stmt_export->execute();
         $datos = $stmt_export->fetchAll(PDO::FETCH_ASSOC);
-
     } catch (PDOException $e) {
         die("Error al exportar PDF: " . $e->getMessage());
     }
 
     //   CLASE EXTENDIDA PARA PIE
-    class PDF_MC_Table extends FPDF {
+    class PDF_MC_Table extends FPDF
+    {
 
         public $logo;
         public $colorPrimario = [33, 37, 41]; // Gris oscuro corporativo
         public $colorSecundario = [230, 230, 230];
 
-        function Header() {
+        function Header()
+        {
             // Logo
             if ($this->logo) {
                 $this->Image($this->logo, 10, 8, 30);
@@ -91,7 +92,8 @@ if (isset($_GET['exportar_pdf']) && $_GET['exportar_pdf'] == 1) {
             $this->Ln(20);
         }
 
-        function Footer() {
+        function Footer()
+        {
             // Posición a 1.5 cm del final
             $this->SetY(-15);
             $this->SetFont('Arial', 'I', 10);
@@ -100,7 +102,8 @@ if (isset($_GET['exportar_pdf']) && $_GET['exportar_pdf'] == 1) {
         }
 
         // MultiCell por columnas
-        function Row($data, $widths) {
+        function Row($data, $widths)
+        {
             $nb = 0;
             for ($i = 0; $i < count($data); $i++) {
                 $nb = max($nb, $this->NbLines($widths[$i], $data[$i]));
@@ -126,7 +129,8 @@ if (isset($_GET['exportar_pdf']) && $_GET['exportar_pdf'] == 1) {
             $this->Ln($h);
         }
 
-        function NbLines($w, $txt) {
+        function NbLines($w, $txt)
+        {
             $cw = &$this->CurrentFont['cw'];
             if ($w == 0) {
                 $w = $this->w - $this->rMargin - $this->x;
@@ -258,105 +262,110 @@ $pagina = 'contacto';
 include('../../includes/header.php');
 ?>
 
-    <main>
-        <section>
-            <div class="container">
-                <h2>Mensajes de Contacto</h2>
+<main>
+    <section>
+        <div class="container">
+            <h2>Mensajes de Contacto</h2>
 
-                <!-- Filtros -->
-                <form method="GET" class="filtros-form">
-                    <div class="filtro">
-                        <label>Nombre:</label>
-                        <input type="text" name="nombre" value="<?= htmlspecialchars($_GET['nombre'] ?? '') ?>">
-                    </div>
+            <!-- Filtros -->
+            <form method="GET" class="filtros-form">
+                <div class="filtro">
+                    <label>Nombre:</label>
+                    <input type="text" name="nombre" value="<?= htmlspecialchars($_GET['nombre'] ?? '') ?>">
+                </div>
 
-                    <div class="filtro">
-                        <label>Email:</label>
-                        <input type="text" name="email" value="<?= htmlspecialchars($_GET['email'] ?? '') ?>">
-                    </div>
+                <div class="filtro">
+                    <label>Email:</label>
+                    <input type="text" name="email" value="<?= htmlspecialchars($_GET['email'] ?? '') ?>">
+                </div>
 
-                    <div class="filtro">
-                        <label>Día:</label>
-                        <input type="number" name="dia" min="1" max="31" value="<?= htmlspecialchars($_GET['dia'] ?? '') ?>">
-                    </div>
+                <div class="filtro">
+                    <label>Día:</label>
+                    <input type="number" name="dia" min="1" max="31" value="<?= htmlspecialchars($_GET['dia'] ?? '') ?>">
+                </div>
 
-                    <div class="filtro">
-                        <label>Mes:</label>
-                        <input type="number" name="mes" min="1" max="12" value="<?= htmlspecialchars($_GET['mes'] ?? '') ?>">
-                    </div>
+                <div class="filtro">
+                    <label>Mes:</label>
+                    <input type="number" name="mes" min="1" max="12" value="<?= htmlspecialchars($_GET['mes'] ?? '') ?>">
+                </div>
 
-                    <div class="filtro">
-                        <label>Año:</label>
-                        <input type="number" name="anio" min="2000" max="2100" value="<?= htmlspecialchars($_GET['anio'] ?? '') ?>">
-                    </div>
+                <div class="filtro">
+                    <label>Año:</label>
+                    <input type="number" name="anio" min="2000" max="2100" value="<?= htmlspecialchars($_GET['anio'] ?? '') ?>">
+                </div>
 
-                    <button type="submit">
-                        <i class="fa-solid fa-filter"></i> Filtrar
-                    </button>
-                    <button type="button" id="resetFiltros">
-                        <i class="fa-solid fa-rotate-left"></i> Limpiar filtros
-                    </button>
-                    <button type="submit" name="exportar_pdf" value="1" class="btn-exportar-pdf">
-                        <i class="fa-solid fa-file-pdf"></i> Exportar PDF
-                    </button>
-                </form>
+                <button type="submit">
+                    <i class="fa-solid fa-filter"></i> Filtrar
+                </button>
+                <button type="button" id="resetFiltros">
+                    <i class="fa-solid fa-rotate-left"></i> Limpiar filtros
+                </button>
+                <button type="submit" name="exportar_pdf" value="1" class="btn-exportar-pdf">
+                    <i class="fa-solid fa-file-pdf"></i> Exportar PDF
+                </button>
+            </form>
 
-                <?php if (isset($_GET['ok']) && $_GET['ok'] === 'eliminado'): ?>
-                    <?php $mensaje = mostrarAlerta('Mensaje eliminado correctamente.', 'warning'); ?>
-                <?php endif; ?>
+            <?php if (isset($_GET['ok']) && $_GET['ok'] === 'eliminado'): ?>
+                <?php $mensaje = mostrarAlerta('Mensaje eliminado correctamente.', 'warning'); ?>
+            <?php endif; ?>
 
-                <?php if (isset($_GET['error'])): ?>
-                    <div class="alert error">
-                        <?= htmlspecialchars($_GET['error']) ?>
-                    </div>
-                <?php endif; ?>
+            <?php if (isset($_GET['error'])): ?>
+                <div class="alert error">
+                    <?= htmlspecialchars($_GET['error']) ?>
+                </div>
+            <?php endif; ?>
 
-                <!-- Tabla de resultados -->
-                <?php if (empty($mensajes)): ?>
-                    <p>No hay mensajes que coincidan con los filtros.</p>
-                <?php else: ?>
-                    <table>
-                        <thead>
+            <!-- Tabla de resultados -->
+            <?php if (empty($mensajes)): ?>
+                <p>No hay mensajes que coincidan con los filtros.</p>
+            <?php else: ?>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Nombre</th>
+                            <th>Email</th>
+                            <th>Asunto</th>
+                            <th>Mensaje</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($mensajes as $msg): ?>
                             <tr>
-                                <th>Fecha</th>
-                                <th>Nombre</th>
-                                <th>Email</th>
-                                <th>Asunto</th>
-                                <th>Mensaje</th>
-                                <th>Acciones</th>
+                                <td><?= htmlspecialchars($msg['fecha']) ?></td>
+                                <td><?= htmlspecialchars($msg['nombre']) ?></td>
+                                <td><?= htmlspecialchars($msg['email']) ?></td>
+                                <td><?= htmlspecialchars($msg['asunto']) ?></td>
+                                <td><?= nl2br(htmlspecialchars($msg['mensaje'])) ?></td>
+                                <td>
+                                    <button class="btn btn-success"
+                                        onclick="window.location='contacto_editar.php?id=<?= $msg['id'] ?>'">
+                                        Ver mensaje
+                                    </button>
+
+                                    <a href="contacto_eliminar.php?id=<?= $msg['id'] ?>" onclick="return confirm('¿Seguro que deseas eliminar este mensaje?');">
+                                        <button class="btn delete-user"><i class="fa-solid fa-skull-crossbones"></i> Eliminar</button>
+                                    </a>
+                                </td>
                             </tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach ($mensajes as $msg): ?>
-                                <tr>
-                                    <td><?= htmlspecialchars($msg['fecha']) ?></td>
-                                    <td><?= htmlspecialchars($msg['nombre']) ?></td>
-                                    <td><?= htmlspecialchars($msg['email']) ?></td>
-                                    <td><?= htmlspecialchars($msg['asunto']) ?></td>
-                                    <td><?= nl2br(htmlspecialchars($msg['mensaje'])) ?></td>
-                                    <td>
-                                        <a href="contacto_eliminar.php?id=<?= $msg['id'] ?>" onclick="return confirm('¿Seguro que deseas eliminar este mensaje?');">
-                                            <button class="btn delete-user"><i class="fa-solid fa-skull-crossbones"></i> Eliminar</button>
-                                        </a>
-                                    </td>
-                                </tr>
-                            <?php endforeach; ?>
-                        </tbody>
-                    </table>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
 
-                    <!-- Paginador -->
-                    <?= paginador($total_mensajes, $por_pagina, $pagina_actual, $_GET, 'pagina'); ?>
+                <!-- Paginador -->
+                <?= paginador($total_mensajes, $por_pagina, $pagina_actual, $_GET, 'pagina'); ?>
 
-                <?php endif; ?>
-            </div>
-        </section>
-    </main>
+            <?php endif; ?>
+        </div>
+    </section>
+</main>
 
-    <script>
-        // Script para el botón Limpiar filtros
-        document.getElementById('resetFiltros').addEventListener('click', function () {
-            window.location.href = 'contacto.php';
-        });
-    </script>
+<script>
+    // Script para el botón Limpiar filtros
+    document.getElementById('resetFiltros').addEventListener('click', function() {
+        window.location.href = 'contacto.php';
+    });
+</script>
 
 <?php include('../../includes/footer.php');

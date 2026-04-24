@@ -113,6 +113,7 @@ function tituloPagina($pagina)
         'contacto_intro'                            => 'Invocación al contacto',
         'noemi_bichillos'                           => 'Gestión de los bichillos de Noemí',
         'tablas_de_datos'                           => 'Tablas de la base de datos',
+        'contacto_editar'                           => 'Vista de mensaje',
         'crear_recaudacion'                         => 'Crear campaña CrowdFunding',
         'noemi_dice_listado'                        => 'Listado de las frases de Noemí',
         'adopciones_listado'                        => 'Listado de adopciones',

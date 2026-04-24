@@ -10,20 +10,20 @@ if (!isLoggedIn()) {
     exit;
 }
 
-$pagina='';
+$pagina = '';
 
 include('../../includes/header.php');
 ?>
 
-    <main>
-        <section>
-            <div class="container">
-                <h2></h2>
+<main>
+    <section>
+        <div class="container">
+            <h2></h2>
 
-                
 
-            </div>
-        </section>
-    </main>
+
+        </div>
+    </section>
+</main>
 
 <?php include('../../includes/footer.php');
