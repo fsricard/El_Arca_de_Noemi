@@ -2,5 +2,7 @@
     "github.copilot.enable": {
         "php": true,
         "*": false
-    }
+    },
+    "txtsyntax.enableAutoImport": true,
+    "txtsyntax.enableHighlightLine": true
 }
