@@ -240,7 +240,10 @@ include('../../includes/header.php');
                         Cancelar suscripción PayPal
                     </a>
 
-                    <a href="apadrina_listado_padrinos.php" class="btn btn-volver">Volver al listado</a>
+                    <button type="button" class="btn btn-volver"
+                            onclick="window.location='apadrina_listado_padrinos.php'">
+                        <i class="fa-solid fa-arrow-left"></i> Volver
+                    </button>
                 </div>
             </form>
 

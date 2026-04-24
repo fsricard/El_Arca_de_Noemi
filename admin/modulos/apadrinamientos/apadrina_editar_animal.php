@@ -256,7 +256,11 @@ include('../../includes/header.php');
                 </div>
 
                 <button class="btn btn-primary">Guardar cambios</button>
-                <a href="apadrina_listado_animales.php" class="btn btn-volver">Volver</a>
+
+                <button type="button" class="btn btn-volver"
+                    onclick="window.location='apadrina_listado_animales.php'">
+                    <i class="fa-solid fa-arrow-left"></i> Volver
+                </button>
 
             </form>
 

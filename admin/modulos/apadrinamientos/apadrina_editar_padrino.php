@@ -201,7 +201,11 @@ include('../../includes/header.php');
 
                 <div style="display:flex; gap:10px; align-items:center; margin-top:12px;">
                     <button class="btn btn-primary">Guardar cambios</button>
-                    <a href="apadrina_listado_padrinos.php" class="btn btn-volver">Volver</a>
+                    
+                    <button type="button" class="btn btn-volver"
+                            onclick="window.location='apadrina_listado_padrinos.php'">
+                        <i class="fa-solid fa-arrow-left"></i> Volver
+                    </button>
 
                     <!-- Exportar CSV -->
                     <button type="button" class="btn btn-exportar-pdf" id="btnExportarCSV">

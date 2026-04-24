@@ -82,7 +82,7 @@ $importes_por_relacion = []; // clave: relation_id o 'paypal:SUBID'
 
 try {
     // Comprobar si existe alguna tabla de pagos conocida
-    $candidates = ['sponsor_payments','payments','sponsors_payments'];
+    $candidates = ['sponsor_payments', 'payments', 'sponsors_payments'];
     $paymentsTable = null;
     foreach ($candidates as $t) {
         $q = $pdo->prepare("
@@ -98,7 +98,7 @@ try {
 
     if ($paymentsTable !== null) {
         // Detectar columna de importe
-        $possibleAmountCols = ['amount','total','importe','monto'];
+        $possibleAmountCols = ['amount', 'total', 'importe', 'monto'];
         $amountColumn = null;
         foreach ($possibleAmountCols as $col) {
             $q = $pdo->prepare("
@@ -252,7 +252,7 @@ if (isset($_GET['export']) && $_GET['export'] == '1') {
     fputcsv($out, ['Total pagos registrados', $total_pagos_count === null ? 'No disponible' : $total_pagos_count]);
     fputcsv($out, ['Total aportado', $total_pagado === null ? 'No disponible' : number_format($total_pagado, 2, '.', '')]);
     fputcsv($out, []);
-    fputcsv($out, ['ID relación','ID animal','Nombre animal','Inicio','Cancelación','Estado','Paypal subscription id','Nota','Pagos (count)','Total aportado']);
+    fputcsv($out, ['ID relación', 'ID animal', 'Nombre animal', 'Inicio', 'Cancelación', 'Estado', 'Paypal subscription id', 'Nota', 'Pagos (count)', 'Total aportado']);
 
     foreach ($allRel as $r) {
         $rid = (int)$r['id'];
@@ -277,7 +277,7 @@ if (isset($_GET['export']) && $_GET['export'] == '1') {
             $r['fecha_cancelacion'] ?? '',
             $r['estado'] ?? '',
             $r['paypal_subscription_id'] ?? '',
-            str_replace(["\r","\n"], [' ',' '], ($r['nota'] ?? '')),
+            str_replace(["\r", "\n"], [' ', ' '], ($r['nota'] ?? '')),
             $count_rel === null ? '' : $count_rel,
             $total_rel === null ? '' : number_format($total_rel, 2, '.', '')
         ]);
@@ -302,9 +302,10 @@ include('../../includes/header.php');
                     <i class="fa-solid fa-pen"></i> Editar padrino
                 </a>
 
-                <a class="btn update-user" href="apadrina_listado_padrinos.php">
-                    <i class="fa-solid fa-arrow-left"></i> Volver al listado
-                </a>
+                <button type="button" class="btn btn-volver"
+                    onclick="window.location='apadrina_listado_padrinos.php'">
+                    <i class="fa-solid fa-arrow-left"></i> Volver
+                </button>
 
                 <a class="btn btn-exportar-pdf" href="?sponsor_id=<?= (int)$padrino['id'] ?>&export=1">
                     <i class="fa-solid fa-file-csv"></i> Exportar CSV
@@ -387,25 +388,25 @@ include('../../includes/header.php');
 
                                 <td>
                                     <?php
-                                        if (isset($r['pagos_count_relacion'])) {
-                                            echo (int)$r['pagos_count_relacion'];
-                                        } else {
-                                            echo '<span class="texto-secundario">—</span>';
-                                        }
+                                    if (isset($r['pagos_count_relacion'])) {
+                                        echo (int)$r['pagos_count_relacion'];
+                                    } else {
+                                        echo '<span class="texto-secundario">—</span>';
+                                    }
                                     ?>
                                 </td>
 
                                 <td>
                                     <?php
-                                        if (isset($r['total_pagado_relacion'])) {
-                                            if ($r['total_pagado_relacion'] === null) {
-                                                echo '<span class="texto-secundario">—</span>';
-                                            } else {
-                                                echo number_format((float)$r['total_pagado_relacion'], 2, ',', '.') . ' €';
-                                            }
-                                        } else {
+                                    if (isset($r['total_pagado_relacion'])) {
+                                        if ($r['total_pagado_relacion'] === null) {
                                             echo '<span class="texto-secundario">—</span>';
+                                        } else {
+                                            echo number_format((float)$r['total_pagado_relacion'], 2, ',', '.') . ' €';
                                         }
+                                    } else {
+                                        echo '<span class="texto-secundario">—</span>';
+                                    }
                                     ?>
                                 </td>
 
