@@ -218,7 +218,7 @@ include('../../includes/header.php');
 
                     <!-- AUTOCOMPLETE -->
                     <div class="autocomplete-wrapper">
-                        <label>Nombre / Apellidos:</label>
+                        <label>Filtrar por Nombre/Apellidos:</label>
 
                         <input type="text"
                             id="buscador"
@@ -236,10 +236,10 @@ include('../../includes/header.php');
 
                     <!-- ESTADO -->
                     <div>
-                        <label>Estado adopción:</label>
+                        <label>Filtrar por estado de adopción:</label>
                         <select name="estado">
                             <option value="">Todos</option>
-                            <option value="inactivo" <?= $filtro_estado === 'inactivo' ? 'selected' : '' ?>>Inactivo</option>
+                            <option value="inactivo" <?= $filtro_estado === 'inactivo' ? 'selected' : '' ?>>En espera</option>
                             <option value="pendiente" <?= $filtro_estado === 'pendiente' ? 'selected' : '' ?>>Pendiente</option>
                             <option value="en_proceso" <?= $filtro_estado === 'en_proceso' ? 'selected' : '' ?>>En proceso</option>
                             <option value="finalizada" <?= $filtro_estado === 'finalizada' ? 'selected' : '' ?>>Finalizada</option>
@@ -249,6 +249,7 @@ include('../../includes/header.php');
 
                     <!-- FECHA DESDE -->
                     <div>
+                        <label>Filtrar por fecha de adopción:</label>
                         <label>Desde:</label>
                         <input type="date" name="desde" value="<?= htmlspecialchars($filtro_desde) ?>">
                     </div>
@@ -451,6 +452,33 @@ include('../../includes/header.php');
 </style>
 
 <script>
+    // Script para activar adoptantes
+    function activarFormulario(idFormulario) {
+
+        if (!confirm("¿Activar este adoptante y convertirlo en adoptante real?")) {
+            return;
+        }
+
+        fetch("convertir_formulario_a_adoptante.php", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: "id_formulario=" + encodeURIComponent(idFormulario)
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.status === "success") {
+                    alert("Adoptante activado correctamente");
+                    location.reload();
+                } else {
+                    alert("Error: " + data.message);
+                    console.error(data.debug);
+                }
+            })
+            .catch(err => console.error("Error:", err));
+    }
+
     // Script para el select autocomplete de los nombres
     document.addEventListener("DOMContentLoaded", () => {
 
@@ -572,33 +600,6 @@ include('../../includes/header.php');
         });
 
     });
-
-    // Script para activar adoptantes
-    function activarFormulario(idFormulario) {
-
-        if (!confirm("¿Activar este adoptante y convertirlo en adoptante real?")) {
-            return;
-        }
-
-        fetch("convertir_formulario_a_adoptante.php", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/x-www-form-urlencoded"
-                },
-                body: "id_formulario=" + encodeURIComponent(idFormulario)
-            })
-            .then(res => res.json())
-            .then(data => {
-                if (data.status === "success") {
-                    alert("Adoptante activado correctamente");
-                    location.reload();
-                } else {
-                    alert("Error: " + data.message);
-                    console.error(data.debug);
-                }
-            })
-            .catch(err => console.error("Error:", err));
-    }
 </script>
 
 <?php include('../../includes/footer.php');

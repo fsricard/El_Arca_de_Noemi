@@ -31,31 +31,45 @@ try {
         throw new Exception("Formulario no encontrado");
     }
 
-    // 2. Crear adoptante real
+    if ((int)$form['procesado'] === 1) {
+        throw new Exception("El formulario ya fue procesado");
+    }
+
+    if (!isset($form['animal_id'])) {
+        throw new Exception("El formulario no contiene el ID del animal");
+    }
+
+    // 2. Separar nombre y apellidos
+    $partes = explode(' ', trim($form['nombre_completo']), 2);
+    $nombre = $partes[0];
+    $apellidos = $partes[1] ?? '';
+
+    // 3. Crear adoptante real
     $sqlInsert = "
         INSERT INTO adoptantes (
-            nombre_completo, telefono, email, direccion, ciudad, provincia,
+            nombre, apellidos, telefono, email, direccion, ciudad, provincia,
             codigo_postal, fecha_creacion
         ) VALUES (
-            :nombre_completo, :telefono, :email, :direccion, :ciudad, :provincia,
+            :nombre, :apellidos, :telefono, :email, :direccion, :ciudad, :provincia,
             :codigo_postal, NOW()
         )
     ";
 
     $stmt = $pdo->prepare($sqlInsert);
     $stmt->execute([
-        ':nombre_completo' => $form['nombre_completo'],
-        ':telefono'        => $form['telefono'],
-        ':email'           => $form['email'],
-        ':direccion'       => $form['direccion'],
-        ':ciudad'          => $form['ciudad'],
-        ':provincia'       => $form['provincia'],
-        ':codigo_postal'   => $form['codigo_postal']
+        ':nombre'        => $nombre,
+        ':apellidos'     => $apellidos,
+        ':telefono'      => $form['telefono'],
+        ':email'         => $form['email'],
+        ':direccion'     => $form['direccion'],
+        ':ciudad'        => $form['ciudad'],
+        ':provincia'     => $form['provincia'],
+        ':codigo_postal' => $form['codigo_postal']
     ]);
 
     $idAdoptante = (int)$pdo->lastInsertId();
 
-    // 3. Buscar adopción pendiente (antes creada automáticamente)
+    // 4. Buscar adopción pendiente
     $sqlBuscar = "
         SELECT id 
         FROM adopciones
@@ -70,7 +84,7 @@ try {
 
     if ($adopcion) {
 
-        // 3A. Si existe adopción pendiente → actualizarla
+        // 4A. Actualizar adopción existente
         $sqlUpdate = "
             UPDATE adopciones
             SET id_adoptante = :idAdoptante,
@@ -85,7 +99,7 @@ try {
         ]);
     } else {
 
-        // 3B. Si NO existe → crear adopción nueva
+        // 4B. Crear adopción nueva
         $sqlInsertAdop = "
             INSERT INTO adopciones (id_animal, id_adoptante, fecha_adopcion, estado, notas)
             VALUES (:idAnimal, :idAdoptante, CURDATE(), 'en_proceso', 'Adopción creada al activar formulario')
@@ -96,12 +110,24 @@ try {
             ':idAnimal'    => $form['animal_id'],
             ':idAdoptante' => $idAdoptante
         ]);
+
+        $adopcion = (int)$pdo->lastInsertId();
     }
 
-    // 4. Marcar formulario como procesado
+    // 5. Marcar formulario como procesado
     $sqlProcesado = "UPDATE adoptantes_formulario SET procesado = 1 WHERE id = :id";
     $stmt = $pdo->prepare($sqlProcesado);
     $stmt->execute([':id' => $idFormulario]);
+
+    // 6. Marcar animal como NO adoptable
+    $sqlAnimal = "
+        UPDATE animales
+        SET adoptable = 0
+        WHERE id = :idAnimal
+    ";
+
+    $stmt = $pdo->prepare($sqlAnimal);
+    $stmt->execute([':idAnimal' => $form['animal_id']]);
 
     $pdo->commit();
 

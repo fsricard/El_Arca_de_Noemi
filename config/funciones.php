@@ -138,6 +138,7 @@ function tituloPagina($pagina)
         'sistema_adopciones_por_adoptante'          => 'Adopciones por adoptante',
         'sistema_adopciones_editar_animales'        => 'Editar animal en adopción',
         'sistema_adopciones_editar_adoptante'       => 'Edición de adoptantes',
+        'sistema_adopciones_editar_formulario'      => 'Edición de un adoptante',
         'sistema_adopciones_listado_adoptantes'     => 'Listado de adoptantes',
         'sistema_adopciones_formulario_frontend'    => 'Listado formulario FrontEnd'
     ];

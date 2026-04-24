@@ -284,7 +284,6 @@ body[data-pagina="tablas_de_datos_ver"][data-tabla="usuarios"] h2 strong {
     text-align: left;
 }
 
-/* Badges */
 .badge {
     padding: 4px 8px;
     border-radius: 4px;
@@ -309,7 +308,6 @@ body[data-pagina="tablas_de_datos_ver"][data-tabla="usuarios"] h2 strong {
     background-color: #d9534f;
 }
 
-/* Texto secundario */
 .texto-secundario {
     color: #666;
     font-size: 0.85em;
@@ -572,6 +570,47 @@ form button:hover i {
 }
 
 /* END Paginación */
+
+/* Acordeón */
+.accordion-header {
+    width: 100%;
+    text-align: left;
+    padding: 12px 15px;
+    background: var(--color-info);
+    border: 1px solid var(--c-azul);
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.accordion-header.active {
+    background: #1c4ac9;
+}
+
+.accordion-content {
+    display: none;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    background: #fff;
+}
+
+.checkbox-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.checkbox-row input[type="checkbox"] {
+    width: 50%;
+    margin-right: 8px;
+    transform: scale(1.2);
+}
+
+/* END acordeón */
 
 /* Iconos */
 .icon {
