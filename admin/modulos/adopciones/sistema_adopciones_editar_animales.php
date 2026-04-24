@@ -172,7 +172,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ]);
 
             /* SUBIDA DE NUEVAS FOTOS */
-            $carpeta = __DIR__ . '/../../uploads/adopciones/' . $id;
+            $carpeta = __DIR__ . '/../../../uploads/adopciones/' . $id;
             if (!is_dir($carpeta)) mkdir($carpeta, 0777, true);
 
             if (!empty($_FILES['fotos']['name'][0])) {
@@ -386,9 +386,9 @@ include('../../includes/header.php');
             <div class="galeria-fotos">
                 <?php foreach ($fotos as $foto): ?>
                     <div class="foto-item">
-                        <img src="../../../<?= htmlspecialchars($foto['ruta']) ?>"
+                        <img src="<?= asset (htmlspecialchars($foto['ruta'])); ?>"
                              class="thumb-animal"
-                             data-img="../../../<?= htmlspecialchars($foto['ruta']) ?>">
+                             data-img="<?= asset (htmlspecialchars($foto['ruta'])) ?>">
 
                         <?php if ($foto['es_principal']): ?>
                             <span class="badge badge-success">Principal</span>
