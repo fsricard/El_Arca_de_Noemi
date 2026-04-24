@@ -135,18 +135,6 @@ try {
     $stmt = $pdo->prepare($sql);
     $stmt->execute($data);
 
-    // INSERT adopción pendiente
-    $sqlAdopcion = "
-        INSERT INTO adopciones (id_animal, id_adoptante, fecha_adopcion, estado, notas)
-        VALUES (:id_animal, NULL, CURDATE(), 'pendiente', :notas)
-    ";
-
-    $stmt = $pdo->prepare($sqlAdopcion);
-    $stmt->execute([
-        ':id_animal' => $idAnimal,
-        ':notas'     => 'Solicitud de adopción vía formulario web'
-    ]);
-
     $pdo->commit();
 
     echo json_encode(['status' => 'success']);

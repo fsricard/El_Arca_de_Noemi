@@ -55,21 +55,48 @@ try {
 
     $idAdoptante = (int)$pdo->lastInsertId();
 
-    // 3. Actualizar adopción pendiente usando id_animal REAL
-    $sqlUpdateAdopcion = "
-        UPDATE adopciones
-        SET id_adoptante = :idAdoptante,
-            estado = 'en_proceso'
+    // 3. Buscar adopción pendiente (antes creada automáticamente)
+    $sqlBuscar = "
+        SELECT id 
+        FROM adopciones
         WHERE id_animal = :idAnimal
           AND id_adoptante IS NULL
         LIMIT 1
     ";
 
-    $stmt = $pdo->prepare($sqlUpdateAdopcion);
-    $stmt->execute([
-        ':idAdoptante' => $idAdoptante,
-        ':idAnimal'    => $form['id_animal']
-    ]);
+    $stmt = $pdo->prepare($sqlBuscar);
+    $stmt->execute([':idAnimal' => $form['animal_id']]);
+    $adopcion = $stmt->fetchColumn();
+
+    if ($adopcion) {
+
+        // 3A. Si existe adopción pendiente → actualizarla
+        $sqlUpdate = "
+            UPDATE adopciones
+            SET id_adoptante = :idAdoptante,
+                estado = 'en_proceso'
+            WHERE id = :id
+        ";
+
+        $stmt = $pdo->prepare($sqlUpdate);
+        $stmt->execute([
+            ':idAdoptante' => $idAdoptante,
+            ':id'          => $adopcion
+        ]);
+    } else {
+
+        // 3B. Si NO existe → crear adopción nueva
+        $sqlInsertAdop = "
+            INSERT INTO adopciones (id_animal, id_adoptante, fecha_adopcion, estado, notas)
+            VALUES (:idAnimal, :idAdoptante, CURDATE(), 'en_proceso', 'Adopción creada al activar formulario')
+        ";
+
+        $stmt = $pdo->prepare($sqlInsertAdop);
+        $stmt->execute([
+            ':idAnimal'    => $form['animal_id'],
+            ':idAdoptante' => $idAdoptante
+        ]);
+    }
 
     // 4. Marcar formulario como procesado
     $sqlProcesado = "UPDATE adoptantes_formulario SET procesado = 1 WHERE id = :id";

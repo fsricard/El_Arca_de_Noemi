@@ -12,6 +12,8 @@ if (strlen($term) < 2) {
     exit;
 }
 
+$like = "%$term%";
+
 // Consulta unificada usando la vista adoptantes_all
 $stmt = $pdo->prepare("
     SELECT 
@@ -19,17 +21,19 @@ $stmt = $pdo->prepare("
         nombre_completo,
         origen
     FROM adoptantes_all
-    WHERE nombre_completo LIKE ?
-       OR apellidos LIKE ?
+    WHERE nombre_completo COLLATE utf8mb4_unicode_ci LIKE ?
+       OR COALESCE(apellidos, '') COLLATE utf8mb4_unicode_ci LIKE ?
     ORDER BY nombre_completo ASC
     LIMIT 20
 ");
 
-$like = "%$term%";
 $stmt->execute([$like, $like]);
 
 $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+// Filtrar resultados con id válido (evita IDs NULL)
+$resultados = array_filter($resultados, fn($r) => !empty($r['id']));
+
 // Devolver JSON
-echo json_encode($resultados);
+echo json_encode(array_values($resultados));
 exit;

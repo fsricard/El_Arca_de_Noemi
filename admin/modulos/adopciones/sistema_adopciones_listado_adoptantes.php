@@ -355,31 +355,46 @@ include('../../includes/header.php');
                             <!-- ACCIONES -->
                             <td>
 
-                                <!-- BOTÓN ACTIVAR (solo formulario inactivo) -->
                                 <?php if ($a['origen'] === 'formulario' && $a['activo'] == 0): ?>
+
+                                    <!-- 1) BOTÓN ACTIVAR -->
                                     <button class="btn btn-success"
                                         onclick="activarFormulario(<?= $a['id_formulario'] ?>)">
                                         <i class="fa-solid fa-check"></i> Activar
                                     </button>
-                                <?php endif; ?>
 
-                                <!-- BOTÓN EDITAR ADOPCIÓN -->
-                                <?php if ($a['id_ultima_adopcion']): ?>
+                                    <!-- 2) BOTÓN EDITAR (versión formulario) -->
                                     <button class="btn btn-warning"
-                                        onclick="window.location='sistema_adopciones_editar_adoptante.php?id=<?= $a['id_ultima_adopcion'] ?>'">
+                                        onclick="window.location='sistema_adopciones_editar_formulario.php?id=<?= $a['id_formulario'] ?>'">
                                         <i class="fa-solid fa-pen-to-square"></i> Editar
                                     </button>
-                                <?php else: ?>
-                                    <button class="btn btn-warning" disabled>
-                                        <i class="fa-solid fa-pen-to-square"></i> Editar
-                                    </button>
-                                <?php endif; ?>
 
-                                <!-- BOTÓN VER ADOPCIONES -->
-                                <button class="btn update-user"
-                                    onclick="window.location='sistema_adopciones_por_adoptante.php?id=<?= $a['id'] ?>'">
-                                    <i class="fa-solid fa-paw"></i> Ver adopciones
-                                </button>
+                                    <!-- OCULTAR botones normales -->
+                                    <!-- (no se muestran Editar adopción ni Ver adopciones) -->
+
+                                <?php else: ?>
+
+                                    <!-- ADOPTANTE MANUAL O FORMULARIO YA ACTIVADO -->
+
+                                    <!-- BOTÓN EDITAR ADOPCIÓN -->
+                                    <?php if ($a['id_ultima_adopcion']): ?>
+                                        <button class="btn btn-warning"
+                                            onclick="window.location='sistema_adopciones_editar_adoptante.php?id=<?= $a['id_ultima_adopcion'] ?>'">
+                                            <i class="fa-solid fa-pen-to-square"></i> Editar
+                                        </button>
+                                    <?php else: ?>
+                                        <button class="btn btn-warning" disabled>
+                                            <i class="fa-solid fa-pen-to-square"></i> Editar
+                                        </button>
+                                    <?php endif; ?>
+
+                                    <!-- BOTÓN VER ADOPCIONES -->
+                                    <button class="btn update-user"
+                                        onclick="window.location='sistema_adopciones_por_adoptante.php?id=<?= $a['id'] ?>'">
+                                        <i class="fa-solid fa-paw"></i> Ver adopciones
+                                    </button>
+
+                                <?php endif; ?>
 
                             </td>
 
