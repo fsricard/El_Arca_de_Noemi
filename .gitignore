@@ -13,7 +13,7 @@ logs/
 # ------------------------------
 config/database.php
 config/.env
-config/envloader.php
+config/envLoader.php
 *.env
 Leeme.txt
 
@@ -31,4 +31,6 @@ Thumbs.db
 # ------------------------------
 #  VSCode
 # ------------------------------
-.vscode/
+,vscode/
+vsCode/
+vscode
