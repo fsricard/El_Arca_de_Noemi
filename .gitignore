@@ -1,1 +1,47 @@
+# ============================================
+#   EL ARCA DE NOEMÍ - .gitignore COMPLETO
+# ============================================
+
+# ------------------------------
+#  Carpetas privadas del proyecto
+# ------------------------------
 admin/panel_infernal/
+
+# ------------------------------
+#  Configuración local / sensible
+# ------------------------------
+config/database.php
+config/.env
+config/envloader.php
+*.env
+leeme.txt
+
+# ------------------------------
+#  Archivos temporales y cachés
+# ------------------------------
+*.log
+*.cache
+*.tmp
+*.bak
+*.swp
+*.DS_Store
+Thumbs.db
+
+# ------------------------------
+#  Directorios de subida de archivos
+# ------------------------------
+/uploads/
+uploads/
+
+# ------------------------------
+#  Archivos de sesión o runtime
+# ------------------------------
+admin/includes/session.php
+admin/includes/auth.php
+admin/dashboard.php
+admin/logout.php
+
+# ------------------------------
+#  VSCode
+# ------------------------------
+.vscode/
