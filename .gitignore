@@ -7,13 +7,14 @@
 # ------------------------------
 admin/panel_infernal/
 logs/
+admin/PHP
 
 # ------------------------------
 #  Configuración local / sensible
 # ------------------------------
+config/envLoader.php
 config/database.php
 config/.env
-config/envLoader.php
 *.env
 Leeme.txt
 
