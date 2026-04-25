@@ -15,7 +15,7 @@ config/database.php
 config/.env
 config/envloader.php
 *.env
-leeme.txt
+Leeme.txt
 
 # ------------------------------
 #  Archivos temporales y cachés
