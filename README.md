@@ -234,6 +234,7 @@ Archivo con credenciales privadas.
 
 Ejemplo recomendado:
 
+```php
 DB_HOST=localhost  
 DB_NAME=nombre_base_datos  
 DB_USER=usuario  
@@ -245,6 +246,7 @@ SMTP_PORT=587
 SMTP_SECURE=tls  
 SMTP_USER_CONTACTO=tu_correo  
 SMTP_PASS_CONTACTO=tu_contraseña
+```
 
 ---
 
