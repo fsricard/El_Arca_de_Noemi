@@ -2,7 +2,6 @@
   <img src="/img/logo_20260320_0001.png" width="200" alt="Logo Arca de Noemí">
 </p>
 
-
 # 🐾 El Arca de Noemí – Plataforma de Gestión y Adopción Animal
 
 ![Estado](https://img.shields.io/badge/estado-en%20desarrollo-orange)
@@ -10,7 +9,6 @@
 ![MySQL](https://img.shields.io/badge/MySQL-5.7%2B-4479A1?logo=mysql&logoColor=white)
 ![Licencia](https://img.shields.io/badge/Licencia-MIT-green)
 ![Contribuciones](https://img.shields.io/badge/Contribuciones-bienvenidas-blue)
-
 
 ---
 
@@ -22,27 +20,13 @@ Este proyecto nace con un objetivo claro: **facilitar la gestión interna y mejo
 
 ## ✨ Características principales
 
-- 🐶 **Gestión completa de animales**  
-  Registro, edición y seguimiento de cada animal: especie, raza, estado de salud, fotos, fechas clave, adoptabilidad y más.
-
-- 📸 **Galería de imágenes optimizada**  
-  Soporte para foto principal y galería adicional, con carga eficiente y organización automática.
-
-- 🧬 **Clasificación por especies y razas**  
-  Sistema modular basado en tablas `especies_animales` y `razas_animales`.
-
-- ❤️ **Flujo de adopciones**  
-  Control del estado adoptable, adopciones en proceso y vinculación con fichas de adoptantes.
-
-- 🧩 **Backend modular y escalable**  
-  Código organizado por módulos reutilizables, pensado para crecer sin perder claridad.
-
-- 📄 **Paginador universal**  
-  Función reutilizable para mostrar listados de forma eficiente (10 fichas por página).
-
-- 🛠️ **Panel de administración intuitivo**  
-  Diseñado para que cualquier voluntario pueda usarlo sin conocimientos técnicos.
-
+- 🐶 Gestión completa de animales
+- 📸 Galería de imágenes optimizada
+- 🧬 Clasificación por especies y razas
+- ❤️ Flujo de adopciones
+- 🧩 Backend modular y escalable
+- 📄 Paginador universal
+- 🛠️ Panel de administración intuitivo
 
 ---
 
@@ -50,37 +34,265 @@ Este proyecto nace con un objetivo claro: **facilitar la gestión interna y mejo
 
 El proyecto utiliza un esquema relacional optimizado para consultas rápidas y relaciones claras.
 
-### Tablas principales
+### 📌 Tablas principales del sistema
 
-- **animales**  
-  Información completa del animal (nombre, edad, sexo, salud, adoptabilidad, fechas, descripción…).
+- usuarios  
+  Gestión de cuentas internas: acceso al panel, roles y credenciales.
 
-- **animales_fotos**  
-  Fotos asociadas a cada animal, con indicador de foto principal.
+- mensajes_contacto  
+  Mensajes enviados desde el formulario de contacto público.
 
-- **especies_animales**  
-  Clasificación por especie (perro, gato, etc.).
+- intro_contacto  
+  Texto editable que aparece en la página de contacto.
 
-- **razas_animales**  
-  Raza vinculada a una especie.
+- politica_privacidad  
+  Contenido editable de la política de privacidad.
+
+- noemi_frases  
+  Frases personalizadas que se muestran en la web.
+
+- noemi_bichillos  
+  Elementos decorativos o textos usados en la interfaz.
+
+- asi_es_noemi  
+  Contenido editable de la sección institucional “Así es Noemí”.
+
+- especies_animales  
+  Lista de especies disponibles (perro, gato, etc.).
+
+- razas_animales  
+  Razas asociadas a cada especie.
+
+- animales  
+  Ficha completa del animal: datos, estado, salud, fechas, adoptabilidad.
+
+- adoptantes  
+  Información de personas interesadas o que han adoptado.
+
+- adopciones  
+  Registro de adopciones realizadas y su estado.
+
+- animales_fotos  
+  Galería de fotos de cada animal, incluyendo la foto principal.
+
+- adoptantes_formulario  
+  Datos enviados desde el formulario de adopción.
+
+- adoptantes_all (vista)  
+  Vista combinada para consultas rápidas de adoptantes y formularios.
+
+- animals_sponsor  
+  Relación entre animales y patrocinadores.
+
+- sponsors  
+  Patrocinadores activos registrados en el sistema.
+
+- sponsors_temp  
+  Datos temporales de patrocinadores antes de validarse.
+
+- sponsors_animals  
+  Relación N:N entre patrocinadores y animales.
+
+- sponsor_payments  
+  Historial de pagos de patrocinio.
+
+- sponsors_deleted  
+  Registro histórico de patrocinadores eliminados.
+
+- crowdfunding_plataformas  
+  Plataformas externas donde se realizan campañas de recaudación.
+
+- crowdfunding_recaudaciones  
+  Entradas de recaudación vinculadas a campañas y plataformas.
+
+---
+
+## 📁 Estructura de carpetas del proyecto
+
+(raíz del proyecto)  
+  admin/  
+    css/
+    includes/  
+    modulos/
+      adopciones/
+        ajax/
+      apadrinamientos/
+        ajax/
+      asi_es_noemi/
+      bichillos/
+      contacto/
+      crowdfundig/
+      logs/
+        ajax/
+      noemi_dice/
+      politica/
+      registros/
+        ajax/
+      tabla_base_datos/
+      usuarios/
+        ajax/
+  ajax/
+  config/  
+    database.php  
+    .env  
+    envLoader.php  
+  css/
+    fontawesome/
+      css/
+      webfonts/
+  img/
+  includes/
+    aside/
+    docs/
+    fpdf/
+      doc/
+      font/
+      makefont/
+      tutorial/
+    PHPMailer/
+    plantillas_email/
+      contacto/
+  js/
+  logs/  
+  uploads/
+    adopciones/
+    apadrinamientos/
+    bichillos/
+    crowdfunding/
+  views/
+README.md
+indexx.php
+.htaccess
+
+_(Los archivos sensibles .env, database.php y envLoader.php no se incluyen en el repositorio.)_
+
+---
+
+## 🔧 Instalación avanzada (para colaboradores)
+
+Esta guía permite configurar el proyecto en local con la misma estructura que el entorno principal, sin exponer archivos sensibles.
+
+### 1️⃣ Archivos que deben crearse manualmente (no incluidos en el repositorio)
+
+Dentro de la carpeta config/, crear:
+
+### ✔️ config/.env
+
+Archivo con credenciales privadas.
+
+Ejemplo recomendado:
+
+DB_HOST=localhost  
+DB_NAME=nombre_base_datos  
+DB_USER=usuario  
+DB_PASS=contraseña  
+DB_CHARSET=utf8mb4
+
+SMTP_HOST=smtp.servidor.com  
+SMTP_PORT=587  
+SMTP_SECURE=tls  
+SMTP_USER_CONTACTO=tu_correo  
+SMTP_PASS_CONTACTO=tu_contraseña
+
+---
+
+### ✔️ config/database.php
+
+Archivo que carga el .env y crea la conexión PDO.
+
+Contenido recomendado:
+
+<?php  
+$env = parse_ini_file(__DIR__ . '/.env');  
+
+try {  
+    $pdo = new PDO(  
+        "mysql:host={$env['DB_HOST']};dbname={$env['DB_NAME']};charset={$env['DB_CHARSET']}",  
+        $env['DB_USER'],  
+        $env['DB_PASS'],  
+        [  
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,  
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,  
+            PDO::ATTR_EMULATE_PREPARES => false  
+        ]  
+    );  
+} catch (PDOException $e) {  
+    die("Error de conexión a la base de datos: " . $e->getMessage());  
+}  
+
+---
+
+### ✔️ config/envLoader.php  
+Archivo para cargar variables de entorno desde .env.
+
+<?php  
+function cargarEnv($ruta) {  
+    if (!file_exists($ruta)) return;  
+
+    $lineas = file($ruta, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);  
+    foreach ($lineas as $linea) {  
+        if (strpos(trim($linea), '#') === 0) continue;  
+        list($nombre, $valor) = explode('=', $linea, 2);  
+        putenv(trim($nombre) . '=' . trim($valor));  
+    }  
+}  
+
+---
+
+### 2️⃣ Crear la base de datos
+
+CREATE DATABASE arca_noemi CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+Importar el archivo SQL del proyecto:
+
+mysql -u usuario -p noemi_y_su_arca < database/estructura_completa.sql
+
+---
+
+### 3️⃣ Configurar el entorno local
+
+- Crear los archivos .env, database.php y envLoader.php  
+- Ajustar credenciales  
+- Verificar permisos de escritura en:  
+  - img/  
+  - logs/  
+  - uploads/ (si existe)
+
+---
+
+### 4️⃣ Iniciar el servidor
+
+php -S localhost:8081 -t public
+
+O configurar Apache/Nginx con DocumentRoot → public.
+
+---
+
+### 5️⃣ Verificar instalación
+
+Abrir en el navegador:
+
+http://localhost:8081
+
+Si carga la página principal sin errores, el entorno está listo.
 
 ---
 
 ## 🚀 Tecnologías utilizadas
 
-- PHP 8+
-- MySQL / MariaDB
-- HTML5 + CSS3
-- JavaScript
-- MobileDetect
-- Quill Editor
-- Arquitectura modular propia
+- PHP 8+  
+- MySQL / MariaDB  
+- HTML5 + CSS3  
+- JavaScript  
+- MobileDetect  
+- Quill Editor  
+- Arquitectura modular propia  
 
 ---
 
 ## 🧪 Estado del proyecto
 
-🔧 *En desarrollo activo*
+En desarrollo activo.
 
 Actualmente se están implementando:
 
@@ -93,23 +305,19 @@ Actualmente se están implementando:
 
 ## 🤝 Colaboración
 
-Este proyecto se desarrolla de forma colaborativa con la protectora **El Arca de Noemí**, con el objetivo de ofrecer una herramienta real, útil y sostenible.
-
-Si deseas contribuir:
-
-1. Haz un *fork* del repositorio  
+1. Haz un fork del repositorio  
 2. Crea una rama con tu mejora  
-3. Envía un *pull request*  
+3. Envía un pull request  
 
 ---
 
 ## 📬 Contacto
 
-- **Ricard** – Desarrollo y arquitectura  
-- **Noemí** – Coordinación y validación funcional  
+- Ricard – Desarrollo y arquitectura  
+- Noemí – Coordinación y validación funcional  
 
 ---
 
 ## 🐾 Licencia
 
-Este proyecto se distribuye bajo licencia **MIT**, permitiendo su uso y adaptación siempre que se mantenga la atribución correspondiente.
+Este proyecto se distribuye bajo licencia MIT.
