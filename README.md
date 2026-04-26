@@ -168,6 +168,54 @@ _(Los archivos sensibles .env, database.php y envLoader.php no se incluyen en el
 
 ---
 
+## 🐾 Base de datos para colaboradores
+
+Para facilitar el desarrollo en local, el proyecto incluye un archivo SQL con **toda la estructura de la base de datos**, sin datos sensibles y listo para importar.
+
+### 📥 Archivo disponible
+
+Ruta dentro del repositorio:
+
+<a href="/database/estructura_completa.sql" target="_blank">Base de datos</a>
+
+### 📌 ¿Qué contiene?
+
+- Todas las tablas del proyecto  
+- Todas las claves foráneas  
+- La vista `adoptantes_all`  
+- Relaciones circulares resueltas  
+- Codificación `utf8mb4`  
+- Estructura limpia y ordenada  
+
+### 🧩 Cómo importarlo
+
+1. Crear una base de datos vacía:
+
+CREATE DATABASE noemi_y_su_arca CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ciç
+
+2. Importar el archivo:
+
+En phpMyAdmin:  
+
+- Seleccionar la base de datos  
+- Ir a **Importar**  
+- Subir `estructura_completa.sql`
+
+O por terminal:
+
+mysql -u usuario -p noemi_y_su_arca < database/estructura_completa.sql
+
+### ✔️ Después de importar
+
+Crear los archivos locales:
+
+/config/.env 
+/config/database.php 
+/config/envLoader.php
+
+*(Estos archivos no se incluyen en el repositorio por seguridad.)*
+---
+
 ## 🔧 Instalación avanzada (para colaboradores)
 
 Esta guía permite configurar el proyecto en local con la misma estructura que el entorno principal, sin exponer archivos sensibles.
