@@ -162,7 +162,7 @@ El proyecto utiliza un esquema relacional optimizado para consultas rápidas y r
     crowdfunding/
   views/
 README.md
-indexx.php
+index.php
 .htaccess
 ```
 
