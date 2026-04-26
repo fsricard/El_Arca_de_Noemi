@@ -211,9 +211,11 @@ mysql -u usuario -p noemi_y_su_arca < database/estructura_completa.sql
 
 Crear los archivos locales:
 
+```text
 /config/.env 
 /config/database.php 
 /config/envLoader.php
+```
 
 *(Estos archivos no se incluyen en el repositorio por seguridad.)*
 ---
