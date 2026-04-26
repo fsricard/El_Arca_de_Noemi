@@ -248,10 +248,8 @@ SMTP_PASS_CONTACTO=tu_contraseña
 
 ---
 
-```markdown
 ### ✔️ config/envLoader.php  
 Archivo para cargar variables de entorno desde .env.
-```
 
 ```php
 <?php  
@@ -269,13 +267,11 @@ function cargarEnv($ruta) {
 
 ---
 
-```markdown
 ### ✔️ config/database.php
 
 Archivo que carga el .env y crea la conexión PDO.
 
 Contenido recomendado:
-```
 
 ```php
 <?php
