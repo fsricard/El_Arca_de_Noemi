@@ -109,6 +109,7 @@ El proyecto utiliza un esquema relacional optimizado para consultas rápidas y r
 
 ## 📁 Estructura de carpetas del proyecto
 
+```text
 (raíz del proyecto)  
   admin/  
     css/
@@ -163,6 +164,7 @@ El proyecto utiliza un esquema relacional optimizado para consultas rápidas y r
 README.md
 indexx.php
 .htaccess
+```
 
 _(Los archivos sensibles .env, database.php y envLoader.php no se incluyen en el repositorio.)_
 
