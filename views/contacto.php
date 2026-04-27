@@ -86,8 +86,6 @@ if (isset($_POST['enviar'])) {
             $mensaje_ok = "Tu mensaje ha sido enviado correctamente. Noemi lo revisará pronto y te contestará en breve.";
         } catch (Exception $e) {
             $mensaje_error = "!!Algo salió mal¡¡. Inténtalo más tarde.";
-            // Para depurar:
-            // echo $e->getMessage();
         }
     } else {
         $mensaje_error = "Todos los campos son obligatorios.";

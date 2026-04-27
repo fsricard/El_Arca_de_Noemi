@@ -2,6 +2,7 @@
 session_start();
 require_once __DIR__ . '/../config/database.php';
 require_once 'modelo_animales.php';
+require_once 'generar_pdf_formulario.php'; // ← IMPORTANTE
 
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
@@ -135,6 +136,18 @@ try {
     $stmt = $pdo->prepare($sql);
     $stmt->execute($data);
 
+    // Obtener ID del formulario
+    $id_formulario = $pdo->lastInsertId();
+
+    // Generar PDF
+    $ruta_pdf = generarPDFFormulario($id_formulario, $pdo);
+
+    // Guardar ruta del PDF
+    if ($ruta_pdf) {
+        $update = $pdo->prepare("UPDATE adoptantes_formulario SET ruta_pdf = ? WHERE id = ?");
+        $update->execute([$ruta_pdf, $id_formulario]);
+    }
+
     $pdo->commit();
 
     echo json_encode(['status' => 'success']);
@@ -146,7 +159,6 @@ try {
     echo json_encode([
         'status' => 'error',
         'message' => 'Error al procesar el formulario.',
-        'debug' => $e->getMessage() // ← deja esto activado hasta que confirmemos que funciona
     ]);
     exit;
 }
