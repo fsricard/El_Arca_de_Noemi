@@ -178,7 +178,7 @@ Para facilitar el desarrollo en local, el proyecto incluye un archivo SQL con **
 
 Ruta dentro del repositorio:
 
-<a href="/database/estructura_completa.sql" target="_blank">Base de datos</a>
+[Base de datos](/database/estructura_completa.sql)
 
 ### 📌 ¿Qué contiene?
 
@@ -378,14 +378,22 @@ Actualmente se están implementando:
 
 ## 👹 Autor
 
-- Ricard FS, creador de:
+- **Ricard FS**, creador de:
 
-1. El Arca de Noemí (En desarrollo) - <a href="https://github.com/fsricard/El_Arca_de_Noemi" target="_blank">GitHub</a>
-2. La Gatopía de Miriam  - <a href="https://lagatopiademiriam.com/" target="_blank">La Gatopía de Miriam</a>
-3. El Diablillo Sarcástico (En desarrollo) - <a href="https://github.com/fsricard/Ricard_FS_WEB" target="_blank">GitHub</a>
+1. **El Arca de Noemí** (*En desarrollo*) - [GitHub](https://github.com/fsricard/El_Arca_de_Noemi)
+2. **La Gatopía de Miriam**  - [La Gatopía de Miriam](https://lagatopiademiriam.com/)
+3. **El Diablillo Sarcástico** (*En desarrollo*) - [GitHub](https://github.com/fsricard/Ricard_FS_WEB)
 
 ---
 
 ## 🐾 Licencia
 
 Este proyecto se distribuye bajo licencia MIT.
+
+---
+
+<div align="center">
+
+### 😈 _“No soy malo… solo estoy programado así.”_ 😈
+
+</div>
