@@ -145,21 +145,20 @@ El proyecto utiliza un esquema relacional optimizado para consultas rápidas y r
   includes/
     aside/
     docs/
-    fpdf/
-      doc/
-      font/
-      makefont/
-      tutorial/
+    dompdf/
     PHPMailer/
     plantillas_email/
-      contacto/
+      contacto/ 
+      formulario/ 
   js/
   logs/  
   uploads/
     adopciones/
     apadrinamientos/
     bichillos/
-    crowdfunding/
+    crowdfunding/ 
+    pdf/ 
+      formulario/ 
   views/
 README.md
 index.php
