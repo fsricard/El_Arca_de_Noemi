@@ -109,61 +109,59 @@ El proyecto utiliza un esquema relacional optimizado para consultas rápidas y r
 
 ## 📁 Estructura de carpetas del proyecto
 
-```text
-(raíz del proyecto)  
-  admin/  
-    css/
-    includes/  
-    modulos/
-      adopciones/
-        ajax/
-      apadrinamientos/
-        ajax/
-      asi_es_noemi/
-      bichillos/
-      contacto/
-      crowdfundig/
-      logs/
-        ajax/
-      noemi_dice/
-      politica/
-      registros/
-        ajax/
-      tabla_base_datos/
-      usuarios/
-        ajax/
-  ajax/
-  config/  
-    database.php  
-    .env  
-    envLoader.php  
-  css/
-    fontawesome/
-      css/
-      webfonts/
-  img/
-  includes/
-    aside/
-    docs/
-    dompdf/
-    PHPMailer/
-    plantillas_email/
-      contacto/ 
-      formulario/ 
-  js/
-  logs/  
-  uploads/
-    adopciones/
-    apadrinamientos/
-    bichillos/
-    crowdfunding/ 
-    pdf/ 
-      formulario/ 
-  views/
+- (raíz del proyecto)  
+  - admin/  
+    - css/
+    - includes/  
+    - modulos/
+    - adopciones/
+      - ajax/
+      - apadrinamientos/
+        - ajax/
+      - asi_es_noemi/
+      - bichillos/
+      - contacto/
+      - crowdfundig/
+      - logs/
+        - ajax/
+      - noemi_dice/
+      - politica/
+      - registros/
+        - ajax/
+      - tabla_base_datos/
+      - usuarios/
+        - ajax/
+  - ajax/
+  - config/  
+  - database.php  
+    - .env  
+    - envLoader.php  
+  - css/
+    - fontawesome/
+      - css/
+      - webfonts/
+  - img/
+  - includes/
+    - aside/
+    - docs/
+    - dompdf/
+    - PHPMailer/
+    - plantillas_email/
+      - contacto/ 
+      - formulario/ 
+  - js/
+  - logs/  
+  - uploads/
+    - adopciones/
+    - apadrinamientos/
+    - bichillos/
+    - crowdfunding/ 
+    - pdf/ 
+      - formulario/ 
+  - views/
 README.md
 index.php
 .htaccess
-```
 
 _(Los archivos sensibles .env, database.php y envLoader.php no se incluyen en el repositorio.)_
 
