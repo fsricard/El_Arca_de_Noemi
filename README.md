@@ -371,8 +371,18 @@ Actualmente se están implementando:
 
 ## 📬 Contacto
 
-- Ricard – Desarrollo y arquitectura  
+- Ricard FS – Desarrollo y arquitectura  
 - Noemí – Coordinación y validación funcional  
+
+---
+
+## 👹 Autor
+
+- Ricard FS, creador de:
+
+1. El Arca de Noemí (En desarrollo)
+2. La Gatopía de Miriam 
+3. El Diablillo Sarcástico (En desarrollo)
 
 ---
 
