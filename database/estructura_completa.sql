@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 26-04-2026 a las 20:43:39
+-- Tiempo de generación: 28-04-2026 a las 20:56:34
 -- Versión del servidor: 8.4.3
 -- Versión de PHP: 8.3.30
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `noemi_y_su_arca`
+-- Base de datos: `estructura_completa`
 --
 
 -- --------------------------------------------------------
@@ -66,18 +66,19 @@ CREATE TABLE `adoptantes` (
 -- (Véase abajo para la vista actual)
 --
 CREATE TABLE `adoptantes_all` (
-`id` int unsigned
-,`nombre_completo` varchar(255)
+`activo` bigint
 ,`apellidos` varchar(150)
-,`telefono` varchar(50)
-,`email` varchar(150)
+,`ciudad` varchar(255)
+,`codigo_postal` varchar(255)
 ,`direccion` mediumtext
-,`ciudad` varchar(100)
-,`provincia` varchar(100)
-,`codigo_postal` varchar(20)
-,`origen` varchar(10)
-,`activo` bigint
+,`email` varchar(255)
+,`id` int unsigned
 ,`id_formulario` int unsigned
+,`nombre_completo` varchar(255)
+,`origen` varchar(10)
+,`provincia` varchar(255)
+,`ruta_pdf` varchar(255)
+,`telefono` varchar(255)
 );
 
 -- --------------------------------------------------------
@@ -91,19 +92,19 @@ CREATE TABLE `adoptantes_formulario` (
   `animal_id` int UNSIGNED NOT NULL,
   `adoptante_id` int UNSIGNED DEFAULT NULL,
   `nombre_completo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `dni_pasaporte` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `dni_pasaporte` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `edad` int DEFAULT NULL,
   `direccion` text COLLATE utf8mb4_unicode_ci,
-  `ciudad` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `codigo_postal` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `provincia` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `telefono` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `email` varchar(150) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `animal_nombre` varchar(150) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ciudad` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `codigo_postal` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `provincia` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `telefono` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `animal_nombre` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `motivos_adopcion` text COLLATE utf8mb4_unicode_ci,
   `personas_en_casa` text COLLATE utf8mb4_unicode_ci,
   `familia_de_acuerdo` tinyint(1) DEFAULT NULL,
-  `responsable_principal` varchar(150) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `responsable_principal` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `ninos_tuvieron_animales` tinyint(1) DEFAULT NULL,
   `convivencia_ninos_opinion` text COLLATE utf8mb4_unicode_ci,
   `plan_familia_impacto` text COLLATE utf8mb4_unicode_ci,
@@ -115,24 +116,25 @@ CREATE TABLE `adoptantes_formulario` (
   `otros_animales` text COLLATE utf8mb4_unicode_ci,
   `chip_esterilizados` tinyint(1) DEFAULT NULL,
   `vacunas_en_regla` tinyint(1) DEFAULT NULL,
-  `tipo_vivienda` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tipo_vivienda` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `vivienda_propiedad` tinyint(1) DEFAULT NULL,
   `permite_animales_en_alquiler` tinyint(1) DEFAULT NULL,
   `patio_jardin_medidas` text COLLATE utf8mb4_unicode_ci,
-  `interior_o_exterior` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `interior_o_exterior` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `profesion_situacion` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `quien_asume_gastos` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `tiempo_pasear` varchar(150) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `horas_solo` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tiempo_pasear` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `horas_solo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `lugares_paseo` text COLLATE utf8mb4_unicode_ci,
   `mudanza_poblacion` text COLLATE utf8mb4_unicode_ci,
   `mudanza_pais` text COLLATE utf8mb4_unicode_ci,
   `vacaciones_cuidado` text COLLATE utf8mb4_unicode_ci,
   `por_que_adoptar` text COLLATE utf8mb4_unicode_ci,
-  `tiempo_busqueda` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `como_conocio` varchar(150) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tiempo_busqueda` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `como_conocio` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `conoce_condiciones` tinyint(1) DEFAULT NULL,
   `firma_nombre_dni` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ruta_pdf` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `procesado` tinyint(1) NOT NULL DEFAULT '0',
   `fecha_formulario` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `fecha_actualizacion` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
@@ -751,7 +753,7 @@ ALTER TABLE `usuarios`
 --
 DROP TABLE IF EXISTS `adoptantes_all`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `adoptantes_all`  AS SELECT `a`.`id` AS `id`, (concat(`a`.`nombre`,' ',`a`.`apellidos`) collate utf8mb4_unicode_ci) AS `nombre_completo`, (`a`.`apellidos` collate utf8mb4_unicode_ci) AS `apellidos`, `a`.`telefono` AS `telefono`, `a`.`email` AS `email`, `a`.`direccion` AS `direccion`, `a`.`ciudad` AS `ciudad`, `a`.`provincia` AS `provincia`, `a`.`codigo_postal` AS `codigo_postal`, ('manual' collate utf8mb4_unicode_ci) AS `origen`, 1 AS `activo`, NULL AS `id_formulario` FROM `adoptantes` AS `a`union all select `f`.`id` AS `id`,(`f`.`nombre_completo` collate utf8mb4_unicode_ci) AS `nombre_completo`,('' collate utf8mb4_unicode_ci) AS `apellidos`,`f`.`telefono` AS `telefono`,`f`.`email` AS `email`,`f`.`direccion` AS `direccion`,`f`.`ciudad` AS `ciudad`,`f`.`provincia` AS `provincia`,`f`.`codigo_postal` AS `codigo_postal`,('formulario' collate utf8mb4_unicode_ci) AS `origen`,0 AS `activo`,`f`.`id` AS `id_formulario` from `adoptantes_formulario` `f` where (`f`.`procesado` = 0)  ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `adoptantes_all`  AS SELECT `a`.`id` AS `id`, (concat(`a`.`nombre`,' ',`a`.`apellidos`) collate utf8mb4_unicode_ci) AS `nombre_completo`, (`a`.`apellidos` collate utf8mb4_unicode_ci) AS `apellidos`, `a`.`telefono` AS `telefono`, `a`.`email` AS `email`, `a`.`direccion` AS `direccion`, `a`.`ciudad` AS `ciudad`, `a`.`provincia` AS `provincia`, `a`.`codigo_postal` AS `codigo_postal`, ('manual' collate utf8mb4_unicode_ci) AS `origen`, 1 AS `activo`, NULL AS `id_formulario`, NULL AS `ruta_pdf` FROM `adoptantes` AS `a`union all select `f`.`id` AS `id`,(`f`.`nombre_completo` collate utf8mb4_unicode_ci) AS `nombre_completo`,('' collate utf8mb4_unicode_ci) AS `apellidos`,`f`.`telefono` AS `telefono`,`f`.`email` AS `email`,`f`.`direccion` AS `direccion`,`f`.`ciudad` AS `ciudad`,`f`.`provincia` AS `provincia`,`f`.`codigo_postal` AS `codigo_postal`,('formulario' collate utf8mb4_unicode_ci) AS `origen`,0 AS `activo`,`f`.`id` AS `id_formulario`,`f`.`ruta_pdf` AS `ruta_pdf` from `adoptantes_formulario` `f` where (`f`.`procesado` = 0)  ;
 
 --
 -- Restricciones para tablas volcadas
