@@ -133,13 +133,14 @@ El proyecto utiliza un esquema relacional optimizado para consultas rápidas y r
         - ajax/
   - ajax/
   - config/  
-  - database.php  
+    - database.php  
     - .env  
     - envLoader.php  
   - css/
     - fontawesome/
       - css/
       - webfonts/
+  - database/
   - img/
   - includes/
     - aside/
