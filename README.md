@@ -160,9 +160,9 @@ El proyecto utiliza un esquema relacional optimizado para consultas rápidas y r
     - pdf/ 
       - formulario/ 
   - views/
-README.md
-index.php
-.htaccess
+- README.md
+- index.php
+- .htaccess
 
 _(Los archivos sensibles .env, database.php y envLoader.php no se incluyen en el repositorio.)_
 
