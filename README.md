@@ -114,8 +114,8 @@ El proyecto utiliza un esquema relacional optimizado para consultas rápidas y r
     - css/
     - includes/  
     - modulos/
-    - adopciones/
-      - ajax/
+      - adopciones/
+        - ajax/
       - apadrinamientos/
         - ajax/
       - asi_es_noemi/
