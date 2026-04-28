@@ -283,6 +283,7 @@ include('../../includes/header.php');
                         <th>Dirección</th>
                         <th>Origen</th>
                         <th>Estado</th>
+                        <th>PDF</th>
                         <th>Total adopciones</th>
                         <th>Acciones</th>
                     </tr>
@@ -349,6 +350,27 @@ include('../../includes/header.php');
 
                                 <?php endif; ?>
                             </td>
+
+                            <!-- PDFs -->
+                            <?php if ($a['origen'] === 'formulario'): ?>
+                                <td>
+
+                                    <?php if (!empty($a['ruta_pdf'])): ?>
+                                        <a href="<?= asset( htmlspecialchars($a['ruta_pdf']) ) ?>"
+                                            class="btn btn-exportar-pdf"
+                                            target="_blank">
+                                            <i class="fa-solid fa-file-pdf"></i> PDF
+                                        </a>
+                                    <?php else: ?>
+                                        <span style="color:#999;">Sin PDF</span>
+                                    <?php endif; ?>
+
+                                </td>
+                            <?php else: ?>
+                                <td>
+                                    <span style="color:#999;">Sin PDF</span>
+                                </td>
+                            <?php endif; ?>
 
                             <!-- TOTAL ADOPCIONES -->
                             <td><?= (int)$a['total_adopciones'] ?></td>
