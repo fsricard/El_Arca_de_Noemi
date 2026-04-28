@@ -380,9 +380,9 @@ Actualmente se están implementando:
 
 - Ricard FS, creador de:
 
-1. El Arca de Noemí (En desarrollo)
-2. La Gatopía de Miriam 
-3. El Diablillo Sarcástico (En desarrollo)
+1. El Arca de Noemí (En desarrollo) - <a href="https://github.com/fsricard/El_Arca_de_Noemi" target="_blank">GitHub</a>
+2. La Gatopía de Miriam  - <a href="https://lagatopiademiriam.com/" target="_blank">La Gatopía de Miriam</a>
+3. El Diablillo Sarcástico (En desarrollo) - <a href="https://github.com/fsricard/Ricard_FS_WEB" target="_blank">GitHub</a>
 
 ---
 
