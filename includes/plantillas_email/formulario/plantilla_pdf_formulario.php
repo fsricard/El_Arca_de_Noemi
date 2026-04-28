@@ -1,4 +1,6 @@
 <?php
+require_once(__DIR__ . '/../../../config/funciones.php');
+
 // Helper para mostrar valores vacíos
 function v($campo)
 {
@@ -21,16 +23,20 @@ function v($campo)
 
         h1 {
             text-align: center;
-            font-size: 22px;
+            color: #b3d5ee;
+            font-size: 1.8rem;
             margin-bottom: 5px;
+            text-shadow: 2px 2px 0 #2A6432;
         }
 
         h2 {
-            background: #f2f2f2;
+            color: #B3D5EE;
+            background: #BDC453;
             padding: 6px 10px;
-            font-size: 15px;
+            font-size: 1.2rem;
             margin-top: 25px;
             border-left: 4px solid #c27ba0;
+            text-shadow: 2px 2px 0 #2A6432;
         }
 
         .logo {
@@ -66,7 +72,7 @@ function v($campo)
 <body>
 
     <div class="logo">
-        <img src="<?= __DIR__ . '/../img/logo_20260320_0001.png' ?>" alt="Arca de Noemí">
+        <img src="<?= asset('/img/logo_20260320_0001.png') ?>" alt="Arca de Noemí">
     </div>
 
     <h1>Formulario de Adopción</h1>
@@ -92,7 +98,9 @@ function v($campo)
     <div class="campo"><span class="label">Nombre del animal:</span> <?= v($datos_formulario['animal_nombre']) ?></div>
 
     <!-- Motivación y entorno -->
-    <h2>Motivación y entorno familiar</h2>
+    <h2 style="page-break-before: always; page-break-inside: avoid;">
+        Motivación y entorno familiar
+    </h2>
 
     <div class="campo"><span class="label">Motivos para adoptar:</span> <?= v($datos_formulario['motivos_adopcion']) ?></div>
     <div class="campo"><span class="label">Personas en casa:</span> <?= v($datos_formulario['personas_en_casa']) ?></div>
@@ -115,7 +123,9 @@ function v($campo)
     <div class="campo"><span class="label">Vacunas al día:</span> <?= $datos_formulario['vacunas_en_regla'] ? 'Sí' : 'No' ?></div>
 
     <!-- Vivienda -->
-    <h2>Vivienda</h2>
+    <h2 style="page-break-before: always; page-break-inside: avoid;">
+        Vivienda
+    </h2>
 
     <div class="campo"><span class="label">Tipo de vivienda:</span> <?= v($datos_formulario['tipo_vivienda']) ?></div>
     <div class="campo"><span class="label">Vivienda en propiedad:</span> <?= $datos_formulario['vivienda_propiedad'] ? 'Sí' : 'No' ?></div>
@@ -140,7 +150,9 @@ function v($campo)
     <div class="campo"><span class="label">Cuidado en vacaciones:</span> <?= v($datos_formulario['vacaciones_cuidado']) ?></div>
 
     <!-- Motivación final -->
-    <h2>Motivación final</h2>
+    <h2 style="page-break-before: always; page-break-inside: avoid;">
+        Motivación final
+    </h2>
 
     <div class="campo"><span class="label">¿Por qué adoptar?:</span> <?= v($datos_formulario['por_que_adoptar']) ?></div>
     <div class="campo"><span class="label">Tiempo buscando adoptar:</span> <?= v($datos_formulario['tiempo_busqueda']) ?></div>
