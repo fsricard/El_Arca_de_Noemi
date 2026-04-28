@@ -2,7 +2,7 @@
 session_start();
 require_once __DIR__ . '/../config/database.php';
 require_once 'modelo_animales.php';
-require_once 'generar_pdf_formulario.php'; // ← IMPORTANTE
+require_once 'generar_pdf_formulario.php';
 
 ini_set('display_errors', 1);
 error_reporting(E_ALL);

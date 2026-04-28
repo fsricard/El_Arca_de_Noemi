@@ -15,7 +15,7 @@ function v($campo)
     <style>
         body {
             font-family: DejaVu Sans, sans-serif;
-            font-size: 12px;
+            font-size: 0.8rem;
             color: #333;
             margin: 0;
             padding: 25px;
@@ -65,6 +65,13 @@ function v($campo)
         .linea {
             border-bottom: 1px solid #ddd;
             margin: 15px 0;
+        }
+
+        .copyrigth {
+            font-size: 0.6rem;
+            color: #000000;
+            text-align: center;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -163,6 +170,14 @@ function v($campo)
     <h2>Firma</h2>
 
     <div class="campo"><span class="label">Firma (nombre y DNI):</span> <?= v($datos_formulario['firma_nombre_dni']) ?></div>
+
+    <div class="linea"></div>
+
+    <div class="copyrigth">
+        <?php
+        echo CopyrightRicardFS();
+        ?>
+    </div>
 
 </body>
 
