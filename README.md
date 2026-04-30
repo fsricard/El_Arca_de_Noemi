@@ -109,10 +109,10 @@ El proyecto utiliza un esquema relacional optimizado para consultas rápidas y r
 
 ## 📁 Estructura de carpetas del proyecto
 
-- (raíz del proyecto)  
-  - admin/  
+- (raíz del proyecto)
+  - admin/
     - css/
-    - includes/  
+    - includes/
     - modulos/
       - adopciones/
         - ajax/
@@ -132,10 +132,10 @@ El proyecto utiliza un esquema relacional optimizado para consultas rápidas y r
       - usuarios/
         - ajax/
   - ajax/
-  - config/  
-    - database.php  
-    - .env  
-    - envLoader.php  
+  - config/
+    - database.php
+    - .env
+    - envLoader.php
   - css/
     - fontawesome/
       - css/
@@ -148,17 +148,17 @@ El proyecto utiliza un esquema relacional optimizado para consultas rápidas y r
     - dompdf/
     - PHPMailer/
     - plantillas_email/
-      - contacto/ 
-      - formulario/ 
+      - contacto/
+      - formulario/
   - js/
-  - logs/  
+  - logs/
   - uploads/
     - adopciones/
     - apadrinamientos/
     - bichillos/
-    - crowdfunding/ 
-    - pdf/ 
-      - formulario/ 
+    - crowdfunding/
+    - pdf/
+      - formulario/
   - views/
 - README.md
 - index.php
@@ -180,12 +180,12 @@ Ruta dentro del repositorio:
 
 ### 📌 ¿Qué contiene?
 
-- Todas las tablas del proyecto  
-- Todas las claves foráneas  
-- La vista `adoptantes_all`  
-- Relaciones circulares resueltas  
-- Codificación `utf8mb4`  
-- Estructura limpia y ordenada  
+- Todas las tablas del proyecto
+- Todas las claves foráneas
+- La vista `adoptantes_all`
+- Relaciones circulares resueltas
+- Codificación `utf8mb4`
+- Estructura limpia y ordenada
 
 ### 🧩 Cómo importarlo
 
@@ -195,10 +195,10 @@ CREATE DATABASE noemi_y_su_arca CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
 
 2. Importar el archivo:
 
-En phpMyAdmin:  
+En phpMyAdmin:
 
-- Seleccionar la base de datos  
-- Ir a **Importar**  
+- Seleccionar la base de datos
+- Ir a **Importar**
 - Subir `estructura_completa.sql`
 
 O por terminal:
@@ -210,13 +210,12 @@ mysql -u usuario -p noemi_y_su_arca < database/estructura_completa.sql
 Crear los archivos locales:
 
 ```text
-/config/.env 
-/config/database.php 
+/config/.env
+/config/database.php
 /config/envLoader.php
 ```
 
-*(Estos archivos no se incluyen en el repositorio por seguridad.)*
----
+## _(Estos archivos no se incluyen en el repositorio por seguridad.)_
 
 ## 🔧 Instalación avanzada (para colaboradores)
 
@@ -233,36 +232,37 @@ Archivo con credenciales privadas.
 Ejemplo recomendado:
 
 ```php
-DB_HOST=localhost  
-DB_NAME=nombre_base_datos  
-DB_USER=usuario  
-DB_PASS=contraseña  
+DB_HOST=localhost
+DB_NAME=nombre_base_datos
+DB_USER=usuario
+DB_PASS=contraseña
 DB_CHARSET=utf8mb4
 
-SMTP_HOST=smtp.servidor.com  
-SMTP_PORT=587  
-SMTP_SECURE=tls  
-SMTP_USER_CONTACTO=tu_correo  
+SMTP_HOST=smtp.servidor.com
+SMTP_PORT=587
+SMTP_SECURE=tls
+SMTP_USER_CONTACTO=tu_correo
 SMTP_PASS_CONTACTO=tu_contraseña
 ```
 
 ---
 
-### ✔️ config/envLoader.php  
+### ✔️ config/envLoader.php
+
 Archivo para cargar variables de entorno desde .env.
 
 ```php
-<?php  
-function cargarEnv($ruta) {  
-    if (!file_exists($ruta)) return;  
+<?php
+function cargarEnv($ruta) {
+    if (!file_exists($ruta)) return;
 
-    $lineas = file($ruta, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);  
-    foreach ($lineas as $linea) {  
-        if (strpos(trim($linea), '#') === 0) continue;  
-        list($nombre, $valor) = explode('=', $linea, 2);  
-        putenv(trim($nombre) . '=' . trim($valor));  
-    }  
-}  
+    $lineas = file($ruta, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    foreach ($lineas as $linea) {
+        if (strpos(trim($linea), '#') === 0) continue;
+        list($nombre, $valor) = explode('=', $linea, 2);
+        putenv(trim($nombre) . '=' . trim($valor));
+    }
+}
 ```
 
 ---
@@ -307,11 +307,11 @@ mysql -u usuario -p noemi_y_su_arca < database/estructura_completa.sql
 
 ### 3️⃣ Configurar el entorno local
 
-- Crear los archivos .env, database.php y envLoader.php  
-- Ajustar credenciales  
-- Verificar permisos de escritura en:  
-  - img/  
-  - logs/  
+- Crear los archivos .env, database.php y envLoader.php
+- Ajustar credenciales
+- Verificar permisos de escritura en:
+  - img/
+  - logs/
   - uploads/ (si existe)
 
 ---
@@ -336,13 +336,13 @@ Si carga la página principal sin errores, el entorno está listo.
 
 ## 🚀 Tecnologías utilizadas
 
-- PHP 8+  
-- MySQL / MariaDB  
-- HTML5 + CSS3  
-- JavaScript  
-- MobileDetect  
-- Quill Editor  
-- Arquitectura modular propia  
+- PHP 8+
+- MySQL / MariaDB
+- HTML5 + CSS3
+- JavaScript
+- MobileDetect
+- Quill Editor
+- Arquitectura modular propia
 
 ---
 
@@ -352,25 +352,25 @@ En desarrollo activo.
 
 Actualmente se están implementando:
 
-- Mejoras en el flujo de adopciones  
-- Optimización del backend para Noemí  
-- Integración universal del editor Quill  
-- Nuevos filtros y vistas para listados de animales  
+- Mejoras en el flujo de adopciones
+- Optimización del backend para Noemí
+- Integración universal del editor Quill
+- Nuevos filtros y vistas para listados de animales
 
 ---
 
 ## 🤝 Colaboración
 
-1. Haz un fork del repositorio  
-2. Crea una rama con tu mejora  
-3. Envía un pull request  
+1. Haz un fork del repositorio
+2. Crea una rama con tu mejora
+3. Envía un pull request
 
 ---
 
 ## 📬 Contacto
 
-- Ricard FS – Desarrollo y arquitectura  
-- Noemí – Coordinación y validación funcional  
+- Ricard FS – Desarrollo y arquitectura
+- Noemí – Coordinación y validación funcional
 
 ---
 
@@ -378,9 +378,10 @@ Actualmente se están implementando:
 
 - **Ricard FS**, creador de:
 
-1. **El Arca de Noemí** (*En desarrollo*) - [GitHub](https://github.com/fsricard/El_Arca_de_Noemi)
-2. **La Gatopía de Miriam**  - [La Gatopía de Miriam](https://lagatopiademiriam.com/)
-3. **El Diablillo Sarcástico** (*En desarrollo*) - [GitHub](https://github.com/fsricard/Ricard_FS_WEB)
+1. **El Arca de Noemí** (_En desarrollo_) - [GitHub](https://github.com/fsricard/El_Arca_de_Noemi)
+2. **El Huerto de la Gatopía** (_En desarrollo_) - [github](https://github.com/fsricard/El_huerto_de_la_Gatopia)
+3. **El Diablillo Sarcástico** (_En desarrollo_) - [GitHub](https://github.com/fsricard/Ricard_FS_WEB)
+4. **La Gatopía de Miriam** (_En producción_) - [La Gatopía de Miriam](https://lagatopiademiriam.com/)
 
 ---
 
