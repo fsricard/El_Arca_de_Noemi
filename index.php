@@ -17,6 +17,7 @@ $rutas_validas = [
     'contacto',
     'asi-es-noemi',
     'ficha-adopcion',
+    'danos-tu-opinion',
     'listado-adopciones',
     'listado-crowdfunding',
     'ficha-apadrinamiento',
@@ -186,6 +187,14 @@ elseif ($view === 'listado-apadrinamientos') {
 // ---------------------------------------
 elseif ($view === 'listado-crowdfunding') {
     require __DIR__ . '/views/listado-crowdfunding.php';
+}
+
+// ---------------------------------------
+//  FICHA DE DANOS TU OPINIÓN
+//  /danos-tu-opinion
+// ---------------------------------------
+elseif ($view === 'danos-tu-opinion') {
+    require __DIR__ . '/views/danos-tu-opinion.php';
 }
 
 // ---------------------------
