@@ -2403,7 +2403,9 @@ textarea {
 
 /* Opiniones de usuarios */
 .destacados-opiniones {
-    margin-bottom: 40px;
+    width: 100%;
+    display: block;
+    margin-top: 60px;
 }
 
 .title-opiniones {
