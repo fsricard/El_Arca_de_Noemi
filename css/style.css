@@ -2401,6 +2401,87 @@ textarea {
 
 /* END pagina de contacto */
 
+/* Opiniones de usuarios */
+.destacados-opiniones {
+    margin-bottom: 40px;
+}
+
+.title-opiniones {
+    display: block;
+    text-align: center;
+}
+
+.destacado-content-opiniones {
+    width: 50%;
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.slider-opiniones {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.opinion-item {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: all 1.2s ease-in-out;
+}
+
+.opinion-item.activa {
+    left: 0;
+    opacity: 1;
+}
+
+.opinion-item.entrando {
+    left: 0;
+    opacity: 1;
+}
+
+.opinion-item.saliendo {
+    left: -100%;
+    opacity: 0;
+}
+
+.opinion-imagen img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #eacda3;
+}
+
+.opinion-texto {
+    flex: 1;
+}
+
+.opinion-mensaje {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+.opinion-nombre {
+    font-weight: bold;
+    color: #8c6239;
+}
+
+/* END opiniones de usuarios */
+
 /* Módulo crowdfunding página de inicio */
 .content-crowdfunding-block {
     display: grid;
@@ -2800,6 +2881,10 @@ textarea {
 
     .listado-crowdfunding .crowdfunding-descripcion p {
         font-size: 1.5rem;
+    }
+
+    .destacado-content-opiniones {
+        width: 100%;
     }
 }
 

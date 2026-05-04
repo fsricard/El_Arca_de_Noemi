@@ -9,7 +9,7 @@
                 <i class="icon-redes-footer fa fa-facebook"></i>
             </a>
         </div>
-        
+
         <footer class="container-footer">
             <div class="footer">
                 <div class="sections-footer">
@@ -124,6 +124,46 @@
                     });
                 });
             })();
+
+            // Script para el Slider de las opiniones de los usuarios
+            document.addEventListener("DOMContentLoaded", () => {
+
+                const items = document.querySelectorAll(".opinion-item");
+                let index = 0;
+                let direccion = 1; // 1 = derecha→izquierda, -1 = izquierda→derecha
+
+                if (items.length === 0) return;
+
+                // Activar la primera
+                items[index].classList.add("activa");
+
+                function cambiarOpinion() {
+
+                    let actual = items[index];
+                    actual.classList.remove("activa");
+                    actual.classList.add("saliendo");
+
+                    // Calcular siguiente índice
+                    index += direccion;
+
+                    // Cambiar dirección si llegamos al final o al inicio
+                    if (index === items.length - 1) direccion = -1;
+                    else if (index === 0) direccion = 1;
+
+                    let siguiente = items[index];
+                    siguiente.classList.add("entrando");
+
+                    // Limpiar clases después de la transición
+                    setTimeout(() => {
+                        actual.classList.remove("saliendo");
+                        siguiente.classList.remove("entrando");
+                        siguiente.classList.add("activa");
+                    }, 1200);
+                }
+
+                // Cambiar cada 15 segundos
+                setInterval(cambiarOpinion, 15000);
+            });
         </script>
         </body>
 

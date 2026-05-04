@@ -338,4 +338,60 @@
 
                 </section>
 
+                <!-- Módulo Opiniones de Usuarios -->
+                <?php
+                $stmt = $pdo->prepare("
+                    SELECT nombre, imagen, mensaje
+                    FROM opiniones_usuarios
+                    ORDER BY RAND()
+                    LIMIT 5
+                ");
+                $stmt->execute();
+                $opiniones = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                ?>
+
+                <section class="destacados-opiniones">
+
+                    <article class="destacado-block-opiniones">
+
+                        <h2 class="destacado-title title-opiniones">
+                            <i class="fa-solid fa-user-doctor-message"></i> Opiniones de nuestros adoptantes
+                        </h2>
+
+                        <?php if ($opiniones): ?>
+                            <div class="destacado-content-opiniones">
+
+                                <div class="slider-opiniones" id="sliderOpiniones">
+
+                                    <?php foreach ($opiniones as $op): ?>
+                                        <?php
+                                        $nombre = htmlspecialchars($op['nombre']);
+                                        $mensaje = nl2br(htmlspecialchars($op['mensaje']));
+                                        $imagen = !empty($op['imagen'])
+                                            ? asset( '/' . $op['imagen'] )
+                                            : asset( '/uploads/opiniones/default.jpg' );
+                                        ?>
+
+                                        <div class="opinion-item">
+                                            <div class="opinion-imagen">
+                                                <img src="<?= $imagen ?>" alt="Foto de <?= $nombre ?>">
+                                            </div>
+
+                                            <div class="opinion-texto">
+                                                <p class="opinion-mensaje">“<?= $mensaje ?>”</p>
+                                                <p class="opinion-nombre">— <?= $nombre ?></p>
+                                            </div>
+                                        </div>
+
+                                    <?php endforeach; ?>
+
+                                </div>
+
+                            </div>
+                        <?php endif; ?>
+
+                    </article>
+
+                </section>
+
             </main>
