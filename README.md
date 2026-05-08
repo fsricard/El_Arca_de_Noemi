@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="/img/logo_20260320_0001.png" width="200" alt="Logo Arca de Noemí">
+  <img src="/img/logo_20260317_0001.png" width="200" alt="Logo Arca de Noemí">
 </p>
 
 # 🐾 El Arca de Noemí – Plataforma de Gestión y Adopción Animal
