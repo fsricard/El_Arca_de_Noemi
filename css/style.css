@@ -2406,6 +2406,7 @@ textarea {
     width: 100%;
     display: block;
     margin-top: 60px;
+    margin-bottom: 60PX;
 }
 
 .title-opiniones {
@@ -2417,8 +2418,12 @@ textarea {
     width: 50%;
     max-width: 700px;
     margin: 0 auto;
+    padding: 2% 5%;
     display: flex;
     justify-content: center;
+    border: 2px solid var(--color-primary);
+    border-radius: 50%;
+    box-shadow: 0 4px 10px var(--shadow-soft);
 }
 
 .slider-opiniones {
