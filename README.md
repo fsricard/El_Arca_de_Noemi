@@ -379,9 +379,10 @@ Actualmente se están implementando:
 - **Ricard FS**, creador de:
 
 1. **El Arca de Noemí** (*En desarrollo*) - [GitHub](https://github.com/fsricard/El_Arca_de_Noemi)
-2. **La Gatopía de Miriam**  - [La Gatopía de Miriam](https://lagatopiademiriam.com/)
+2. **El Huerto de la Gatopía** (*En desarrollo*) - [github](https://github.com/fsricard/El_huerto_de_la_Gatopia)
 3. **El Diablillo Sarcástico** (*En desarrollo*) - [GitHub](https://github.com/fsricard/Ricard_FS_WEB)
-4. **Lanzador de procesos Pro para el Arca de Noemí** - [GitHub](https://github.com/fsricard/Lanzador_Pro_el_Arca_de_Noemi)
+4. **La Gatopía de Miriam** (*En producción*)  - [La Gatopía de Miriam](https://lagatopiademiriam.com/)
+5. **Lanzador de procesos Pro para el Arca de Noemí** (*En producción*)  - [GitHub](https://github.com/fsricard/Lanzador_Pro_el_Arca_de_Noemi)
 
 ---
 
