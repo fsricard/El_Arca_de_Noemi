@@ -17,7 +17,7 @@
             <li><a href="<?= asset('admin/modulos/contacto/contacto_intro.php') ?>"><i class="fa-solid fa-envelope icon icon-doc-contacto"></i> Contacto intro</a></li>
             <li><a href="<?= asset('admin/modulos/asi_es_noemi/asi_es_noemi.php') ?>"><i class="fa-solid fa-person-burst icon icon-asi-es-noemi"></i> Así es Noemí</a></li>
             <li><a href="<?= asset('admin/modulos/politica/politica_de_privacidad.php') ?>"><i class="fa-solid fa-shield-halved icon icon-doc-privacidad"></i> Política de privacidad</a></li>
-            <li><a href="<?= asset('admin/modulos/opiniones/opiniones_de_usuario.php') ?>"><i class="fa-solid fa-user-doctor-message icon icon-opiniones-listado"></i> Opiniones de usuarios</a></li>
+            <li><a href="<?= asset('admin/modulos/opiniones/opiniones_de_usuario_listado.php') ?>"><i class="fa-solid fa-user-doctor-message icon icon-opiniones-listado"></i> Opiniones de usuarios</a></li>
 
             <!-- Frases -->
             <li class="submenu-nested">
