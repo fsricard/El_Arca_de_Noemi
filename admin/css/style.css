@@ -663,6 +663,10 @@ form button:hover i {
     color: var(--c-amarillo);
 }
 
+.icon-opiniones-listado {
+    color: var(--c-amarillo);
+}
+
 /* Submenús frases */
 .icon-frases {
     color: var(--c-rosa);
