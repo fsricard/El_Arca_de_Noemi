@@ -382,8 +382,10 @@ Actualmente se están implementando:
 2. **El Huerto de la Gatopía** (*En desarrollo*) - [github](https://github.com/fsricard/El_huerto_de_la_Gatopia)
 3. **El Diablillo Sarcástico** (*En desarrollo*) - [GitHub](https://github.com/fsricard/Ricard_FS_WEB)
 4. **La Gatopía de Miriam** (*En producción*)  - [La Gatopía de Miriam](https://lagatopiademiriam.com/)
-5. **Lanzador de procesos Pro para el Arca de Noemí** (*En producción*)  - [GitHub](https://github.com/fsricard/Lanzador_Pro_el_Arca_de_Noemi)
-6. **Lanzador de procesos Pro para el Huerto de la Gatopía** (*En desarrollo*)  - [GitHub](https://github.com/fsricard/Lanzador_Pro_el_Huerto_de_la_Gatopia)
+5. **Global License** (*En producción*) - [GitHub](https://github.com/fsricard/Global_License)
+6. **Lanzador de procesos Pro para el Arca de Noemí** (*En producción*)  - [GitHub](https://github.com/fsricard/Lanzador_Pro_el_Arca_de_Noemi)
+7. **Lanzador de procesos Pro para el Huerto de la Gatopía** (*En producción*)  - [GitHub](https://github.com/fsricard/Lanzador_Pro_el_Huerto_de_la_Gatopia)
+8. **Lanzador de procesos Pro para Ricard FS WEB (El Diablillo Sarcástico)** (*En producción*) - [GitHub](https://github.com/fsricard/Lanzador_Pro_Ricard_FS_WEB)
 
 ---
 
