@@ -6,51 +6,217 @@ require_once(__DIR__ . '/../../../config/funciones.php');
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="<?= asset('img/favicon.ico') ?>">
-    <link rel="shortcut icon" href="<?= asset('img/favicon.ico') ?>" type="image/x-icon">
-
-    <!-- FontAwesome 7.0.1 CSS -->
-    <link href="<?= asset('/css/fontawesome/css/brands.css') ?>" rel="stylesheet" />
-    <link href="<?= asset('/css/fontawesome/css/chisel-regular.css') ?>" rel="stylesheet" />
-    <link href="<?= asset('/css/fontawesome/css/duotone.css') ?>" rel="stylesheet" />
-    <link href="<?= asset('/css/fontawesome/css/duotone-light.css') ?>" rel="stylesheet" />
-    <link href="<?= asset('/css/fontawesome/css/duotone-regular.css') ?>" rel="stylesheet" />
-    <link href="<?= asset('/css/fontawesome/css/duotone-thin.css') ?>" rel="stylesheet" />
-    <link href="<?= asset('/css/fontawesome/css/etch-solid.css') ?>" rel="stylesheet" />
-    <link href="<?= asset('/css/fontawesome/css/fontawesome.css') ?>" rel="stylesheet" />
-    <link href="<?= asset('/css/fontawesome/css/jelly-duo-regular.css') ?>" rel="stylesheet" />
-    <link href="<?= asset('/css/fontawesome/css/jelly-fill-regular.css') ?>" rel="stylesheet" />
-    <link href="<?= asset('/css/fontawesome/css/jelly-regular.css') ?>" rel="stylesheet" />
-    <link href="<?= asset('/css/fontawesome/css/light.css') ?>" rel="stylesheet" />
-    <link href="<?= asset('/css/fontawesome/css/notdog-duo-solid.css') ?>" rel="stylesheet" />
-    <link href="<?= asset('/css/fontawesome/css/notdog-solid.css') ?>" rel="stylesheet" />
-    <link href="<?= asset('/css/fontawesome/css/regular.css') ?>" rel="stylesheet" />
-    <link href="<?= asset('/css/fontawesome/css/sharp-duotone-light.css') ?>" rel="stylesheet" />
-    <link href="<?= asset('/css/fontawesome/css/sharp-duotone-regular.css') ?>" rel="stylesheet" />
-    <link href="<?= asset('/css/fontawesome/css/sharp-duotone-solid.css') ?>" rel="stylesheet" />
-    <link href="<?= asset('/css/fontawesome/css/sharp-duotone-thin.css') ?>" rel="stylesheet" />
-    <link href="<?= asset('/css/fontawesome/css/sharp-light.css') ?>" rel="stylesheet" />
-    <link href="<?= asset('/css/fontawesome/css/sharp-regular.css') ?>" rel="stylesheet" />
-    <link href="<?= asset('/css/fontawesome/css/sharp-solid.css') ?>" rel="stylesheet" />
-    <link href="<?= asset('/css/fontawesome/css/sharp-thin.css') ?>" rel="stylesheet" />
-    <link href="<?= asset('/css/fontawesome/css/slab-press-regular.css') ?>" rel="stylesheet" />
-    <link href="<?= asset('/css/fontawesome/css/slab-regular.css') ?>" rel="stylesheet" />
-    <link href="<?= asset('/css/fontawesome/css/solid.css') ?>" rel="stylesheet" />
-    <link href="<?= asset('/css/fontawesome/css/svg.css') ?>" rel="stylesheet" />
-    <link href="<?= asset('/css/fontawesome/css/svg-with-js.css') ?>" rel="stylesheet" />
-    <link href="<?= asset('/css/fontawesome/css/thin.css') ?>" rel="stylesheet" />
-    <link href="<?= asset('/css/fontawesome/css/thumbprint-light.css') ?>" rel="stylesheet" />
-    <link href="<?= asset('/css/fontawesome/css/v4-font-face.css') ?>" rel="stylesheet" />
-    <link href="<?= asset('/css/fontawesome/css/v4-shims.css') ?>" rel="stylesheet" />
-    <link href="<?= asset('/css/fontawesome/css/v5-font-face.css') ?>" rel="stylesheet" />
-    <link href="<?= asset('/css/fontawesome/css/whiteboard-semibold.css') ?>" rel="stylesheet" />
-
-    <link rel="stylesheet" href="<?= asset('/uploads/pdf/pdf_introduccion_backend/css/style.css') ?>" />
 
     <title>Documentación Backend - El Arca de Noemí</title>
+
+    <style>
+        /* Confiración global */
+        @page {
+            margin: 120px 50px 80px 50px;
+        }
+
+        body {
+            font-family: DejaVu Sans, sans-serif;
+            font-size: 12px;
+            color: #333;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #2b4c7e;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 28px;
+            text-align: center;
+            margin-top: 200px;
+        }
+
+        h2 {
+            font-size: 20px;
+            margin-top: 40px;
+        }
+
+        h3 {
+            font-size: 16px;
+            margin-top: 25px;
+        }
+
+        p {
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+
+        /* END confiración global */
+
+        /* Encabezado y pie de página */
+        header {
+            position: fixed;
+            top: -90px;
+            left: 0;
+            right: 0;
+            height: 70px;
+            text-align: center;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+        }
+
+        footer {
+            position: fixed;
+            bottom: -60px;
+            left: 0;
+            right: 0;
+            height: 50px;
+            text-align: center;
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+            font-size: 11px;
+        }
+
+        .pagenum:before {
+            content: counter(page);
+        }
+
+        /* END encabezado y pie de página */
+
+        /* Portada */
+        .portada {
+            text-align: center;
+            page-break-after: always;
+            padding-top: 120px;
+        }
+
+        .portada-logo img {
+            width: 220px;
+            margin-bottom: 60px;
+        }
+
+        .portada-titulo {
+            font-size: 34px;
+            color: #2b4c7e;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .portada-subtitulo {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 200px;
+            font-weight: normal;
+        }
+
+        .portada-franja {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #2b4c7e;
+            color: white;
+            padding: 18px 0;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+
+        /* END portada */
+
+        /* Separadores */
+        .separador {
+            width: 100%;
+            height: 2px;
+            background: #2b4c7e;
+            margin: 40px 0;
+        }
+
+        /* END separadores */
+
+        /* Bloques destacados */
+        .nota {
+            background: #e8f0fe;
+            border-left: 4px solid #2b4c7e;
+            padding: 10px 15px;
+            margin: 20px 0;
+        }
+
+        .advertencia {
+            background: #fff3cd;
+            border-left: 4px solid #ff9800;
+            padding: 10px 15px;
+            margin: 20px 0;
+        }
+
+        /* END bloques destacados */
+
+        /* Imágenes alineadas */
+        .img-center {
+            display: block;
+            margin: 20px auto;
+            width: 50%;
+        }
+
+        .img-left {
+            float: left;
+            margin: 10px 20px 10px 0;
+            width: 35%;
+        }
+
+        .img-right {
+            float: right;
+            margin: 10px 0 10px 20px;
+            width: 35%;
+        }
+
+        /* END imágenes alineadas */
+
+        /* Indice */
+        .indice {
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .indice h1 {
+            font-size: 28px;
+            color: #2b4c7e;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+        }
+
+        .rama {
+            display: block;
+            width: 100%;
+            max-width: 600px;
+            margin: 25px auto;
+            text-align: left;
+            border-left: 2px solid #2b4c7e;
+            padding-left: 20px;
+        }
+
+        .titulo-rama {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #2b4c7e;
+        }
+
+        .subrama {
+            font-size: 14px;
+            margin: 4px 0;
+            color: #444;
+            padding-left: 10px;
+            border-left: 1px solid #aaa;
+        }
+
+        .subsubrama {
+            font-size: 13px;
+            margin: 3px 0;
+            color: #666;
+            padding-left: 20px;
+            border-left: 1px dashed #bbb;
+        }
+
+        /* END indice */
+    </style>
 </head>
 
 <body>
@@ -68,7 +234,7 @@ require_once(__DIR__ . '/../../../config/funciones.php');
     <!-- PORTADA -->
     <div class="portada">
         <div class="portada-logo">
-            <img src="<?= asset('/img/logo_20260320_0002.png') ?>" alt="Logo Arca de Noemí">
+            <img src="{{ public_path('img/logo_20260320_0002.png') }}" alt="Logo Arca de Noemí">
         </div>
 
         <h1 class="portada-titulo">Documentación del Backend</h1>
@@ -136,7 +302,7 @@ require_once(__DIR__ . '/../../../config/funciones.php');
         Desde esta sección podrás crear, editar y eliminar fichas de animales.
     </p>
 
-    <img src="<?= asset('/uploads/adopciones/1/foto_69d6c987d70f0.jpg') ?>" class="img-center">
+    <img src="{{ public_path('uploads/adopciones/1/foto_69d6c987d70f0.jpg') }}" class="img-center">
 
     <h3>Crear un nuevo animal</h3>
     <p>
