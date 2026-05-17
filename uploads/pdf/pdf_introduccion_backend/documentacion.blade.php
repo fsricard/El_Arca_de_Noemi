@@ -1,161 +1,63 @@
+<?php
+require_once(__DIR__ . '/../../../config/funciones.php');
+?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <title>Documentación Backend - Arca de Noemí</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-    <style>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="<?= asset('img/favicon.ico') ?>">
+    <link rel="shortcut icon" href="<?= asset('img/favicon.ico') ?>" type="image/x-icon">
 
-        /* ------------------------------
-           CONFIGURACIÓN GLOBAL
-        ------------------------------ */
+    <!-- FontAwesome 7.0.1 CSS -->
+    <link href="<?= asset('/css/fontawesome/css/brands.css') ?>" rel="stylesheet" />
+    <link href="<?= asset('/css/fontawesome/css/chisel-regular.css') ?>" rel="stylesheet" />
+    <link href="<?= asset('/css/fontawesome/css/duotone.css') ?>" rel="stylesheet" />
+    <link href="<?= asset('/css/fontawesome/css/duotone-light.css') ?>" rel="stylesheet" />
+    <link href="<?= asset('/css/fontawesome/css/duotone-regular.css') ?>" rel="stylesheet" />
+    <link href="<?= asset('/css/fontawesome/css/duotone-thin.css') ?>" rel="stylesheet" />
+    <link href="<?= asset('/css/fontawesome/css/etch-solid.css') ?>" rel="stylesheet" />
+    <link href="<?= asset('/css/fontawesome/css/fontawesome.css') ?>" rel="stylesheet" />
+    <link href="<?= asset('/css/fontawesome/css/jelly-duo-regular.css') ?>" rel="stylesheet" />
+    <link href="<?= asset('/css/fontawesome/css/jelly-fill-regular.css') ?>" rel="stylesheet" />
+    <link href="<?= asset('/css/fontawesome/css/jelly-regular.css') ?>" rel="stylesheet" />
+    <link href="<?= asset('/css/fontawesome/css/light.css') ?>" rel="stylesheet" />
+    <link href="<?= asset('/css/fontawesome/css/notdog-duo-solid.css') ?>" rel="stylesheet" />
+    <link href="<?= asset('/css/fontawesome/css/notdog-solid.css') ?>" rel="stylesheet" />
+    <link href="<?= asset('/css/fontawesome/css/regular.css') ?>" rel="stylesheet" />
+    <link href="<?= asset('/css/fontawesome/css/sharp-duotone-light.css') ?>" rel="stylesheet" />
+    <link href="<?= asset('/css/fontawesome/css/sharp-duotone-regular.css') ?>" rel="stylesheet" />
+    <link href="<?= asset('/css/fontawesome/css/sharp-duotone-solid.css') ?>" rel="stylesheet" />
+    <link href="<?= asset('/css/fontawesome/css/sharp-duotone-thin.css') ?>" rel="stylesheet" />
+    <link href="<?= asset('/css/fontawesome/css/sharp-light.css') ?>" rel="stylesheet" />
+    <link href="<?= asset('/css/fontawesome/css/sharp-regular.css') ?>" rel="stylesheet" />
+    <link href="<?= asset('/css/fontawesome/css/sharp-solid.css') ?>" rel="stylesheet" />
+    <link href="<?= asset('/css/fontawesome/css/sharp-thin.css') ?>" rel="stylesheet" />
+    <link href="<?= asset('/css/fontawesome/css/slab-press-regular.css') ?>" rel="stylesheet" />
+    <link href="<?= asset('/css/fontawesome/css/slab-regular.css') ?>" rel="stylesheet" />
+    <link href="<?= asset('/css/fontawesome/css/solid.css') ?>" rel="stylesheet" />
+    <link href="<?= asset('/css/fontawesome/css/svg.css') ?>" rel="stylesheet" />
+    <link href="<?= asset('/css/fontawesome/css/svg-with-js.css') ?>" rel="stylesheet" />
+    <link href="<?= asset('/css/fontawesome/css/thin.css') ?>" rel="stylesheet" />
+    <link href="<?= asset('/css/fontawesome/css/thumbprint-light.css') ?>" rel="stylesheet" />
+    <link href="<?= asset('/css/fontawesome/css/v4-font-face.css') ?>" rel="stylesheet" />
+    <link href="<?= asset('/css/fontawesome/css/v4-shims.css') ?>" rel="stylesheet" />
+    <link href="<?= asset('/css/fontawesome/css/v5-font-face.css') ?>" rel="stylesheet" />
+    <link href="<?= asset('/css/fontawesome/css/whiteboard-semibold.css') ?>" rel="stylesheet" />
 
-        @page {
-            margin: 120px 50px 80px 50px;
-        }
+    <link rel="stylesheet" href="<?= asset('/uploads/pdf/pdf_introduccion_backend/css/style.css') ?>" />
 
-        body {
-            font-family: DejaVu Sans, sans-serif;
-            font-size: 12px;
-            color: #333;
-        }
-
-        h1, h2, h3 {
-            color: #2b4c7e;
-            margin-bottom: 10px;
-        }
-
-        h1 {
-            font-size: 28px;
-            text-align: center;
-            margin-top: 200px;
-        }
-
-        h2 {
-            font-size: 20px;
-            margin-top: 40px;
-        }
-
-        h3 {
-            font-size: 16px;
-            margin-top: 25px;
-        }
-
-        p {
-            line-height: 1.5;
-            margin-bottom: 12px;
-        }
-
-        /* ------------------------------
-           ENCABEZADO Y PIE DE PÁGINA
-        ------------------------------ */
-
-        header {
-            position: fixed;
-            top: -90px;
-            left: 0;
-            right: 0;
-            height: 70px;
-            text-align: center;
-            border-bottom: 1px solid #ccc;
-            padding-bottom: 10px;
-        }
-
-        footer {
-            position: fixed;
-            bottom: -60px;
-            left: 0;
-            right: 0;
-            height: 50px;
-            text-align: center;
-            border-top: 1px solid #ccc;
-            padding-top: 10px;
-            font-size: 11px;
-        }
-
-        .pagenum:before {
-            content: counter(page);
-        }
-
-        /* ------------------------------
-           PORTADA
-        ------------------------------ */
-
-        .portada {
-            text-align: center;
-            page-break-after: always;
-        }
-
-        .portada img {
-            width: 180px;
-            margin-top: 120px;
-        }
-
-        .subtitulo {
-            font-size: 18px;
-            margin-top: 20px;
-            color: #555;
-        }
-
-        /* ------------------------------
-           SEPARADORES
-        ------------------------------ */
-
-        .separador {
-            width: 100%;
-            height: 2px;
-            background: #2b4c7e;
-            margin: 40px 0;
-        }
-
-        /* ------------------------------
-           BLOQUES DESTACADOS
-        ------------------------------ */
-
-        .nota {
-            background: #e8f0fe;
-            border-left: 4px solid #2b4c7e;
-            padding: 10px 15px;
-            margin: 20px 0;
-        }
-
-        .advertencia {
-            background: #fff3cd;
-            border-left: 4px solid #ff9800;
-            padding: 10px 15px;
-            margin: 20px 0;
-        }
-
-        /* ------------------------------
-           IMÁGENES ALINEADAS
-        ------------------------------ */
-
-        .img-center {
-            display: block;
-            margin: 20px auto;
-            width: 70%;
-        }
-
-        .img-left {
-            float: left;
-            margin: 10px 20px 10px 0;
-            width: 40%;
-        }
-
-        .img-right {
-            float: right;
-            margin: 10px 0 10px 20px;
-            width: 40%;
-        }
-
-    </style>
+    <title>Documentación Backend - El Arca de Noemí</title>
 </head>
 
 <body>
 
     <!-- ENCABEZADO -->
     <header>
-        <strong>Documentación Backend – Arca de Noemí</strong>
+        <strong>Documentación Backend - Arca de Noemí</strong>
     </header>
 
     <!-- PIE DE PÁGINA -->
@@ -165,20 +67,57 @@
 
     <!-- PORTADA -->
     <div class="portada">
-        <img src="{{ public_path('img/logo-arca.png') }}" alt="Logo Arca de Noemí">
-        <h1>Documentación del Panel de Administración</h1>
-        <div class="subtitulo">Guía completa del funcionamiento del backend</div>
+        <div class="portada-logo">
+            <img src="<?= asset('/img/logo_20260320_0002.png') ?>" alt="Logo Arca de Noemí">
+        </div>
+
+        <h1 class="portada-titulo">Documentación del Backend</h1>
+
+        <h2 class="portada-subtitulo">
+            Guía oficial del panel de administración
+        </h2>
+
+        <div class="portada-franja">
+            <span>Arca de Noemí · 2026 · Versión 1.0</span>
+        </div>
     </div>
 
     <!-- ÍNDICE -->
-    <h2>Índice</h2>
-    <p>1. Introducción</p>
-    <p>2. Gestión de Animales</p>
-    <p>3. Gestión de Fotos</p>
-    <p>4. Gestión de Especies y Razas</p>
-    <p>5. Sistema de Paginación</p>
-    <p>6. Seguridad y Roles</p>
-    <p>7. Copias de Seguridad</p>
+    <div class="indice">
+        <h1>Índice</h1>
+
+        <div class="rama">
+            <div class="titulo-rama">1. Sección Principal A</div>
+
+            <div class="subrama">1.1 Subapartado A1</div>
+            <div class="subsubrama">1.1.1 Subnivel A1-a</div>
+            <div class="subsubrama">1.1.2 Subnivel A1-b</div>
+
+            <div class="subrama">1.2 Subapartado A2</div>
+            <div class="subsubrama">1.2.1 Subnivel A2-a</div>
+
+            <div class="subrama">1.3 Subapartado A3</div>
+        </div>
+
+        <div class="rama">
+            <div class="titulo-rama">2. Sección Principal B</div>
+
+            <div class="subrama">2.1 Subapartado B1</div>
+            <div class="subsubrama">2.1.1 Subnivel B1-a</div>
+            <div class="subsubrama">2.1.2 Subnivel B1-b</div>
+
+            <div class="subrama">2.2 Subapartado B2</div>
+        </div>
+
+        <div class="rama">
+            <div class="titulo-rama">3. Sección Principal C</div>
+
+            <div class="subrama">3.1 Subapartado C1</div>
+            <div class="subsubrama">3.1.1 Subnivel C1-a</div>
+            <div class="subsubrama">3.1.2 Subnivel C1-b</div>
+            <div class="subsubrama">3.1.3 Subnivel C1-c</div>
+        </div>
+    </div>
 
     <div class="separador"></div>
 
@@ -197,7 +136,7 @@
         Desde esta sección podrás crear, editar y eliminar fichas de animales.
     </p>
 
-    <img src="{{ public_path('img/captura-animales.png') }}" class="img-center">
+    <img src="<?= asset('/uploads/adopciones/1/foto_69d6c987d70f0.jpg') ?>" class="img-center">
 
     <h3>Crear un nuevo animal</h3>
     <p>
@@ -209,4 +148,5 @@
     </div>
 
 </body>
+
 </html>
