@@ -134,7 +134,7 @@ function tituloPagina($pagina)
         'apadrina_listado_animales'                 => 'Listado de animales',
         'adopciones_incluir_animal'                 => 'Gestión de Adopciones',
         'sistema_adopciones_iniciar'                => 'Iniciar nueva adopción',
-        'opiniones_de_usuario_editar'               => 'Opinión de usuario',   
+        'opiniones_de_usuario_editar'               => 'Opinión de usuario',
         'apadrina_ver_apadrinamientos'              => 'Listado individual',
         'opiniones_de_usuario_listado'              => 'Opiniones de usuarios',
         'incluir_plataforma_crowdfunding'           => 'Gestión plataformas CrowdFunding',
@@ -550,4 +550,23 @@ function editor_quill($nombreCampo, $valor = '')
         . $valor .
         '</textarea>
     ';
+}
+
+// Función para cargar las imágenes de los PDFs de DomPdf en Base64
+function img64($ruta_relativa)
+{
+    static $cache = [];
+
+    if (isset($cache[$ruta_relativa])) {
+        return $cache[$ruta_relativa];
+    }
+
+    $ruta_absoluta = $_SERVER['DOCUMENT_ROOT'] . $ruta_relativa;
+
+    if (!file_exists($ruta_absoluta)) {
+        return '';
+    }
+
+    $cache[$ruta_relativa] = base64_encode(file_get_contents($ruta_absoluta));
+    return $cache[$ruta_relativa];
 }
