@@ -451,6 +451,7 @@ require_once(__DIR__ . '/../config/funciones.php');
     <div class="indice">
         <h1>Índice</h1>
 
+        <!-- 1. Sección principal - Inicio de Sesión -->
         <div class="rama">
             <div class="titulo-rama">
                 <a href="#inicio_de_sesion">
@@ -480,12 +481,51 @@ require_once(__DIR__ . '/../config/funciones.php');
                 </a>
             </div>
         </div>
+
+        <!-- 2. Segunda sección - Documentos -->
+        <div class="rama">
+            <div class="titulo-rama">
+                <a href="#documentos">
+                    2. Segunda Sección - Documentos
+                </a>
+            </div>
+
+            <div class="subrama">
+                <a href="#contacto">
+                    2.1 Mensajes que llegan desde la página de contacto
+                </a>
+            </div>
+            <div class="subsubrama">
+                <a href="#ver_mensaje">
+                    2.1.1 Editar un mensaje de contacto
+                </a>
+            </div>
+            <div class="subsubrama">
+                <a href="#eliminar_mensaje">
+                    2.1.1.1 Eliminar un mensaje de contacto
+                </a>
+            </div>
+        </div>
     </div>
 
     <div class="separador"></div>
 
-    <!-- Sección 1 -->
-    <div class="seccion">
+    <!-- 1. Sección principal - Inicio de Sesión -->
+    <div class="seccion" id="inicio_de_sesion">
+
+        <h2></h2>
+
+
+        <div style="clear: both;"></div>
+
+        <div class="separador-seccion"></div>
+
+    </div>
+
+    <div class="separador"></div>
+
+    <!-- 2. Segunda sección - Documentos -->
+    <div class="seccion" id="documentos">
 
         <h2></h2>
 
