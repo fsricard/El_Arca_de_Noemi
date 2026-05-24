@@ -452,14 +452,33 @@ require_once(__DIR__ . '/../config/funciones.php');
         <h1>Índice</h1>
 
         <div class="rama">
-            <div class="titulo-rama">1. Sección Principal A</div>
+            <div class="titulo-rama">
+                <a href="#inicio_de_sesion">
+                    1. Sección Principal - Inicio de Sesión
+                </a>
+            </div>
 
-            <div class="subrama">1.1 Subapartado A1</div>
-            <div class="subsubrama">1.1.1 Subnivel A1-a</div>
-            <div class="subsubrama">1.1.2 Subnivel A1-b</div>
+            <div class="subrama">
+                <a href="#url_crear_usuario">
+                    1.1 Dirección Web para crear tu usuario
+                </a>
+            </div>
+            <div class="subsubrama">
+                <a href="#crear_usuario">
+                    1.1.1 Crear tu usuario
+                </a>
+            </div>
 
-            <div class="subrama">1.2 Subapartado A2</div>
-            <div class="subsubrama">1.2.1 Subnivel A2-a</div>
+            <div class="subrama">
+                <a href="#url_servidor_pruebas">
+                    1.2 Dirección Web del servidor de pruebas
+                </a>
+            </div>
+            <div class="subsubrama">
+                <a href="#acceso_servidor_pruebas">
+                    1.2.1 Acceso al servidor de pruebas
+                </a>
+            </div>
 
             <div class="subrama">1.3 Subapartado A3</div>
         </div>
