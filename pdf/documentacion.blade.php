@@ -223,6 +223,36 @@ require_once(__DIR__ . '/../config/funciones.php');
             border-left: 1px dashed #bbb;
         }
 
+        .indice a {
+            color: #2b4c7e;
+            text-decoration: none;
+            font-weight: normal;
+            display: inline-block;
+            padding: 2px 0;
+        }
+
+        .indice a:hover {
+            color: #1e3558;
+        }
+
+        .indice .titulo-rama a {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .indice .subrama a {
+            font-size: 14px;
+            padding-left: 5px;
+        }
+
+        .indice .subsubrama a {
+            font-size: 13px;
+            padding-left: 10px;
+            color: #555;
+        }
+
+        /* END indice */
+
         /* Sección */
         .seccion {
             margin: 40px auto;
@@ -385,8 +415,6 @@ require_once(__DIR__ . '/../config/funciones.php');
         }
 
         /* END sección */
-
-        /* END indice */
     </style>
 </head>
 
