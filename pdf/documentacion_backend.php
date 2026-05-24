@@ -479,8 +479,6 @@ require_once(__DIR__ . '/../config/funciones.php');
                     1.2.1 Acceso al servidor de pruebas
                 </a>
             </div>
-
-            <div class="subrama">1.3 Subapartado A3</div>
         </div>
     </div>
 
