@@ -650,10 +650,37 @@ require_once(__DIR__ . '/../config/funciones.php');
         </div>
 
         <!-- 5. Quinta sección - Plataformas de CrowdFunding -->
-        <div class="rama">
+        <div class="rama page-break">
             <div class="titulo-rama">
                 <a href="#plataformas_crowdfunding">
                     5. Quinta Sección - Plataformas de CrowdFunding
+                </a>
+            </div>
+
+            <div class="subrama">
+                <a href="#plataforma_crear_nueva_recaudacion">
+                    5.1. Crear una nueva recaudación de fondos en una plataforma de CrowdFunding
+                </a>
+            </div>
+
+            <div class="subrama">
+                <a href="#plataforma_listado">
+                    5.2. Listado de las recaudaciones de fondos en las plataformas de CrowdFunding
+                </a>
+            </div>
+            <div class="subsubrama">
+                <a href="#plataforma_listado_ver">
+                    5.2.1. Ver la página Web de la recaudación de fondos en la plataforma de CrowdFunding
+                </a>
+            </div>
+            <div class="subsubrama">
+                <a href="#plataforma_listado_editar">
+                    5.2.1.1. Editar la recaudación de fondos de la plataforma de CrowdFunding
+                </a>
+            </div>
+            <div class="subsubrama">
+                <a href="#plataforma_listado_eliminar">
+                    5.2.1.1.1. Eliminar la recaudación de fondos de la plataforma de CrowdFunding
                 </a>
             </div>
         </div>
