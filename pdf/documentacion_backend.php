@@ -483,7 +483,7 @@ require_once(__DIR__ . '/../config/funciones.php');
         </div>
 
         <!-- 2. Segunda sección - Documentos -->
-        <div class="rama">
+        <div class="rama page-break">
             <div class="titulo-rama">
                 <a href="#documentos">
                     2. Segunda Sección - Documentos
@@ -609,6 +609,54 @@ require_once(__DIR__ . '/../config/funciones.php');
                 </a>
             </div>
         </div>
+
+        <!-- 4. Cuarta sección - Registro -->
+        <div class="rama">
+            <div class="titulo-rama">
+                <a href="#registro">
+                    4. Cuarta Sección - Registro
+                </a>
+            </div>
+
+            <div class="subrama">
+                <a href="#registro_especie_raza">
+                    4.1. Registrar una nueva especie o raza de animal
+                </a>
+            </div>
+
+            <div class="subrama">
+                <a href="#registro_nuevo_animal_adopcion">
+                    4.2. Registrar un nuevo animal en adopción
+                </a>
+            </div>
+
+            <div class="subrama">
+                <a href="#registro_nuevo_adoptante">
+                    4.3. Registrar un nuevo posible adoptante
+                </a>
+            </div>
+
+            <div class="subrama">
+                <a href="#registro_nuevo_animal_apadrinar">
+                    4.4. Registrar un nuevo animal para apadrinar
+                </a>
+            </div>
+
+            <div class="subrama">
+                <a href="#registro_nueva_plataforma_crowdfunding">
+                    4.5. Registrar una nueva plataforma de CrowdFunding
+                </a>
+            </div>
+        </div>
+
+        <!-- 5. Quinta sección - Plataformas de CrowdFunding -->
+        <div class="rama">
+            <div class="titulo-rama">
+                <a href="#plataformas_crowdfunding">
+                    5. Quinta Sección - Plataformas de CrowdFunding
+                </a>
+            </div>
+        </div>
     </div>
 
     <div class="separador"></div>
@@ -643,6 +691,34 @@ require_once(__DIR__ . '/../config/funciones.php');
 
     <!-- 3. Tercera sección - Sarcásmo y humor -->
     <div class="seccion" id="sarcasmo_y_humor">
+
+        <h2></h2>
+
+
+        <div style="clear: both;"></div>
+
+        <div class="separador-seccion"></div>
+
+    </div>
+
+    <div class="separador"></div>
+
+    <!-- 4. Cuarta sección - Registro -->
+    <div class="seccion" id="registro">
+
+        <h2></h2>
+
+
+        <div style="clear: both;"></div>
+
+        <div class="separador-seccion"></div>
+
+    </div>
+
+    <div class="separador"></div>
+
+    <!-- 5. Quinta sección - Plataformas de CrowdFunding -->
+    <div class="seccion" id="plataformas_crowdfunding">
 
         <h2></h2>
 
