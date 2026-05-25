@@ -461,23 +461,23 @@ require_once(__DIR__ . '/../config/funciones.php');
 
             <div class="subrama">
                 <a href="#url_crear_usuario">
-                    1.1 Dirección Web para crear tu usuario
+                    1.1. Dirección Web para crear tu usuario
                 </a>
             </div>
             <div class="subsubrama">
                 <a href="#crear_usuario">
-                    1.1.1 Crear tu usuario
+                    1.1.1. Crear tu usuario
                 </a>
             </div>
 
             <div class="subrama">
                 <a href="#url_servidor_pruebas">
-                    1.2 Dirección Web del servidor de pruebas
+                    1.2. Dirección Web del servidor de pruebas
                 </a>
             </div>
             <div class="subsubrama">
                 <a href="#acceso_servidor_pruebas">
-                    1.2.1 Acceso al servidor de pruebas
+                    1.2.1. Acceso al servidor de pruebas
                 </a>
             </div>
         </div>
@@ -492,17 +492,120 @@ require_once(__DIR__ . '/../config/funciones.php');
 
             <div class="subrama">
                 <a href="#contacto">
-                    2.1 Mensajes que llegan desde la página de contacto
+                    2.1. Mensajes que llegan desde la página de contacto
                 </a>
             </div>
             <div class="subsubrama">
                 <a href="#ver_mensaje">
-                    2.1.1 Editar un mensaje de contacto
+                    2.1.1. Editar un mensaje de contacto
                 </a>
             </div>
             <div class="subsubrama">
                 <a href="#eliminar_mensaje">
-                    2.1.1.1 Eliminar un mensaje de contacto
+                    2.1.1.1. Eliminar un mensaje de contacto
+                </a>
+            </div>
+
+            <div class="subrama">
+                <a href="#contacto_intro">
+                    2.2. Contenido de la sección de contacto
+                </a>
+            </div>
+
+            <div class="subrama">
+                <a href="#asi_es_noemi">
+                    2.3. Contenido de la página de presentación de Noemí
+                </a>
+            </div>
+
+            <div class="subrama">
+                <a href="#politica_de_privacidad">
+                    2.4. Contenido de la pádina de la política de privacidad
+                </a>
+            </div>
+
+            <div class="subrama">
+                <a href="#opiniones_intro">
+                    2.5. Contenido de la sección de las opiniones de los usuarios
+                </a>
+            </div>
+
+            <div class="subrama">
+                <a href="#opiniones_listado">
+                    2.6. Listado de las opiniones de los usuarios
+                </a>
+            </div>
+            <div class="subsubrama">
+                <a href="#opiniones_editar">
+                    2.6.1. Editar las opiniones de los usuarios
+                </a>
+            </div>
+            <div class="subsubrama">
+                <a href="#opniones_eliminar">
+                    2.6.1.1. Eliminar las opiniones de los usuarios
+                </a>
+            </div>
+        </div>
+
+        <!-- 3. Tercera sección - Sarcásmo y humor -->
+        <div class="rama">
+            <div class="titulo-rama">
+                <a href="#sarcasmo_y_humor">
+                    3. Tercera Sección - Sarcásmo y Humor
+                </a>
+            </div>
+
+            <div class="subrama">
+                <a href="#noemi_dice">
+                    3.1. Incluir las frases de "Noemí dice" en el sitio web
+                </a>
+            </div>
+
+            <div class="subrama">
+                <a href="#listado_noemi_dice">
+                    3.2. Listado de las frases de "Noemí dice"
+                </a>
+            </div>
+            <div class="subsubrama">
+                <a href="#listado_noemi_dice_aprobar">
+                    3.2.1. Aprobar las frases de "Noemí dice"
+                </a>
+            </div>
+            <div class="subsubrama">
+                <a href="#listado_noemi_dice_ocultar">
+                    3.2.1.1. Ocultar las frases de "Noemí dice"
+                </a>
+            </div>
+            <div class="subsubrama">
+                <a href="#listado_noemi_dice_eliminar">
+                    3.2.1.1.1. Eliminar las frases de "Noemí dice"
+                </a>
+            </div>
+
+            <div class="subrama">
+                <a href="#bichillos_de_noemi">
+                    3.3. Incluir los "Bichillos de Noemí" en el sitio web
+                </a>
+            </div>
+
+            <div class="subrama">
+                <a href="#listado_bichillos_de_noemi">
+                    3.4. Listado de los "Bichillos de Noemí"
+                </a>
+            </div>
+            <div class="subsubrama">
+                <a href="#listado_bichillos_de_noemi_aprobar">
+                    3.4.1. Aprobar los "Bichillos de Noemí"
+                </a>
+            </div>
+            <div class="subsubrama">
+                <a href="#listado_bichillos_de_noemi_ocultar">
+                    3.4.1.1. Ocultar los "Bichillos de Noemí"
+                </a>
+            </div>
+            <div class="subsubrama">
+                <a href="#listado_bichillos_de_noemi_eliminar">
+                    3.4.1.1.1. Eliminar los "Bichillos de Noemí"
                 </a>
             </div>
         </div>
@@ -526,6 +629,20 @@ require_once(__DIR__ . '/../config/funciones.php');
 
     <!-- 2. Segunda sección - Documentos -->
     <div class="seccion" id="documentos">
+
+        <h2></h2>
+
+
+        <div style="clear: both;"></div>
+
+        <div class="separador-seccion"></div>
+
+    </div>
+
+    <div class="separador"></div>
+
+    <!-- 3. Tercera sección - Sarcásmo y humor -->
+    <div class="seccion" id="sarcasmo_y_humor">
 
         <h2></h2>
 
