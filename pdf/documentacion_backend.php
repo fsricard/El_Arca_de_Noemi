@@ -686,8 +686,6 @@ require_once(__DIR__ . '/../config/funciones.php');
         </div>
     </div>
 
-    <div class="separador"></div>
-
     <!-- 1. Sección principal - Inicio de Sesión -->
     <div class="seccion" id="inicio_de_sesion">
 
