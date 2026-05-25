@@ -7,7 +7,7 @@ use Dompdf\Options;
 
 // Renderizar la plantilla PHP (IMPORTANTE)
 ob_start();
-include __DIR__ . '/documentacion.backend.php';
+include __DIR__ . '/documentacion_backend.php';
 $html = ob_get_clean();
 
 // Configuración DomPDF
