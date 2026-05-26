@@ -24,7 +24,8 @@ require_once(__DIR__ . '/../config/funciones.php');
 
         h1,
         h2,
-        h3 {
+        h3,
+        h4 {
             color: #2b4c7e;
             margin-bottom: 10px;
         }
@@ -42,6 +43,11 @@ require_once(__DIR__ . '/../config/funciones.php');
         h3 {
             font-size: 16px;
             margin-top: 25px;
+        }
+
+        h4 {
+            font-size: 14px;
+            margin-top: 10px;
         }
 
         p {
@@ -334,6 +340,15 @@ require_once(__DIR__ . '/../config/funciones.php');
 
         table tr:nth-child(even) {
             background: #f7f9fc;
+        }
+
+        p,
+        .pre,
+        .info,
+        .success,
+        .warning,
+        .danger {
+            display: grid;
         }
 
         .info {
@@ -650,7 +665,7 @@ require_once(__DIR__ . '/../config/funciones.php');
         </div>
 
         <!-- 5. Quinta sección - Plataformas de CrowdFunding -->
-        <div class="rama page-break">
+        <div class="rama">
             <div class="titulo-rama">
                 <a href="#plataformas_crowdfunding">
                     5. Quinta Sección - Plataformas de CrowdFunding
@@ -689,8 +704,135 @@ require_once(__DIR__ . '/../config/funciones.php');
     <!-- 1. Sección principal - Inicio de Sesión -->
     <div class="seccion" id="inicio_de_sesion">
 
-        <h2></h2>
+        <h2>1. Sección Principal - Inicio de Sesión</h2>
 
+        <div class="info">
+            No me conoces de nada (algo lógico, ya que solo hemos intercambiado algún que otro mensaje) pero debes saber que mi cerebro está algo "cascáo", así que no te asustes por el contenido que vas a ir viendo en las diferentes secciones del panel de administración. Cuando me entusiasmo con algo me da por destruir personalidades y flagelar el código que voy escribiendo, pero todo tiene remedio, también puedo ponerme serio (vaaaaale, puedo intentarlo, pero no prometo nada) y darle a la web un toque más distinguido si es necesario.
+        </div>
+
+        <p>
+            En esta primera sección te llevaré de la mano para que puedas crear tu usuario y contraseña para el panel de administración, una vez creados podrás acceder al panel de administración del sitio web de "El Arca de Noemí" que he creado para tí en un servidor de pruebas. Aquí encontrarás toda la información necesaria para configurar tu cuenta y empezar a trastear con el BackEnd de tu sitio web.
+        </p>
+
+        <div class="warning">
+            Debes tener en cuenta que esta página web está funcionando en un servidor que yo tengo alojado en CDMon y que solo sirve para realizar pruebas (por ese motivo lo tengo encriptado con usuario y contraseña), por lo que es posible que en algún momento el servidor deje de funcionar o que se realicen actualizaciones que puedan afectar al funcionamiento del sitio web. Si esto ocurre, no te preocupes, simplemente ponte en contacto conmigo y lo solucionaré lo antes posible.
+        </div>
+
+        <h3 id="url_crear_usuario">
+            1.1. Dirección Web para crear tu usuario
+        </h3>
+
+        <p>
+            El primer paso que debes dar es acceder a la página desde la que vas a poder crear tu usuario y contraseña para después acceder al panel de administración. Copia y pega esta dirección web en tu navegador para acceder a la página de creación de usuario:
+        </p>
+
+        <code>
+            http://www.ricardfs.es.mialias.net/admin/PHP/crear_usuarios.php
+        </code>
+
+        <p>
+            Si es la primera vez que accedes a la página web desde ese navegador te pedirá que introduzcas un usuario y contraseña, como te dije antes tengo el servidor encriptado por seguridad, si no te había dado acceso antes te lo doy ahora:
+        </p>
+
+        <div class="page-break"></div>
+
+        <div class="success">
+            <h4>
+                Usuario y contraseña para acceder al servidor de pruebas
+            </h4>
+            <ul>
+                <li>Usuario:</li>
+                <ul>
+                    <li>ricard624</li>
+                </ul>
+                <li>Contraseña:</li>
+                <ul>
+                    <li>mNU1P4hZI36x</li>
+                </ul>
+            </ul>
+        </div>
+
+        <h3 id="crear_usuario">
+            1.1.1. Crear tu usuario
+        </h3>
+
+        <p>Cuando accedas a la página verás un formulario como el que tienes en la imagen de abajo, no te asustes que es muy sencillo aquí te dejo los pasos a seguir:</p>
+
+        <ol>
+            <li>Nombre completo:</li>
+            <ol>
+                <li>Aquí debes poner el nombre de usuario con el que después accederás al panel de administración, te recomiendo que no utilices símbolos raros, puedes utilizar letras, números, guiones ... Pero sobre todo NUNCA dejes un espacio en blanco.</li>
+            </ol>
+            <li>Correo electrónico:</li>
+            <ol>
+                <li>Como este es el servidor de pruebas, el correo electrónico te lo puedes inventar si quieres.</li>
+            </ol>
+            <li>Contraseña:</li>
+            <ol>
+                <li>Este sí que es un paso importante, aquí puedes utilizar cualquier carácter que se te ocurra, además nadie aparte de tú puede saber tu contraseña, ya que al guardarse en la base de datos se encripta automáticamente y ya no se puede desencriptar, te recomiendo que te la anotes en algún lado por si se te olvida.</li>
+            </ol>
+            <li>Rol de usuario:</li>
+            <ol>
+                <li>Este es el campo más importante de todos, como verás este campo es diferente al resto, es un campo multi selección, en este caso dos "Visitante" y "Administrador", en tu caso debes elegir el rol "Administrador".</li>
+            </ol>
+        </ol>
+
+        <div class="figura">
+            <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/1.1._Dirección_Web_para_crear_tu_usuario.png') ?>" />
+        </div>
+
+        <div class="info">
+            El rol "Administrador" tiene todos los privilegios activados, mientras que el rol "Visitante" solo puede ver algunas secciones, este rol no puede editar, eliminar, crear, bloquear, activar, ocultar ...
+        </div>
+
+        <h3 id="url_servidor_pruebas">
+            1.2. Dirección Web del servidor de pruebas
+        </h3>
+
+        <p>
+            Una vez que tengas creado tu usuario y contraseña en el servidor de pruebas ya no tendrás que repetir el proceso, bueno siempre que al pasar la web al servidor de producción quieras mantener el mismo usuario y contraseña, aunque como verás más adelante una vez lo hayas creado, en el panel de administración tendrás una sección dedicada exclusivamente a la edición de usuarios.
+        </p>
+
+        <p>
+            Pero sigamos avanzando, ya tienes tus datos para acceder al panel de administración, ¿Entonces qué leches te hace fañta ahora? ... Coño Noemí la URL del panel de administración mujer, veeeenga copia y pega este enlace en tu navegador web:
+        </p>
+
+        <code>http://www.ricardfs.es.mialias.net/admin/</code>
+
+        <div class="warning">
+            La encriptación de mi servidor de pruebas se regenera cada "X" tiempo de forma automática para obligarnos a volver a introducir el usuario y la contraseña, de manera que cada dos por tres te los irá pidiendo, y como en el fondo parece que SÏ tengo algún sentimiento positivo por el ser humano (a muy pesar mio, que quede constancia), te voy a ir dejando el usuario y contraseña a lo largo de este documento para que no lo tengas que ir buscando.
+        </div>
+
+        <div class="page-break"></div>
+
+        <div class="success">
+            <h4>
+                Usuario y contraseña para acceder al servidor de pruebas
+            </h4>
+            <ul>
+                <li>Usuario:</li>
+                <ul>
+                    <li>ricard624</li>
+                </ul>
+                <li>Contraseña:</li>
+                <ul>
+                    <li>mNU1P4hZI36x</li>
+                </ul>
+            </ul>
+        </div>
+
+        <h3 id="acceso_servidor_pruebas">
+            1.2.1. Acceso al servidor de pruebas
+        </h3>
+
+        <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/1.2.1._Acceso_al_servidor_de_pruebas.png') ?>" class="img-left" />
+        <p>
+            La verdad es que esta sección la he añadido como un puro trámite porque no tiene mucho misterio, una vez hayas accedido a la URL que te deje más arriba verás una imagen como la de la izquierda. No te comas mucho la cabeza Noemí, pon el usuario y la contraseña que creaste en la primera sección, dale al botoncito y alucina con los colorines.
+        </p>
+
+        <div class="danger">
+            Recuerda que no debes dejar ningún espacio en blanco ni en el campo del usuario ni tampoco en el campo de la contraseña, si lo haces te dará error y no podrás acceder al panel de administración, así que ten cuidado con eso.
+        </div>
 
         <div style="clear: both;"></div>
 

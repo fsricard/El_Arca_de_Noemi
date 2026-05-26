@@ -24,7 +24,8 @@ require_once(__DIR__ . '/../config/funciones.php');
 
         h1,
         h2,
-        h3 {
+        h3,
+        h4 {
             color: #2b4c7e;
             margin-bottom: 10px;
         }
@@ -42,6 +43,11 @@ require_once(__DIR__ . '/../config/funciones.php');
         h3 {
             font-size: 16px;
             margin-top: 25px;
+        }
+
+        h4 {
+            font-size: 14px;
+            margin-top: 10px;
         }
 
         p {
@@ -334,6 +340,15 @@ require_once(__DIR__ . '/../config/funciones.php');
 
         table tr:nth-child(even) {
             background: #f7f9fc;
+        }
+
+        p,
+        .pre,
+        .info,
+        .success,
+        .warning,
+        .danger {
+            display: grid;
         }
 
         .info {
