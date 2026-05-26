@@ -847,6 +847,9 @@ require_once(__DIR__ . '/../config/funciones.php');
 
         <h2>2. Segunda Sección - Documentos</h2>
 
+        <p>
+            En esta segunda sección te voy a explicar cómo gestionar los documentos que aparecen en la página de contacto, en la página de presentación de Noemí, en la página de la política de privacidad y en la sección de las opiniones de los usuarios. En cada una de estas secciones podrás editar el contenido que aparece en el sitio web, así como también podrás eliminarlo o añadir nuevo contenido si lo deseas.
+        </p>
 
         <div style="clear: both;"></div>
 
