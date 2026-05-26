@@ -300,9 +300,6 @@ include('../../includes/header.php');
                 <button type="button" id="resetFiltros">
                     <i class="fa-solid fa-rotate-left"></i> Limpiar filtros
                 </button>
-                <button type="submit" name="exportar_pdf" value="1" class="btn-exportar-pdf">
-                    <i class="fa-solid fa-file-pdf"></i> Exportar PDF
-                </button>
             </form>
 
             <?php if (isset($_GET['ok']) && $_GET['ok'] === 'eliminado'): ?>

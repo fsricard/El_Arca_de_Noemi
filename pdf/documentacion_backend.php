@@ -845,7 +845,7 @@ require_once(__DIR__ . '/../config/funciones.php');
     <!-- 2. Segunda sección - Documentos -->
     <div class="seccion" id="documentos">
 
-        <h2></h2>
+        <h2>2. Segunda Sección - Documentos</h2>
 
 
         <div style="clear: both;"></div>
