@@ -257,6 +257,26 @@ require_once(__DIR__ . '/../config/funciones.php');
             color: #555;
         }
 
+        .volver-indice {
+            text-align: center;
+            margin: 40px 0 20px 0;
+        }
+
+        .volver-indice a {
+            display: inline-block;
+            background: #2b4c7e;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .volver-indice a:hover {
+            background: #1e3558;
+        }
+
+
         /* END indice */
 
         /* Sección */
@@ -350,7 +370,7 @@ require_once(__DIR__ . '/../config/funciones.php');
             display: grid;
         }
 
-        .infoA{
+        .infoA {
             background: #e4e13e;
             border-left: 4px solid #3ee4ce;
             padding: 10px 15px;
@@ -483,7 +503,7 @@ require_once(__DIR__ . '/../config/funciones.php');
         <h1>Índice</h1>
 
         <!-- 1. Sección principal - Inicio de Sesión -->
-        <div class="rama">
+        <div class="rama" id="seccion-principal">
             <div class="titulo-rama">
                 <a href="#inicio_de_sesion">
                     1. Sección Principal - Inicio de Sesión
@@ -514,7 +534,7 @@ require_once(__DIR__ . '/../config/funciones.php');
         </div>
 
         <!-- 2. Segunda sección - Documentos -->
-        <div class="rama page-break">
+        <div class="rama page-break" id="seccion-segunda">
             <div class="titulo-rama">
                 <a href="#documentos">
                     2. Segunda Sección - Documentos
@@ -579,7 +599,7 @@ require_once(__DIR__ . '/../config/funciones.php');
         </div>
 
         <!-- 3. Tercera sección - Sarcásmo y humor -->
-        <div class="rama">
+        <div class="rama" id="seccion-tercera">
             <div class="titulo-rama">
                 <a href="#sarcasmo_y_humor">
                     3. Tercera Sección - Sarcásmo y Humor
@@ -642,7 +662,7 @@ require_once(__DIR__ . '/../config/funciones.php');
         </div>
 
         <!-- 4. Cuarta sección - Registro -->
-        <div class="rama">
+        <div class="rama" id="seccion-cuarta">
             <div class="titulo-rama">
                 <a href="#registro">
                     4. Cuarta Sección - Registro
@@ -681,7 +701,7 @@ require_once(__DIR__ . '/../config/funciones.php');
         </div>
 
         <!-- 5. Quinta sección - Plataformas de CrowdFunding -->
-        <div class="rama">
+        <div class="rama" id="seccion-quinta">
             <div class="titulo-rama">
                 <a href="#plataformas_crowdfunding">
                     5. Quinta Sección - Plataformas de CrowdFunding
@@ -734,6 +754,10 @@ require_once(__DIR__ . '/../config/funciones.php');
             Debes tener en cuenta que esta página web está funcionando en un servidor que yo tengo alojado en CDMon y que solo sirve para realizar pruebas (por ese motivo lo tengo encriptado con usuario y contraseña), por lo que es posible que en algún momento el servidor deje de funcionar o que se realicen actualizaciones que puedan afectar al funcionamiento del sitio web. Si esto ocurre, no te preocupes, simplemente ponte en contacto conmigo y lo solucionaré lo antes posible.
         </div>
 
+        <div class="volver-indice">
+            <a href="#seccion-principal">Volver al índice</a>
+        </div>
+
         <h3 id="url_crear_usuario">
             1.1. Dirección Web para crear tu usuario
         </h3>
@@ -768,6 +792,10 @@ require_once(__DIR__ . '/../config/funciones.php');
             </ul>
         </div>
 
+        <div class="volver-indice">
+            <a href="#seccion-principal">Volver al índice</a>
+        </div>
+
         <h3 id="crear_usuario">
             1.1.1. Crear tu usuario
         </h3>
@@ -799,6 +827,10 @@ require_once(__DIR__ . '/../config/funciones.php');
 
         <div class="info">
             El rol "Administrador" tiene todos los privilegios activados, mientras que el rol "Visitante" solo puede ver algunas secciones, este rol no puede editar, eliminar, crear, bloquear, activar, ocultar ...
+        </div>
+
+        <div class="volver-indice">
+            <a href="#seccion-principal">Volver al índice</a>
         </div>
 
         <h3 id="url_servidor_pruebas">
@@ -839,6 +871,10 @@ require_once(__DIR__ . '/../config/funciones.php');
             </ul>
         </div>
 
+        <div class="volver-indice">
+            <a href="#seccion-principal">Volver al índice</a>
+        </div>
+
         <h3 id="acceso_servidor_pruebas">
             1.2.1. Acceso al servidor de pruebas
         </h3>
@@ -870,6 +906,10 @@ require_once(__DIR__ . '/../config/funciones.php');
             En esta segunda sección te voy a explicar cómo gestionar los documentos que aparecen en la página de contacto, en la página de presentación de Noemí, en la página de la política de privacidad y en la sección de las opiniones de los usuarios. En cada una de estas secciones podrás editar el contenido que aparece en el sitio web, así como también podrás eliminarlo o añadir nuevo contenido si lo deseas.
         </p>
 
+        <div class="volver-indice">
+            <a href="#seccion-segunda">Volver al índice</a>
+        </div>
+
         <div class="page-break"></div>
 
         <h3 id="contacto">
@@ -896,6 +936,10 @@ require_once(__DIR__ . '/../config/funciones.php');
             <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/2.1._Mensajes_que_llegan_desde_la_pagina_de_contacto.png') ?>" />
         </div>
 
+        <div class="volver-indice">
+            <a href="#seccion-segunda">Volver al índice</a>
+        </div>
+
         <div class="page-break"></div>
 
         <h3 id="ver_mensaje">2.1.1. Editar un mensaje de contacto</h3>
@@ -914,6 +958,10 @@ require_once(__DIR__ . '/../config/funciones.php');
             Aquí puedes modificar cualquier dato del mensaje o del usuario que lo ha enviado, también tienes un botón con el que directamente puedes eliminar el mensaje.
         </p>
 
+        <div class="volver-indice">
+            <a href="#seccion-segunda">Volver al índice</a>
+        </div>
+
         <h3 id="eliminar_mensaje">2.1.1.1. Eliminar un mensaje de contacto</h3>
 
         <p>
@@ -928,6 +976,10 @@ require_once(__DIR__ . '/../config/funciones.php');
             <p>
                 Debes tener en cuenta que la eliminación de un mensaje de la base de datos es algo irreversible, una vez que elimines un mensaje no podrás recuperarlo, así que ten mucho cuidado con eso, asegúrate de que realmente quieres eliminar el mensaje antes de darle al botón de eliminar.
             </p>
+        </div>
+
+        <div class="volver-indice">
+            <a href="#seccion-segunda">Volver al índice</a>
         </div>
 
         <h3 id="contacto_intro">2.2. Contenido de la sección de contacto</h3>
@@ -952,6 +1004,10 @@ require_once(__DIR__ . '/../config/funciones.php');
             <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/2.2._Contenido_de_la_seccion_de_contacto.png') ?>" />
         </div>
 
+        <div class="volver-indice">
+            <a href="#seccion-segunda">Volver al índice</a>
+        </div>
+
         <h3 id="asi_es_noemi">2.3. Contenido de la página de presentación de Noemí</h3>
 
         <div class="infoA">
@@ -961,6 +1017,10 @@ require_once(__DIR__ . '/../config/funciones.php');
         <p>
             Aquí podrás editar el contenido que aparece en la página de presentación de Noemí, esta página es la que aparece cuando haces clic en el enlace "Así es Noemí" que se encuentra en el menú principal de la web. En esta página podrás contar la historia de Noemí, cómo surgió la idea de crear "El Arca de Noemí", cuáles son los objetivos de la asociación, quiénes forman parte del equipo ... En fin, aquí tienes total libertad para contar lo que quieras sobre Noemí y sobre la asociación.
         </p>
+
+        <div class="volver-indice">
+            <a href="#seccion-segunda">Volver al índice</a>
+        </div>
 
         <div style="clear: both;"></div>
 
