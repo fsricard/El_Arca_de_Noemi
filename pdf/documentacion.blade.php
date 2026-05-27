@@ -510,6 +510,10 @@ require_once(__DIR__ . '/../config/funciones.php');
             Incluye ejemplos de texto, listas, imágenes, código, tablas y elementos destacados.
         </p>
 
+        <div class="infoA">
+            Esta es una caja para añadir los enlaces a las páginas web que se mencionan en el documento.
+        </div>
+
         <div class="info">
             Esta es una caja informativa. Úsala para destacar datos relevantes o aclaraciones importantes.
         </div>

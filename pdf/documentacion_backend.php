@@ -350,6 +350,23 @@ require_once(__DIR__ . '/../config/funciones.php');
             display: grid;
         }
 
+        .infoA{
+            background: #e4e13e;
+            border-left: 4px solid #3ee4ce;
+            padding: 10px 15px;
+            margin: 20px 0;
+        }
+
+        .infoA a {
+            color: #2b4c7e;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .infoA a:hover {
+            color: #1a2e4d;
+        }
+
         .info {
             background: #e8f4ff;
             border-left: 4px solid #2196f3;
@@ -725,7 +742,7 @@ require_once(__DIR__ . '/../config/funciones.php');
             El primer paso que debes dar es acceder a la página desde la que vas a poder crear tu usuario y contraseña para después acceder al panel de administración. Copia y pega esta dirección web en tu navegador para acceder a la página de creación de usuario:
         </p>
 
-        <div class="info">
+        <div class="infoA">
             <a href="http://www.ricardfs.es.mialias.net/admin/PHP/crear_usuarios.php" target="_blank">Haz clic aquí y se abrirá la página en tu navegar web</a>
         </div>
 
@@ -796,7 +813,7 @@ require_once(__DIR__ . '/../config/funciones.php');
             Pero sigamos avanzando, ya tienes tus datos para acceder al panel de administración, ¿Entonces qué leches te hace fañta ahora? ... Coño Noemí la URL del panel de administración mujer, veeeenga copia y pega este enlace en tu navegador web:
         </p>
 
-        <div class="info">
+        <div class="infoA">
             <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí y se abrirá la página en tu navegar web</a>
         </div>
 
@@ -859,7 +876,7 @@ require_once(__DIR__ . '/../config/funciones.php');
             2.1. Mensajes que llegan desde la página de contacto
         </h3>
 
-        <div class="info">
+        <div class="infoA">
             <a href="http://localhost:8081/El_Arca_de_Noemi/admin/modulos/contacto/contacto.php" target="_blank">Haz clic aquí y se abrirá la página en tu navegar web</a>
         </div>
 
@@ -883,7 +900,7 @@ require_once(__DIR__ . '/../config/funciones.php');
 
         <h3 id="ver_mensaje">2.1.1. Editar un mensaje de contacto</h3>
 
-        <div class="info">
+        <div class="infoA">
             <a href="http://localhost:8081/El_Arca_de_Noemi/admin/modulos/contacto/contacto_editar.php?id=11" target="_blank">Haz clic aquí y se abrirá la página en tu navegar web</a>
         </div>
 
@@ -915,7 +932,7 @@ require_once(__DIR__ . '/../config/funciones.php');
 
         <h3 id="contacto_intro">2.2. Contenido de la sección de contacto</h3>
 
-        <div class="info">
+        <div class="infoA">
             <a href="http://localhost:8081/El_Arca_de_Noemi/admin/modulos/contacto/contacto_intro.php" target="_blank">Haz clic aquí y se abrirá la página en tu navegar web</a>
         </div>
 
@@ -937,7 +954,7 @@ require_once(__DIR__ . '/../config/funciones.php');
 
         <h3 id="asi_es_noemi">2.3. Contenido de la página de presentación de Noemí</h3>
 
-        <div class="info">
+        <div class="infoA">
             <a href="http://localhost:8081/El_Arca_de_Noemi/admin/modulos/asi_es_noemi/asi_es_noemi.php" target="_blank">Haz clic aquí y se abrirá la página en tu navegar web</a>
         </div>
 
