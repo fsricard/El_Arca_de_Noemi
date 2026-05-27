@@ -615,12 +615,12 @@ require_once(__DIR__ . '/../config/funciones.php');
 
         <p>Imagen centrada:</p>
         <div class="figura">
-            <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/foto_69d6ea346422f.jpg') ?>" alt="Imagen centrada">
+            <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/foto_69d6ea346422f.jpg') ?>" />
             <div class="pie">Figura 1: Ejemplo de imagen centrada.</div>
         </div>
 
         <p>Imagen alineada a la izquierda:</p>
-        <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/foto_69ebd191d31a4.png') ?>" class="img-left" alt="Imagen izquierda">
+        <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/foto_69ebd191d31a4.png') ?>" class="img-left" />
         <p>
             Este texto rodea una imagen alineada a la izquierda. Puedes usar este estilo para ilustrar
             procesos o elementos visuales sin romper el flujo del contenido.
@@ -629,7 +629,7 @@ require_once(__DIR__ . '/../config/funciones.php');
         <div style="clear: both;"></div>
 
         <p>Imagen alineada a la derecha:</p>
-        <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/foto_69d6c987d70f0.jpg') ?>" class="img-right" alt="Imagen derecha">
+        <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/foto_69d6c987d70f0.jpg') ?>" class="img-right" />
         <p>
             Este texto rodea una imagen alineada a la derecha. Ideal para ejemplos visuales que acompañan
             explicaciones más largas.

@@ -264,7 +264,6 @@ require_once(__DIR__ . '/../config/funciones.php');
             margin: 40px auto;
             max-width: 700px;
             text-align: left;
-            page-break-inside: avoid;
         }
 
         ul,
@@ -726,9 +725,9 @@ require_once(__DIR__ . '/../config/funciones.php');
             El primer paso que debes dar es acceder a la página desde la que vas a poder crear tu usuario y contraseña para después acceder al panel de administración. Copia y pega esta dirección web en tu navegador para acceder a la página de creación de usuario:
         </p>
 
-        <code>
-            http://www.ricardfs.es.mialias.net/admin/PHP/crear_usuarios.php
-        </code>
+        <div class="info">
+            <a href="http://www.ricardfs.es.mialias.net/admin/PHP/crear_usuarios.php" target="_blank">Haz clic aquí y se abrirá la página en tu navegar web</a>
+        </div>
 
         <p>
             Si es la primera vez que accedes a la página web desde ese navegador te pedirá que introduzcas un usuario y contraseña, como te dije antes tengo el servidor encriptado por seguridad, si no te había dado acceso antes te lo doy ahora:
@@ -797,7 +796,9 @@ require_once(__DIR__ . '/../config/funciones.php');
             Pero sigamos avanzando, ya tienes tus datos para acceder al panel de administración, ¿Entonces qué leches te hace fañta ahora? ... Coño Noemí la URL del panel de administración mujer, veeeenga copia y pega este enlace en tu navegador web:
         </p>
 
-        <code>http://www.ricardfs.es.mialias.net/admin/</code>
+        <div class="info">
+            <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí y se abrirá la página en tu navegar web</a>
+        </div>
 
         <div class="warning">
             La encriptación de mi servidor de pruebas se regenera cada "X" tiempo de forma automática para obligarnos a volver a introducir el usuario y la contraseña, de manera que cada dos por tres te los irá pidiendo, y como en el fondo parece que SÏ tengo algún sentimiento positivo por el ser humano (a muy pesar mio, que quede constancia), te voy a ir dejando el usuario y contraseña a lo largo de este documento para que no lo tengas que ir buscando.
@@ -826,6 +827,7 @@ require_once(__DIR__ . '/../config/funciones.php');
         </h3>
 
         <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/1.2.1._Acceso_al_servidor_de_pruebas.png') ?>" class="img-left" />
+
         <p>
             La verdad es que esta sección la he añadido como un puro trámite porque no tiene mucho misterio, una vez hayas accedido a la URL que te deje más arriba verás una imagen como la de la izquierda. No te comas mucho la cabeza Noemí, pon el usuario y la contraseña que creaste en la primera sección, dale al botoncito y alucina con los colorines.
         </p>
@@ -849,6 +851,98 @@ require_once(__DIR__ . '/../config/funciones.php');
 
         <p>
             En esta segunda sección te voy a explicar cómo gestionar los documentos que aparecen en la página de contacto, en la página de presentación de Noemí, en la página de la política de privacidad y en la sección de las opiniones de los usuarios. En cada una de estas secciones podrás editar el contenido que aparece en el sitio web, así como también podrás eliminarlo o añadir nuevo contenido si lo deseas.
+        </p>
+
+        <div class="page-break"></div>
+
+        <h3 id="contacto">
+            2.1. Mensajes que llegan desde la página de contacto
+        </h3>
+
+        <div class="info">
+            <a href="http://localhost:8081/El_Arca_de_Noemi/admin/modulos/contacto/contacto.php" target="_blank">Haz clic aquí y se abrirá la página en tu navegar web</a>
+        </div>
+
+        <div class="success">
+            Recuerda que todo el contenido que vas a encontrar en los diferentes módulos que vamos a ver en la sección dos de este documento es solo contenido dummy, una vez que la web se pase al servidor de producción, todo este contenido estará vacío y tu tendrás que crearlo a tu gusto.
+        </div>
+
+        <p>
+            Lo primero que veras al entrar en el módulo "Contacto" será algo parecido a la imagen que te dejo debajo de este texto. Lo que ves arriba no es un formulario para rellenar datos, en realidad es un sistema de filtros vinculante que te permite filtrar los mensajes que aparecen en el listado por el nombre de la persona, el E-mail de la persona, el día, mes y/o año que te fue enviado el mensaje.
+        </p>
+
+        <p>
+            Lo bueno de este sistema de filtros es que lo he programado para que los puedas utilizar de forma individual, o también puedas combinarlos entre sí como a ti buenamente se te antoje, por ejemplo, puedes filtrar por el nombre de la persona y el día que te fue enviado el mensaje, o también puedes filtrar por el E-mail de la persona y el mes que te fue enviado el mensaje, o también puedes filtrar por el año que te fue enviado el mensaje, o también puedes filtrar por el nombre de la persona, el E-mail de la persona, el día, mes y año que te fue enviado el mensaje ... En fin, tú decides como quieres utilizarlo.
+        </p>
+
+        <div class="figura">
+            <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/2.1._Mensajes_que_llegan_desde_la_pagina_de_contacto.png') ?>" />
+        </div>
+
+        <div class="page-break"></div>
+
+        <h3 id="ver_mensaje">2.1.1. Editar un mensaje de contacto</h3>
+
+        <div class="info">
+            <a href="http://localhost:8081/El_Arca_de_Noemi/admin/modulos/contacto/contacto_editar.php?id=11" target="_blank">Haz clic aquí y se abrirá la página en tu navegar web</a>
+        </div>
+
+        <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/2.1.1._Editar_un_mensaje_de_contacto.png') ?>" class="img-right" />
+
+        <p>
+            Este módulo es sencillo de entender, en el listado cada mensaje tiene dos botones, el botón "Editar" y el botón "Eliminar", cuando hagas clic en el botón "Editar" de algún mensaje del listado entrarás en el módulo de edición del mensaje, algo como lo que ves en la imagen que te dejo a la derecha.
+        </p>
+
+        <p>
+            Aquí puedes modificar cualquier dato del mensaje o del usuario que lo ha enviado, también tienes un botón con el que directamente puedes eliminar el mensaje.
+        </p>
+
+        <h3 id="eliminar_mensaje">2.1.1.1. Eliminar un mensaje de contacto</h3>
+
+        <p>
+            Esto es más simple que el mecanismo de un botijo, cuando hagas clic en el botón "Eliminar" de algún mensaje del listado, el mensaje se eliminará directamente de la base de datos.
+        </p>
+
+        <div class="danger">
+            <p>
+                ¡¡CUIDADO NOEMÏ!!
+            </p>
+
+            <p>
+                Debes tener en cuenta que la eliminación de un mensaje de la base de datos es algo irreversible, una vez que elimines un mensaje no podrás recuperarlo, así que ten mucho cuidado con eso, asegúrate de que realmente quieres eliminar el mensaje antes de darle al botón de eliminar.
+            </p>
+        </div>
+
+        <h3 id="contacto_intro">2.2. Contenido de la sección de contacto</h3>
+
+        <div class="info">
+            <a href="http://localhost:8081/El_Arca_de_Noemi/admin/modulos/contacto/contacto_intro.php" target="_blank">Haz clic aquí y se abrirá la página en tu navegar web</a>
+        </div>
+
+        <p>
+            Este módulo es el encargado de gestionar el contenido que aparece en la sección de contacto de la web, aquí podrás editar el texto de introducción que aparece a la izquierda del formulario de contacto de la web.
+        </p>
+
+        <div class="info">
+            Te encontrarás varios módulos parecidos a este en el panel de administración, a simple vista te puede parecer que es simplemente una caja donde puedes escribir texto, pero en realidad es un módulo mucho más complejo de lo que parece, este módulo tiene un editor de texto enriquecido que te permite dar formato al texto, también te permite insertar imágenes, enlaces, tablas ... En fin, es un módulo muy completo que te permite crear contenido de calidad para la web.
+
+            <div class="success">
+                Es más, si te fijas en la barra de herramientas del editor de texto enriquecido, podrás ver a la derecha del todo un icono con forma de gatito. Me he tomado la libertad de programar un pequeño módulo para el editor de texto enriquecido que te permitirá añadir emoticonos con forma de animalicos entre tus textos.
+            </div>
+        </div>
+
+        <div class="figura">
+            <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/2.2._Contenido_de_la_seccion_de_contacto.png') ?>" />
+        </div>
+
+        <h3 id="asi_es_noemi">2.3. Contenido de la página de presentación de Noemí</h3>
+
+        <div class="info">
+            <a href="http://localhost:8081/El_Arca_de_Noemi/admin/modulos/asi_es_noemi/asi_es_noemi.php" target="_blank">Haz clic aquí y se abrirá la página en tu navegar web</a>
+        </div>
+
+        <p>
+            Aquí podrás editar el contenido que aparece en la página de presentación de Noemí, esta página es la que aparece cuando haces clic en el enlace "Así es Noemí" que se encuentra en el menú principal de la web. En esta página podrás contar la historia de Noemí, cómo surgió la idea de crear "El Arca de Noemí", cuáles son los objetivos de la asociación, quiénes forman parte del equipo ... En fin, aquí tienes total libertad para contar lo que quieras sobre Noemí y sobre la asociación.
         </p>
 
         <div style="clear: both;"></div>
