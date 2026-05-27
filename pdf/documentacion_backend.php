@@ -571,7 +571,7 @@ require_once(__DIR__ . '/../config/funciones.php');
 
             <div class="subrama">
                 <a href="#politica_de_privacidad">
-                    2.4. Contenido de la pádina de la política de privacidad
+                    2.4. Contenido de la página de la política de privacidad
                 </a>
             </div>
 
@@ -910,18 +910,12 @@ require_once(__DIR__ . '/../config/funciones.php');
             <a href="#seccion-segunda">Volver al índice</a>
         </div>
 
-        <div class="page-break"></div>
-
         <h3 id="contacto">
             2.1. Mensajes que llegan desde la página de contacto
         </h3>
 
         <div class="infoA">
-            <a href="http://localhost:8081/El_Arca_de_Noemi/admin/modulos/contacto/contacto.php" target="_blank">Haz clic aquí y se abrirá la página en tu navegar web</a>
-        </div>
-
-        <div class="success">
-            Recuerda que todo el contenido que vas a encontrar en los diferentes módulos que vamos a ver en la sección dos de este documento es solo contenido dummy, una vez que la web se pase al servidor de producción, todo este contenido estará vacío y tu tendrás que crearlo a tu gusto.
+            <a href="http://www.ricardfs.es.mialias.net/admin/modulos/contacto/contacto.php" target="_blank">Haz clic aquí y se abrirá la página en tu navegar web</a>
         </div>
 
         <p>
@@ -936,16 +930,20 @@ require_once(__DIR__ . '/../config/funciones.php');
             <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/2.1._Mensajes_que_llegan_desde_la_pagina_de_contacto.png') ?>" />
         </div>
 
+        <div class="page-break"></div>
+
+        <div class="success">
+            Recuerda que todo el contenido que vas a encontrar en los diferentes módulos que vamos a ver en la sección dos de este documento es solo contenido dummy, una vez que la web se pase al servidor de producción, todo este contenido estará vacío y tu tendrás que crearlo a tu gusto.
+        </div>
+
         <div class="volver-indice">
             <a href="#seccion-segunda">Volver al índice</a>
         </div>
 
-        <div class="page-break"></div>
-
         <h3 id="ver_mensaje">2.1.1. Editar un mensaje de contacto</h3>
 
         <div class="infoA">
-            <a href="http://localhost:8081/El_Arca_de_Noemi/admin/modulos/contacto/contacto_editar.php?id=11" target="_blank">Haz clic aquí y se abrirá la página en tu navegar web</a>
+            <a href="http://www.ricardfs.es.mialias.net/admin/modulos/contacto/contacto_editar.php?id=11" target="_blank">Haz clic aquí y se abrirá la página en tu navegar web</a>
         </div>
 
         <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/2.1.1._Editar_un_mensaje_de_contacto.png') ?>" class="img-right" />
@@ -961,6 +959,8 @@ require_once(__DIR__ . '/../config/funciones.php');
         <div class="volver-indice">
             <a href="#seccion-segunda">Volver al índice</a>
         </div>
+
+        <div class="page-break"></div>
 
         <h3 id="eliminar_mensaje">2.1.1.1. Eliminar un mensaje de contacto</h3>
 
@@ -985,7 +985,7 @@ require_once(__DIR__ . '/../config/funciones.php');
         <h3 id="contacto_intro">2.2. Contenido de la sección de contacto</h3>
 
         <div class="infoA">
-            <a href="http://localhost:8081/El_Arca_de_Noemi/admin/modulos/contacto/contacto_intro.php" target="_blank">Haz clic aquí y se abrirá la página en tu navegar web</a>
+            <a href="http://www.ricardfs.es.mialias.net/admin/modulos/contacto/contacto_intro.php" target="_blank">Haz clic aquí y se abrirá la página en tu navegar web</a>
         </div>
 
         <p>
@@ -1011,12 +1011,126 @@ require_once(__DIR__ . '/../config/funciones.php');
         <h3 id="asi_es_noemi">2.3. Contenido de la página de presentación de Noemí</h3>
 
         <div class="infoA">
-            <a href="http://localhost:8081/El_Arca_de_Noemi/admin/modulos/asi_es_noemi/asi_es_noemi.php" target="_blank">Haz clic aquí y se abrirá la página en tu navegar web</a>
+            <a href="http://www.ricardfs.es.mialias.net/admin/modulos/asi_es_noemi/asi_es_noemi.php" target="_blank">Haz clic aquí y se abrirá la página en tu navegar web</a>
         </div>
 
         <p>
             Aquí podrás editar el contenido que aparece en la página de presentación de Noemí, esta página es la que aparece cuando haces clic en el enlace "Así es Noemí" que se encuentra en el menú principal de la web. En esta página podrás contar la historia de Noemí, cómo surgió la idea de crear "El Arca de Noemí", cuáles son los objetivos de la asociación, quiénes forman parte del equipo ... En fin, aquí tienes total libertad para contar lo que quieras sobre Noemí y sobre la asociación.
         </p>
+
+        <div class="volver-indice">
+            <a href="#seccion-segunda">Volver al índice</a>
+        </div>
+
+        <div class="page-break"></div>
+
+        <h3 id="politica_de_privacidad">2.4. Contenido de la página de la política de privacidad</h3>
+
+        <div class="infoA">
+            <a href="http://www.ricardfs.es.mialias.net/admin/modulos/politica/politica_de_privacidad.php" target="_blank">Haz clic aquí y se abrirá la página en tu navegar web</a>
+        </div>
+
+        <p>
+            Aquí podrás editar el contenido que aparece en la página de la política de privacidad, esta página es la que aparece cuando haces clic en el enlace "Política de Privacidad" que se encuentra en el menú que se encuentra en el pie de página de la web. En esta página podrás contar la política de privacidad de la asociación, cómo se gestionan los datos personales de los usuarios, qué medidas de seguridad se toman para proteger los datos personales ... En fin, aquí tienes total libertad para contar lo que quieras sobre la política de privacidad de la asociación.
+        </p>
+
+        <div class="info">
+            El contenido que te he dejado en este módulo es completamente funcional y legal, lo único que tienes que hacer es repasarlo para poner los datos del "Arca de Noemí" donde toque, esta página es completamente imprescindible en cualquier página web que se precie, sobre todo si es una institución legal.
+        </div>
+
+        <div class="volver-indice">
+            <a href="#seccion-segunda">Volver al índice</a>
+        </div>
+
+        <h3 id="opiniones_intro">2.5. Contenido de la sección de las opiniones de los usuarios</h3>
+
+        <div class="infoA">
+            <a href="http://www.ricardfs.es.mialias.net/admin/modulos/opiniones/opiniones_intro.php" target="_blank">Haz clic aquí y se abrirá la página en tu navegar web</a>
+        </div>
+
+        <p>
+            En este módulo encontrarás de nuevo un editor de texto enriquecido, aquí podrás editar el texto de introducción que aparece en la sección de las opiniones de los usuarios de la web, esta sección es la que aparece cuando haces clic en el enlace "Opiniones" que se encuentra en el menú principal de la web. En esta sección podrás contar a los usuarios lo importante que es para la asociación conocer su opinión, también puedes contarles cómo pueden dejar su opinión, qué tipo de opiniones se aceptan ... En fin, aquí tienes total libertad para contar lo que quieras sobre las opiniones de los usuarios.
+        </p>
+
+        <div class="volver-indice">
+            <a href="#seccion-segunda">Volver al índice</a>
+        </div>
+
+        <div class="page-break"></div>
+
+        <h3 id="opiniones_listado">2.6. Listado de las opiniones de los usuarios</h3>
+
+        <div class="infoA">
+            <a href="http://www.ricardfs.es.mialias.net/admin/modulos/opiniones/opiniones_de_usuario_listado.php" target="_blank">Haz clic aquí y se abrirá la página en tu navegar web</a>
+        </div>
+
+        <p>
+            En este módulo podrás ver el listado de las opiniones que han dejado los usuarios en la sección de las opiniones de los usuarios de la web, algo parecido a la imagen que te debajo de este texto, esta sección es la que aparece cuando haces clic en el enlace "Opiniones" que se encuentra en el menú principal de la web. En este listado podrás ver el nombre del usuario que ha dejado la opinión, su correo electrónico, la fecha en la que dejó la opinión, el mensaje con la opinión que dejó y también tendrás dos botones para cada opinión, el botón "Editar" y el botón "Eliminar".
+        </p>
+
+        <div class="figura">
+            <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/2.6._Listado_de_las_opiniones_de_los_usuarios.png') ?>" />
+        </div>
+
+        <div class="danger">
+            <p>
+                ¡¡CUIDADO NOEMÏ!!
+            </p>
+
+            <p>
+                Debes tener en cuenta que la eliminación de un mensaje de la base de datos es algo irreversible, una vez que elimines un mensaje no podrás recuperarlo, así que ten mucho cuidado con eso, asegúrate de que realmente quieres eliminar el mensaje antes de darle al botón de eliminar.
+            </p>
+        </div>
+
+        <div class="volver-indice">
+            <a href="#seccion-segunda">Volver al índice</a>
+        </div>
+
+        <div class="page-break"></div>
+
+        <h3 id="opiniones_editar">2.6.1. Editar las opiniones de los usuarios</h3>
+
+        <div class="infoA">
+            <a href="http://www.ricardfs.es.mialias.net/admin/modulos/opiniones/opiniones_de_usuario_editar.php?id=3" target="_blank">Haz clic aquí y se abrirá la página en tu navegar web</a>
+        </div>
+
+        <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/2.6.1._Editar -las_opiniones_de_los_usuarios.png') ?>" class="img-right" />
+
+        <p>
+            Este módulo es sencillo de entender, en el listado cada opinión tiene dos botones, el botón "Editar" y el botón "Eliminar", cuando hagas clic en el botón "Editar" de alguna opinión del listado entrarás en el módulo de edición de la opinión, algo como lo que ves en la imagen que te dejo a la derecha.
+        </p>
+
+        <p>
+            Aquí puedes modificar cualquier dato de la opinión o del usuario que la ha dejado.
+        </p>
+
+        <div class="info">
+            Lo único que debes tener en cuenta en este módulo es que si quieres modificar la imagen del usuario que ha dejado la opinión, antes de subir una nueva imagen debes marcar la casilla "Eliminar imagen actual", aunque no marques la casilla la imagen se modificará igualmente, pero si quieres asegurarte de que la imagen se elimina correctamente del servidor antes de subir la nueva imagen, debes marcar la casilla "Eliminar imagen actual".
+        </div>
+
+        <div class="volver-indice">
+            <a href="#seccion-segunda">Volver al índice</a>
+        </div>
+
+        <h3 id="opniones_eliminar">2.6.1.1. Eliminar las opiniones de los usuarios</h3>
+
+        <div class="infoA">
+            <a href="http://www.ricardfs.es.mialias.net/admin/modulos/opiniones/opiniones_de_usuario_listado.php" target="_blank">Haz clic aquí y se abrirá la página en tu navegar web</a>
+        </div>
+
+        <p>
+            Esto es más simple que el mecanismo de un botijo, cuando hagas clic en el botón "Eliminar" de alguna opinión del listado, la opinión se eliminará directamente de la base de datos.
+        </p>
+
+        <div class="danger">
+            <p>
+                ¡¡CUIDADO NOEMÏ!!
+            </p>
+
+            <p>
+                Debes tener en cuenta que la eliminación de un mensaje de la base de datos es algo irreversible, una vez que elimines un mensaje no podrás recuperarlo, así que ten mucho cuidado con eso, asegúrate de que realmente quieres eliminar el mensaje antes de darle al botón de eliminar.
+            </p>
+        </div>
 
         <div class="volver-indice">
             <a href="#seccion-segunda">Volver al índice</a>

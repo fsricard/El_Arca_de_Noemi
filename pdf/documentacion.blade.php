@@ -511,7 +511,7 @@ require_once(__DIR__ . '/../config/funciones.php');
         </p>
 
         <div class="infoA">
-            Esta es una caja para añadir los enlaces a las páginas web que se mencionan en el documento.
+            <a href="http://www.ricardfs.es.mialias.net/admin/modulos/" target="_blank">Haz clic aquí y se abrirá la página en tu navegar web</a>
         </div>
 
         <div class="info">
@@ -528,6 +528,16 @@ require_once(__DIR__ . '/../config/funciones.php');
 
         <div class="danger">
             Esta es una alerta crítica. Úsala para errores graves o riesgos importantes.
+        </div>
+
+        <div class="danger">
+            <p>
+                ¡¡CUIDADO NOEMÏ!!
+            </p>
+
+            <p>
+                Debes tener en cuenta que la eliminación de un mensaje de la base de datos es algo irreversible, una vez que elimines un mensaje no podrás recuperarlo, así que ten mucho cuidado con eso, asegúrate de que realmente quieres eliminar el mensaje antes de darle al botón de eliminar.
+            </p>
         </div>
 
         <h3>3.1 Listas ordenadas y desordenadas</h3>
@@ -619,12 +629,17 @@ require_once(__DIR__ . '/../config/funciones.php');
 
         <p>Imagen centrada:</p>
         <div class="figura">
-            <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/foto_69d6ea346422f.jpg') ?>" />
+            <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/') ?>" />
             <div class="pie">Figura 1: Ejemplo de imagen centrada.</div>
         </div>
 
+        <p>Imagen centrada:</p>
+        <div class="figura">
+            <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/') ?>" />
+        </div>
+
         <p>Imagen alineada a la izquierda:</p>
-        <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/foto_69ebd191d31a4.png') ?>" class="img-left" />
+        <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/') ?>" class="img-left" />
         <p>
             Este texto rodea una imagen alineada a la izquierda. Puedes usar este estilo para ilustrar
             procesos o elementos visuales sin romper el flujo del contenido.
@@ -633,7 +648,7 @@ require_once(__DIR__ . '/../config/funciones.php');
         <div style="clear: both;"></div>
 
         <p>Imagen alineada a la derecha:</p>
-        <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/foto_69d6c987d70f0.jpg') ?>" class="img-right" />
+        <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/') ?>" class="img-right" />
         <p>
             Este texto rodea una imagen alineada a la derecha. Ideal para ejemplos visuales que acompañan
             explicaciones más largas.
