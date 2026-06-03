@@ -715,7 +715,7 @@ require_once(__DIR__ . '/../config/funciones.php');
         </div>
 
         <!-- 5. Quinta sección - Plataformas de CrowdFunding -->
-        <div class="rama" id="seccion-quinta">
+        <div class="rama page-break" id="seccion-quinta">
             <div class="titulo-rama">
                 <a href="#plataformas_crowdfunding">
                     5. Quinta Sección - Plataformas de CrowdFunding
@@ -1235,6 +1235,8 @@ require_once(__DIR__ . '/../config/funciones.php');
 
     <div class="separador"></div>
 
+    <div class="page-break"></div>
+
     <!-- 2. Segunda sección - Documentos -->
     <div class="seccion" id="documentos">
 
@@ -1267,8 +1269,6 @@ require_once(__DIR__ . '/../config/funciones.php');
         <div class="figura">
             <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/2.1._Mensajes_que_llegan_desde_la_pagina_de_contacto.png') ?>" />
         </div>
-
-        <div class="page-break"></div>
 
         <div class="success">
             Recuerda que todo el contenido que vas a encontrar en los diferentes módulos que vamos a ver en la sección dos de este documento es solo contenido dummy, una vez que la web se pase al servidor de producción, todo este contenido estará vacío y tu tendrás que crearlo a tu gusto.
@@ -1449,6 +1449,8 @@ require_once(__DIR__ . '/../config/funciones.php');
         <div class="volver-indice">
             <a href="#seccion-segunda">Volver al índice</a>
         </div>
+
+        <div class="page-break"></div>
 
         <h3 id="opniones_eliminar">2.6.1.1. Eliminar las opiniones de los usuarios</h3>
 
