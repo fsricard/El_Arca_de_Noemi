@@ -915,6 +915,51 @@ require_once(__DIR__ . '/../config/funciones.php');
                 </a>
             </div>
 
+            <div class="subrama">
+                <a href="#listado_animales_apadrinar">
+                    7.1. Listado de todos los animales para apadrinar de la base de datos
+                </a>
+            </div>
+            <div class="subsubrama">
+                <a href="#listado_animales_apadrinar_filtros">
+                    7.1.1. Filtros para el listado de animales para apadrinar
+                </a>
+            </div>
+            <div class="subsubrama">
+                <a href="#listado_animales_apadrinar_columna_padrinos">
+                    7.1.1.1. Columna "Padrinos" en el listado de animales para apadrinar
+                </a>
+            </div>
+            <div class="subsubrama">
+                <a href="#listado_animales_apadrinar_columna_estado">
+                    7.1.1.1.1. Columna "Estado" en el listado de animales para apadrinar
+                </a>
+            </div>
+            <div class="subsubrama">
+                <a href="#listado_animales_apadrinar_editar">
+                    7.1.1.1.1.1. Editar un animal para apadrinar
+                </a>
+            </div>
+            <div class="subsubsubrama">
+                <a href="#listado_animales_apadrinar_editar_especie">
+                    7.2.1.1.1.1.1.1. Casilla inteligente para buscar la especie del animal para apadrinar 
+                </a>
+            </div>
+            <div class="subsubsubrama">
+                <a href="#listado_animales_apadrinar_editar_raza">
+                    7.2.1.1.1.1.1.1.1. Casilla inteligente para buscar la raza del animal para apadrinar
+                </a>
+            </div>
+            <div class="subsubsubrama">
+                <a href="#listado_animales_apadrinar_editar_estado">
+                    7.2.1.1.1.1.1.1.1.1. Casilla para cambiar el estado del animal para apadrinar
+                </a>
+            </div>
+            <div class="subsubsubrama">
+                <a href="#listado_animales_apadrinar_editar_columna_acciones">
+                    7.2.1.1.1.1.1.1.1.1.1. Columna de acciones para editar un animal para apadrinar
+                </a>
+            </div>
         </div>
 
         <!-- 8. Octava sección - Base de datos -->
