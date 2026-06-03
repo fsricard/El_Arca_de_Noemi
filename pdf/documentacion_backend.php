@@ -970,6 +970,60 @@ require_once(__DIR__ . '/../config/funciones.php');
                 </a>
             </div>
 
+            <div class="subrama">
+                <a href="#base_de_datos_logs">
+                    8.1. Logs de accesos al panel de administración
+                </a>
+            </div>
+
+            <div class="subrama">
+                <a href="#base_de_datos_usuarios">
+                    8.2. Usuarios del panel de administración
+                </a>
+            </div>
+            <div class="subsubrama">
+                <a href="#base_de_datos_usuarios_crear">
+                    8.2.1. Crear un nuevo usuario para el panel de administración
+                </a>
+            </div>
+            <div class="subsubsubrama">
+                <a href="#base_de_datos_usuarios_crear_admin">
+                    8.2.2.1.1. Crear un nuevo usuario con rol de "Administrador"
+                </a>
+            </div>
+            <div class="subsubsubrama">
+                <a href="#base_de_datos_usuarios_crear_visitante">
+                    8.2.2.1.1.1. Crear un nuevo usuario con rol de "Visitante"
+                </a>
+            </div>
+
+            <div class="subrama">
+                <a href="#base_de_datos_usuarios_actualizar">
+                    8.3. Actualizar los datos de un usuario del panel de administración
+                </a>
+            </div>
+
+            <div class="subrama">
+                <a href="base_de_datos_usuarios_eliminar">
+                    8.4. Eliminar un usuario del panel de administración
+                </a>
+            </div>
+
+            <div class="subrama">
+                <a href="#base_de_datos_usuarios_tablas">
+                    8.5. Tablas de la base de datos
+                </a>
+            </div>
+            <div class="subsubrama">
+                <a href="#base_de_datos_usuarios_tablas_ver">
+                    8.5.1. Ver el contenido de una tabla de la base de datos
+                </a>
+            </div>
+            <div class="subsubrama">
+                <a href="#base_de_datos_usuarios_tablas_eliminar">
+                    8.5.1.1. Eliminar el contenido de una tabla de la base de datos
+                </a>
+            </div>
         </div>
     </div>
 
