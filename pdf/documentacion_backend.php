@@ -226,7 +226,15 @@ require_once(__DIR__ . '/../config/funciones.php');
             margin: 3px 0;
             color: #666;
             padding-left: 20px;
-            border-left: 1px dashed #bbb;
+            border-left: 1px dashed #aaa;
+        }
+
+        .subsubsubrama {
+            font-size: 12px;
+            margin: 3px 0;
+            color: #666;
+            padding-left: 30px;
+            border-left: 1px solid #bbb;
         }
 
         .indice a {
@@ -254,6 +262,12 @@ require_once(__DIR__ . '/../config/funciones.php');
         .indice .subsubrama a {
             font-size: 13px;
             padding-left: 10px;
+            color: #555;
+        }
+
+        .indice .subsubsubrama a {
+            font-size: 12px;
+            padding-left: 15px;
             color: #555;
         }
 
@@ -735,6 +749,183 @@ require_once(__DIR__ . '/../config/funciones.php');
                 </a>
             </div>
         </div>
+
+        <!-- 6. Sexta sección - Adopciones -->
+        <div class="rama" id="seccion-sexta">
+            <div class="titulo-rama">
+                <a href="#adopciones">
+                    6. Sexta Sección - Adopciones
+                </a>
+            </div>
+
+            <div class="subrama">
+                <a href="#iniciar_nueva_adopcion">
+                    6.1. Iniciar el proceso de adopción de un animal
+                </a>
+            </div>
+            <div class="subsubrama">
+                <a href="#selecciona_un_animal">
+                    6.1.1. Selecciona un animal para iniciar el proceso de adopción
+                </a>
+            </div>
+            <div class="subsubrama">
+                <a href="#selecciona_un_adoptante">
+                    6.1.1.1. Selecciona un adoptante para iniciar el proceso de adopción
+                </a>
+            </div>
+            <div class="subsubrama">
+                <a href="#selecciona_fecha_inicio_adopcion">
+                    6.1.1.1.1. Selecciona la fecha de inicio del proceso de adopción
+                </a>
+            </div>
+            <div class="subsubrama">
+                <a href="#anadir_notas_adopcion">
+                    6.1.1.1.1.1. Añadir notas al proceso de adopción
+                </a>
+            </div>
+
+            <div class="subrama">
+                <a href="#listado_de_adoptantes">
+                    6.2. Listado de todos los adoptantes de la base de datos
+                </a>
+            </div>
+            <div class="subsubrama">
+                <a href="#filtros_listado_adoptantes">
+                    6.2.1. Filtros para el listado de adoptantes
+                </a>
+            </div>
+            <div class="subsubrama">
+                <a href="#listado_adoptantes_origen">
+                    6.2.1.1. Columna de origen del adoptante en el listado de adoptantes
+                </a>
+            </div>
+            <div class="subsubsubrama">
+                <a href="#listado_adoptantes_origen_manual">
+                    6.2.2.1.1. Columna de origen "Manual" en el listado de adoptantes
+                </a>
+            </div>
+            <div class="subsubsubrama">
+                <a href="#listado_adoptantes_origen_formulario">
+                    6.2.2.1.1.1. Columna de origen "Formulario" en el listado de adoptantes
+                </a>
+            </div>
+            <div class="subsubrama">
+                <a href="#listado_adoptantes_estado">
+                    6.2.1.1.1. Columna de estado del adoptante en el listado de adoptantes
+                </a>
+            </div>
+            <div class="subsubsubrama">
+                <a href="#listado_adoptantes_estado_espera">
+                    6.2.2.1.1.1.1. Columna de estado "En espera" en el listado de adoptantes
+                </a>
+            </div>
+            <div class="subsubsubrama">
+                <a href="#listado_adoptantes_estado_pendiente">
+                    6.2.2.1.1.1.1.1. Columna de estado "Pendiente" en el listado de adoptantes
+                </a>
+            </div>
+            <div class="subsubsubrama">
+                <a href="#listado_adoptantes_estado_proceso">
+                    6.2.2.1.1.1.1.1.1. Columna de estado "En proceso" en el listado de adoptantes
+                </a>
+            </div>
+            <div class="subsubsubrama">
+                <a href="#listado_adoptantes_estado_finalizada">
+                    6.2.2.1.1.1.1.1.1.1. Columna de estado "Finalizada" en el listado de adoptantes
+                </a>
+            </div>
+            <div class="subsubsubrama">
+                <a href="#listado_adoptantes_estado_cancelada">
+                    6.2.2.1.1.1.1.1.1.1.1. Columna de estado "Cancelada" en el listado de adoptantes
+                </a>
+            </div>
+            <div class="subsubrama">
+                <a href="#listado_adoptantes_pdf">
+                    6.2.1.1.1.1. Columna PDF del adoptante en el listado de adoptantes
+                </a>
+            </div>
+            <div class="subsubrama">
+                <a href="#listado_adoptantes_activar">
+                    6.2.1.1.1.1.1. Activar adoptantes procedentes de formularios de adopción en la web
+                </a>
+            </div>
+            <div class="subsubrama">
+                <a href="#listado_adoptantes_editar_manual">
+                    6.2.1.1.1.1.1.1. Editar adoptante de la columna de origen "Manual"
+                </a>
+            </div>
+            <div class="subsubrama">
+                <a href="#listado_adoptantes_editar_formulario">
+                    6.2.1.1.1.1.1.1.1. Editar adoptante de la columna de origen "Formulario"
+                </a>
+            </div>
+            <div class="subsubrama">
+                <a href="#listado_adoptantes_ver_adopciones">
+                    6.2.1.1.1.1.1.1.1.1. Ver las adopciones de un adoptante
+                </a>
+            </div>
+
+            <div class="subrama">
+                <a href="#listado_animales_adopcion">
+                    6.3. Listado de todos los animales en adopción de la base de datos
+                </a>
+            </div>
+            <div class="subsubrama">
+                <a href="#listado_animales_adopcion_filtros">
+                    6.3.1. Filtros para el listado de animales en adopción
+                </a>
+            </div>
+            <div class="subsubrama">
+                <a href="#listado_animales_adopcion_crear_adopcion">
+                    6.3.1.1. Crear una adopción desde el listado de animales en adopción
+                </a>
+            </div>
+            <div class="subsubrama">
+                <a href="#listado_animales_adopcion_editar_adopcion">
+                    6.3.1.1.1. Editar una adopción desde el listado de animales en adopción
+                </a>
+            </div>
+            <div class="subsubsubrama">
+                <a href="#listado_animales_adopcion_editar_nombre_adoptante">
+                    6.3.2.1.1.1.1. Casilla inteligente para buscar el nombre del adoptante
+                </a>
+            </div>
+            <div class="subsubrama">
+                <a href="#listado_animales_adopcion_editar_animal">
+                    6.3.1.1.1.1. Editar un animal en adopción desde el listado de animales en adopción
+                </a>
+            </div>
+            <div class="subsubsubrama">
+                <a href="#listado_animales_adopcion_editar_foto_principal">
+                    6.3.2.1.1.1.1.1. Cambiar la imagen principal de un animal en adopción
+                </a>
+            </div>
+            <div class="subsubsubrama">
+                <a href="#listado_animales_adopcion_editar_animal_en_adopcion">
+                    6.3.2.1.1.1.1.1.1. Checkbox "Disponible para adopción"
+                </a>
+            </div>
+        </div>
+
+        <!-- 7. Séptima sección - Apadrinamientos -->
+        <div class="rama" id="seccion-septima">
+            <div class="titulo-rama">
+                <a href="#apadrinamientos">
+                    7. Séptima Sección - Apadrinamientos
+                </a>
+            </div>
+
+        </div>
+
+        <!-- 8. Octava sección - Base de datos -->
+        <div class="rama" id="seccion-octava">
+            <div class="titulo-rama">
+                <a href="#base_de_datos">
+                    8. Octava Sección - Base de datos
+                </a>
+            </div>
+
+        </div>
     </div>
 
     <!-- 1. Sección principal - Inicio de Sesión -->
@@ -1174,6 +1365,48 @@ require_once(__DIR__ . '/../config/funciones.php');
 
     <!-- 5. Quinta sección - Plataformas de CrowdFunding -->
     <div class="seccion" id="plataformas_crowdfunding">
+
+        <h2></h2>
+
+
+        <div style="clear: both;"></div>
+
+        <div class="separador-seccion"></div>
+
+    </div>
+
+    <div class="separador"></div>
+
+    <!-- 6. Sexta sección - Adopciones -->
+    <div class="seccion" id="adopciones">
+
+        <h2></h2>
+
+
+        <div style="clear: both;"></div>
+
+        <div class="separador-seccion"></div>
+
+    </div>
+
+    <div class="separador"></div>
+
+    <!-- 7. Séptima sección - Apadrinamientos -->
+    <div class="seccion" id="apadrinamientos">
+
+        <h2></h2>
+
+
+        <div style="clear: both;"></div>
+
+        <div class="separador-seccion"></div>
+
+    </div>
+
+    <div class="separador"></div>
+
+    <!-- 8. Octava sección - Base de datos -->
+    <div class="seccion" id="base_de_datos">
 
         <h2></h2>
 
