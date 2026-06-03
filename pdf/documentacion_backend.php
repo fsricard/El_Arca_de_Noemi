@@ -801,12 +801,12 @@ require_once(__DIR__ . '/../config/funciones.php');
             </div>
             <div class="subsubsubrama">
                 <a href="#listado_adoptantes_origen_manual">
-                    6.2.2.1.1. Columna de origen "Manual" en el listado de adoptantes
+                    6.2.1.2. Columna de origen "Manual" en el listado de adoptantes
                 </a>
             </div>
             <div class="subsubsubrama">
                 <a href="#listado_adoptantes_origen_formulario">
-                    6.2.2.1.1.1. Columna de origen "Formulario" en el listado de adoptantes
+                    6.2.1.2.1. Columna de origen "Formulario" en el listado de adoptantes
                 </a>
             </div>
             <div class="subsubrama">
@@ -816,27 +816,27 @@ require_once(__DIR__ . '/../config/funciones.php');
             </div>
             <div class="subsubsubrama">
                 <a href="#listado_adoptantes_estado_espera">
-                    6.2.2.1.1.1.1. Columna de estado "En espera" en el listado de adoptantes
+                    6.2.1.1.2. Columna de estado "En espera" en el listado de adoptantes
                 </a>
             </div>
             <div class="subsubsubrama">
                 <a href="#listado_adoptantes_estado_pendiente">
-                    6.2.2.1.1.1.1.1. Columna de estado "Pendiente" en el listado de adoptantes
+                    6.2.1.1.2.1. Columna de estado "Pendiente" en el listado de adoptantes
                 </a>
             </div>
             <div class="subsubsubrama">
                 <a href="#listado_adoptantes_estado_proceso">
-                    6.2.2.1.1.1.1.1.1. Columna de estado "En proceso" en el listado de adoptantes
+                    6.2.1.1.2.1.1. Columna de estado "En proceso" en el listado de adoptantes
                 </a>
             </div>
             <div class="subsubsubrama">
                 <a href="#listado_adoptantes_estado_finalizada">
-                    6.2.2.1.1.1.1.1.1.1. Columna de estado "Finalizada" en el listado de adoptantes
+                    6.2.1.1.2.1.1.1. Columna de estado "Finalizada" en el listado de adoptantes
                 </a>
             </div>
             <div class="subsubsubrama">
                 <a href="#listado_adoptantes_estado_cancelada">
-                    6.2.2.1.1.1.1.1.1.1.1. Columna de estado "Cancelada" en el listado de adoptantes
+                    6.2.1.1.2.1.1.1.1. Columna de estado "Cancelada" en el listado de adoptantes
                 </a>
             </div>
             <div class="subsubrama">
@@ -887,7 +887,7 @@ require_once(__DIR__ . '/../config/funciones.php');
             </div>
             <div class="subsubsubrama">
                 <a href="#listado_animales_adopcion_editar_nombre_adoptante">
-                    6.3.2.1.1.1.1. Casilla inteligente para buscar el nombre del adoptante
+                    6.3.1.1.2. Casilla inteligente para buscar el nombre del adoptante
                 </a>
             </div>
             <div class="subsubrama">
@@ -897,12 +897,12 @@ require_once(__DIR__ . '/../config/funciones.php');
             </div>
             <div class="subsubsubrama">
                 <a href="#listado_animales_adopcion_editar_foto_principal">
-                    6.3.2.1.1.1.1.1. Cambiar la imagen principal de un animal en adopción
+                    6.3.1.1.1.2. Cambiar la imagen principal de un animal en adopción
                 </a>
             </div>
             <div class="subsubsubrama">
                 <a href="#listado_animales_adopcion_editar_animal_en_adopcion">
-                    6.3.2.1.1.1.1.1.1. Checkbox "Disponible para adopción"
+                    6.3.1.1.1.2.1. Checkbox "Disponible para adopción"
                 </a>
             </div>
         </div>
@@ -942,22 +942,70 @@ require_once(__DIR__ . '/../config/funciones.php');
             </div>
             <div class="subsubsubrama">
                 <a href="#listado_animales_apadrinar_editar_especie">
-                    7.2.1.1.1.1.1.1. Casilla inteligente para buscar la especie del animal para apadrinar 
+                    7.1.1.1.1.2. Casilla inteligente para buscar la especie del animal para apadrinar
                 </a>
             </div>
             <div class="subsubsubrama">
                 <a href="#listado_animales_apadrinar_editar_raza">
-                    7.2.1.1.1.1.1.1.1. Casilla inteligente para buscar la raza del animal para apadrinar
+                    7.1.1.1.1.2.1. Casilla inteligente para buscar la raza del animal para apadrinar
                 </a>
             </div>
             <div class="subsubsubrama">
                 <a href="#listado_animales_apadrinar_editar_estado">
-                    7.2.1.1.1.1.1.1.1.1. Casilla para cambiar el estado del animal para apadrinar
+                    7.1.1.1.1.2.1.1. Casilla para cambiar el estado del animal para apadrinar
                 </a>
             </div>
             <div class="subsubsubrama">
                 <a href="#listado_animales_apadrinar_editar_columna_acciones">
-                    7.2.1.1.1.1.1.1.1.1.1. Columna de acciones para editar un animal para apadrinar
+                    7.1.1.1.1.2.1.1.1. Columna de acciones para editar un animal para apadrinar
+                </a>
+            </div>
+
+            <div class="subrama">
+                <a href="#listado_padrinos">
+                    7.2. Listado de todos los padrinos de la base de datos
+                </a>
+            </div>
+            <div class="subsubrama">
+                <a href="#listado_padrinos_filtros">
+                    7.2.1. Filtros para el listado de padrinos
+                </a>
+            </div>
+            <div class="subsubrama">
+                <a href="#listado_padrinos_editar">
+                    7.2.1.1. Editar un padrino desde el listado de padrinos
+                </a>
+            </div>
+            <div class="subsubsubrama">
+                <a href="#listado_padrinos_editar_csv">
+                    7.2.1.2. Exportar datos del padrino en formato "CSV"
+                </a>
+            </div>
+            <div class="subsubsubrama">
+                <a href="#listado_padrinos_editar_eliminar">
+                    7.2.1.2.1. Eliminar un padrino desde el listado de padrinos
+                </a>
+            </div>
+            <div class="subsubsubrama">
+                <a href="#listado_padrinos_editar_ver_animal">
+                    7.2.1.2.1.1. Ver el animal vinculado a cada padrino
+                </a>
+            </div>
+            <div class="subsubsubrama">
+                <a href="#listado_padrinos_editar_relacion">
+                    7.2.1.2.1.1.1. Editar la relación entre el padrino y el animal
+                </a>
+            </div>
+
+            <div class="subrama">
+                <a href="#listado_padrinos_ver_apadrinamientos">
+                    7.3. Ver los animales apadrinados por cada padrino
+                </a>
+            </div>
+
+            <div class="subrama">
+                <a href="#listado_padrinos_ultima_relacion">
+                    7.4. Ver la última relación de apadrinamiento de cada padrino
                 </a>
             </div>
         </div>
@@ -988,12 +1036,12 @@ require_once(__DIR__ . '/../config/funciones.php');
             </div>
             <div class="subsubsubrama">
                 <a href="#base_de_datos_usuarios_crear_admin">
-                    8.2.2.1.1. Crear un nuevo usuario con rol de "Administrador"
+                    8.2.1.2. Crear un nuevo usuario con rol de "Administrador"
                 </a>
             </div>
             <div class="subsubsubrama">
                 <a href="#base_de_datos_usuarios_crear_visitante">
-                    8.2.2.1.1.1. Crear un nuevo usuario con rol de "Visitante"
+                    8.2.1.2.1. Crear un nuevo usuario con rol de "Visitante"
                 </a>
             </div>
 
