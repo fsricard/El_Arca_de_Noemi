@@ -632,13 +632,13 @@ require_once(__DIR__ . '/../config/funciones.php');
                 </a>
             </div>
             <div class="subsubrama">
-                <a href="#listado_noemi_dice_aprobar">
-                    3.2.1. Aprobar las frases de "Noemí dice"
+                <a href="#listado_noemi_dice_ocultar">
+                    3.2.1. Ocultar las frases de "Noemí dice"
                 </a>
             </div>
             <div class="subsubrama">
-                <a href="#listado_noemi_dice_ocultar">
-                    3.2.1.1. Ocultar las frases de "Noemí dice"
+                <a href="#listado_noemi_dice_aprobar">
+                    3.2.1.1. Aprobar las frases de "Noemí dice"
                 </a>
             </div>
             <div class="subsubrama">
@@ -656,21 +656,6 @@ require_once(__DIR__ . '/../config/funciones.php');
             <div class="subrama">
                 <a href="#listado_bichillos_de_noemi">
                     3.4. Listado de los "Bichillos de Noemí"
-                </a>
-            </div>
-            <div class="subsubrama">
-                <a href="#listado_bichillos_de_noemi_aprobar">
-                    3.4.1. Aprobar los "Bichillos de Noemí"
-                </a>
-            </div>
-            <div class="subsubrama">
-                <a href="#listado_bichillos_de_noemi_ocultar">
-                    3.4.1.1. Ocultar los "Bichillos de Noemí"
-                </a>
-            </div>
-            <div class="subsubrama">
-                <a href="#listado_bichillos_de_noemi_eliminar">
-                    3.4.1.1.1. Eliminar los "Bichillos de Noemí"
                 </a>
             </div>
         </div>
@@ -1487,8 +1472,155 @@ require_once(__DIR__ . '/../config/funciones.php');
     <!-- 3. Tercera sección - Sarcásmo y humor -->
     <div class="seccion" id="sarcasmo_y_humor">
 
-        <h2></h2>
+        <h2>3. Tercera Sección - Sarcásmo y Humor</h2>
 
+        <p>
+            Esta sección la vamos a pasar por encima, no te preocupes Noemí, no es nada importante, es más, creo que es la sección más prescindible de todas las que vas a encontrar en el panel de administración, pero como me gusta el sarcasmo y el humor, he decidido dedicarle una sección exclusiva a esta temática, así que aquí te dejo toda la información que necesitas para gestionar el contenido de esta sección, aunque como te digo, no es nada importante, así que no te preocupes por ello.
+        </p>
+
+        <div class="volver-indice">
+            <a href="#seccion-tercera">Volver al índice</a>
+        </div>
+
+        <div class="page-break"></div>
+
+        <h3 id="noemi_dice">3.1. Incluir las frases de "Noemí dice" en el sitio web</h3>
+
+        <div class="infoA">
+            <a href="http://www.ricardfs.es.mialias.net/admin/modulos/noemi_dice/noemi_dice.php" target="_blank">Haz clic aquí y se abrirá la página en tu navegar web</a>
+        </div>
+
+        <p>
+            En este módulo encontrarás un editor de texto simple y llano, aquí es donde podrás echarle imaginación a tus "webs" y escribir las frases de "Noemí dice" que aparecen en la página de inicio de la web, estas frases aparecen a la derecha del primer bloque de contenido que encuentras al entrar en la web.
+        </p>
+
+        <p>
+            Como podrás ver lo he ideado para que sean frases no muy largas, yo como siempre he hecho un poco el gamba y he dado mi toque sarcástico a la sección, pero tú puedes escribir lo que quieras, frases graciosas, frases motivadoras, frases inspiradoras ... En fin, aquí tienes total libertad para escribir lo que quieras, aunque como te digo, no es nada importante, así que no te preocupes por ello.
+        </p>
+
+        <div class="info">
+            <p>
+                Debes tener en cuenta que las frases de este bloque se muestran de forma aleatoria cada vez que un usuario accede a la página web o se recarga la página, por lo que no debes preocuparte en el orden en el que escribas las frases, ya que el sistema se encargará de mostrarlas de forma aleatoria, así que puedes escribirlas en el orden que quieras, no hay ningún orden establecido para ellas.
+            </p>
+
+            <p>
+                Si por alguna razón quieres mantener las frases dummy que he creado yo, puedes hacerlo sin ningún tipo de problema, solo tienes que decirlo y cuando haga la copia de seguridad de la base de datos para trasladarla al servidor de producción mantengo esta tabla.
+            </p>
+        </div>
+
+        <div class="volver-indice">
+            <a href="#seccion-tercera">Volver al índice</a>
+        </div>
+
+        <h3 id="listado_noemi_dice">3.2. Listado de las frases de "Noemí dice"</h3>
+
+        <div class="infoA">
+            <a href="http://www.ricardfs.es.mialias.net/admin/modulos/noemi_dice/noemi_dice_listado.php" target="_blank">Haz clic aquí y se abrirá la página en tu navegar web</a>
+        </div>
+
+        <p>
+            En este módulo  podrás ver un listado con todas las frases que has escrito en el módulo anterior, algo parecido a la imagen que te dejo debajo de este texto. Como en todos los módulos con listados de algún tipo que he creado en el panel de administración, en este también tienes un sistema de filtros vinculante para que puedas navegar entre tus frases de forma rápida y sencilla.
+        </p>
+
+        <p>
+            Hay algunos botoncicos que aparecen en cada frase y que te voy a detallar después de la imagen.
+        </p>
+
+        <div class="figura">
+            <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/3.2._Listado_de_las_frases_de_Noemi_dice.png') ?>" />
+        </div>
+
+        <div class="volver-indice">
+            <a href="#seccion-tercera">Volver al índice</a>
+        </div>
+
+        <h3 id="listado_noemi_dice_ocultar">3.2.1. Ocultar las frases de "Noemí dice"</h3>
+
+        <div class="infoA">
+            <a href="http://www.ricardfs.es.mialias.net/admin/modulos/noemi_dice/noemi_dice_listado.php" target="_blank">Haz clic aquí y se abrirá la página en tu navegar web</a>
+        </div>
+
+        <p>
+            Por defecto al crear una frase de "Noemí dice" está visible en la web, es decir que su estado predeterminado es "Aprobada", por lo tanto, después de crear las frases de "Noemí dice" y entrar al listado, verás que todas las frases tienen a su derecha un botón de color lila con la leyenda "Ocultar", si haces clic en ese botón la frase se ocultará en la web, es decir que su estado cambiará a "Oculta", por lo tanto, el botón de color lila con la leyenda "Ocultar" se convertirá en un botón de color verde con la leyenda "Aprobar".
+        </p>
+
+        <div class="volver-indice">
+            <a href="#seccion-tercera">Volver al índice</a>
+        </div>
+
+        <div class="page-break"></div>
+
+        <h3 id="listado_noemi_dice_aprobar">3.2.1.1. Aprobar las frases de "Noemí dice"</h3>
+
+        <div class="infoA">
+            <a href="http://www.ricardfs.es.mialias.net/admin/modulos/noemi_dice/noemi_dice_listado.php" target="_blank">Haz clic aquí y se abrirá la página en tu navegar web</a>
+        </div>
+
+        <p>
+            Si haces clic en el botón de color verde con la leyenda "Aprobar" de alguna frase del listado, la frase se aprobará en la web, es decir que su estado cambiará a "Aprobada", por lo tanto, el botón de color verde con la leyenda "Aprobar" se convertirá en un botón de color lila con la leyenda "Ocultar".
+        </p>
+
+        <div class="volver-indice">
+            <a href="#seccion-tercera">Volver al índice</a>
+        </div>
+
+        <h3 id="listado_noemi_dice_eliminar">3.2.1.1.1. Eliminar las frases de "Noemí dice"</h3>
+
+        <div class="infoA">
+            <a href="http://www.ricardfs.es.mialias.net/admin/modulos/noemi_dice/noemi_dice_listado.php" target="_blank">Haz clic aquí y se abrirá la página en tu navegar web</a>
+        </div>
+
+        <p>
+            Si haces clic en el botón de color rojo con la leyenda "Eliminar" de alguna frase del listado, la frase se eliminará directamente de la base de datos, por lo tanto, ten mucho cuidado con eso, asegúrate de que realmente quieres eliminar la frase antes de darle al botón de eliminar, ya que una vez que elimines una frase no podrás recuperarla.
+        </p>
+
+        <div class="danger">
+            <p>
+                ¡¡CUIDADO NOEMÏ!!
+            </p>
+
+            <p>
+                Debes tener en cuenta que la eliminación de un mensaje de la base de datos es algo irreversible, una vez que elimines un mensaje no podrás recuperarlo, así que ten mucho cuidado con eso, asegúrate de que realmente quieres eliminar el mensaje antes de darle al botón de eliminar.
+            </p>
+        </div>
+
+        <div class="volver-indice">
+            <a href="#seccion-tercera">Volver al índice</a>
+        </div>
+
+        <div class="page-break"></div>
+
+        <h3 id="bichillos_de_noemi">3.3. Incluir los "Bichillos de Noemí" en el sitio web</h3>
+
+        <div class="infoA">
+            <a href="http://www.ricardfs.es.mialias.net/admin/modulos/bichillos/noemi_bichillos.php" target="_blank">Haz clic aquí y se abrirá la página en tu navegar web</a>
+        </div>
+
+        <p>
+            Este módulo es bastante sencillo de entender, aquí te encontrarás simplemente con un campo que te permitirá subir hasta 10 imágenes cada vez para el bloque de "Los Bichillos de Noemí". Este bloque es que aparece a la izquierda del tercer módulo de la página de inicio, al igual que las frases de "Noemí dice", las imágenes de "Los Bichillos de Noemí" se muestran de forma aleatoria.
+        </p>
+
+        <p>
+            No debes preocuparte por el tamaño de las imágenes, ya que está programado para redimensionarlas. Lo único que debes tener en cuenta es que el contenedor para la imagen es cuadrado, y si la imagen es rectangular el sistema la centrará y mostrará el contenido central de la imagen, lo suyo es que subas imágenes donde los bichillos estén centrados.
+        </p>
+
+        <div class="volver-indice">
+            <a href="#seccion-tercera">Volver al índice</a>
+        </div>
+
+        <h3 id="listado_bichillos_de_noemi">3.4. Listado de los "Bichillos de Noemí"</h3>
+
+        <div class="infoA">
+            <a href="http://www.ricardfs.es.mialias.net/admin/modulos/bichillos/noemi_bichillos_listado.php" target="_blank">Haz clic aquí y se abrirá la página en tu navegar web</a>
+        </div>
+
+        <p>
+            En este módulo no me voy a extender mucho porque es exactamente igual que el módulo de listado de las frases de "Noemí dice", aquí podrás ver un listado con todas las imágenes que has subido para el bloque de "Los Bichillos de Noemí", algo parecido a la imagen que te dejo debajo de este texto. Como en todos los módulos con listados de algún tipo que he creado en el panel de administración, en este también tienes un sistema de filtros vinculante para que puedas navegar entre tus imágenes de forma rápida y sencilla. En este módulo también tienes un botón para ocultar la imagen en la web, un botón para mostrar la imagen en la web y un botón para eliminar la imagen de la base de datos.
+        </p>
+
+        <div class="volver-indice">
+            <a href="#seccion-tercera">Volver al índice</a>
+        </div>
 
         <div style="clear: both;"></div>
 

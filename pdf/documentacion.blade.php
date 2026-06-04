@@ -226,7 +226,15 @@ require_once(__DIR__ . '/../config/funciones.php');
             margin: 3px 0;
             color: #666;
             padding-left: 20px;
-            border-left: 1px dashed #bbb;
+            border-left: 1px dashed #aaa;
+        }
+
+        .subsubsubrama {
+            font-size: 12px;
+            margin: 3px 0;
+            color: #666;
+            padding-left: 30px;
+            border-left: 1px solid #bbb;
         }
 
         .indice a {
@@ -257,6 +265,32 @@ require_once(__DIR__ . '/../config/funciones.php');
             color: #555;
         }
 
+        .indice .subsubsubrama a {
+            font-size: 12px;
+            padding-left: 15px;
+            color: #555;
+        }
+
+        .volver-indice {
+            text-align: center;
+            margin: 40px 0 20px 0;
+        }
+
+        .volver-indice a {
+            display: inline-block;
+            background: #2b4c7e;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .volver-indice a:hover {
+            background: #1e3558;
+        }
+
+
         /* END indice */
 
         /* Sección */
@@ -264,7 +298,6 @@ require_once(__DIR__ . '/../config/funciones.php');
             margin: 40px auto;
             max-width: 700px;
             text-align: left;
-            page-break-inside: avoid;
         }
 
         ul,
@@ -349,6 +382,23 @@ require_once(__DIR__ . '/../config/funciones.php');
         .warning,
         .danger {
             display: grid;
+        }
+
+        .infoA {
+            background: #e4e13e;
+            border-left: 4px solid #3ee4ce;
+            padding: 10px 15px;
+            margin: 20px 0;
+        }
+
+        .infoA a {
+            color: #2b4c7e;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .infoA a:hover {
+            color: #1a2e4d;
         }
 
         .info {
