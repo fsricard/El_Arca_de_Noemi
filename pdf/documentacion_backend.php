@@ -1519,7 +1519,7 @@ require_once(__DIR__ . '/../config/funciones.php');
         </div>
 
         <p>
-            En este módulo  podrás ver un listado con todas las frases que has escrito en el módulo anterior, algo parecido a la imagen que te dejo debajo de este texto. Como en todos los módulos con listados de algún tipo que he creado en el panel de administración, en este también tienes un sistema de filtros vinculante para que puedas navegar entre tus frases de forma rápida y sencilla.
+            En este módulo podrás ver un listado con todas las frases que has escrito en el módulo anterior, algo parecido a la imagen que te dejo debajo de este texto. Como en todos los módulos con listados de algún tipo que he creado en el panel de administración, en este también tienes un sistema de filtros vinculante para que puedas navegar entre tus frases de forma rápida y sencilla.
         </p>
 
         <p>
@@ -1633,8 +1633,55 @@ require_once(__DIR__ . '/../config/funciones.php');
     <!-- 4. Cuarta sección - Registro -->
     <div class="seccion" id="registro">
 
-        <h2></h2>
+        <h2>4. Cuarta Sección - Registro</h2>
 
+        <p>
+            Hasta ahora hemos estado viendo algunos módulos de nivel medio/bajo, pero a partir de este momento nos vamos a meter en terreno pantanoso, ya que los próximos módulos que vamos a ir viendo SÍ son de interés medio/alto. En concreto, esta cuarta sección que dedico al bloque de los módulos de "Registro", para mí posiblemente sea la más importante de todas, ya que desde los módulos de este bloque comenzarás a construir realmente tu página web.
+        </p>
+
+        <div class="volver-indice">
+            <a href="#seccion-cuarta">Volver al índice</a>
+        </div>
+
+        <h3 id="registro_especie_raza">4.1. Registrar una nueva especie o raza de animal</h3>
+
+        <div class="infoA">
+            <a href="http://www.ricardfs.es.mialias.net/admin/modulos/registros/adopciones_incluir.php" target="_blank">Haz clic aquí y se abrirá la página en tu navegar web</a>
+        </div>
+
+        <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/4.1._Registrar_una_nueva_especie_o_raza_de_animal.png') ?>" class="img-left" />
+
+        <p>
+            Este primer módulo es muuuuuy (con muchísimas us) importante, cuando me presentaste tu proyecto de "El Arca de Noemí" enseguida me dí cuenta de que a pesar de las semejanzas, realmente no tenía nada que ver con el proyecto de Míriam "La Gatopía de Míriam". Para mí el proyecto de Míriam fue relativamente sencillo, ya que me tuve que enfocar solo en dos tipos de animales, perros y peludos. Pero "El Arca de Noemí" es otra cosa, en el Arca no os dedicáis a una o dos especies animales sino que estáis abiertos a dar refugio a cualquier tipo de animal que lo necesite, y esto me hizo pensar bastante en cómo enfocar el principal proceso del proyecto ... La gestión de las especies y razas animales.
+        </p>
+
+        <p>
+            Y así nació este módulo, un módulo completamente flexible, semi automático y me atrevería a decir que es casi inteligente, te cuento cómo funciona.
+        </p>
+
+        <p>
+            Como siempre te dejo una imagen de referencia para que te hagas a la idea de lo que te encontrarás al entrar al módulo, el primer campo es un selector inteligente con todas las especies que hay en la base de datos, como será la primera vez que entres al módulo, este selector estará vacío y no cumplirá con su función, para ello tendrás el siguiente campo, un campo tipo input donde tendrás que escribir el nombre de la especie animal que quieres crear.
+        </p>
+
+        <p>
+            Con las razas pasa exactamente lo mismo, tienes el campo selector inteligente que al ser la primera vez no funcionará, y debajo el campo input, donde tendrás que añadir la raza animal que quieras vincular a la especie que has puesto más arriba. Sé un poquita lógica, Noemí, si la primera vez creas la especie "Perro", no le vincules la raza "Siamés", hazme el favor.
+        </p>
+
+        <p>
+            ¿Qué pasará en este módulo una vez que hayas creado varias especies y razas animales?, Pues que los campos de selección inteligentes empezarán a funcionar, y la magia hará acto de presencia. Al haber creado varias especies podrás abrir el campo de selección de las especies, verás que será abrumador porque tendrás un listado infinito de especies, tú tranquila Noemí, yo he pensado en todo, ¿Qué busca la especie "Cabra"?, sencillo, empieza a teclear C-A-B ... El selector inteligente te irá descartando especies hasta encontrar "Cabra", eso sí, siempre que exista.
+        </p>
+
+        <p>
+            Y con las razas, ¿Qué pasa con las razas Ricardito?, pues esto es más chulo todavía, el selector de razas, a pesar de que hayas creado varias razas, estará bloqueado ... Hasta que escojas una especie en el selector de especies, en el momento en el que escojas una especie, por ejemplo "Perro", el selector de razas se activará, peeeeeeeero ... Solo mostrará las razas vinculadas a la especie "Perro".
+        </p>
+
+        <div class="warning">
+            Y por último lo más divertido de todo, para que no puedas equivocarte y que el sistema se vuelva loco con duplicados, en el caso de que utilizaras el campo input, ya sea de especies o razas, para crear una nueva especie o raza, y esta ya existiera en la base de datos, te aparecería un mensaje advirtiéndote de que ya existe y no te la dejaría crear.
+        </div>
+
+        <div class="volver-indice">
+            <a href="#seccion-cuarta">Volver al índice</a>
+        </div>
 
         <div style="clear: both;"></div>
 
@@ -1648,7 +1695,6 @@ require_once(__DIR__ . '/../config/funciones.php');
     <div class="seccion" id="plataformas_crowdfunding">
 
         <h2></h2>
-
 
         <div style="clear: both;"></div>
 

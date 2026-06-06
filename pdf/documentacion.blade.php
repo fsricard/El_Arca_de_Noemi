@@ -564,6 +564,10 @@ require_once(__DIR__ . '/../config/funciones.php');
             <a href="http://www.ricardfs.es.mialias.net/admin/modulos/" target="_blank">Haz clic aquí y se abrirá la página en tu navegar web</a>
         </div>
 
+        <div class="volver-indice">
+            <a href="#">Volver al índice</a>
+        </div>
+
         <div class="info">
             Esta es una caja informativa. Úsala para destacar datos relevantes o aclaraciones importantes.
         </div>
