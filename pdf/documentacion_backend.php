@@ -166,19 +166,19 @@ require_once(__DIR__ . '/../config/funciones.php');
         .img-center {
             display: block;
             margin: 20px auto;
-            width: 50%;
+            width: 90%;
         }
 
         .img-left {
             float: left;
             margin: 10px 20px 10px 0;
-            width: 35%;
+            width: 45%;
         }
 
         .img-right {
             float: right;
             margin: 10px 0 10px 20px;
-            width: 35%;
+            width: 45%;
         }
 
         /* END imágenes alineadas */
@@ -1144,9 +1144,7 @@ require_once(__DIR__ . '/../config/funciones.php');
             </ol>
         </ol>
 
-        <div class="figura">
-            <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/1.1._Dirección_Web_para_crear_tu_usuario.png') ?>" />
-        </div>
+        <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/1.1._Dirección_Web_para_crear_tu_usuario.png') ?>" class="img-center"/>
 
         <div class="info">
             El rol "Administrador" tiene todos los privilegios activados, mientras que el rol "Visitante" solo puede ver algunas secciones, este rol no puede editar, eliminar, crear, bloquear, activar, ocultar ...
@@ -1251,9 +1249,7 @@ require_once(__DIR__ . '/../config/funciones.php');
             Lo bueno de este sistema de filtros es que lo he programado para que los puedas utilizar de forma individual, o también puedas combinarlos entre sí como a ti buenamente se te antoje, por ejemplo, puedes filtrar por el nombre de la persona y el día que te fue enviado el mensaje, o también puedes filtrar por el E-mail de la persona y el mes que te fue enviado el mensaje, o también puedes filtrar por el año que te fue enviado el mensaje, o también puedes filtrar por el nombre de la persona, el E-mail de la persona, el día, mes y año que te fue enviado el mensaje ... En fin, tú decides como quieres utilizarlo.
         </p>
 
-        <div class="figura">
-            <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/2.1._Mensajes_que_llegan_desde_la_pagina_de_contacto.png') ?>" />
-        </div>
+        <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/2.1._Mensajes_que_llegan_desde_la_pagina_de_contacto.png') ?>" class="img-center" />
 
         <div class="success">
             Recuerda que todo el contenido que vas a encontrar en los diferentes módulos que vamos a ver en la sección dos de este documento es solo contenido dummy, una vez que la web se pase al servidor de producción, todo este contenido estará vacío y tu tendrás que crearlo a tu gusto.
@@ -1323,9 +1319,7 @@ require_once(__DIR__ . '/../config/funciones.php');
             </div>
         </div>
 
-        <div class="figura">
-            <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/2.2._Contenido_de_la_seccion_de_contacto.png') ?>" />
-        </div>
+        <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/2.2._Contenido_de_la_seccion_de_contacto.png') ?>" class="img-center" />
 
         <div class="volver-indice">
             <a href="#seccion-segunda">Volver al índice</a>
@@ -1391,9 +1385,7 @@ require_once(__DIR__ . '/../config/funciones.php');
             En este módulo podrás ver el listado de las opiniones que han dejado los usuarios en la sección de las opiniones de los usuarios de la web, algo parecido a la imagen que te debajo de este texto, esta sección es la que aparece cuando haces clic en el enlace "Opiniones" que se encuentra en el menú principal de la web. En este listado podrás ver el nombre del usuario que ha dejado la opinión, su correo electrónico, la fecha en la que dejó la opinión, el mensaje con la opinión que dejó y también tendrás dos botones para cada opinión, el botón "Editar" y el botón "Eliminar".
         </p>
 
-        <div class="figura">
-            <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/2.6._Listado_de_las_opiniones_de_los_usuarios.png') ?>" />
-        </div>
+        <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/2.6._Listado_de_las_opiniones_de_los_usuarios.png') ?>" class="img-center" />
 
         <div class="danger">
             <p>
@@ -1526,9 +1518,7 @@ require_once(__DIR__ . '/../config/funciones.php');
             Hay algunos botoncicos que aparecen en cada frase y que te voy a detallar después de la imagen.
         </p>
 
-        <div class="figura">
-            <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/3.2._Listado_de_las_frases_de_Noemi_dice.png') ?>" />
-        </div>
+        <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/3.2._Listado_de_las_frases_de_Noemi_dice.png') ?>" class="img-center" />
 
         <div class="volver-indice">
             <a href="#seccion-tercera">Volver al índice</a>
@@ -1678,6 +1668,22 @@ require_once(__DIR__ . '/../config/funciones.php');
         <div class="warning">
             Y por último lo más divertido de todo, para que no puedas equivocarte y que el sistema se vuelva loco con duplicados, en el caso de que utilizaras el campo input, ya sea de especies o razas, para crear una nueva especie o raza, y esta ya existiera en la base de datos, te aparecería un mensaje advirtiéndote de que ya existe y no te la dejaría crear.
         </div>
+
+        <div class="volver-indice">
+            <a href="#seccion-cuarta">Volver al índice</a>
+        </div>
+
+        <h3 id="registro_nuevo_animal_adopcion">4.2. Registrar un nuevo animal en adopción</h3>
+
+        <div class="infoA">
+            <a href="http://www.ricardfs.es.mialias.net/admin/modulos/registros/adopciones.php" target="_blank">Haz clic aquí y se abrirá la página en tu navegar web</a>
+        </div>
+
+        <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/4.2._Registrar_un_nuevo_animal_en_adopcion.png') ?>" class="img-right" />
+
+        <p>
+            
+        </p>
 
         <div class="volver-indice">
             <a href="#seccion-cuarta">Volver al índice</a>

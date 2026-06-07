@@ -692,6 +692,9 @@ require_once(__DIR__ . '/../config/funciones.php');
             <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/') ?>" />
         </div>
 
+        <p>Imagen centrada al 90%:</p>
+        <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/') ?>" class="img-center" />
+
         <p>Imagen alineada a la izquierda:</p>
         <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/') ?>" class="img-left" />
         <p>
