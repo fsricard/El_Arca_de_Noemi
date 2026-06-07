@@ -272,6 +272,9 @@ require_once(__DIR__ . '/../config/funciones.php');
         }
 
         .volver-indice {
+            display: block;
+            overflow: hidden;
+            width: 100%;
             text-align: center;
             margin: 40px 0 20px 0;
         }
@@ -352,7 +355,7 @@ require_once(__DIR__ . '/../config/funciones.php');
             border: 1px solid #ccc;
         }
 
-        table {
+         table {
             width: 100%;
             border-collapse: collapse;
             margin: 20px 0;
@@ -442,7 +445,7 @@ require_once(__DIR__ . '/../config/funciones.php');
         }
 
         .figura img {
-            width: 70%;
+            width: 90%;
             margin-bottom: 8px;
         }
 
@@ -1144,7 +1147,9 @@ require_once(__DIR__ . '/../config/funciones.php');
             </ol>
         </ol>
 
-        <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/1.1._Dirección_Web_para_crear_tu_usuario.png') ?>" class="img-center"/>
+        <div class="figura">
+            <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/1.1._Dirección_Web_para_crear_tu_usuario.png') ?>" />
+        </div>
 
         <div class="info">
             El rol "Administrador" tiene todos los privilegios activados, mientras que el rol "Visitante" solo puede ver algunas secciones, este rol no puede editar, eliminar, crear, bloquear, activar, ocultar ...
@@ -1170,11 +1175,11 @@ require_once(__DIR__ . '/../config/funciones.php');
             <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí y se abrirá la página en tu navegar web</a>
         </div>
 
+        <div class="page-break"></div>
+
         <div class="warning">
             La encriptación de mi servidor de pruebas se regenera cada "X" tiempo de forma automática para obligarnos a volver a introducir el usuario y la contraseña, de manera que cada dos por tres te los irá pidiendo, y como en el fondo parece que SÏ tengo algún sentimiento positivo por el ser humano (a muy pesar mio, que quede constancia), te voy a ir dejando el usuario y contraseña a lo largo de este documento para que no lo tengas que ir buscando.
         </div>
-
-        <div class="page-break"></div>
 
         <div class="success">
             <h4>
@@ -1218,8 +1223,6 @@ require_once(__DIR__ . '/../config/funciones.php');
 
     <div class="separador"></div>
 
-    <div class="page-break"></div>
-
     <!-- 2. Segunda sección - Documentos -->
     <div class="seccion" id="documentos">
 
@@ -1249,7 +1252,9 @@ require_once(__DIR__ . '/../config/funciones.php');
             Lo bueno de este sistema de filtros es que lo he programado para que los puedas utilizar de forma individual, o también puedas combinarlos entre sí como a ti buenamente se te antoje, por ejemplo, puedes filtrar por el nombre de la persona y el día que te fue enviado el mensaje, o también puedes filtrar por el E-mail de la persona y el mes que te fue enviado el mensaje, o también puedes filtrar por el año que te fue enviado el mensaje, o también puedes filtrar por el nombre de la persona, el E-mail de la persona, el día, mes y año que te fue enviado el mensaje ... En fin, tú decides como quieres utilizarlo.
         </p>
 
-        <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/2.1._Mensajes_que_llegan_desde_la_pagina_de_contacto.png') ?>" class="img-center" />
+        <div class="figura">
+            <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/2.1._Mensajes_que_llegan_desde_la_pagina_de_contacto.png') ?>" />
+        </div>
 
         <div class="success">
             Recuerda que todo el contenido que vas a encontrar en los diferentes módulos que vamos a ver en la sección dos de este documento es solo contenido dummy, una vez que la web se pase al servidor de producción, todo este contenido estará vacío y tu tendrás que crearlo a tu gusto.
@@ -1278,8 +1283,6 @@ require_once(__DIR__ . '/../config/funciones.php');
         <div class="volver-indice">
             <a href="#seccion-segunda">Volver al índice</a>
         </div>
-
-        <div class="page-break"></div>
 
         <h3 id="eliminar_mensaje">2.1.1.1. Eliminar un mensaje de contacto</h3>
 
@@ -1319,7 +1322,9 @@ require_once(__DIR__ . '/../config/funciones.php');
             </div>
         </div>
 
-        <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/2.2._Contenido_de_la_seccion_de_contacto.png') ?>" class="img-center" />
+        <div class="figura">
+            <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/2.2._Contenido_de_la_seccion_de_contacto.png') ?>" />
+        </div>
 
         <div class="volver-indice">
             <a href="#seccion-segunda">Volver al índice</a>
@@ -1334,10 +1339,6 @@ require_once(__DIR__ . '/../config/funciones.php');
         <p>
             Aquí podrás editar el contenido que aparece en la página de presentación de Noemí, esta página es la que aparece cuando haces clic en el enlace "Así es Noemí" que se encuentra en el menú principal de la web. En esta página podrás contar la historia de Noemí, cómo surgió la idea de crear "El Arca de Noemí", cuáles son los objetivos de la asociación, quiénes forman parte del equipo ... En fin, aquí tienes total libertad para contar lo que quieras sobre Noemí y sobre la asociación.
         </p>
-
-        <div class="volver-indice">
-            <a href="#seccion-segunda">Volver al índice</a>
-        </div>
 
         <div class="page-break"></div>
 
@@ -1385,7 +1386,9 @@ require_once(__DIR__ . '/../config/funciones.php');
             En este módulo podrás ver el listado de las opiniones que han dejado los usuarios en la sección de las opiniones de los usuarios de la web, algo parecido a la imagen que te debajo de este texto, esta sección es la que aparece cuando haces clic en el enlace "Opiniones" que se encuentra en el menú principal de la web. En este listado podrás ver el nombre del usuario que ha dejado la opinión, su correo electrónico, la fecha en la que dejó la opinión, el mensaje con la opinión que dejó y también tendrás dos botones para cada opinión, el botón "Editar" y el botón "Eliminar".
         </p>
 
-        <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/2.6._Listado_de_las_opiniones_de_los_usuarios.png') ?>" class="img-center" />
+        <div class="figura">
+            <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/2.6._Listado_de_las_opiniones_de_los_usuarios.png') ?>" />
+        </div>
 
         <div class="danger">
             <p>
@@ -1400,8 +1403,6 @@ require_once(__DIR__ . '/../config/funciones.php');
         <div class="volver-indice">
             <a href="#seccion-segunda">Volver al índice</a>
         </div>
-
-        <div class="page-break"></div>
 
         <h3 id="opiniones_editar">2.6.1. Editar las opiniones de los usuarios</h3>
 
@@ -1518,7 +1519,9 @@ require_once(__DIR__ . '/../config/funciones.php');
             Hay algunos botoncicos que aparecen en cada frase y que te voy a detallar después de la imagen.
         </p>
 
-        <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/3.2._Listado_de_las_frases_de_Noemi_dice.png') ?>" class="img-center" />
+        <div class="figura">
+            <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/3.2._Listado_de_las_frases_de_Noemi_dice.png') ?>" />
+        </div>
 
         <div class="volver-indice">
             <a href="#seccion-tercera">Volver al índice</a>
@@ -1673,6 +1676,8 @@ require_once(__DIR__ . '/../config/funciones.php');
             <a href="#seccion-cuarta">Volver al índice</a>
         </div>
 
+        <div class="page-break"></div>
+
         <h3 id="registro_nuevo_animal_adopcion">4.2. Registrar un nuevo animal en adopción</h3>
 
         <div class="infoA">
@@ -1681,9 +1686,88 @@ require_once(__DIR__ . '/../config/funciones.php');
 
         <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/4.2._Registrar_un_nuevo_animal_en_adopcion.png') ?>" class="img-right" />
 
+        <div class="warning">
+            Pon atención porque este módulo es el más importante de todos los que vas a encontrar en el panel de administración, desde este módulo vas a dar de alta en tu página web a todos los animales que quieras poner en adopción.
+        </div>
+
         <p>
-            
+            Pero tú no tienes que preocuparte por nada Noemí, yo ya he pensado en todo para facilitarte el trabajo lo máximo posible, al entrar en este módulo por primera vez encontrarás algo parecido a la imagen que te dejó a la derecha de este texto. Para no hacer esta sección demasiado larga, voy a hacerte un listado con cada campo y su correspondiente función.
         </p>
+
+        <div class="info">
+            No obstante tú sabes mucho mejor que yo las necesidades del "Arca de Noemí", por lo tanto, si crees que es necesario añadir, o quitar, algún campo solo tienes que decirlo. Yo me he guiado por mi humilde conocimiento del tema ... Y no es mucho la verdad.
+        </div>
+
+        <table>
+            <tr>
+                <th>Campo</th>
+                <th>Función</th>
+            </tr>
+            <tr>
+                <td>Nombre:</td>
+                <td>Sencillo, aquí solo debes poner el nombre del animal.</td>
+            </tr>
+            <tr>
+                <td>Especie:</td>
+                <td>Este selecctor funciona igual que el del módulo anterior, mostrará las especies que hayas creado anteriormente.</td>
+            </tr>
+            <tr>
+                <td>Raza:</td>
+                <td>Exactamente lo mismo que en el módulo anterior, una vez elegida una especie aparecerán las razas vinculadas a ella.</td>
+            </tr>
+            <tr>
+                <td>Sexo:</td>
+                <td>Está más que claro, bueno si rescatas algún caracol siempre puedo añadir "Hermafrodita".</td>
+            </tr>
+            <tr>
+                <td>Edad:</td>
+                <td>Está claro que la edad siempre será una estimación, pero es un campo necesario, sobre todo para los visitantes.</td>
+            </tr>
+            <tr>
+                <td>Fecha de nacimiento:</td>
+                <td>Este campo es solo para los animales nacidos en "El Arca de Noemí".</td>
+            </tr>
+            <tr>
+                <td>Tamaño:</td>
+                <td>He pensado que dar una estimación del tamaño de cada animal puede ayudar a la toma de decisión para adoptar.</td>
+            </tr>
+            <tr>
+                <td>Peso:</td>
+                <td>No tiene mucho misterio, es el peso aproximado del animal.</td>
+            </tr>
+            <tr>
+                <td>Estado de salud:</td>
+                <td>Este campo sirve para dejar un breve comentario sobre el historial clínico del animal.</td>
+            </tr>
+            <tr>
+                <td>Campos de vacunación:</td>
+                <td>Es muy importante añadir todos estos datos.</td>
+            </tr>
+            <tr>
+                <td>Microchip:</td>
+                <td>Saber si tiene el microchip ya puesto es un empujoncito más para la toma de decisiones.</td>
+            </tr>
+            <tr>
+                <td>Fecha de ingreso:</td>
+                <td>Este campo es para tomarlo como referencia de la cuarentena que pasa cada animal, por eso lo he llamado "Fecha de ingreso".</td>
+            </tr>
+            <tr>
+                <td>Fecha de rescate:</td>
+                <td>Está más que claro, este campo es para poner la fecha en la que fue rescatado el animal.</td>
+            </tr>
+            <tr>
+                <td>Disponible para adopción:</td>
+                <td>Este checkbox es sumamente importante, aunque añadas un animal desde este módulo, puedes decidir si quieres que aparezca en la página web o no marcando este campo. Y de la misma manera, cuando un animal se vincula a un adoptante, este campo se desmarca de forma automática.</td>
+            </tr>
+            <tr>
+                <td>Descripción:</td>
+                <td>Todo animal tiene una historia que contar y para eso es este editor de texto enriquecido.</td>
+            </tr>
+            <tr>
+                <td>Fotos del animal:</td>
+                <td>En la página individual de cada animal hay una galería de fotos, desde este campo puedes subir tantas imágenes como quieras, eso sí, de diez en diez.</td>
+            </tr>
+        </table>
 
         <div class="volver-indice">
             <a href="#seccion-cuarta">Volver al índice</a>
