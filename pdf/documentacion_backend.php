@@ -1240,8 +1240,35 @@ require_once(__DIR__ . '/../config/funciones.php');
             2.1. Mensajes que llegan desde la página de contacto
         </h3>
 
-        <div class="infoA">
-            <a href="http://www.ricardfs.es.mialias.net/admin/modulos/contacto/contacto.php" target="_blank">Haz clic aquí y se abrirá la página en tu navegar web</a>
+        <div class="warning">
+            <p>
+                Haz clic en el siguiente enlace, te pedirá el usuario y contraseña de la encriptación de la página web, te los dejo debajo del enlace. Una vez que hayas desencriptado la página web entrarás en la pantalla de login, utilizas tu usuario y contraseña e voila ... Ya puedes acceder a los enlaces de cada sección.
+            </p>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
+            </div>
+
+            <div class="success">
+                <ul>
+                    <li>Usuario:</li>
+                    <ul>
+                        <li>ricard624</li>
+                    </ul>
+                    <li>Contraseña:</li>
+                    <ul>
+                        <li>mNU1P4hZI36x</li>
+                    </ul>
+                </ul>
+            </div>
+
+            <div class="danger">
+                No te agobies Noemí, esto solo lo tienes que hacer cada vez que cierres el navegador y empieces de cero, no cada vez que quieras entrar a un módulo.
+            </div>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/modulos/contacto/contacto.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
+            </div>
         </div>
 
         <p>
@@ -1266,8 +1293,35 @@ require_once(__DIR__ . '/../config/funciones.php');
 
         <h3 id="ver_mensaje">2.1.1. Editar un mensaje de contacto</h3>
 
-        <div class="infoA">
-            <a href="http://www.ricardfs.es.mialias.net/admin/modulos/contacto/contacto_editar.php?id=11" target="_blank">Haz clic aquí y se abrirá la página en tu navegar web</a>
+        <div class="warning">
+            <p>
+                Haz clic en el siguiente enlace, te pedirá el usuario y contraseña de la encriptación de la página web, te los dejo debajo del enlace. Una vez que hayas desencriptado la página web entrarás en la pantalla de login, utilizas tu usuario y contraseña e voila ... Ya puedes acceder a los enlaces de cada sección.
+            </p>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
+            </div>
+
+            <div class="success">
+                <ul>
+                    <li>Usuario:</li>
+                    <ul>
+                        <li>ricard624</li>
+                    </ul>
+                    <li>Contraseña:</li>
+                    <ul>
+                        <li>mNU1P4hZI36x</li>
+                    </ul>
+                </ul>
+            </div>
+
+            <div class="danger">
+                No te agobies Noemí, esto solo lo tienes que hacer cada vez que cierres el navegador y empieces de cero, no cada vez que quieras entrar a un módulo.
+            </div>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/modulos/contacto/contacto_editar.php?id=11" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
+            </div>
         </div>
 
         <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/2.1.1._Editar_un_mensaje_de_contacto.png') ?>" class="img-right" />
@@ -1306,8 +1360,35 @@ require_once(__DIR__ . '/../config/funciones.php');
 
         <h3 id="contacto_intro">2.2. Contenido de la sección de contacto</h3>
 
-        <div class="infoA">
-            <a href="http://www.ricardfs.es.mialias.net/admin/modulos/contacto/contacto_intro.php" target="_blank">Haz clic aquí y se abrirá la página en tu navegar web</a>
+        <div class="warning">
+            <p>
+                Haz clic en el siguiente enlace, te pedirá el usuario y contraseña de la encriptación de la página web, te los dejo debajo del enlace. Una vez que hayas desencriptado la página web entrarás en la pantalla de login, utilizas tu usuario y contraseña e voila ... Ya puedes acceder a los enlaces de cada sección.
+            </p>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
+            </div>
+
+            <div class="success">
+                <ul>
+                    <li>Usuario:</li>
+                    <ul>
+                        <li>ricard624</li>
+                    </ul>
+                    <li>Contraseña:</li>
+                    <ul>
+                        <li>mNU1P4hZI36x</li>
+                    </ul>
+                </ul>
+            </div>
+
+            <div class="danger">
+                No te agobies Noemí, esto solo lo tienes que hacer cada vez que cierres el navegador y empieces de cero, no cada vez que quieras entrar a un módulo.
+            </div>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/modulos/contacto/contacto_intro.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
+            </div>
         </div>
 
         <p>
@@ -1332,8 +1413,35 @@ require_once(__DIR__ . '/../config/funciones.php');
 
         <h3 id="asi_es_noemi">2.3. Contenido de la página de presentación de Noemí</h3>
 
-        <div class="infoA">
-            <a href="http://www.ricardfs.es.mialias.net/admin/modulos/asi_es_noemi/asi_es_noemi.php" target="_blank">Haz clic aquí y se abrirá la página en tu navegar web</a>
+        <div class="warning">
+            <p>
+                Haz clic en el siguiente enlace, te pedirá el usuario y contraseña de la encriptación de la página web, te los dejo debajo del enlace. Una vez que hayas desencriptado la página web entrarás en la pantalla de login, utilizas tu usuario y contraseña e voila ... Ya puedes acceder a los enlaces de cada sección.
+            </p>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
+            </div>
+
+            <div class="success">
+                <ul>
+                    <li>Usuario:</li>
+                    <ul>
+                        <li>ricard624</li>
+                    </ul>
+                    <li>Contraseña:</li>
+                    <ul>
+                        <li>mNU1P4hZI36x</li>
+                    </ul>
+                </ul>
+            </div>
+
+            <div class="danger">
+                No te agobies Noemí, esto solo lo tienes que hacer cada vez que cierres el navegador y empieces de cero, no cada vez que quieras entrar a un módulo.
+            </div>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/modulos/asi_es_noemi/asi_es_noemi.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
+            </div>
         </div>
 
         <p>
@@ -1344,8 +1452,35 @@ require_once(__DIR__ . '/../config/funciones.php');
 
         <h3 id="politica_de_privacidad">2.4. Contenido de la página de la política de privacidad</h3>
 
-        <div class="infoA">
-            <a href="http://www.ricardfs.es.mialias.net/admin/modulos/politica/politica_de_privacidad.php" target="_blank">Haz clic aquí y se abrirá la página en tu navegar web</a>
+        <div class="warning">
+            <p>
+                Haz clic en el siguiente enlace, te pedirá el usuario y contraseña de la encriptación de la página web, te los dejo debajo del enlace. Una vez que hayas desencriptado la página web entrarás en la pantalla de login, utilizas tu usuario y contraseña e voila ... Ya puedes acceder a los enlaces de cada sección.
+            </p>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
+            </div>
+
+            <div class="success">
+                <ul>
+                    <li>Usuario:</li>
+                    <ul>
+                        <li>ricard624</li>
+                    </ul>
+                    <li>Contraseña:</li>
+                    <ul>
+                        <li>mNU1P4hZI36x</li>
+                    </ul>
+                </ul>
+            </div>
+
+            <div class="danger">
+                No te agobies Noemí, esto solo lo tienes que hacer cada vez que cierres el navegador y empieces de cero, no cada vez que quieras entrar a un módulo.
+            </div>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/modulos/politica/politica_de_privacidad.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
+            </div>
         </div>
 
         <p>
@@ -1362,8 +1497,35 @@ require_once(__DIR__ . '/../config/funciones.php');
 
         <h3 id="opiniones_intro">2.5. Contenido de la sección de las opiniones de los usuarios</h3>
 
-        <div class="infoA">
-            <a href="http://www.ricardfs.es.mialias.net/admin/modulos/opiniones/opiniones_intro.php" target="_blank">Haz clic aquí y se abrirá la página en tu navegar web</a>
+        <div class="warning">
+            <p>
+                Haz clic en el siguiente enlace, te pedirá el usuario y contraseña de la encriptación de la página web, te los dejo debajo del enlace. Una vez que hayas desencriptado la página web entrarás en la pantalla de login, utilizas tu usuario y contraseña e voila ... Ya puedes acceder a los enlaces de cada sección.
+            </p>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
+            </div>
+
+            <div class="success">
+                <ul>
+                    <li>Usuario:</li>
+                    <ul>
+                        <li>ricard624</li>
+                    </ul>
+                    <li>Contraseña:</li>
+                    <ul>
+                        <li>mNU1P4hZI36x</li>
+                    </ul>
+                </ul>
+            </div>
+
+            <div class="danger">
+                No te agobies Noemí, esto solo lo tienes que hacer cada vez que cierres el navegador y empieces de cero, no cada vez que quieras entrar a un módulo.
+            </div>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/modulos/opiniones/opiniones_intro.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
+            </div>
         </div>
 
         <p>
@@ -1378,8 +1540,35 @@ require_once(__DIR__ . '/../config/funciones.php');
 
         <h3 id="opiniones_listado">2.6. Listado de las opiniones de los usuarios</h3>
 
-        <div class="infoA">
-            <a href="http://www.ricardfs.es.mialias.net/admin/modulos/opiniones/opiniones_de_usuario_listado.php" target="_blank">Haz clic aquí y se abrirá la página en tu navegar web</a>
+        <div class="warning">
+            <p>
+                Haz clic en el siguiente enlace, te pedirá el usuario y contraseña de la encriptación de la página web, te los dejo debajo del enlace. Una vez que hayas desencriptado la página web entrarás en la pantalla de login, utilizas tu usuario y contraseña e voila ... Ya puedes acceder a los enlaces de cada sección.
+            </p>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
+            </div>
+
+            <div class="success">
+                <ul>
+                    <li>Usuario:</li>
+                    <ul>
+                        <li>ricard624</li>
+                    </ul>
+                    <li>Contraseña:</li>
+                    <ul>
+                        <li>mNU1P4hZI36x</li>
+                    </ul>
+                </ul>
+            </div>
+
+            <div class="danger">
+                No te agobies Noemí, esto solo lo tienes que hacer cada vez que cierres el navegador y empieces de cero, no cada vez que quieras entrar a un módulo.
+            </div>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/modulos/opiniones/opiniones_de_usuario_listado.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
+            </div>
         </div>
 
         <p>
@@ -1406,8 +1595,35 @@ require_once(__DIR__ . '/../config/funciones.php');
 
         <h3 id="opiniones_editar">2.6.1. Editar las opiniones de los usuarios</h3>
 
-        <div class="infoA">
-            <a href="http://www.ricardfs.es.mialias.net/admin/modulos/opiniones/opiniones_de_usuario_editar.php?id=3" target="_blank">Haz clic aquí y se abrirá la página en tu navegar web</a>
+        <div class="warning">
+            <p>
+                Haz clic en el siguiente enlace, te pedirá el usuario y contraseña de la encriptación de la página web, te los dejo debajo del enlace. Una vez que hayas desencriptado la página web entrarás en la pantalla de login, utilizas tu usuario y contraseña e voila ... Ya puedes acceder a los enlaces de cada sección.
+            </p>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
+            </div>
+
+            <div class="success">
+                <ul>
+                    <li>Usuario:</li>
+                    <ul>
+                        <li>ricard624</li>
+                    </ul>
+                    <li>Contraseña:</li>
+                    <ul>
+                        <li>mNU1P4hZI36x</li>
+                    </ul>
+                </ul>
+            </div>
+
+            <div class="danger">
+                No te agobies Noemí, esto solo lo tienes que hacer cada vez que cierres el navegador y empieces de cero, no cada vez que quieras entrar a un módulo.
+            </div>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/modulos/opiniones/opiniones_de_usuario_editar.php?id=3" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
+            </div>
         </div>
 
         <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/2.6.1._Editar -las_opiniones_de_los_usuarios.png') ?>" class="img-right" />
@@ -1432,8 +1648,35 @@ require_once(__DIR__ . '/../config/funciones.php');
 
         <h3 id="opniones_eliminar">2.6.1.1. Eliminar las opiniones de los usuarios</h3>
 
-        <div class="infoA">
-            <a href="http://www.ricardfs.es.mialias.net/admin/modulos/opiniones/opiniones_de_usuario_listado.php" target="_blank">Haz clic aquí y se abrirá la página en tu navegar web</a>
+        <div class="warning">
+            <p>
+                Haz clic en el siguiente enlace, te pedirá el usuario y contraseña de la encriptación de la página web, te los dejo debajo del enlace. Una vez que hayas desencriptado la página web entrarás en la pantalla de login, utilizas tu usuario y contraseña e voila ... Ya puedes acceder a los enlaces de cada sección.
+            </p>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
+            </div>
+
+            <div class="success">
+                <ul>
+                    <li>Usuario:</li>
+                    <ul>
+                        <li>ricard624</li>
+                    </ul>
+                    <li>Contraseña:</li>
+                    <ul>
+                        <li>mNU1P4hZI36x</li>
+                    </ul>
+                </ul>
+            </div>
+
+            <div class="danger">
+                No te agobies Noemí, esto solo lo tienes que hacer cada vez que cierres el navegador y empieces de cero, no cada vez que quieras entrar a un módulo.
+            </div>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/modulos/opiniones/opiniones_de_usuario_listado.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
+            </div>
         </div>
 
         <p>
@@ -1479,8 +1722,35 @@ require_once(__DIR__ . '/../config/funciones.php');
 
         <h3 id="noemi_dice">3.1. Incluir las frases de "Noemí dice" en el sitio web</h3>
 
-        <div class="infoA">
-            <a href="http://www.ricardfs.es.mialias.net/admin/modulos/noemi_dice/noemi_dice.php" target="_blank">Haz clic aquí y se abrirá la página en tu navegar web</a>
+        <div class="warning">
+            <p>
+                Haz clic en el siguiente enlace, te pedirá el usuario y contraseña de la encriptación de la página web, te los dejo debajo del enlace. Una vez que hayas desencriptado la página web entrarás en la pantalla de login, utilizas tu usuario y contraseña e voila ... Ya puedes acceder a los enlaces de cada sección.
+            </p>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
+            </div>
+
+            <div class="success">
+                <ul>
+                    <li>Usuario:</li>
+                    <ul>
+                        <li>ricard624</li>
+                    </ul>
+                    <li>Contraseña:</li>
+                    <ul>
+                        <li>mNU1P4hZI36x</li>
+                    </ul>
+                </ul>
+            </div>
+
+            <div class="danger">
+                No te agobies Noemí, esto solo lo tienes que hacer cada vez que cierres el navegador y empieces de cero, no cada vez que quieras entrar a un módulo.
+            </div>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/modulos/noemi_dice/noemi_dice.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
+            </div>
         </div>
 
         <p>
@@ -1507,8 +1777,35 @@ require_once(__DIR__ . '/../config/funciones.php');
 
         <h3 id="listado_noemi_dice">3.2. Listado de las frases de "Noemí dice"</h3>
 
-        <div class="infoA">
-            <a href="http://www.ricardfs.es.mialias.net/admin/modulos/noemi_dice/noemi_dice_listado.php" target="_blank">Haz clic aquí y se abrirá la página en tu navegar web</a>
+        <div class="warning">
+            <p>
+                Haz clic en el siguiente enlace, te pedirá el usuario y contraseña de la encriptación de la página web, te los dejo debajo del enlace. Una vez que hayas desencriptado la página web entrarás en la pantalla de login, utilizas tu usuario y contraseña e voila ... Ya puedes acceder a los enlaces de cada sección.
+            </p>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
+            </div>
+
+            <div class="success">
+                <ul>
+                    <li>Usuario:</li>
+                    <ul>
+                        <li>ricard624</li>
+                    </ul>
+                    <li>Contraseña:</li>
+                    <ul>
+                        <li>mNU1P4hZI36x</li>
+                    </ul>
+                </ul>
+            </div>
+
+            <div class="danger">
+                No te agobies Noemí, esto solo lo tienes que hacer cada vez que cierres el navegador y empieces de cero, no cada vez que quieras entrar a un módulo.
+            </div>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/modulos/noemi_dice/noemi_dice_listado.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
+            </div>
         </div>
 
         <p>
@@ -1529,8 +1826,35 @@ require_once(__DIR__ . '/../config/funciones.php');
 
         <h3 id="listado_noemi_dice_ocultar">3.2.1. Ocultar las frases de "Noemí dice"</h3>
 
-        <div class="infoA">
-            <a href="http://www.ricardfs.es.mialias.net/admin/modulos/noemi_dice/noemi_dice_listado.php" target="_blank">Haz clic aquí y se abrirá la página en tu navegar web</a>
+        <div class="warning">
+            <p>
+                Haz clic en el siguiente enlace, te pedirá el usuario y contraseña de la encriptación de la página web, te los dejo debajo del enlace. Una vez que hayas desencriptado la página web entrarás en la pantalla de login, utilizas tu usuario y contraseña e voila ... Ya puedes acceder a los enlaces de cada sección.
+            </p>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
+            </div>
+
+            <div class="success">
+                <ul>
+                    <li>Usuario:</li>
+                    <ul>
+                        <li>ricard624</li>
+                    </ul>
+                    <li>Contraseña:</li>
+                    <ul>
+                        <li>mNU1P4hZI36x</li>
+                    </ul>
+                </ul>
+            </div>
+
+            <div class="danger">
+                No te agobies Noemí, esto solo lo tienes que hacer cada vez que cierres el navegador y empieces de cero, no cada vez que quieras entrar a un módulo.
+            </div>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/modulos/noemi_dice/noemi_dice_listado.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
+            </div>
         </div>
 
         <p>
@@ -1545,8 +1869,35 @@ require_once(__DIR__ . '/../config/funciones.php');
 
         <h3 id="listado_noemi_dice_aprobar">3.2.1.1. Aprobar las frases de "Noemí dice"</h3>
 
-        <div class="infoA">
-            <a href="http://www.ricardfs.es.mialias.net/admin/modulos/noemi_dice/noemi_dice_listado.php" target="_blank">Haz clic aquí y se abrirá la página en tu navegar web</a>
+        <div class="warning">
+            <p>
+                Haz clic en el siguiente enlace, te pedirá el usuario y contraseña de la encriptación de la página web, te los dejo debajo del enlace. Una vez que hayas desencriptado la página web entrarás en la pantalla de login, utilizas tu usuario y contraseña e voila ... Ya puedes acceder a los enlaces de cada sección.
+            </p>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
+            </div>
+
+            <div class="success">
+                <ul>
+                    <li>Usuario:</li>
+                    <ul>
+                        <li>ricard624</li>
+                    </ul>
+                    <li>Contraseña:</li>
+                    <ul>
+                        <li>mNU1P4hZI36x</li>
+                    </ul>
+                </ul>
+            </div>
+
+            <div class="danger">
+                No te agobies Noemí, esto solo lo tienes que hacer cada vez que cierres el navegador y empieces de cero, no cada vez que quieras entrar a un módulo.
+            </div>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/modulos/noemi_dice/noemi_dice_listado.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
+            </div>
         </div>
 
         <p>
@@ -1559,8 +1910,35 @@ require_once(__DIR__ . '/../config/funciones.php');
 
         <h3 id="listado_noemi_dice_eliminar">3.2.1.1.1. Eliminar las frases de "Noemí dice"</h3>
 
-        <div class="infoA">
-            <a href="http://www.ricardfs.es.mialias.net/admin/modulos/noemi_dice/noemi_dice_listado.php" target="_blank">Haz clic aquí y se abrirá la página en tu navegar web</a>
+        <div class="warning">
+            <p>
+                Haz clic en el siguiente enlace, te pedirá el usuario y contraseña de la encriptación de la página web, te los dejo debajo del enlace. Una vez que hayas desencriptado la página web entrarás en la pantalla de login, utilizas tu usuario y contraseña e voila ... Ya puedes acceder a los enlaces de cada sección.
+            </p>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
+            </div>
+
+            <div class="success">
+                <ul>
+                    <li>Usuario:</li>
+                    <ul>
+                        <li>ricard624</li>
+                    </ul>
+                    <li>Contraseña:</li>
+                    <ul>
+                        <li>mNU1P4hZI36x</li>
+                    </ul>
+                </ul>
+            </div>
+
+            <div class="danger">
+                No te agobies Noemí, esto solo lo tienes que hacer cada vez que cierres el navegador y empieces de cero, no cada vez que quieras entrar a un módulo.
+            </div>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/modulos/noemi_dice/noemi_dice_listado.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
+            </div>
         </div>
 
         <p>
@@ -1585,8 +1963,35 @@ require_once(__DIR__ . '/../config/funciones.php');
 
         <h3 id="bichillos_de_noemi">3.3. Incluir los "Bichillos de Noemí" en el sitio web</h3>
 
-        <div class="infoA">
-            <a href="http://www.ricardfs.es.mialias.net/admin/modulos/bichillos/noemi_bichillos.php" target="_blank">Haz clic aquí y se abrirá la página en tu navegar web</a>
+        <div class="warning">
+            <p>
+                Haz clic en el siguiente enlace, te pedirá el usuario y contraseña de la encriptación de la página web, te los dejo debajo del enlace. Una vez que hayas desencriptado la página web entrarás en la pantalla de login, utilizas tu usuario y contraseña e voila ... Ya puedes acceder a los enlaces de cada sección.
+            </p>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
+            </div>
+
+            <div class="success">
+                <ul>
+                    <li>Usuario:</li>
+                    <ul>
+                        <li>ricard624</li>
+                    </ul>
+                    <li>Contraseña:</li>
+                    <ul>
+                        <li>mNU1P4hZI36x</li>
+                    </ul>
+                </ul>
+            </div>
+
+            <div class="danger">
+                No te agobies Noemí, esto solo lo tienes que hacer cada vez que cierres el navegador y empieces de cero, no cada vez que quieras entrar a un módulo.
+            </div>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/modulos/bichillos/noemi_bichillos.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
+            </div>
         </div>
 
         <p>
@@ -1603,8 +2008,35 @@ require_once(__DIR__ . '/../config/funciones.php');
 
         <h3 id="listado_bichillos_de_noemi">3.4. Listado de los "Bichillos de Noemí"</h3>
 
-        <div class="infoA">
-            <a href="http://www.ricardfs.es.mialias.net/admin/modulos/bichillos/noemi_bichillos_listado.php" target="_blank">Haz clic aquí y se abrirá la página en tu navegar web</a>
+        <div class="warning">
+            <p>
+                Haz clic en el siguiente enlace, te pedirá el usuario y contraseña de la encriptación de la página web, te los dejo debajo del enlace. Una vez que hayas desencriptado la página web entrarás en la pantalla de login, utilizas tu usuario y contraseña e voila ... Ya puedes acceder a los enlaces de cada sección.
+            </p>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
+            </div>
+
+            <div class="success">
+                <ul>
+                    <li>Usuario:</li>
+                    <ul>
+                        <li>ricard624</li>
+                    </ul>
+                    <li>Contraseña:</li>
+                    <ul>
+                        <li>mNU1P4hZI36x</li>
+                    </ul>
+                </ul>
+            </div>
+
+            <div class="danger">
+                No te agobies Noemí, esto solo lo tienes que hacer cada vez que cierres el navegador y empieces de cero, no cada vez que quieras entrar a un módulo.
+            </div>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/modulos/bichillos/noemi_bichillos_listado.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
+            </div>
         </div>
 
         <p>
@@ -1638,8 +2070,35 @@ require_once(__DIR__ . '/../config/funciones.php');
 
         <h3 id="registro_especie_raza">4.1. Registrar una nueva especie o raza de animal</h3>
 
-        <div class="infoA">
-            <a href="http://www.ricardfs.es.mialias.net/admin/modulos/registros/adopciones_incluir.php" target="_blank">Haz clic aquí y se abrirá la página en tu navegar web</a>
+        <div class="warning">
+            <p>
+                Haz clic en el siguiente enlace, te pedirá el usuario y contraseña de la encriptación de la página web, te los dejo debajo del enlace. Una vez que hayas desencriptado la página web entrarás en la pantalla de login, utilizas tu usuario y contraseña e voila ... Ya puedes acceder a los enlaces de cada sección.
+            </p>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
+            </div>
+
+            <div class="success">
+                <ul>
+                    <li>Usuario:</li>
+                    <ul>
+                        <li>ricard624</li>
+                    </ul>
+                    <li>Contraseña:</li>
+                    <ul>
+                        <li>mNU1P4hZI36x</li>
+                    </ul>
+                </ul>
+            </div>
+
+            <div class="danger">
+                No te agobies Noemí, esto solo lo tienes que hacer cada vez que cierres el navegador y empieces de cero, no cada vez que quieras entrar a un módulo.
+            </div>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/modulos/registros/adopciones_incluir.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
+            </div>
         </div>
 
         <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/4.1._Registrar_una_nueva_especie_o_raza_de_animal.png') ?>" class="img-left" />
@@ -1680,8 +2139,35 @@ require_once(__DIR__ . '/../config/funciones.php');
 
         <h3 id="registro_nuevo_animal_adopcion">4.2. Registrar un nuevo animal en adopción</h3>
 
-        <div class="infoA">
-            <a href="http://www.ricardfs.es.mialias.net/admin/modulos/registros/adopciones.php" target="_blank">Haz clic aquí y se abrirá la página en tu navegar web</a>
+        <div class="warning">
+            <p>
+                Haz clic en el siguiente enlace, te pedirá el usuario y contraseña de la encriptación de la página web, te los dejo debajo del enlace. Una vez que hayas desencriptado la página web entrarás en la pantalla de login, utilizas tu usuario y contraseña e voila ... Ya puedes acceder a los enlaces de cada sección.
+            </p>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
+            </div>
+
+            <div class="success">
+                <ul>
+                    <li>Usuario:</li>
+                    <ul>
+                        <li>ricard624</li>
+                    </ul>
+                    <li>Contraseña:</li>
+                    <ul>
+                        <li>mNU1P4hZI36x</li>
+                    </ul>
+                </ul>
+            </div>
+
+            <div class="danger">
+                No te agobies Noemí, esto solo lo tienes que hacer cada vez que cierres el navegador y empieces de cero, no cada vez que quieras entrar a un módulo.
+            </div>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/modulos/registros/adopciones.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
+            </div>
         </div>
 
         <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/4.2._Registrar_un_nuevo_animal_en_adopcion.png') ?>" class="img-right" />
