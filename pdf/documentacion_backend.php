@@ -355,7 +355,7 @@ require_once(__DIR__ . '/../config/funciones.php');
             border: 1px solid #ccc;
         }
 
-         table {
+        table {
             width: 100%;
             border-collapse: collapse;
             margin: 20px 0;
@@ -697,43 +697,43 @@ require_once(__DIR__ . '/../config/funciones.php');
 
             <div class="subrama">
                 <a href="#registro_nueva_plataforma_crowdfunding">
-                    4.5. Registrar una nueva plataforma de CrowdFunding
+                    4.5. Registrar una nueva plataforma de Crowd Funding
                 </a>
             </div>
         </div>
 
-        <!-- 5. Quinta sección - Plataformas de CrowdFunding -->
+        <!-- 5. Quinta sección - Plataformas de Crowd Funding -->
         <div class="rama page-break" id="seccion-quinta">
             <div class="titulo-rama">
                 <a href="#plataformas_crowdfunding">
-                    5. Quinta Sección - Plataformas de CrowdFunding
+                    5. Quinta Sección - Plataformas de Crowd Funding
                 </a>
             </div>
 
             <div class="subrama">
                 <a href="#plataforma_crear_nueva_recaudacion">
-                    5.1. Crear una nueva recaudación de fondos en una plataforma de CrowdFunding
+                    5.1. Crear una nueva recaudación de fondos en una plataforma de Crowd Funding
                 </a>
             </div>
 
             <div class="subrama">
                 <a href="#plataforma_listado">
-                    5.2. Listado de las recaudaciones de fondos en las plataformas de CrowdFunding
+                    5.2. Listado de las recaudaciones de fondos en las plataformas de Crowd Funding
                 </a>
             </div>
             <div class="subsubrama">
                 <a href="#plataforma_listado_ver">
-                    5.2.1. Ver la página Web de la recaudación de fondos en la plataforma de CrowdFunding
+                    5.2.1. Ver la página Web de la recaudación de fondos en la plataforma de Crowd Funding
                 </a>
             </div>
             <div class="subsubrama">
                 <a href="#plataforma_listado_editar">
-                    5.2.1.1. Editar la recaudación de fondos de la plataforma de CrowdFunding
+                    5.2.1.1. Editar la recaudación de fondos de la plataforma de Crowd Funding
                 </a>
             </div>
             <div class="subsubrama">
                 <a href="#plataforma_listado_eliminar">
-                    5.2.1.1.1. Eliminar la recaudación de fondos de la plataforma de CrowdFunding
+                    5.2.1.1.1. Eliminar la recaudación de fondos de la plataforma de Crowd Funding
                 </a>
             </div>
         </div>
@@ -1084,9 +1084,9 @@ require_once(__DIR__ . '/../config/funciones.php');
             <a href="#seccion-principal">Volver al índice</a>
         </div>
 
-        <h3 id="url_crear_usuario">
-            1.1. Dirección Web para crear tu usuario
-        </h3>
+        <div class="page-break"></div>
+
+        <h3 id="url_crear_usuario">1.1. Dirección Web para crear tu usuario</h3>
 
         <p>
             El primer paso que debes dar es acceder a la página desde la que vas a poder crear tu usuario y contraseña para después acceder al panel de administración. Copia y pega esta dirección web en tu navegador para acceder a la página de creación de usuario:
@@ -1099,8 +1099,6 @@ require_once(__DIR__ . '/../config/funciones.php');
         <p>
             Si es la primera vez que accedes a la página web desde ese navegador te pedirá que introduzcas un usuario y contraseña, como te dije antes tengo el servidor encriptado por seguridad, si no te había dado acceso antes te lo doy ahora:
         </p>
-
-        <div class="page-break"></div>
 
         <div class="success">
             <h4>
@@ -1122,9 +1120,9 @@ require_once(__DIR__ . '/../config/funciones.php');
             <a href="#seccion-principal">Volver al índice</a>
         </div>
 
-        <h3 id="crear_usuario">
-            1.1.1. Crear tu usuario
-        </h3>
+        <div class="page-break"></div>
+
+        <h3 id="crear_usuario">1.1.1. Crear tu usuario</h3>
 
         <p>Cuando accedas a la página verás un formulario como el que tienes en la imagen de abajo, no te asustes que es muy sencillo aquí te dejo los pasos a seguir:</p>
 
@@ -1159,9 +1157,9 @@ require_once(__DIR__ . '/../config/funciones.php');
             <a href="#seccion-principal">Volver al índice</a>
         </div>
 
-        <h3 id="url_servidor_pruebas">
-            1.2. Dirección Web del servidor de pruebas
-        </h3>
+        <div class="page-break"></div>
+
+        <h3 id="url_servidor_pruebas">1.2. Dirección Web del servidor de pruebas</h3>
 
         <p>
             Una vez que tengas creado tu usuario y contraseña en el servidor de pruebas ya no tendrás que repetir el proceso, bueno siempre que al pasar la web al servidor de producción quieras mantener el mismo usuario y contraseña, aunque como verás más adelante una vez lo hayas creado, en el panel de administración tendrás una sección dedicada exclusivamente a la edición de usuarios.
@@ -1174,8 +1172,6 @@ require_once(__DIR__ . '/../config/funciones.php');
         <div class="infoA">
             <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí y se abrirá la página en tu navegar web</a>
         </div>
-
-        <div class="page-break"></div>
 
         <div class="warning">
             La encriptación de mi servidor de pruebas se regenera cada "X" tiempo de forma automática para obligarnos a volver a introducir el usuario y la contraseña, de manera que cada dos por tres te los irá pidiendo, y como en el fondo parece que SÏ tengo algún sentimiento positivo por el ser humano (a muy pesar mio, que quede constancia), te voy a ir dejando el usuario y contraseña a lo largo de este documento para que no lo tengas que ir buscando.
@@ -1201,9 +1197,9 @@ require_once(__DIR__ . '/../config/funciones.php');
             <a href="#seccion-principal">Volver al índice</a>
         </div>
 
-        <h3 id="acceso_servidor_pruebas">
-            1.2.1. Acceso al servidor de pruebas
-        </h3>
+        <div class="page-break"></div>
+
+        <h3 id="acceso_servidor_pruebas">1.2.1. Acceso al servidor de pruebas</h3>
 
         <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/1.2.1._Acceso_al_servidor_de_pruebas.png') ?>" class="img-left" />
 
@@ -1215,6 +1211,10 @@ require_once(__DIR__ . '/../config/funciones.php');
             Recuerda que no debes dejar ningún espacio en blanco ni en el campo del usuario ni tampoco en el campo de la contraseña, si lo haces te dará error y no podrás acceder al panel de administración, así que ten cuidado con eso.
         </div>
 
+        <div class="volver-indice">
+            <a href="#seccion-principal">Volver al índice</a>
+        </div>
+
         <div style="clear: both;"></div>
 
         <div class="separador-seccion"></div>
@@ -1222,6 +1222,8 @@ require_once(__DIR__ . '/../config/funciones.php');
     </div>
 
     <div class="separador"></div>
+
+    <div class="page-break"></div>
 
     <!-- 2. Segunda sección - Documentos -->
     <div class="seccion" id="documentos">
@@ -1236,9 +1238,9 @@ require_once(__DIR__ . '/../config/funciones.php');
             <a href="#seccion-segunda">Volver al índice</a>
         </div>
 
-        <h3 id="contacto">
-            2.1. Mensajes que llegan desde la página de contacto
-        </h3>
+        <div class="page-break"></div>
+
+        <h3 id="contacto">2.1. Mensajes que llegan desde la página de contacto</h3>
 
         <div class="warning">
             <p>
@@ -1291,6 +1293,8 @@ require_once(__DIR__ . '/../config/funciones.php');
             <a href="#seccion-segunda">Volver al índice</a>
         </div>
 
+        <div class="page-break"></div>
+
         <h3 id="ver_mensaje">2.1.1. Editar un mensaje de contacto</h3>
 
         <div class="warning">
@@ -1338,6 +1342,8 @@ require_once(__DIR__ . '/../config/funciones.php');
             <a href="#seccion-segunda">Volver al índice</a>
         </div>
 
+        <div class="page-break"></div>
+
         <h3 id="eliminar_mensaje">2.1.1.1. Eliminar un mensaje de contacto</h3>
 
         <p>
@@ -1357,6 +1363,8 @@ require_once(__DIR__ . '/../config/funciones.php');
         <div class="volver-indice">
             <a href="#seccion-segunda">Volver al índice</a>
         </div>
+
+        <div class="page-break"></div>
 
         <h3 id="contacto_intro">2.2. Contenido de la sección de contacto</h3>
 
@@ -1410,6 +1418,8 @@ require_once(__DIR__ . '/../config/funciones.php');
         <div class="volver-indice">
             <a href="#seccion-segunda">Volver al índice</a>
         </div>
+
+        <div class="page-break"></div>
 
         <h3 id="asi_es_noemi">2.3. Contenido de la página de presentación de Noemí</h3>
 
@@ -1494,6 +1504,8 @@ require_once(__DIR__ . '/../config/funciones.php');
         <div class="volver-indice">
             <a href="#seccion-segunda">Volver al índice</a>
         </div>
+
+        <div class="page-break"></div>
 
         <h3 id="opiniones_intro">2.5. Contenido de la sección de las opiniones de los usuarios</h3>
 
@@ -1592,6 +1604,8 @@ require_once(__DIR__ . '/../config/funciones.php');
         <div class="volver-indice">
             <a href="#seccion-segunda">Volver al índice</a>
         </div>
+
+        <div class="page-break"></div>
 
         <h3 id="opiniones_editar">2.6.1. Editar las opiniones de los usuarios</h3>
 
@@ -1705,6 +1719,8 @@ require_once(__DIR__ . '/../config/funciones.php');
 
     <div class="separador"></div>
 
+    <div class="page-break"></div>
+
     <!-- 3. Tercera sección - Sarcásmo y humor -->
     <div class="seccion" id="sarcasmo_y_humor">
 
@@ -1775,6 +1791,8 @@ require_once(__DIR__ . '/../config/funciones.php');
             <a href="#seccion-tercera">Volver al índice</a>
         </div>
 
+        <div class="page-break"></div>
+
         <h3 id="listado_noemi_dice">3.2. Listado de las frases de "Noemí dice"</h3>
 
         <div class="warning">
@@ -1823,6 +1841,8 @@ require_once(__DIR__ . '/../config/funciones.php');
         <div class="volver-indice">
             <a href="#seccion-tercera">Volver al índice</a>
         </div>
+
+        <div class="page-break"></div>
 
         <h3 id="listado_noemi_dice_ocultar">3.2.1. Ocultar las frases de "Noemí dice"</h3>
 
@@ -1907,6 +1927,8 @@ require_once(__DIR__ . '/../config/funciones.php');
         <div class="volver-indice">
             <a href="#seccion-tercera">Volver al índice</a>
         </div>
+
+        <div class="page-break"></div>
 
         <h3 id="listado_noemi_dice_eliminar">3.2.1.1.1. Eliminar las frases de "Noemí dice"</h3>
 
@@ -2006,6 +2028,8 @@ require_once(__DIR__ . '/../config/funciones.php');
             <a href="#seccion-tercera">Volver al índice</a>
         </div>
 
+        <div class="page-break"></div>
+
         <h3 id="listado_bichillos_de_noemi">3.4. Listado de los "Bichillos de Noemí"</h3>
 
         <div class="warning">
@@ -2055,6 +2079,8 @@ require_once(__DIR__ . '/../config/funciones.php');
 
     <div class="separador"></div>
 
+    <div class="page-break"></div>
+
     <!-- 4. Cuarta sección - Registro -->
     <div class="seccion" id="registro">
 
@@ -2067,6 +2093,8 @@ require_once(__DIR__ . '/../config/funciones.php');
         <div class="volver-indice">
             <a href="#seccion-cuarta">Volver al índice</a>
         </div>
+
+        <div class="page-break"></div>
 
         <h3 id="registro_especie_raza">4.1. Registrar una nueva especie o raza de animal</h3>
 
@@ -2259,6 +2287,174 @@ require_once(__DIR__ . '/../config/funciones.php');
             <a href="#seccion-cuarta">Volver al índice</a>
         </div>
 
+        <h3 id="registro_nuevo_adoptante">4.3. Registrar un nuevo posible adoptante</h3>
+
+        <div class="warning">
+            <p>
+                Haz clic en el siguiente enlace, te pedirá el usuario y contraseña de la encriptación de la página web, te los dejo debajo del enlace. Una vez que hayas desencriptado la página web entrarás en la pantalla de login, utilizas tu usuario y contraseña e voila ... Ya puedes acceder a los enlaces de cada sección.
+            </p>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
+            </div>
+
+            <div class="success">
+                <ul>
+                    <li>Usuario:</li>
+                    <ul>
+                        <li>ricard624</li>
+                    </ul>
+                    <li>Contraseña:</li>
+                    <ul>
+                        <li>mNU1P4hZI36x</li>
+                    </ul>
+                </ul>
+            </div>
+
+            <div class="danger">
+                No te agobies Noemí, esto solo lo tienes que hacer cada vez que cierres el navegador y empieces de cero, no cada vez que quieras entrar a un módulo.
+            </div>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/modulos/registros/adopciones_adoptante.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
+            </div>
+        </div>
+
+        <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/4.3._Registrar_un_nuevo_posible_adoptante.png') ?>" class="img-left" />
+
+        <p>
+            Este módulo habla por sí mismo, desde aquí es desde donde podrás añadir a la base de datos todos los adoptantes que hayas tenido, que tengas en proceso, o que estén en espera de posible adopción, realmente verás que es un módulo muy básico, esto es simplemente porque yo he pensado en los datos básicos de una persona, imagino que seguramente tu necesitarás muchísimos más datos de un posible adoptante, y quiero que sepas que no hay absolutamente ningún problema, mientras la página web esté en mi servidor de pruebas encriptado podemos hacer y deshacer todo lo que quieras, por lo tanto, si es como yo imagino y en este módulo se han de incluir muchos más campos solo tienes que decirlo, y yo los añado.
+        </p>
+
+        <div class="info">
+            De todas maneras más adelante veremos el módulo de los adoptantes que proceden del formulario que he creado en la página web, si quieres echarle un vistazo podrás ver que este formulario es muchísimo más extenso que este módulo, te dejo aquí un enlace directo al formulario de la página web.
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/formulario-adoptante?id=6" target="_blank">Haz clic aquí y se abrirá la página web con el formulario de adopciones</a>
+            </div>
+        </div>
+
+        <div class="volver-indice">
+            <a href="#seccion-cuarta">Volver al índice</a>
+        </div>
+
+        <div class="page-break"></div>
+
+        <h3 id="registro_nuevo_animal_apadrinar">4.4. Registrar un nuevo animal para apadrinar</h3>
+
+        <div class="warning">
+            <p>
+                Haz clic en el siguiente enlace, te pedirá el usuario y contraseña de la encriptación de la página web, te los dejo debajo del enlace. Una vez que hayas desencriptado la página web entrarás en la pantalla de login, utilizas tu usuario y contraseña e voila ... Ya puedes acceder a los enlaces de cada sección.
+            </p>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
+            </div>
+
+            <div class="success">
+                <ul>
+                    <li>Usuario:</li>
+                    <ul>
+                        <li>ricard624</li>
+                    </ul>
+                    <li>Contraseña:</li>
+                    <ul>
+                        <li>mNU1P4hZI36x</li>
+                    </ul>
+                </ul>
+            </div>
+
+            <div class="danger">
+                No te agobies Noemí, esto solo lo tienes que hacer cada vez que cierres el navegador y empieces de cero, no cada vez que quieras entrar a un módulo.
+            </div>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/modulos/registros/apadrinamiento_incluir.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
+            </div>
+        </div>
+
+        <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/4.4._Registrar_un_nuevo_animal_para_apadrinar.png') ?>" class="img-right" />
+
+        <p>
+            Como ya hablamos en su momento aquí te presento el módulo para incluir animales para apadrinar en la base de datos de la página web, quizá te preguntes por qué separo adopciones de apadrinamientos en vez de hacerlo todo junto, pero es muy sencillo, no todos los animales que tengas en adopción puedes ponerlos para apadrinar. ¿Pero por qué?, por una sencilla razón, si tienes un peludo Siamés puesto en adopción y al mismo tiempo en apadrinamiento ... ¿Qué haces con los apadrinamientos si alguien adopta al peludo?, es de lógica, en el momento en que un animal es adoptado ya no puede ser apadrinado y si estuviera en ambos lugares tendrías un pequeño follón del copón. Cuando el peludo Siamés fuera adoptado, deberías comunicar personalmente a todos los padrinos que ha encontrado un hogar y que vas a cancelar sus suscripciones (evidentemente podrías venderles la moto de que pueden apadrinar a otro peludo ...). Pero yo creo que lo más lógico y sensato es mantener separadas las adopciones de los apadrinamientos.
+        </p>
+
+        <p>
+            Como siempre en este módulo encontrarás algo parecido a la imagen de la derecha, creo que ya no hace falta explicarte cómo funcionan los campos de selección inteligentes de las especies y las razas, su funcionamiento es el mismo en todos los módulos. La descripción breve se utiliza para que puedas poner detalles sobresalientes del animal, es un pequeño trastito, le gusta mordisquear los dedos de los pies ... En este caso el campo para subir las imágenes funciona de manera diferente al de las adopciones, para los apadrinamientos no he programado una galería de fotos por lo que solo puedes subir una imagen por animal, pero ya sabes estamos de pruebas, puedo programar la galería si la quieres.
+        </p>
+
+        <p>
+            El sistema de suscripciones lo he programado con PayPal, es la manera más flexible y sencilla, sobre todo para ti, y mucho más si eres asociación, el sistema de apadrinamientos está completamente operativo, pero de la misma manera que la página web está alojada en mi servidor de pruebas, el sistema de suscripciones funciona con mi cuenta de PayPal Sandbox Developer, con eso quiero decir que funciona perfectamente porque está en un modo de pruebas que PayPal nos facilita a los desarrolladores. Si quieres ver qué pasa en el panel de administración y en la ficha del animal cuando alguien decide apadrinar a uno de los "Bichillos de Noemí", entra en cualquier ficha de uno de los animales en apadrinamiento que he creado y haz clic en el botón "Quiero apadirnar a ...", Inventade los datos y cuando aparezca la pasarela de pago de PayPal utiliza la tarjeta que te dejo aquí debajo.
+        </p>
+
+        <div class="info">
+            <ul>
+                <li>Visa</li>
+                <li>4020 0249 1752 0940</li>
+                <li>Fecha caducidad - 01/2031</li>
+                <li>CVC - 123</li>
+            </ul>
+        </div>
+
+        <div class="volver-indice">
+            <a href="#seccion-cuarta">Volver al índice</a>
+        </div>
+
+        <div class="page-break"></div>
+
+        <h3 id="registro_nueva_plataforma_crowdfunding">4.5. Registrar una nueva plataforma de Crowd Funding</h3>
+
+        <div class="warning">
+            <p>
+                Haz clic en el siguiente enlace, te pedirá el usuario y contraseña de la encriptación de la página web, te los dejo debajo del enlace. Una vez que hayas desencriptado la página web entrarás en la pantalla de login, utilizas tu usuario y contraseña e voila ... Ya puedes acceder a los enlaces de cada sección.
+            </p>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
+            </div>
+
+            <div class="success">
+                <ul>
+                    <li>Usuario:</li>
+                    <ul>
+                        <li>ricard624</li>
+                    </ul>
+                    <li>Contraseña:</li>
+                    <ul>
+                        <li>mNU1P4hZI36x</li>
+                    </ul>
+                </ul>
+            </div>
+
+            <div class="danger">
+                No te agobies Noemí, esto solo lo tienes que hacer cada vez que cierres el navegador y empieces de cero, no cada vez que quieras entrar a un módulo.
+            </div>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/modulos/crowdfunding/incluir_plataforma_crowdfunding.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
+            </div>
+        </div>
+
+        <p>
+            Doy más que por sentado que sabes lo que son las plataformas de Crowd Funding, y como me dijiste que en Facebook tenías una buena cantidad de seguidores, también doy más que por sentado que haces uso de estas plataformas a menudo, por eso he programado este y sus módulos vinculantes.
+        </p>
+
+        <div class="figura">
+            <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/4.5._Registrar_una_nueva_plataforma_de_CrowdFunding.png') ?>" />
+        </div>
+
+        <p>
+            Como puedes ver en la imagen de arriba, este módulo es muy sencillo, este módulo sirve para que puedas crear las plataformas de Crowd Funding con las que tú trabajes habitualmente, o con las que trabajes en el futuro. Es tan sencillo como añadir el nombre de la plataforma y subir el logotipo con el campo que tienes para subir imágenes, lo único que tendrás que hacer tú, es buscar el logotipo de la plataforma en cuestión, pero en nuestro alabado Google Images lo puedes encontrar todo.
+        </p>
+
+        <div class="info">
+            No te preocupes por las plataformas que vas a tener creadas en la base de datos, en la siguiente sección, que es la sección cinco, nos metemos con las plataformas de Crowd Funding de lleno.
+        </div>
+
+        <div class="volver-indice">
+            <a href="#seccion-cuarta">Volver al índice</a>
+        </div>
+
         <div style="clear: both;"></div>
 
         <div class="separador-seccion"></div>
@@ -2267,7 +2463,9 @@ require_once(__DIR__ . '/../config/funciones.php');
 
     <div class="separador"></div>
 
-    <!-- 5. Quinta sección - Plataformas de CrowdFunding -->
+    <div class="page-break"></div>
+
+    <!-- 5. Quinta sección - Plataformas de Crowd Funding -->
     <div class="seccion" id="plataformas_crowdfunding">
 
         <h2></h2>

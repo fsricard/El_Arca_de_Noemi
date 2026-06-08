@@ -611,6 +611,8 @@ require_once(__DIR__ . '/../config/funciones.php');
             <a href="#">Volver al índice</a>
         </div>
 
+        <div class="page-break"></div>
+
         <div class="info">
             Esta es una caja informativa. Úsala para destacar datos relevantes o aclaraciones importantes.
         </div>
