@@ -378,6 +378,17 @@ require_once(__DIR__ . '/../config/funciones.php');
             background: #f7f9fc;
         }
 
+        a.infoco {
+            display: contents;
+            text-decoration: none;
+            color: #1E3558;
+            font-weight: bold;
+        }
+
+        a.infoco:hover {
+            color: #2c6dcf;
+        }
+
         p,
         .pre,
         .info,
@@ -2310,7 +2321,62 @@ require_once(__DIR__ . '/../config/funciones.php');
     <!-- 5. Quinta sección - Plataformas de Crowd Funding -->
     <div class="seccion" id="plataformas_crowdfunding">
 
-        <h2></h2>
+        <h2>5. Quinta Sección - Plataformas de Crowd Funding</h2>
+
+        <p>
+            Y por fin hemos llegado a lo que nos interesa, el parné, la guita, la pasta, los pavos, la plata ... Ya sabes el dinerico. Ahora, nos metemos de lleno con las plataformas de Crowd Funding, aunque un poco más arriba le dimos un par de pinceladas a este tema, es en este bloque donde vamos a repasar todos los módulos que componen el sistema de flujo de trabajo que te he programado para que puedas gestionar de la manera más flexible y sencilla tus plataformas de Crowd Funding.
+        </p>
+
+        <div class="info">
+            Recuerda que más arriba, en la sección "<a href="#registro_nueva_plataforma_crowdfunding" class="infoco">4.5. Registrar una nueva plataforma de Crowd Funding</a>" Estuvimos repasando el módulo para registrar las nuevas plataformas de Crowd Funding en la base de datos, por lo tanto, ya partes con la base de que ya tienes las plataformas creadas.
+        </div>
+
+        <div class="volver-indice">
+            <a href="#seccion-quinta">Volver al índice</a>
+        </div>
+
+        <div class="page-break"></div>
+
+        <h3 id="plataforma_crear_nueva_recaudacion">5.1. Crear una nueva recaudación de fondos en una plataforma de Crowd Funding</h3>
+
+        <div class="warning">
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
+            </div>
+
+            <div class="success">
+                <ul>
+                    <li>Usuario:</li>
+                    <ul>
+                        <li>ricard624</li>
+                    </ul>
+                    <li>Contraseña:</li>
+                    <ul>
+                        <li>mNU1P4hZI36x</li>
+                    </ul>
+                </ul>
+            </div>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/modulos/crowdfunding/crear_recaudacion.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
+            </div>
+        </div>
+
+        <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/5.1._Crear_una_nueva_recaudacion_de_fondos.png') ?>" class="img-left" />
+
+        <p>
+            Desde este módulo es desde donde vas a crear todas tus futuras recaudaciones de fondos Noemí, como puedes ver en la imagen que te dejo a la izquierda de este texto, el primer campo que tienes es un selector inteligente, al desplegarse este selector podrás ver todas las plataformas de Crowd Funding que tú hayas creado en el módulo de la sección "<a href="#registro_nueva_plataforma_crowdfunding" class="infoco">4.5. Registrar una nueva plataforma de Crowd Funding</a>".
+        </p>
+
+        <p>
+            El resto de campos creo que son bastante lógicos, de manera que nos los vamos a pasar por alto, pero si quiero hacer una pequeña paradita en el campo "Cantidad recaudad", este campo es opcional, lo he incluido por si quieres utilizarlo para que los usuarios de la página web puedan ver cómo van las recaudaciones sin necesidad de ir a la plataforma. Lo bueno de este campo es que si no lo utilizas no pasa nada, la página web no lo echará de menos.
+        </p>
+
+        <div class="volver-indice">
+            <a href="#seccion-quinta">Volver al índice</a>
+        </div>
+
+        <div class="page-break"></div>
 
         <div style="clear: both;"></div>
 
