@@ -1594,12 +1594,8 @@ require_once(__DIR__ . '/../config/funciones.php');
             Este módulo es sencillo de entender, en el listado cada opinión tiene dos botones, el botón "Editar" y el botón "Eliminar", cuando hagas clic en el botón "Editar" de alguna opinión del listado entrarás en el módulo de edición de la opinión, algo como lo que ves en la imagen que te dejo a la derecha.
         </p>
 
-        <p>
-            Aquí puedes modificar cualquier dato de la opinión o del usuario que la ha dejado.
-        </p>
-
         <div class="info">
-            Lo único que debes tener en cuenta en este módulo es que si quieres modificar la imagen del usuario que ha dejado la opinión, antes de subir una nueva imagen debes marcar la casilla "Eliminar imagen actual", aunque no marques la casilla la imagen se modificará igualmente, pero si quieres asegurarte de que la imagen se elimina correctamente del servidor antes de subir la nueva imagen, debes marcar la casilla "Eliminar imagen actual".
+            Debes tener en cuenta que si quieres modificar la imagen del usuario, antes de subir una nueva imagen debes marcar la casilla "Eliminar imagen actual", aunque no marques la casilla la imagen se modificará, pero para que se borre del servidor debes marcar la casilla "Eliminar imagen actual".
         </div>
 
         <div class="volver-indice">
@@ -1702,20 +1698,20 @@ require_once(__DIR__ . '/../config/funciones.php');
         </div>
 
         <p>
-            En este módulo encontrarás un editor de texto simple y llano, aquí es donde podrás echarle imaginación a tus "webs" y escribir las frases de "Noemí dice" que aparecen en la página de inicio de la web, estas frases aparecen a la derecha del primer bloque de contenido que encuentras al entrar en la web.
+            En este módulo encontrarás un editor de texto simple, aquí es donde podrás echarle imaginación y escribir las frases de "Noemí dice" que aparecen en la página de inicio de la web.
         </p>
 
         <p>
-            Como podrás ver lo he ideado para que sean frases no muy largas, yo como siempre he hecho un poco el gamba y he dado mi toque sarcástico a la sección, pero tú puedes escribir lo que quieras, frases graciosas, frases motivadoras, frases inspiradoras ... En fin, aquí tienes total libertad para escribir lo que quieras, aunque como te digo, no es nada importante, así que no te preocupes por ello.
+            Verás que lo he ideado para que sean frases cortas, como siempre he hecho un poco el gamba y he dado mi toque sarcástico a la sección, pero tú puedes escribir lo que quieras, frases graciosas, frases motivadoras, frases inspiradoras ... En fin, aquí tienes total libertad para escribir lo que quieras.
         </p>
 
         <div class="info">
             <p>
-                Debes tener en cuenta que las frases de este bloque se muestran de forma aleatoria cada vez que un usuario accede a la página web o se recarga la página, por lo que no debes preocuparte en el orden en el que escribas las frases, ya que el sistema se encargará de mostrarlas de forma aleatoria, así que puedes escribirlas en el orden que quieras, no hay ningún orden establecido para ellas.
+                Ten en cuenta que las frases de este bloque se muestran de forma aleatoria cada vez que un usuario accede a la página web, por lo que no debes preocuparte en el orden en el que escribas las frases, ya que el sistema se encargará de mostrarlas de forma aleatoria.
             </p>
 
             <p>
-                Si por alguna razón quieres mantener las frases dummy que he creado yo, puedes hacerlo sin ningún tipo de problema, solo tienes que decirlo y cuando haga la copia de seguridad de la base de datos para trasladarla al servidor de producción mantengo esta tabla.
+                Si por alguna razón quieres mantener las frases dummy que he creado yo, puedes hacerlo, solo tienes que decirlo y cuando haga el traslado de la base de datos al servidor de producción mantengo esta tabla.
             </p>
         </div>
 
@@ -2066,14 +2062,12 @@ require_once(__DIR__ . '/../config/funciones.php');
             </div>
         </div>
 
-        <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/4.2._Registrar_un_nuevo_animal_en_adopcion.png') ?>" class="img-right" />
-
         <div class="warning">
             Pon atención porque este módulo es el más importante de todos los que vas a encontrar en el panel de administración, desde este módulo vas a dar de alta en tu página web a todos los animales que quieras poner en adopción.
         </div>
 
         <p>
-            Pero tú no tienes que preocuparte por nada Noemí, yo ya he pensado en todo para facilitarte el trabajo lo máximo posible, al entrar en este módulo por primera vez encontrarás algo parecido a la imagen que te dejó a la derecha de este texto. Para no hacer esta sección demasiado larga, voy a hacerte un listado con cada campo y su correspondiente función.
+            Pero tú no tienes que preocuparte por nada Noemí, yo ya he pensado en todo para facilitarte el trabajo lo máximo posible, para no hacer esta sección demasiado larga, voy a hacerte un listado con cada campo y su correspondiente función.
         </p>
 
         <div class="info">
@@ -2154,6 +2148,8 @@ require_once(__DIR__ . '/../config/funciones.php');
         <div class="volver-indice">
             <a href="#seccion-cuarta">Volver al índice</a>
         </div>
+
+        <div class="page-break"></div>
 
         <h3 id="registro_nuevo_adoptante">4.3. Registrar un nuevo posible adoptante</h3>
 
