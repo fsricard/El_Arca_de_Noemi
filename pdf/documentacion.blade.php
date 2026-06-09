@@ -561,10 +561,6 @@ require_once(__DIR__ . '/../config/funciones.php');
         </p>
 
         <div class="warning">
-            <p>
-                Haz clic en el siguiente enlace, te pedirá el usuario y contraseña de la encriptación de la página web, te los dejo debajo del enlace. Una vez que hayas desencriptado la página web entrarás en la pantalla de login, utilizas tu usuario y contraseña e voila ... Ya puedes acceder a los enlaces de cada sección.
-            </p>
-
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
@@ -580,10 +576,6 @@ require_once(__DIR__ . '/../config/funciones.php');
                         <li>mNU1P4hZI36x</li>
                     </ul>
                 </ul>
-            </div>
-
-            <div class="danger">
-                No te agobies Noemí, esto solo lo tienes que hacer cada vez que cierres el navegador y empieces de cero, no cada vez que quieras entrar a un módulo.
             </div>
 
             <div class="infoA">
