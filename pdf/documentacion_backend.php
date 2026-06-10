@@ -733,18 +733,8 @@ require_once(__DIR__ . '/../config/funciones.php');
                 </a>
             </div>
             <div class="subsubrama">
-                <a href="#plataforma_listado_ver">
-                    5.2.1. Ver la página Web de la recaudación de fondos en la plataforma de Crowd Funding
-                </a>
-            </div>
-            <div class="subsubrama">
                 <a href="#plataforma_listado_editar">
-                    5.2.1.1. Editar la recaudación de fondos de la plataforma de Crowd Funding
-                </a>
-            </div>
-            <div class="subsubrama">
-                <a href="#plataforma_listado_eliminar">
-                    5.2.1.1.1. Eliminar la recaudación de fondos de la plataforma de Crowd Funding
+                    5.2.1. Editar la recaudación de fondos de la plataforma de Crowd Funding
                 </a>
             </div>
         </div>
@@ -2371,6 +2361,108 @@ require_once(__DIR__ . '/../config/funciones.php');
         <p>
             El resto de campos creo que son bastante lógicos, de manera que nos los vamos a pasar por alto, pero si quiero hacer una pequeña paradita en el campo "Cantidad recaudad", este campo es opcional, lo he incluido por si quieres utilizarlo para que los usuarios de la página web puedan ver cómo van las recaudaciones sin necesidad de ir a la plataforma. Lo bueno de este campo es que si no lo utilizas no pasa nada, la página web no lo echará de menos.
         </p>
+
+        <div class="volver-indice">
+            <a href="#seccion-quinta">Volver al índice</a>
+        </div>
+
+        <div class="page-break"></div>
+
+        <h3 id="plataforma_listado">5.2. Listado de las recaudaciones de fondos en las plataformas de Crowd Funding</h3>
+
+        <div class="warning">
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
+            </div>
+
+            <div class="success">
+                <ul>
+                    <li>Usuario:</li>
+                    <ul>
+                        <li>ricard624</li>
+                    </ul>
+                    <li>Contraseña:</li>
+                    <ul>
+                        <li>mNU1P4hZI36x</li>
+                    </ul>
+                </ul>
+            </div>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/modulos/crowdfunding/listado_recaudaciones.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
+            </div>
+        </div>
+
+        <div class="figura">
+            <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/5.2._Listado_de_las_recaudaciones.png') ?>" />
+        </div>
+
+        <p>
+            Bien Noemí, ya hemos visto cómo incluir nuevas plataformas a la base de datos y cómo crear nuevas recaudaciones de fondos para la página web, ahora nos toca gestionar todo esto desde el panel de administración, y para hacer eso tenemos un listado con todas las recaudaciones de fondos que tengas en marcha. Será algo como lo que puedes ver en la imagen que te dejo encima de este texto
+        </p>
+
+        <p>
+            Como en todos los listados que te he preparado, lo primero que tienes es el sistema de filtros inteligentes vinculados al paginado. Este sistema te permite filtrar por la plataforma de Crowd Funding que quieras, por el estado de las recaudaciones de fondos (activa/inactiva), y por el mínimo o el máximo que lleven recaudado. Estos dos parámetros son un poco delicados, el sistema de filtros solo mostrará en los resultados las recaudaciones en las que tú hayas incluido la cantidad recaudada hasta el momento, las recaudaciones en las que hayas dejado este campo en blanco se omitirán del resultado del filtrado.
+        </p>
+
+        <p>
+            En la quinta columna del listado podrás ver un botón con la leyenda "Ver campaña", al hacer clic sobre este botón se abre una nueva ventana en tu navegador con la página web de la recaudación de fondos en cuestión, es simplemente para que lo tengas a mano.
+        </p>
+
+        <p>
+            Y por último, como en todos los listados, verás los dos típicos botones, "Editar" y "Eliminar", el botón "Editar" lo vemos en el siguiente punto, y bueno el botón "Eliminar" ya sabes lo que hace, no tiene mucho misterio.
+        </p>
+
+        <div class="danger">
+            <p>
+                ¡¡CUIDADO NOEMÏ!!
+            </p>
+
+            <p>
+                Debes tener en cuenta que la eliminación de un mensaje de la base de datos es algo irreversible, una vez que elimines un mensaje no podrás recuperarlo, así que ten mucho cuidado con eso, asegúrate de que realmente quieres eliminar el mensaje antes de darle al botón de eliminar.
+            </p>
+        </div>
+
+        <div class="volver-indice">
+            <a href="#seccion-quinta">Volver al índice</a>
+        </div>
+
+        <div class="page-break"></div>
+
+        <h3 id="plataforma_listado_editar">5.2.1. Editar la recaudación de fondos de la plataforma de Crowd Funding</h3>
+
+        <div class="warning">
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
+            </div>
+
+            <div class="success">
+                <ul>
+                    <li>Usuario:</li>
+                    <ul>
+                        <li>ricard624</li>
+                    </ul>
+                    <li>Contraseña:</li>
+                    <ul>
+                        <li>mNU1P4hZI36x</li>
+                    </ul>
+                </ul>
+            </div>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/modulos/crowdfunding/editar_recaudacion.php?id=5" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
+            </div>
+        </div>
+
+        <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/5.2.1._Editar_la_recaudacion_de_fondos.png') ?>" class="img-right" />
+
+        <p>
+            Como puedes ver en la imagen que te dejo a la derecha de este texto, el módulo de edición de las recaudaciones de fondos es prácticamente igual que el módulo de creación, la única diferencia es que en este módulo debes estar completamente segura de lo que haces, ya que cualquier modificación errónea en una recaudación de fondos activa, puede hacer que los datos de tu página web y los datos de la página web de la recaudación de fondos no cuadren, y esos son los pequeños errores que marcan la distinción entre un trabajo bien hecho ... O un trabajo hecho rápido y al tun tún.
+        </p>
+
+        <div class="info">
+            El checkbox que tienes antes del botón con la leyenda "Guardar", es que sirve para "activar/desactivar" las recaudaciones de fondos, puedes utilizar este recurso cuando quieras para que cualquier recaudación de fondos no sea visible en tu página web.
+        </div>
 
         <div class="volver-indice">
             <a href="#seccion-quinta">Volver al índice</a>
