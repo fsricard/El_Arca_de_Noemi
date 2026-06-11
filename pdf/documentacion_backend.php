@@ -752,26 +752,6 @@ require_once(__DIR__ . '/../config/funciones.php');
                     6.1. Iniciar el proceso de adopción de un animal
                 </a>
             </div>
-            <div class="subsubrama">
-                <a href="#selecciona_un_animal">
-                    6.1.1. Selecciona un animal para iniciar el proceso de adopción
-                </a>
-            </div>
-            <div class="subsubrama">
-                <a href="#selecciona_un_adoptante">
-                    6.1.1.1. Selecciona un adoptante para iniciar el proceso de adopción
-                </a>
-            </div>
-            <div class="subsubrama">
-                <a href="#selecciona_fecha_inicio_adopcion">
-                    6.1.1.1.1. Selecciona la fecha de inicio del proceso de adopción
-                </a>
-            </div>
-            <div class="subsubrama">
-                <a href="#anadir_notas_adopcion">
-                    6.1.1.1.1.1. Añadir notas al proceso de adopción
-                </a>
-            </div>
 
             <div class="subrama">
                 <a href="#listado_de_adoptantes">
@@ -874,24 +854,9 @@ require_once(__DIR__ . '/../config/funciones.php');
                     6.3.1.1.1. Editar una adopción desde el listado de animales en adopción
                 </a>
             </div>
-            <div class="subsubsubrama">
-                <a href="#listado_animales_adopcion_editar_nombre_adoptante">
-                    6.3.1.1.2. Casilla inteligente para buscar el nombre del adoptante
-                </a>
-            </div>
             <div class="subsubrama">
                 <a href="#listado_animales_adopcion_editar_animal">
                     6.3.1.1.1.1. Editar un animal en adopción desde el listado de animales en adopción
-                </a>
-            </div>
-            <div class="subsubsubrama">
-                <a href="#listado_animales_adopcion_editar_foto_principal">
-                    6.3.1.1.1.2. Cambiar la imagen principal de un animal en adopción
-                </a>
-            </div>
-            <div class="subsubsubrama">
-                <a href="#listado_animales_adopcion_editar_animal_en_adopcion">
-                    6.3.1.1.1.2.1. Checkbox "Disponible para adopción"
                 </a>
             </div>
         </div>
