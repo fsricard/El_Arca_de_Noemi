@@ -1030,7 +1030,7 @@ require_once(__DIR__ . '/../config/funciones.php');
     </div>
 
     <!-- 1. Sección principal - Inicio de Sesión -->
-    <div class="seccion" id="inicio_de_sesion">
+    <div class="seccion page-break" id="inicio_de_sesion">
 
         <h2>1. Sección Principal - Inicio de Sesión</h2>
 
@@ -1185,14 +1185,12 @@ require_once(__DIR__ . '/../config/funciones.php');
 
         <div class="separador-seccion"></div>
 
+        <div class="separador"></div>
+
     </div>
 
-    <div class="separador"></div>
-
-    <div class="page-break"></div>
-
     <!-- 2. Segunda sección - Documentos -->
-    <div class="seccion" id="documentos">
+    <div class="seccion page-break" id="documentos">
 
         <h2>2. Segunda Sección - Documentos</h2>
 
@@ -1617,14 +1615,12 @@ require_once(__DIR__ . '/../config/funciones.php');
 
         <div class="separador-seccion"></div>
 
+        <div class="separador"></div>
+
     </div>
 
-    <div class="separador"></div>
-
-    <div class="page-break"></div>
-
     <!-- 3. Tercera sección - Sarcásmo y humor -->
-    <div class="seccion" id="sarcasmo_y_humor">
+    <div class="seccion page-break" id="sarcasmo_y_humor">
 
         <h2>3. Tercera Sección - Sarcásmo y Humor</h2>
 
@@ -1921,14 +1917,12 @@ require_once(__DIR__ . '/../config/funciones.php');
 
         <div class="separador-seccion"></div>
 
+        <div class="separador"></div>
+
     </div>
 
-    <div class="separador"></div>
-
-    <div class="page-break"></div>
-
     <!-- 4. Cuarta sección - Registro -->
-    <div class="seccion" id="registro">
+    <div class="seccion page-break" id="registro">
 
         <h2>4. Cuarta Sección - Registro</h2>
 
@@ -2267,11 +2261,9 @@ require_once(__DIR__ . '/../config/funciones.php');
 
         <div class="separador-seccion"></div>
 
+        <div class="separador"></div>
+
     </div>
-
-    <div class="separador"></div>
-
-    <div class="page-break"></div>
 
     <!-- 5. Quinta sección - Plataformas de Crowd Funding -->
     <div class="seccion" id="plataformas_crowdfunding">
@@ -2320,11 +2312,11 @@ require_once(__DIR__ . '/../config/funciones.php');
         <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/5.1._Crear_una_nueva_recaudacion_de_fondos.png') ?>" class="img-left" />
 
         <p>
-            Desde este módulo es desde donde vas a crear todas tus futuras recaudaciones de fondos Noemí, como puedes ver en la imagen que te dejo a la izquierda de este texto, el primer campo que tienes es un selector inteligente, al desplegarse este selector podrás ver todas las plataformas de Crowd Funding que tú hayas creado en el módulo de la sección "<a href="#registro_nueva_plataforma_crowdfunding" class="infoco">4.5. Registrar una nueva plataforma de Crowd Funding</a>".
+            En este módulo vas a crear todas tus futuras recaudaciones de fondos Noemí, como puedes ver en la imagen de la izquierda, el primer campo es un selector inteligente, al desplegarse verás las plataformas que tú hayas creado en el módulo de la sección <a href="#registro_nueva_plataforma_crowdfunding" class="infoco">"4.5. Registrar una nueva plataforma de Crowd Funding"</a>.
         </p>
 
         <p>
-            El resto de campos creo que son bastante lógicos, de manera que nos los vamos a pasar por alto, pero si quiero hacer una pequeña paradita en el campo "Cantidad recaudad", este campo es opcional, lo he incluido por si quieres utilizarlo para que los usuarios de la página web puedan ver cómo van las recaudaciones sin necesidad de ir a la plataforma. Lo bueno de este campo es que si no lo utilizas no pasa nada, la página web no lo echará de menos.
+            Hagamos una pequeña paradita en el campo "Cantidad recaudada", este campo es opcional, es para que los usuarios de la página web puedan ver cómo van las recaudaciones sin necesidad de ir a la plataforma. Lo bueno de este campo es que si no lo utilizas no pasa nada, la página web no lo echará de menos.
         </p>
 
         <div class="volver-indice">
@@ -2425,10 +2417,6 @@ require_once(__DIR__ . '/../config/funciones.php');
             Como puedes ver en la imagen que te dejo a la derecha de este texto, el módulo de edición de las recaudaciones de fondos es prácticamente igual que el módulo de creación, la única diferencia es que en este módulo debes estar completamente segura de lo que haces, ya que cualquier modificación errónea en una recaudación de fondos activa, puede hacer que los datos de tu página web y los datos de la página web de la recaudación de fondos no cuadren, y esos son los pequeños errores que marcan la distinción entre un trabajo bien hecho ... O un trabajo hecho rápido y al tun tún.
         </p>
 
-        <div class="info">
-            El checkbox que tienes antes del botón con la leyenda "Guardar", es que sirve para "activar/desactivar" las recaudaciones de fondos, puedes utilizar este recurso cuando quieras para que cualquier recaudación de fondos no sea visible en tu página web.
-        </div>
-
         <div class="volver-indice">
             <a href="#seccion-quinta">Volver al índice</a>
         </div>
@@ -2441,10 +2429,8 @@ require_once(__DIR__ . '/../config/funciones.php');
 
     </div>
 
-    <div class="separador"></div>
-
     <!-- 6. Sexta sección - Adopciones -->
-    <div class="seccion" id="adopciones">
+    <div class="seccion page-break" id="adopciones">
 
         <h2>6. Sexta Sección - Adopciones</h2>
 
@@ -2505,12 +2491,12 @@ require_once(__DIR__ . '/../config/funciones.php');
 
         <div class="separador-seccion"></div>
 
+        <div class="separador"></div>
+
     </div>
 
-    <div class="separador"></div>
-
     <!-- 7. Séptima sección - Apadrinamientos -->
-    <div class="seccion" id="apadrinamientos">
+    <div class="seccion page-break" id="apadrinamientos">
 
         <h2></h2>
 
@@ -2519,9 +2505,9 @@ require_once(__DIR__ . '/../config/funciones.php');
 
         <div class="separador-seccion"></div>
 
-    </div>
+        <div class="separador"></div>
 
-    <div class="separador"></div>
+    </div>
 
     <!-- 8. Octava sección - Base de datos -->
     <div class="seccion" id="base_de_datos">
@@ -2533,9 +2519,9 @@ require_once(__DIR__ . '/../config/funciones.php');
 
         <div class="separador-seccion"></div>
 
-    </div>
+        <div class="separador"></div>
 
-    <div class="separador"></div>
+    </div>
 
 </body>
 
