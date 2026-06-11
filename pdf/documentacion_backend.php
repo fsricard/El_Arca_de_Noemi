@@ -740,7 +740,7 @@ require_once(__DIR__ . '/../config/funciones.php');
         </div>
 
         <!-- 6. Sexta sección - Adopciones -->
-        <div class="rama" id="seccion-sexta">
+        <div class="rama page-break" id="seccion-sexta">
             <div class="titulo-rama">
                 <a href="#adopciones">
                     6. Sexta Sección - Adopciones
@@ -862,7 +862,7 @@ require_once(__DIR__ . '/../config/funciones.php');
         </div>
 
         <!-- 7. Séptima sección - Apadrinamientos -->
-        <div class="rama" id="seccion-septima">
+        <div class="rama page-break" id="seccion-septima">
             <div class="titulo-rama">
                 <a href="#apadrinamientos">
                     7. Séptima Sección - Apadrinamientos
@@ -965,7 +965,7 @@ require_once(__DIR__ . '/../config/funciones.php');
         </div>
 
         <!-- 8. Octava sección - Base de datos -->
-        <div class="rama" id="seccion-octava">
+        <div class="rama page-break" id="seccion-octava">
             <div class="titulo-rama">
                 <a href="#base_de_datos">
                     8. Octava Sección - Base de datos
