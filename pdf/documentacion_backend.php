@@ -2446,8 +2446,60 @@ require_once(__DIR__ . '/../config/funciones.php');
     <!-- 6. Sexta sección - Adopciones -->
     <div class="seccion" id="adopciones">
 
-        <h2></h2>
+        <h2>6. Sexta Sección - Adopciones</h2>
 
+        <p>
+            Y ya hemos llegado a una de los bloques de módulos más importantes de todo el panel de administración, vamos a meterle mano a todo el flujo de trabajo del sistema de adopciones que he programado exclusivamente para ti, creo que es muuuuuy (con muchísimas Us) que repases bien todos los puntos de este bloque, me gustaría que entendieras a la perfección cómo funciona todo el sistema de adopciones que he programado para ti, más que nada porque yo no sé hasta qué punto he podido llegar a satisfacer todas las necesidades que tú puedas tener en "El Arca de Noemí" a la hora de gestionar las adopciones. Quizá necesites recopilar más datos, incluir módulos nuevos, eliminar/modificar alguno existente.
+        </p>
+
+        <div class="success">
+            Ya se que lo repito muchas veces Noemí, pero estamos en mi servidor de pruebas, y mientras la web esté aquí solo es visible para quien tenga el usuario y contrasena des encriptación, por lo tanto, mientras la página web esté en mi servidor podemos hacer lo que quieras con ella, y en este caso yo si puedo hacer realidad tus sueños ... Así que sueña y cuéntame que has soñado.
+        </div>
+
+        <div class="volver-indice">
+            <a href="#seccion-sexta">Volver al índice</a>
+        </div>
+
+        <div class="page-break"></div>
+
+        <h3 id="iniciar_nueva_adopcion">6.1. Iniciar el proceso de adopción de un animal</h3>
+
+        <div class="warning">
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
+            </div>
+
+            <div class="success">
+                <ul>
+                    <li>Usuario:</li>
+                    <ul>
+                        <li>ricard624</li>
+                    </ul>
+                    <li>Contraseña:</li>
+                    <ul>
+                        <li>mNU1P4hZI36x</li>
+                    </ul>
+                </ul>
+            </div>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/modulos/adopciones/sistema_adopciones_iniciar.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
+            </div>
+        </div>
+
+        <div class="figura">
+            <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/6.1._Iniciar_el_proceso_de_adopcion_de_un_animal.png') ?>" />
+        </div>
+
+        <p>
+
+        </p>
+
+        <div class="volver-indice">
+            <a href="#seccion-sexta">Volver al índice</a>
+        </div>
+
+        <div class="page-break"></div>
 
         <div style="clear: both;"></div>
 
