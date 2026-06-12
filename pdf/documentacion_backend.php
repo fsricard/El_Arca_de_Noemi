@@ -181,6 +181,18 @@ require_once(__DIR__ . '/../config/funciones.php');
             width: 45%;
         }
 
+        .img-left-fine {
+            float: left;
+            margin: 10px 20px 10px 0;
+            width: 15%;
+        }
+
+        .img-right-fine {
+            float: right;
+            margin: 10px 0 10px 20px;
+            width: 15%;
+        }
+
         /* END imágenes alineadas */
 
         /* Indice */
@@ -402,7 +414,7 @@ require_once(__DIR__ . '/../config/funciones.php');
             background: #e4e13e;
             border-left: 4px solid #3ee4ce;
             padding: 10px 15px;
-            margin: 20px 0;
+            margin: 0 0;
         }
 
         .infoA a {
@@ -768,69 +780,24 @@ require_once(__DIR__ . '/../config/funciones.php');
                     6.2.1.1. Columna de origen del adoptante en el listado de adoptantes
                 </a>
             </div>
-            <div class="subsubsubrama">
-                <a href="#listado_adoptantes_origen_manual">
-                    6.2.1.2. Columna de origen "Manual" en el listado de adoptantes
-                </a>
-            </div>
-            <div class="subsubsubrama">
-                <a href="#listado_adoptantes_origen_formulario">
-                    6.2.1.2.1. Columna de origen "Formulario" en el listado de adoptantes
-                </a>
-            </div>
             <div class="subsubrama">
                 <a href="#listado_adoptantes_estado">
                     6.2.1.1.1. Columna de estado del adoptante en el listado de adoptantes
                 </a>
             </div>
-            <div class="subsubsubrama">
-                <a href="#listado_adoptantes_estado_espera">
-                    6.2.1.1.2. Columna de estado "En espera" en el listado de adoptantes
-                </a>
-            </div>
-            <div class="subsubsubrama">
-                <a href="#listado_adoptantes_estado_pendiente">
-                    6.2.1.1.2.1. Columna de estado "Pendiente" en el listado de adoptantes
-                </a>
-            </div>
-            <div class="subsubsubrama">
-                <a href="#listado_adoptantes_estado_proceso">
-                    6.2.1.1.2.1.1. Columna de estado "En proceso" en el listado de adoptantes
-                </a>
-            </div>
-            <div class="subsubsubrama">
-                <a href="#listado_adoptantes_estado_finalizada">
-                    6.2.1.1.2.1.1.1. Columna de estado "Finalizada" en el listado de adoptantes
-                </a>
-            </div>
-            <div class="subsubsubrama">
-                <a href="#listado_adoptantes_estado_cancelada">
-                    6.2.1.1.2.1.1.1.1. Columna de estado "Cancelada" en el listado de adoptantes
-                </a>
-            </div>
-            <div class="subsubrama">
-                <a href="#listado_adoptantes_pdf">
-                    6.2.1.1.1.1. Columna PDF del adoptante en el listado de adoptantes
-                </a>
-            </div>
-            <div class="subsubrama">
-                <a href="#listado_adoptantes_activar">
-                    6.2.1.1.1.1.1. Activar adoptantes procedentes de formularios de adopción en la web
-                </a>
-            </div>
             <div class="subsubrama">
                 <a href="#listado_adoptantes_editar_manual">
-                    6.2.1.1.1.1.1.1. Editar adoptante de la columna de origen "Manual"
+                    6.2.1.1.1.1. Editar adoptante de la columna de origen "Manual"
                 </a>
             </div>
             <div class="subsubrama">
                 <a href="#listado_adoptantes_editar_formulario">
-                    6.2.1.1.1.1.1.1.1. Editar adoptante de la columna de origen "Formulario"
+                    6.2.1.1.1.1.1. Editar adoptante de la columna de origen "Formulario"
                 </a>
             </div>
             <div class="subsubrama">
                 <a href="#listado_adoptantes_ver_adopciones">
-                    6.2.1.1.1.1.1.1.1.1. Ver las adopciones de un adoptante
+                    6.2.1.1.1.1.1.1. Ver las adopciones de un adoptante
                 </a>
             </div>
 
@@ -1070,16 +1037,7 @@ require_once(__DIR__ . '/../config/funciones.php');
             <h4>
                 Usuario y contraseña para acceder al servidor de pruebas
             </h4>
-            <ul>
-                <li>Usuario:</li>
-                <ul>
-                    <li>ricard624</li>
-                </ul>
-                <li>Contraseña:</li>
-                <ul>
-                    <li>mNU1P4hZI36x</li>
-                </ul>
-            </ul>
+            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
         </div>
 
         <div class="volver-indice">
@@ -1147,16 +1105,7 @@ require_once(__DIR__ . '/../config/funciones.php');
             <h4>
                 Usuario y contraseña para acceder al servidor de pruebas
             </h4>
-            <ul>
-                <li>Usuario:</li>
-                <ul>
-                    <li>ricard624</li>
-                </ul>
-                <li>Contraseña:</li>
-                <ul>
-                    <li>mNU1P4hZI36x</li>
-                </ul>
-            </ul>
+            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
         </div>
 
         <div class="volver-indice">
@@ -1215,18 +1164,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <div class="success">
-                <ul>
-                    <li>Usuario:</li>
-                    <ul>
-                        <li>ricard624</li>
-                    </ul>
-                    <li>Contraseña:</li>
-                    <ul>
-                        <li>mNU1P4hZI36x</li>
-                    </ul>
-                </ul>
-            </div>
+            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
 
             <div class="danger">
                 No te agobies Noemí, esto solo lo tienes que hacer cada vez que cierres el navegador y empieces de cero, no cada vez que quieras entrar a un módulo.
@@ -1266,18 +1204,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <div class="success">
-                <ul>
-                    <li>Usuario:</li>
-                    <ul>
-                        <li>ricard624</li>
-                    </ul>
-                    <li>Contraseña:</li>
-                    <ul>
-                        <li>mNU1P4hZI36x</li>
-                    </ul>
-                </ul>
-            </div>
+            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/contacto/contacto_editar.php?id=11" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -1329,18 +1256,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <div class="success">
-                <ul>
-                    <li>Usuario:</li>
-                    <ul>
-                        <li>ricard624</li>
-                    </ul>
-                    <li>Contraseña:</li>
-                    <ul>
-                        <li>mNU1P4hZI36x</li>
-                    </ul>
-                </ul>
-            </div>
+            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/contacto/contacto_intro.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -1376,18 +1292,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <div class="success">
-                <ul>
-                    <li>Usuario:</li>
-                    <ul>
-                        <li>ricard624</li>
-                    </ul>
-                    <li>Contraseña:</li>
-                    <ul>
-                        <li>mNU1P4hZI36x</li>
-                    </ul>
-                </ul>
-            </div>
+            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/asi_es_noemi/asi_es_noemi.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -1411,18 +1316,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <div class="success">
-                <ul>
-                    <li>Usuario:</li>
-                    <ul>
-                        <li>ricard624</li>
-                    </ul>
-                    <li>Contraseña:</li>
-                    <ul>
-                        <li>mNU1P4hZI36x</li>
-                    </ul>
-                </ul>
-            </div>
+            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/politica/politica_de_privacidad.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -1450,18 +1344,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <div class="success">
-                <ul>
-                    <li>Usuario:</li>
-                    <ul>
-                        <li>ricard624</li>
-                    </ul>
-                    <li>Contraseña:</li>
-                    <ul>
-                        <li>mNU1P4hZI36x</li>
-                    </ul>
-                </ul>
-            </div>
+            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/opiniones/opiniones_intro.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -1485,18 +1368,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <div class="success">
-                <ul>
-                    <li>Usuario:</li>
-                    <ul>
-                        <li>ricard624</li>
-                    </ul>
-                    <li>Contraseña:</li>
-                    <ul>
-                        <li>mNU1P4hZI36x</li>
-                    </ul>
-                </ul>
-            </div>
+            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/opiniones/opiniones_de_usuario_listado.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -1534,18 +1406,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <div class="success">
-                <ul>
-                    <li>Usuario:</li>
-                    <ul>
-                        <li>ricard624</li>
-                    </ul>
-                    <li>Contraseña:</li>
-                    <ul>
-                        <li>mNU1P4hZI36x</li>
-                    </ul>
-                </ul>
-            </div>
+            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/opiniones/opiniones_de_usuario_editar.php?id=3" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -1575,18 +1436,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <div class="success">
-                <ul>
-                    <li>Usuario:</li>
-                    <ul>
-                        <li>ricard624</li>
-                    </ul>
-                    <li>Contraseña:</li>
-                    <ul>
-                        <li>mNU1P4hZI36x</li>
-                    </ul>
-                </ul>
-            </div>
+            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/opiniones/opiniones_de_usuario_listado.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -1641,18 +1491,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <div class="success">
-                <ul>
-                    <li>Usuario:</li>
-                    <ul>
-                        <li>ricard624</li>
-                    </ul>
-                    <li>Contraseña:</li>
-                    <ul>
-                        <li>mNU1P4hZI36x</li>
-                    </ul>
-                </ul>
-            </div>
+            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/noemi_dice/noemi_dice.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -1690,18 +1529,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <div class="success">
-                <ul>
-                    <li>Usuario:</li>
-                    <ul>
-                        <li>ricard624</li>
-                    </ul>
-                    <li>Contraseña:</li>
-                    <ul>
-                        <li>mNU1P4hZI36x</li>
-                    </ul>
-                </ul>
-            </div>
+            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/noemi_dice/noemi_dice_listado.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -1733,18 +1561,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <div class="success">
-                <ul>
-                    <li>Usuario:</li>
-                    <ul>
-                        <li>ricard624</li>
-                    </ul>
-                    <li>Contraseña:</li>
-                    <ul>
-                        <li>mNU1P4hZI36x</li>
-                    </ul>
-                </ul>
-            </div>
+            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/noemi_dice/noemi_dice_listado.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -1768,18 +1585,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <div class="success">
-                <ul>
-                    <li>Usuario:</li>
-                    <ul>
-                        <li>ricard624</li>
-                    </ul>
-                    <li>Contraseña:</li>
-                    <ul>
-                        <li>mNU1P4hZI36x</li>
-                    </ul>
-                </ul>
-            </div>
+            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/noemi_dice/noemi_dice_listado.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -1803,18 +1609,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <div class="success">
-                <ul>
-                    <li>Usuario:</li>
-                    <ul>
-                        <li>ricard624</li>
-                    </ul>
-                    <li>Contraseña:</li>
-                    <ul>
-                        <li>mNU1P4hZI36x</li>
-                    </ul>
-                </ul>
-            </div>
+            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/noemi_dice/noemi_dice_listado.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -1848,18 +1643,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <div class="success">
-                <ul>
-                    <li>Usuario:</li>
-                    <ul>
-                        <li>ricard624</li>
-                    </ul>
-                    <li>Contraseña:</li>
-                    <ul>
-                        <li>mNU1P4hZI36x</li>
-                    </ul>
-                </ul>
-            </div>
+            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/bichillos/noemi_bichillos.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -1887,18 +1671,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <div class="success">
-                <ul>
-                    <li>Usuario:</li>
-                    <ul>
-                        <li>ricard624</li>
-                    </ul>
-                    <li>Contraseña:</li>
-                    <ul>
-                        <li>mNU1P4hZI36x</li>
-                    </ul>
-                </ul>
-            </div>
+            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/bichillos/noemi_bichillos_listado.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -1943,18 +1716,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <div class="success">
-                <ul>
-                    <li>Usuario:</li>
-                    <ul>
-                        <li>ricard624</li>
-                    </ul>
-                    <li>Contraseña:</li>
-                    <ul>
-                        <li>mNU1P4hZI36x</li>
-                    </ul>
-                </ul>
-            </div>
+            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/registros/adopciones_incluir.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -2004,18 +1766,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <div class="success">
-                <ul>
-                    <li>Usuario:</li>
-                    <ul>
-                        <li>ricard624</li>
-                    </ul>
-                    <li>Contraseña:</li>
-                    <ul>
-                        <li>mNU1P4hZI36x</li>
-                    </ul>
-                </ul>
-            </div>
+            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/registros/adopciones.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -2118,18 +1869,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <div class="success">
-                <ul>
-                    <li>Usuario:</li>
-                    <ul>
-                        <li>ricard624</li>
-                    </ul>
-                    <li>Contraseña:</li>
-                    <ul>
-                        <li>mNU1P4hZI36x</li>
-                    </ul>
-                </ul>
-            </div>
+            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/registros/adopciones_adoptante.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -2165,18 +1905,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <div class="success">
-                <ul>
-                    <li>Usuario:</li>
-                    <ul>
-                        <li>ricard624</li>
-                    </ul>
-                    <li>Contraseña:</li>
-                    <ul>
-                        <li>mNU1P4hZI36x</li>
-                    </ul>
-                </ul>
-            </div>
+            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/registros/apadrinamiento_incluir.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -2219,18 +1948,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <div class="success">
-                <ul>
-                    <li>Usuario:</li>
-                    <ul>
-                        <li>ricard624</li>
-                    </ul>
-                    <li>Contraseña:</li>
-                    <ul>
-                        <li>mNU1P4hZI36x</li>
-                    </ul>
-                </ul>
-            </div>
+            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/crowdfunding/incluir_plataforma_crowdfunding.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -2291,18 +2009,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <div class="success">
-                <ul>
-                    <li>Usuario:</li>
-                    <ul>
-                        <li>ricard624</li>
-                    </ul>
-                    <li>Contraseña:</li>
-                    <ul>
-                        <li>mNU1P4hZI36x</li>
-                    </ul>
-                </ul>
-            </div>
+            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/crowdfunding/crear_recaudacion.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -2332,18 +2039,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <div class="success">
-                <ul>
-                    <li>Usuario:</li>
-                    <ul>
-                        <li>ricard624</li>
-                    </ul>
-                    <li>Contraseña:</li>
-                    <ul>
-                        <li>mNU1P4hZI36x</li>
-                    </ul>
-                </ul>
-            </div>
+            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/crowdfunding/listado_recaudaciones.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -2393,18 +2089,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <div class="success">
-                <ul>
-                    <li>Usuario:</li>
-                    <ul>
-                        <li>ricard624</li>
-                    </ul>
-                    <li>Contraseña:</li>
-                    <ul>
-                        <li>mNU1P4hZI36x</li>
-                    </ul>
-                </ul>
-            </div>
+            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/crowdfunding/editar_recaudacion.php?id=5" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -2455,18 +2140,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <div class="success">
-                <ul>
-                    <li>Usuario:</li>
-                    <ul>
-                        <li>ricard624</li>
-                    </ul>
-                    <li>Contraseña:</li>
-                    <ul>
-                        <li>mNU1P4hZI36x</li>
-                    </ul>
-                </ul>
-            </div>
+            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/adopciones/sistema_adopciones_iniciar.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -2478,8 +2152,243 @@ require_once(__DIR__ . '/../config/funciones.php');
         </div>
 
         <p>
-
+            Este módulo también es uno de los más importantes de todos los que te encontrarás en todo el panel de administración, desde este módulo es desde el que podrás vincular un animal con una persona/adoptante.
         </p>
+
+        <p>
+            El primer campo es un selector inteligente que te muestra todos los animales que hay disponibles en adopción en la base de datos de la página web, ¡¡OJO!!, solo te mostrará los que estén marcados como disponibles en adopción, los animales que ya estén vinculados a otros adoptantes no se mostrarán en este listado, a no ser que la adopción se haya marcado como "Cancelada". Para que lo tengas más fácil a la hora de buscar el animal en cuestión en el selector, solo debes empezar a teclear su nombre tal cual lo escribiste en la base de datos, el selector hará el resto por ti.
+        </p>
+
+        <p>
+            El segundo campo también es un selector inteligente, su funcionamiento es exactamente el mismo que el selector anterior, pero en este caso lo que te da a elegir son los adoptantes que haya en la base de datos. ¡¡OJO!!, En este caso, el selector sí te mostrará todos los adoptantes que haya en la base de datos, estén vinculados ya a otros animales o no. Esto es así porque en el caso anterior un animal no puede tener dos adoptantes, pero en este caso un mismo adoptante sí puede hacer varias adopciones.
+        </p>
+
+        <div class="warning">
+            Yo he puesto los campos que me han parecido básicos, estoy más que seguro de que tú necesitarás muchos más datos a la hora de crear una adopción, pero ya lo sabes, te lo he dicho muchas veces ... Ahora podemos añadir/modificar/eliminar lo que tú necesites.
+        </div>
+
+        <div class="volver-indice">
+            <a href="#seccion-sexta">Volver al índice</a>
+        </div>
+
+        <div class="page-break"></div>
+
+        <h3 id="listado_de_adoptantes">6.2. Listado de todos los adoptantes de la base de datos</h3>
+
+        <div class="warning">
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
+            </div>
+
+            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/modulos/adopciones/sistema_adopciones_listado_adoptantes.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
+            </div>
+        </div>
+
+        <p>
+            Y ahora que ya sabes cómo crear nuevas adopciones lo más lógico es que te enseñe a gestionarlas y para eso tenemos que irnos al listado de adopciones. En este listado verás algo como lo que te dejo en la imagen de debajo de este texto, pero como este listado es algo más complejo que los que hemos visto hasta el ahora voy a desglosarlo punto por punto.
+        </p>
+
+        <div class="figura">
+            <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/6.2._Listado_de_todos_los_adoptantes.png') ?>" />
+        </div>
+
+        <div class="volver-indice">
+            <a href="#seccion-sexta">Volver al índice</a>
+        </div>
+
+        <div class="page-break"></div>
+
+        <h3 id="filtros_listado_adoptantes">6.2.1. Filtros para el listado de adoptantes</h3>
+
+        <div class="warning">
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
+            </div>
+
+            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/modulos/adopciones/sistema_adopciones_listado_adoptantes.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
+            </div>
+        </div>
+
+        <div class="figura">
+            <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/6.2.1._Filtros_para_el_listado_de_adoptantes.png') ?>" />
+        </div>
+
+        <p>
+            Y como siempre, lo primero que tienes es el sistema de filtros inteligentes vinculado al paginado. El primer campo es un input inteligente para buscar adoptantes por nombre o apellido, conforme vayas escribiendo el nombre o el apellido del adoptante en cuestión el campo inteligente te irá mostrando las opciones más cercanas.
+        </p>
+
+        <p>
+            El resto de campos no tienen mucho que explicar, el segundo es filtrar por según el estado de la adopción, y los otros dos son simplemente por si quieres filtrar a partir de una fecha mínima o máxima.
+        </p>
+
+        <div class="volver-indice">
+            <a href="#seccion-sexta">Volver al índice</a>
+        </div>
+
+        <div class="page-break"></div>
+
+        <h3 id="listado_adoptantes_origen">6.2.1.1. Columna de origen del adoptante en el listado de adoptantes</h3>
+
+        <div class="warning">
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
+            </div>
+
+            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/modulos/adopciones/sistema_adopciones_listado_adoptantes.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
+            </div>
+        </div>
+
+        <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/6.2.1.1._Columna_de_origen_del_adoptante.png') ?>" class="img-left-fine" />
+
+        <p>
+            Ahora te voy a hablar de la columna "Origen" del listado de adoptantes, encontrarás esta columna en la cuarta posición del listado, y en sus celdas podrás encontrar dos valores diferentes: "Manual", en color azul verdoso, y "Formulario", en color verde, exactamente algo como lo que puedes ver en la imagen que te dejo a la izquierda de este texto.
+        </p>
+
+        <p>
+            Las filas que estén marcadas como "Manual", son las adopciones que tú misma has creado desde el módulo que vimos anteriormente y que puedes ver de nuevo haciendo clic <a href="#iniciar_nueva_adopcion" class="infoco">"aquí"</a>.
+        </p>
+
+        <p>
+            En cambio, las adopciones marcadas como "Formulario", son las que proceden de la página web, es decir que estas adopciones las han enviado los mismos usuarios desde el formulario que te he creado en la página web, lo bueno de este tipo de adopciones es que están completamente automatizadas. Para que un usuario pueda acceder al formulario para poder rellenarlo y enviarlo, primero debe navegar entre todos los animales que tengas en la página web para adopción, cuando vea algún animal con el que se sienta identificado podrá hacer clic en el botón "Quiero adoptar a ..." que hay en la ficha individual de cada animal, ese botón lo lleva directamente al formulario que ya queda vinculado automáticamente con el animal en cuestión, el usuario rellena todos los datos, envía el formulario, a ti te llega un E-mail con el formulario adjunto, y además se agrega al listado de adopciones marcado como "Formulario". Y lo más importante, la adopción siempre queda marcada como "En espera" hasta que tú actúes sobre ella, y mientras esté marcada así, el animal sigue estando disponible para adopción siempre y cuando tú no le des al botón "Activar" del listado.
+        </p>
+
+        <div class="volver-indice">
+            <a href="#seccion-sexta">Volver al índice</a>
+        </div>
+
+        <div class="page-break"></div>
+
+        <h3 id="listado_adoptantes_estado">6.2.1.1.1. Columna de estado del adoptante en el listado de adoptantes</h3>
+
+        <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/6.2.1.1.1._Columna_de_estado_del_adoptante.png') ?>" class="img-right-fine" />
+
+        <p>
+            La quinta columna del listado es que la que te marca el estado de la adopción, y tiene cinco opciones diferenciadas por cinco colores:
+
+        <ol>
+            <li style="background-color: #FFC107; padding: 8px 10px; width: max-content; border-radius: 10px;">En espera</li>
+            <p>
+                Las adopciones que provienen del formulario de la página web.
+            </p>
+            <li style="background-color: #FFC107; padding: 8px 10px; width: max-content; border-radius: 10px;">Pendiente</li>
+            <p>
+                Cuando creas una adopción este es el estado predeterminado en el que se queda, a no ser que tú lo cambies.
+            </p>
+            <li style="background-color: #17A2B8; padding: 8px 10px; width: max-content; border-radius: 10px;">En proceso</li>
+            <p>
+                Cuando ya has tomado la decisión de que un adoptante es apto, este es el estado que debes marcar para su adopción.
+            </p>
+            <li style="background-color: #28A745; padding: 8px 10px; width: max-content; border-radius: 10px;">Finalizada</li>
+            <p>
+                Este es lógico cuando finalices una adopción las marcas con este estado para tenerlas a mano.
+            </p>
+            <li style="background-color: #D9534F; padding: 8px 10px; width: max-content; border-radius: 10px;">Cancelada</li>
+            <p>
+                Este es muy importante si pones una adopción en proceso y al final resulta que el adoptante se echa para atrás, o tú decides que no es apto, marca la adopción como "Cancelada", de esta manera el animal se activará como disponible para adopción automáticamente.
+            </p>
+        </ol>
+        </p>
+
+        <div class="volver-indice">
+            <a href="#seccion-sexta">Volver al índice</a>
+        </div>
+
+        <div class="page-break"></div>
+
+        <h3 id="listado_adoptantes_editar_manual">6.2.1.1.1.1. Editar adoptante de la columna de origen "Manual"</h3>
+
+        <div class="warning">
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
+            </div>
+
+            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/modulos/adopciones/sistema_adopciones_editar_adoptante.php?id=3" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
+            </div>
+        </div>
+
+        <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/6.2.1.1.1.1._Editar_adoptante_Manual.png') ?>" class="img-left" />
+
+        <p>
+            Como puedes ver en la imagen de la derecha, este es el módulo para editar las adopciones manuales es decir, las que hayas creado tú desde el módulo que puedes repasar haciendo clic <a href="#iniciar_nueva_adopcion" class="infoco">"aquí"</a>, la verdad es que no tiene mucho misterio, puedes cambiar la fecha de la adopción, el estado y modificar tus notas personales. También he añadido un botón para que puedas ver todas las adopciones del adoptante en cuestión, por si tiene más de una claro.
+        </p>
+
+        <div class="info">
+            Recuerda que tal y como te dije en el módulo de creación de adopciones manual, que puedes repasar haciendo clic <a href="#iniciar_nueva_adopcion" class="infoco">"aquí"</a>, si en ese módulo decides añadir/modificar/eliminar campos, en este también se verán reflejados esos cambios.
+        </div>
+
+        <div class="volver-indice">
+            <a href="#seccion-sexta">Volver al índice</a>
+        </div>
+
+        <div class="page-break"></div>
+
+        <h3 id="listado_adoptantes_editar_formulario">6.2.1.1.1.1.1. Editar adoptante de la columna de origen "Formulario"</h3>
+
+        <div class="warning">
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
+            </div>
+
+            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/modulos/adopciones/sistema_adopciones_editar_formulario.php?id=6" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
+            </div>
+        </div>
+
+        <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/6.2.1.1.1.1.1._Editar_adoptante_Formulario.png') ?>" class="img-right" />
+
+        <p>
+            Este módulo de edición es exclusivamente para los adoptantes que provienen del formulario de la página web, al entrar en este módulo te encontrarás algo parecido a la imagen de la derecha, como puedes ver es un sistema de pestañas inteligentes. Como en el formulario de la página web hay muchos más campos que en el manual he creado este sistema de pestañas para que puedas navegar por los datos separados en familias, cuando hagas clic en una pestaña esta se abrirá y la que tengas abierta se cerrará, de esta manera podrás trabajar con la ventana limpia y sin distracciones de ningún tipo.
+        </p>
+
+        <div class="danger">
+            Desde aquí puedes modificar todos los datos que el posible adoptante te ha enviado desde el formulario de la página web, así que ve con un poco de tacto, ya que estos son datos bastante sensibles y personales, a no ser de estar totalmente segura no toquetees nada que te conozco Noemí.
+        </div>
+
+        <div class="volver-indice">
+            <a href="#seccion-sexta">Volver al índice</a>
+        </div>
+
+        <div class="page-break"></div>
+
+        <h3 id="listado_adoptantes_ver_adopciones">6.2.1.1.1.1.1.1. Ver las adopciones de un adoptante</h3>
+
+        <div class="warning">
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
+            </div>
+
+            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/modulos/adopciones/sistema_adopciones_por_adoptante.php?id=6" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
+            </div>
+        </div>
+
+        <p>
+            Este módulo no tiene muchas complicaciones de manera que lo vamos a pasar un poco por encima, este es el listado individual de las adopciones de cada adoptante, tienes dos botones para acceder a este listado, uno en el listado de adoptantes y el otro dentro del módulo de edición de adoptantes.
+        </p>
+
+        <p>
+            Como puedes ver en la imagen que te dejo debajo de este texto, desde este módulo puedes ver todos los datos y editar la o las, si las hubiera adopciones que quisieras.
+        </p>
+
+        <div class="figura">
+            <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/6.2.1.1.1.1.1.1._Ver_las_adopciones_de_un_adoptante.png') ?>" />
+        </div>
 
         <div class="volver-indice">
             <a href="#seccion-sexta">Volver al índice</a>

@@ -166,19 +166,31 @@ require_once(__DIR__ . '/../config/funciones.php');
         .img-center {
             display: block;
             margin: 20px auto;
-            width: 50%;
+            width: 90%;
         }
 
         .img-left {
             float: left;
             margin: 10px 20px 10px 0;
-            width: 35%;
+            width: 45%;
         }
 
         .img-right {
             float: right;
             margin: 10px 0 10px 20px;
-            width: 35%;
+            width: 45%;
+        }
+
+        .img-left-fine {
+            float: left;
+            margin: 10px 20px 10px 0;
+            width: 10%;
+        }
+
+        .img-right-fine {
+            float: right;
+            margin: 10px 0 10px 20px;
+            width: 10%;
         }
 
         /* END imágenes alineadas */
@@ -272,6 +284,9 @@ require_once(__DIR__ . '/../config/funciones.php');
         }
 
         .volver-indice {
+            display: block;
+            overflow: hidden;
+            width: 100%;
             text-align: center;
             margin: 40px 0 20px 0;
         }
@@ -375,6 +390,17 @@ require_once(__DIR__ . '/../config/funciones.php');
             background: #f7f9fc;
         }
 
+        a.infoco {
+            display: contents;
+            text-decoration: none;
+            color: #1E3558;
+            font-weight: bold;
+        }
+
+        a.infoco:hover {
+            color: #2c6dcf;
+        }
+
         p,
         .pre,
         .info,
@@ -388,7 +414,7 @@ require_once(__DIR__ . '/../config/funciones.php');
             background: #e4e13e;
             border-left: 4px solid #3ee4ce;
             padding: 10px 15px;
-            margin: 20px 0;
+            margin: 0 0;
         }
 
         .infoA a {
@@ -442,7 +468,7 @@ require_once(__DIR__ . '/../config/funciones.php');
         }
 
         .figura img {
-            width: 70%;
+            width: 90%;
             margin-bottom: 8px;
         }
 
@@ -565,38 +591,11 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <div class="success">
-                <ul>
-                    <li>Usuario:</li>
-                    <ul>
-                        <li>ricard624</li>
-                    </ul>
-                    <li>Contraseña:</li>
-                    <ul>
-                        <li>mNU1P4hZI36x</li>
-                    </ul>
-                </ul>
-            </div>
+            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
             </div>
-        </div>
-
-        <div class="success">
-            <h4>
-                Usuario y contraseña para acceder al servidor de pruebas
-            </h4>
-            <ul>
-                <li>Usuario:</li>
-                <ul>
-                    <li>ricard624</li>
-                </ul>
-                <li>Contraseña:</li>
-                <ul>
-                    <li>mNU1P4hZI36x</li>
-                </ul>
-            </ul>
         </div>
 
         <div class="volver-indice">
@@ -631,7 +630,11 @@ require_once(__DIR__ . '/../config/funciones.php');
             </p>
         </div>
 
-        <h3>3.1 Listas ordenadas y desordenadas</h3>
+        <h3>3.1. Enlaces</h3>
+
+        <a href="" target="_blank" class="infoco">Haz clic aquí</a>
+
+        <h3>3.2 Listas ordenadas y desordenadas</h3>
 
         <p>Ejemplo de lista desordenada:</p>
         <ul>
@@ -657,13 +660,13 @@ require_once(__DIR__ . '/../config/funciones.php');
             <li>Paso final</li>
         </ol>
 
-        <h3>3.2 Blockquote</h3>
+        <h3>3.3 Blockquote</h3>
 
         <blockquote>
             “Este es un ejemplo de blockquote. Úsalo para citas, notas importantes o extractos de texto.”
         </blockquote>
 
-        <h3>3.3 Código inline y bloque</h3>
+        <h3>3.4 Código inline y bloque</h3>
 
         <p>
             Puedes insertar código inline como <code>$variable = "valor";</code> dentro de un párrafo.
@@ -675,7 +678,7 @@ require_once(__DIR__ . '/../config/funciones.php');
             }
         </pre>
 
-        <h3>3.4 Consola y comandos</h3>
+        <h3>3.5 Consola y comandos</h3>
 
         <div class="consola">
             php artisan migrate
@@ -691,7 +694,7 @@ require_once(__DIR__ . '/../config/funciones.php');
             Y atajos de teclado como <span class="kbd">Ctrl</span> + <span class="kbd">S</span>.
         </p>
 
-        <h3>3.5 Tablas profesionales</h3>
+        <h3>3.6 Tablas profesionales</h3>
 
         <table>
             <tr>
@@ -716,7 +719,7 @@ require_once(__DIR__ . '/../config/funciones.php');
             </tr>
         </table>
 
-        <h3>3.6 Imágenes con diferentes alineaciones</h3>
+        <h3>3.7 Imágenes con diferentes alineaciones</h3>
 
         <p>Imagen centrada:</p>
         <div class="figura">
@@ -731,6 +734,8 @@ require_once(__DIR__ . '/../config/funciones.php');
 
         <p>Imagen alineada a la izquierda:</p>
         <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/') ?>" class="img-left" />
+
+        <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/') ?>" class="img-left-fine" />
         <p>
             Este texto rodea una imagen alineada a la izquierda. Puedes usar este estilo para ilustrar
             procesos o elementos visuales sin romper el flujo del contenido.
@@ -740,6 +745,8 @@ require_once(__DIR__ . '/../config/funciones.php');
 
         <p>Imagen alineada a la derecha:</p>
         <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/') ?>" class="img-right" />
+
+        <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/') ?>" class="img-right-fine" />
         <p>
             Este texto rodea una imagen alineada a la derecha. Ideal para ejemplos visuales que acompañan
             explicaciones más largas.
