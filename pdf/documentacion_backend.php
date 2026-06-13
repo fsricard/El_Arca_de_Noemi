@@ -2396,6 +2396,172 @@ require_once(__DIR__ . '/../config/funciones.php');
 
         <div class="page-break"></div>
 
+        <h3 id="listado_animales_adopcion">6.3. Listado de todos los animales en adopción de la base de datos</h3>
+
+        <div class="warning">
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
+            </div>
+
+            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/modulos/adopciones/sistema_adopciones_listado.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
+            </div>
+        </div>
+
+        <p>
+            E igual que tenemos un listado con todos los adoptantes y sus adopciones, también tenemos un listado con todos los animales que tienes en la base de datos puestos en adopción, sea cual sea su estado.
+        </p>
+
+        <p>
+            En este listado verás lo mismo que en el listado anterior, pero con algunas modificaciones bastantes significativas que ahora pasaremos a ver una por una.
+        </p>
+
+        <div class="figura">
+            <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/6.3._Listado_de_todos_los_animales_en_adopcion.png') ?>" />
+        </div>
+
+        <div class="volver-indice">
+            <a href="#seccion-sexta">Volver al índice</a>
+        </div>
+
+        <div class="page-break"></div>
+
+        <h3 id="listado_animales_adopcion_filtros">6.3.1. Filtros para el listado de animales en adopción</h3>
+
+        <div class="warning">
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
+            </div>
+
+            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/modulos/adopciones/sistema_adopciones_listado.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
+            </div>
+        </div>
+
+        <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/6.3.1._Filtros_listado_animales_en_adopcion.png') ?>" class="img-left" />
+
+        <p>
+            Como siempre empezamos por el sistema de filtros inteligentes vinculados al paginado, te encontrarás algo como lo que ves en la imagen que te dejo a la izquierda de este texto.
+        </p>
+
+        <p>
+            Los dos primeros campos ya los conoces más que de sobra, son los famosos selectores inteligentes de "Especie" y "Raza", el selector de especie te muestra todas las especies que tengas en la base de datos, ya sabes que para facilitarte el trabajo solo tienes que empezar a teclear el nombre de la especie y el selector hará el resto. El selector de raza simplemente mostrará las razas de la especie elegida, su funcionamiento inteligente es igual al campo anterior.
+        </p>
+
+        <p>
+            El tercer campo es simplemente para filtrar por animales marcados como "Adoptables" o "No adoptables", los marcados como adoptables son los que se visualizarán en la página web, los otros serán los que solo serán visibles para ti en el panel de administración, como por ejemplo los que estén en proceso de adopción, o ya adoptados.
+        </p>
+
+        <p>
+            El cuarto campo ya sabes cómo funciona, ya que es el mismo que te presenté en el listado de adoptantes. Y el resto hablan por sí mismos, por lo que no hace falta explicar nada más.
+        </p>
+
+        <div class="volver-indice">
+            <a href="#seccion-sexta">Volver al índice</a>
+        </div>
+
+        <div class="page-break"></div>
+
+        <h3 id="listado_animales_adopcion_crear_adopcion">6.3.1.1. Crear una adopción desde el listado de animales en adopción</h3>
+
+        <div class="warning">
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
+            </div>
+
+            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/modulos/adopciones/sistema_adopciones_crear.php?id_animal=2" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
+            </div>
+        </div>
+
+        <div class="figura">
+            <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/6.3.1.1._Crear_adopcion_desde_listado_animales.png') ?>" />
+        </div>
+
+        <p>
+            Los animales del listado que estén disponibles para adopción tendrán a su izquierda un botón de color azul con la leyenda "Crear adopción", este botón te llevará a este módulo desde el cual podrás crear una nueva adopción para este animal. El primer campo es inteligente, tú solo empieza a escribir el nombre del adoptante que quieres buscar y el sistema hará el resto por ti.
+        </p>
+
+        <div class="volver-indice">
+            <a href="#seccion-sexta">Volver al índice</a>
+        </div>
+
+        <div class="page-break"></div>
+
+        <h3 id="listado_animales_adopcion_editar_adopcion">6.3.1.1.1. Editar una adopción desde el listado de animales en adopción</h3>
+
+        <div class="warning">
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
+            </div>
+
+            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/modulos/adopciones/sistema_adopciones_editar_adoptante.php?id=4" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
+            </div>
+        </div>
+
+        <p>
+            En este módulo encontrarás algo como la imagen que te dejo debajo de este texto, podrás ver los del animal y del adoptante, lógicamente podrás modificar todos los datos de la adopción.
+        </p>
+
+        <div class="warning">
+            Recuerda que estos son los campos básicos que a mí se me han ocurrido, seguramente tú necesitarás muchos más campos para crear una adopción, y esos los añadiremos en el módulo que vimos <a href="#iniciar_nueva_adopcion" class="infoco">"aquí"</a>, como el resto de módulos van vinculados a ese los campos aparecerán de forma automática.
+        </div>
+
+        <div class="figura">
+            <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/6.3.1.1.1._Editar_adopcion_desde_listado_animales.png') ?>" />
+        </div>
+
+        <div class="volver-indice">
+            <a href="#seccion-sexta">Volver al índice</a>
+        </div>
+
+        <div class="page-break"></div>
+
+        <h3 id="listado_animales_adopcion_editar_animal">6.3.1.1.1.1. Editar un animal en adopción desde el listado de animales en adopción</h3>
+
+        <div class="warning">
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
+            </div>
+
+            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/modulos/adopciones/sistema_adopciones_editar_animales.php?id=6" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
+            </div>
+        </div>
+
+        <p>
+            Este módulo lo vamos a pasar por alto, ya que es exactamente igual que el módulo que ya vimos <a href="#" class="infoco">"aquí"</a>, la única diferencia entre aquel módulo y este es que uno es de creación y el otro es el de edición.
+        </p>
+
+        <p>
+            En el de creación (el módulo que vimos anteriormente), tenías que añadir las imágenes, pero no las veías, en este módulo si las puedes ver, tal y como puedes comprobar en la imagen que te dejo debajo de este texto, además de poder subir más imágenes a la galería del animal, también puedes eliminar las presentes y cambiar la imagen principal.
+        </p>
+
+        <div class="figura">
+            <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/6.3.1.1.1.1._Listado_animales_editar_animal.png') ?>" />
+        </div>
+
+        <div class="info">
+            La imagen que está marcada como "Principal" es la que se muestra en los bloques sueltos de la página web, por ejemplo el bloque que hay en la página principal, o el bloque que hay en el listado de todos los animales. El resto de imágenes solo son visibles en la página individual de cada animal a modo de galería.
+        </div>
+
+        <div class="volver-indice">
+            <a href="#seccion-sexta">Volver al índice</a>
+        </div>
+
+        <div class="page-break"></div>
+
         <div style="clear: both;"></div>
 
         <div class="separador-seccion"></div>
