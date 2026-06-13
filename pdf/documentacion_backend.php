@@ -506,6 +506,60 @@ require_once(__DIR__ . '/../config/funciones.php');
         }
 
         /* END sección */
+
+        /* ================================
+        PÁGINA FINAL DE CRÉDITOS
+        ================================ */
+
+        .creditos {
+            text-align: left;
+            max-width: 700px;
+            margin: 40px auto;
+            page-break-before: always;
+        }
+
+        .creditos h2 {
+            font-size: 24px;
+            color: #2b4c7e;
+            margin-bottom: 15px;
+        }
+
+        .creditos h3 {
+            font-size: 18px;
+            color: #444;
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+
+        .creditos ul {
+            margin: 10px 0 10px 25px;
+        }
+
+        .creditos li {
+            margin: 5px 0;
+        }
+
+        .creditos .separador-creditos {
+            width: 100%;
+            height: 2px;
+            background: #2b4c7e;
+            margin: 30px 0;
+        }
+
+        .creditos .frase-final {
+            text-align: center;
+            font-style: italic;
+            font-size: 16px;
+            margin-top: 40px;
+            color: #333;
+        }
+
+        .creditos .autor {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #555;
+        }
     </style>
 </head>
 
@@ -847,38 +901,8 @@ require_once(__DIR__ . '/../config/funciones.php');
                 </a>
             </div>
             <div class="subsubrama">
-                <a href="#listado_animales_apadrinar_columna_padrinos">
-                    7.1.1.1. Columna "Padrinos" en el listado de animales para apadrinar
-                </a>
-            </div>
-            <div class="subsubrama">
-                <a href="#listado_animales_apadrinar_columna_estado">
-                    7.1.1.1.1. Columna "Estado" en el listado de animales para apadrinar
-                </a>
-            </div>
-            <div class="subsubrama">
                 <a href="#listado_animales_apadrinar_editar">
-                    7.1.1.1.1.1. Editar un animal para apadrinar
-                </a>
-            </div>
-            <div class="subsubsubrama">
-                <a href="#listado_animales_apadrinar_editar_especie">
-                    7.1.1.1.1.2. Casilla inteligente para buscar la especie del animal para apadrinar
-                </a>
-            </div>
-            <div class="subsubsubrama">
-                <a href="#listado_animales_apadrinar_editar_raza">
-                    7.1.1.1.1.2.1. Casilla inteligente para buscar la raza del animal para apadrinar
-                </a>
-            </div>
-            <div class="subsubsubrama">
-                <a href="#listado_animales_apadrinar_editar_estado">
-                    7.1.1.1.1.2.1.1. Casilla para cambiar el estado del animal para apadrinar
-                </a>
-            </div>
-            <div class="subsubsubrama">
-                <a href="#listado_animales_apadrinar_editar_columna_acciones">
-                    7.1.1.1.1.2.1.1.1. Columna de acciones para editar un animal para apadrinar
+                    7.1.1.1. Editar un animal para apadrinar
                 </a>
             </div>
 
@@ -895,26 +919,6 @@ require_once(__DIR__ . '/../config/funciones.php');
             <div class="subsubrama">
                 <a href="#listado_padrinos_editar">
                     7.2.1.1. Editar un padrino desde el listado de padrinos
-                </a>
-            </div>
-            <div class="subsubsubrama">
-                <a href="#listado_padrinos_editar_csv">
-                    7.2.1.2. Exportar datos del padrino en formato "CSV"
-                </a>
-            </div>
-            <div class="subsubsubrama">
-                <a href="#listado_padrinos_editar_eliminar">
-                    7.2.1.2.1. Eliminar un padrino desde el listado de padrinos
-                </a>
-            </div>
-            <div class="subsubsubrama">
-                <a href="#listado_padrinos_editar_ver_animal">
-                    7.2.1.2.1.1. Ver el animal vinculado a cada padrino
-                </a>
-            </div>
-            <div class="subsubsubrama">
-                <a href="#listado_padrinos_editar_relacion">
-                    7.2.1.2.1.1.1. Editar la relación entre el padrino y el animal
                 </a>
             </div>
 
@@ -953,16 +957,6 @@ require_once(__DIR__ . '/../config/funciones.php');
             <div class="subsubrama">
                 <a href="#base_de_datos_usuarios_crear">
                     8.2.1. Crear un nuevo usuario para el panel de administración
-                </a>
-            </div>
-            <div class="subsubsubrama">
-                <a href="#base_de_datos_usuarios_crear_admin">
-                    8.2.1.2. Crear un nuevo usuario con rol de "Administrador"
-                </a>
-            </div>
-            <div class="subsubsubrama">
-                <a href="#base_de_datos_usuarios_crear_visitante">
-                    8.2.1.2.1. Crear un nuevo usuario con rol de "Visitante"
                 </a>
             </div>
 
@@ -1037,7 +1031,7 @@ require_once(__DIR__ . '/../config/funciones.php');
             <h4>
                 Usuario y contraseña para acceder al servidor de pruebas
             </h4>
-            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+            <p>Usuario: ricard624 | Contraseña: mNU1P4hZI36x</p>
         </div>
 
         <div class="volver-indice">
@@ -1105,7 +1099,7 @@ require_once(__DIR__ . '/../config/funciones.php');
             <h4>
                 Usuario y contraseña para acceder al servidor de pruebas
             </h4>
-            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+            <p>Usuario: ricard624 | Contraseña: mNU1P4hZI36x</p>
         </div>
 
         <div class="volver-indice">
@@ -1164,7 +1158,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+            <p>Usuario: ricard624 | Contraseña: mNU1P4hZI36x</p>
 
             <div class="danger">
                 No te agobies Noemí, esto solo lo tienes que hacer cada vez que cierres el navegador y empieces de cero, no cada vez que quieras entrar a un módulo.
@@ -1204,7 +1198,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+            <p>Usuario: ricard624 | Contraseña: mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/contacto/contacto_editar.php?id=11" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -1256,7 +1250,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+            <p>Usuario: ricard624 | Contraseña: mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/contacto/contacto_intro.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -1292,7 +1286,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+            <p>Usuario: ricard624 | Contraseña: mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/asi_es_noemi/asi_es_noemi.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -1316,7 +1310,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+            <p>Usuario: ricard624 | Contraseña: mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/politica/politica_de_privacidad.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -1344,7 +1338,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+            <p>Usuario: ricard624 | Contraseña: mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/opiniones/opiniones_intro.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -1368,7 +1362,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+            <p>Usuario: ricard624 | Contraseña: mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/opiniones/opiniones_de_usuario_listado.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -1406,7 +1400,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+            <p>Usuario: ricard624 | Contraseña: mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/opiniones/opiniones_de_usuario_editar.php?id=3" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -1436,7 +1430,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+            <p>Usuario: ricard624 | Contraseña: mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/opiniones/opiniones_de_usuario_listado.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -1491,7 +1485,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+            <p>Usuario: ricard624 | Contraseña: mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/noemi_dice/noemi_dice.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -1529,7 +1523,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+            <p>Usuario: ricard624 | Contraseña: mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/noemi_dice/noemi_dice_listado.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -1561,7 +1555,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+            <p>Usuario: ricard624 | Contraseña: mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/noemi_dice/noemi_dice_listado.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -1585,7 +1579,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+            <p>Usuario: ricard624 | Contraseña: mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/noemi_dice/noemi_dice_listado.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -1609,7 +1603,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+            <p>Usuario: ricard624 | Contraseña: mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/noemi_dice/noemi_dice_listado.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -1643,7 +1637,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+            <p>Usuario: ricard624 | Contraseña: mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/bichillos/noemi_bichillos.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -1671,7 +1665,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+            <p>Usuario: ricard624 | Contraseña: mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/bichillos/noemi_bichillos_listado.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -1716,7 +1710,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+            <p>Usuario: ricard624 | Contraseña: mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/registros/adopciones_incluir.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -1766,7 +1760,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+            <p>Usuario: ricard624 | Contraseña: mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/registros/adopciones.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -1869,7 +1863,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+            <p>Usuario: ricard624 | Contraseña: mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/registros/adopciones_adoptante.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -1905,7 +1899,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+            <p>Usuario: ricard624 | Contraseña: mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/registros/apadrinamiento_incluir.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -1948,7 +1942,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+            <p>Usuario: ricard624 | Contraseña: mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/crowdfunding/incluir_plataforma_crowdfunding.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -2009,7 +2003,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+            <p>Usuario: ricard624 | Contraseña: mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/crowdfunding/crear_recaudacion.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -2039,7 +2033,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+            <p>Usuario: ricard624 | Contraseña: mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/crowdfunding/listado_recaudaciones.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -2089,7 +2083,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+            <p>Usuario: ricard624 | Contraseña: mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/crowdfunding/editar_recaudacion.php?id=5" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -2140,7 +2134,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+            <p>Usuario: ricard624 | Contraseña: mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/adopciones/sistema_adopciones_iniciar.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -2180,7 +2174,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+            <p>Usuario: ricard624 | Contraseña: mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/adopciones/sistema_adopciones_listado_adoptantes.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -2208,7 +2202,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+            <p>Usuario: ricard624 | Contraseña: mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/adopciones/sistema_adopciones_listado_adoptantes.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -2240,7 +2234,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+            <p>Usuario: ricard624 | Contraseña: mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/adopciones/sistema_adopciones_listado_adoptantes.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -2311,7 +2305,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+            <p>Usuario: ricard624 | Contraseña: mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/adopciones/sistema_adopciones_editar_adoptante.php?id=3" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -2341,7 +2335,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+            <p>Usuario: ricard624 | Contraseña: mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/adopciones/sistema_adopciones_editar_formulario.php?id=6" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -2371,7 +2365,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+            <p>Usuario: ricard624 | Contraseña: mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/adopciones/sistema_adopciones_por_adoptante.php?id=6" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -2403,7 +2397,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+            <p>Usuario: ricard624 | Contraseña: mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/adopciones/sistema_adopciones_listado.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -2435,7 +2429,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+            <p>Usuario: ricard624 | Contraseña: mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/adopciones/sistema_adopciones_listado.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -2473,7 +2467,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+            <p>Usuario: ricard624 | Contraseña: mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/adopciones/sistema_adopciones_crear.php?id_animal=2" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -2501,7 +2495,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+            <p>Usuario: ricard624 | Contraseña: mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/adopciones/sistema_adopciones_editar_adoptante.php?id=4" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -2533,7 +2527,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+            <p>Usuario: ricard624 | Contraseña: mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/adopciones/sistema_adopciones_editar_animales.php?id=6" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -2541,7 +2535,7 @@ require_once(__DIR__ . '/../config/funciones.php');
         </div>
 
         <p>
-            Este módulo lo vamos a pasar por alto, ya que es exactamente igual que el módulo que ya vimos <a href="#" class="infoco">"aquí"</a>, la única diferencia entre aquel módulo y este es que uno es de creación y el otro es el de edición.
+            Este módulo lo vamos a pasar por alto, ya que es exactamente igual que el módulo que ya vimos <a href="#registro_nuevo_animal_adopcion" class="infoco">"aquí"</a>, la única diferencia entre aquel módulo y este es que uno es de creación y el otro es el de edición.
         </p>
 
         <p>
@@ -2571,8 +2565,117 @@ require_once(__DIR__ . '/../config/funciones.php');
     <!-- 7. Séptima sección - Apadrinamientos -->
     <div class="seccion page-break" id="apadrinamientos">
 
-        <h2></h2>
+        <h2>7. Séptima Sección - Apadrinamientos</h2>
 
+        <p>
+            Bienvenida a la sección de apadrinamientos, a pesar de que esta va a ser una sección bastante escueta creo que también es muy importante, ya que el sistema de flujo de trabajo de los apadrinamientos vinculados a un sistema de suscripciones de PayPal debe estar rigurosamente bien programado, y sobre todo bien explicado para que a ti te quede clarinete como un patinete recién comprado.
+        </p>
+
+        <div class="warning">
+            Como siempre te digo Noemí, este es otro de esos casos en los que es muuuuuy (con muchísimas Us) posible que tu necesites recopilar más datos en cada registro de un apadrinamiento. No quiero ser cansino ... Bueno, que coño, si quiero ser cansino, estamos en un entorno de pruebas controlado, es en este momento en el que se tienen que hacer los cambios que a ti se te pasen por la cabeza, no una vez en el servidor de producción.
+        </div>
+
+        <div class="volver-indice">
+            <a href="#seccion-septima">Volver al índice</a>
+        </div>
+
+        <div class="page-break"></div>
+
+        <h3 id="listado_animales_apadrinar">7.1. Listado de todos los animales para apadrinar de la base de datos</h3>
+
+        <div class="warning">
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
+            </div>
+
+            <p>Usuario: ricard624 | Contraseña: mNU1P4hZI36x</p>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/modulos/apadrinamientos/apadrina_listado_animales.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
+            </div>
+        </div>
+
+        <div class="figura">
+            <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/7.1._Listado_animales_apadrinar.png') ?>" />
+        </div>
+
+        <p>
+            Este primer módulo lo pasamos por encima Noemí, es como todos los listados que hemos ido viendo hasta ahora, no tiene más misterio, es algo como lo que tienes en la imagen que te dejo encima de este texto, puedes ver el sistema de filtros inteligentes vinculados al paginado y la lista de animales que haya en la base de datos para apadrinar. Lo que sí que vamos a hacer es desglosar uno por uno cada punto de este listado para que todo quede bien claro.
+        </p>
+
+        <div class="volver-indice">
+            <a href="#seccion-septima">Volver al índice</a>
+        </div>
+
+        <div class="page-break"></div>
+
+        <h3 id="listado_animales_apadrinar_filtros">7.1.1. Filtros para el listado de animales para apadrinar</h3>
+
+        <div class="warning">
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
+            </div>
+
+            <p>Usuario: ricard624 | Contraseña: mNU1P4hZI36x</p>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/modulos/apadrinamientos/apadrina_listado_animales.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
+            </div>
+        </div>
+
+        <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/7.1.1._Listado_animales_apadrinar_filtros.png') ?>" class="img-right" />
+
+        <p>
+            Este sistema de filtros es muy sencillo, a no ser que tú me pidas algo más sofisticado yo creo que con esto es más que suficiente, los selectores inteligentes de la especie y la raza ya sabes cómo funcionan, luego tienes el campo estado que simplemente te muestra los animales que están activos u ocultos.
+        </p>
+
+        <div class="info">
+            <p>
+                Los animales marcados como "Activo" son los que se ven en la página web.
+            </p>
+
+            <p>
+                Los animales marcados como "Ocultos" solo son visibles en el panel de administración.
+            </p>
+        </div>
+
+        <div class="volver-indice">
+            <a href="#seccion-septima">Volver al índice</a>
+        </div>
+
+        <div class="page-break"></div>
+
+        <h3 id="listado_animales_apadrinar_editar">7.1.1.1. Editar un animal para apadrinar</h3>
+
+        <div class="warning">
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
+            </div>
+
+            <p>Usuario: ricard624 | Contraseña: mNU1P4hZI36x</p>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/modulos/apadrinamientos/apadrina_editar_animal.php?id=4" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
+            </div>
+        </div>
+
+        <p>
+            Este módulo también lo vamos a pasar por encima, ya que es exactamente igual que el que ya vimos <a href="#registro_nuevo_animal_apadrinar" class="infoco">"aquí"</a>, por lo tanto, no hace falta que nos distraigamos en este también que me está quedando un PDF largo de cojones.
+        </p>
+
+        <div class="figura">
+            <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/7.1.1.1._Editar_un_animal_para_apadrinar.png') ?>" />
+        </div>
+
+        <p>
+            La única diferencia entre el módulo que ya vimos anteriormente y este es lo que ves en la imagen que te dejo encima de este texto, es que en este tienes un listado con todos los padrinos que tiene cada animal y te da la posibilidad de cancelar el apadrinamiento de cualquiera de forma individual.
+        </p>
+
+        <div class="volver-indice">
+            <a href="#seccion-septima">Volver al índice</a>
+        </div>
+
+        <div class="page-break"></div>
 
         <div style="clear: both;"></div>
 
@@ -2593,6 +2696,53 @@ require_once(__DIR__ . '/../config/funciones.php');
         <div class="separador-seccion"></div>
 
         <div class="separador"></div>
+
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="creditos">
+
+        <h2>Contacto</h2>
+
+        <ul>
+            <li>Ricard FS – Desarrollo y arquitectura</li>
+            <li>Noemí – Coordinación y validación funcional</li>
+        </ul>
+
+        <div class="separador-creditos"></div>
+
+        <h2> Autor</h2>
+
+        <p><strong>Ricard FS</strong>, creador de:</p>
+
+        <ul>
+            <li><strong>El Arca de Noemí</strong> (En desarrollo) – GitHub</li>
+            <li><strong>El Huerto de la Gatopía</strong> (En desarrollo) – GitHub</li>
+            <li><strong>El Diablillo Sarcástico</strong> (En desarrollo) – GitHub</li>
+            <li><strong>La Gatopía de Miriam</strong> (En producción) – Web</li>
+            <li><strong>Global License</strong> (En producción) – GitHub</li>
+            <li><strong>Lanzador Pro – Arca de Noemí</strong> (En producción) – GitHub</li>
+            <li><strong>Lanzador Pro – Huerto de la Gatopía</strong> (En producción) – GitHub</li>
+            <li><strong>Lanzador Pro – Ricard FS WEB</strong> (En producción) – GitHub</li>
+            <li><strong>Maya Refined</strong> – Theme para Directory Opus – GitHub</li>
+        </ul>
+
+        <div class="separador-creditos"></div>
+
+        <h2> Licencia</h2>
+
+        <p>Este proyecto se distribuye bajo licencia MIT.</p>
+
+        <div class="separador-creditos"></div>
+
+        <div class="frase-final">
+            “No soy malo… solo estoy programado así.”
+        </div>
+
+        <div class="autor">
+            © <?= date('Y') ?> Ricard FS — Todos los derechos reservados
+        </div>
 
     </div>
 
