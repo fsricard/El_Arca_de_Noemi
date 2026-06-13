@@ -1984,7 +1984,7 @@ require_once(__DIR__ . '/../config/funciones.php');
     </div>
 
     <!-- 5. Quinta sección - Plataformas de Crowd Funding -->
-    <div class="seccion" id="plataformas_crowdfunding">
+    <div class="seccion page-break" id="plataformas_crowdfunding">
 
         <h2>5. Quinta Sección - Plataformas de Crowd Funding</h2>
 
@@ -2106,11 +2106,11 @@ require_once(__DIR__ . '/../config/funciones.php');
             <a href="#seccion-quinta">Volver al índice</a>
         </div>
 
-        <div class="page-break"></div>
-
         <div style="clear: both;"></div>
 
         <div class="separador-seccion"></div>
+
+        <div class="separador"></div>
 
     </div>
 
@@ -2559,8 +2559,6 @@ require_once(__DIR__ . '/../config/funciones.php');
         <div class="volver-indice">
             <a href="#seccion-sexta">Volver al índice</a>
         </div>
-
-        <div class="page-break"></div>
 
         <div style="clear: both;"></div>
 
