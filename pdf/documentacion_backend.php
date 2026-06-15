@@ -2677,6 +2677,60 @@ require_once(__DIR__ . '/../config/funciones.php');
 
         <div class="page-break"></div>
 
+        <h3 id="listado_padrinos">7.2. Listado de todos los padrinos de la base de datos</h3>
+
+        <div class="warning">
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
+            </div>
+
+            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/modulos/apadrinamientos/apadrina_listado_padrinos.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
+            </div>
+        </div>
+
+        <p>
+            Y ya hemos llegado al listado de los padrinos, bueno creo que ya sabes de sobra lo que te vas a encontrar aquí, algo como lo que puedes ver en la imagen que te dejo debajo de este texto ... Peeeero no, este listado es un poquito más completo que el resto de listados que hemos visto hasta ahora, en este listado además de la opción básica de "Editar" que tenemos en todos los listados, también tenemos las opciones "Ver apadrinamientos" y "Última relación", pero como son puntos diferentes creo que vale la pena que los veamos por separado.
+        </p>
+
+        <div class="figura">
+            <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/7.2._Listado_de_todos_los_padrinos.png') ?>" />
+        </div>
+
+        <div class="volver-indice">
+            <a href="#seccion-septima">Volver al índice</a>
+        </div>
+
+        <div class="page-break"></div>
+
+        <h3 id="listado_padrinos_filtros">7.2.1. Filtros para el listado de padrinos</h3>
+
+        <div class="warning">
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
+            </div>
+
+            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/modulos/apadrinamientos/apadrina_listado_padrinos.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
+            </div>
+        </div>
+
+        <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/7.2.1._Filtros_para_el_listado_de_padrinos.png') ?>" class="img-left" />
+
+        <p>
+            Como siempre lo primero que vemos son los filtros del listado, te encontrarás algo como lo que ves en la imagen que te dejo a la izquierda de este texto. Solo voy a hacer una parada en el primer campo, ya que el resto son bastante evidentes. Este primer campo es un input inteligente para buscar a los padrinos según su nombre o su correo electrónico, si quieres buscar un padrino por su nombre simplemente empieza a escribirlo y el sistema hará el resto, si por el contrario, quieres buscarlo por su correo electrónico tres cuartas partes de lo mismo. Filtros sencillos pero eficientes.
+        </p>
+
+        <div class="volver-indice">
+            <a href="#seccion-septima">Volver al índice</a>
+        </div>
+
+        <div class="page-break"></div>
+
         <div style="clear: both;"></div>
 
         <div class="separador-seccion"></div>
