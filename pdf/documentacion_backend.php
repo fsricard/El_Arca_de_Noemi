@@ -560,6 +560,16 @@ require_once(__DIR__ . '/../config/funciones.php');
             font-size: 14px;
             color: #555;
         }
+
+        .diablillo {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .diablillo img {
+            width: 20%;
+            margin-bottom: 8px;
+        }
     </style>
 </head>
 
@@ -2731,6 +2741,100 @@ require_once(__DIR__ . '/../config/funciones.php');
 
         <div class="page-break"></div>
 
+        <h3 id="listado_padrinos_editar">7.2.1.1. Editar un padrino desde el listado de padrinos</h3>
+
+        <div class="warning">
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
+            </div>
+
+            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/modulos/apadrinamientos/apadrina_editar_padrino.php?id=6" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
+            </div>
+        </div>
+
+        <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/7.2.1.1._Editar_un_padrino.png') ?>" class="img-right" />
+
+        <p>
+            Cuando entres al módulo de edición de un padrino lo primero que verás será algo como lo que ves en la imagen que te dejo a la derecha de este texto, como puedes comprobar son los datos básicos que recogemos de cada padrino en el pequeño formulario que aparece en la ventana popup antes de enviarlo a la pasarela de pago de PayPal para realizar la suscripción.
+        </p>
+
+        <p>
+            En realidad los campos "Ciudad", "Provincia", "CP" y "País" no se le piden al padrino en el formulario de pre suscripción, ya que este tipo de formularios deben ser bastante básicos para facilitar al máximo el proceso al usuario. Los he añadido porque con la dirección, que si se le pide tú puedes rellenar esos campos, siempre que los necesites claro.
+        </p>
+
+        <div class="warning">
+            Ya lo sabes Noemí, si crees necesario pedir más datos a los padrinos antes de llevarlos a la pasarela de pago de PayPal siempre podemos añadir más campos al formulario de pre apadrinamiento.
+        </div>
+
+        <p>
+            También te he añadido dos botones que puedes ver en color rojo, uno es para eliminar al padrino de la base de datos, el otro es por si quieres exportar los datos de algún padrino para tenerlos en un documento aparte, lo he programado para que se exporte en formato "CSV", con Excel los puedes leer, pero si te parece confuso puedo programarlos en "PDF" que siempre quedan más elegantes.
+        </p>
+
+        <div class="volver-indice">
+            <a href="#seccion-septima">Volver al índice</a>
+        </div>
+
+        <div class="page-break"></div>
+
+        <h3 id="listado_padrinos_ver_apadrinamientos">7.3. Ver los animales apadrinados por cada padrino</h3>
+
+        <div class="warning">
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
+            </div>
+
+            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/modulos/apadrinamientos/apadrina_ver_apadrinamientos.php?sponsor_id=6" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
+            </div>
+        </div>
+
+        <p>
+            Este módulo no tiene mucha chicha, así que lo vamos a pasar al galope, verás algo como lo que tienes en la imagen que te dejo debajo de este texto, en este caso el padrino solo tiene apadrinado a un animal, pero en el caso de que fuera un padrino con varios apadrinamientos verías el listado completo de los animales que tuviera apadrinados. También te he añadido un botón para que puedas exportar los datos en un documento "CSV", que podemos cambiar a "PDF" si lo prefieres.
+        </p>
+
+        <div class="figura">
+            <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/7.3._Ver_los_animales_apadrinados.png') ?>" />
+        </div>
+
+        <div class="volver-indice">
+            <a href="#seccion-septima">Volver al índice</a>
+        </div>
+
+        <div class="page-break"></div>
+
+        <h3 id="listado_padrinos_ultima_relacion">7.4. Ver la última relación de apadrinamiento de cada padrino</h3>
+
+        <div class="warning">
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
+            </div>
+
+            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/modulos/apadrinamientos/apadrina_editar_relacion.php?id=6" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
+            </div>
+        </div>
+
+        <div class="figura">
+            <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/7.4._Ultima_relacion_de_apadrinamiento.png') ?>" />
+        </div>
+
+        <p>
+            Este módulo habla por sí mismo, es la última relación de un padrino, es decir su último apadrinamiento. Desde este módulo podrás ir al módulo de edición del padrino, ir a la ficha del animal vinculado al apadrinamiento, cancelar la suscripción del padrino (¡¡OJO!!, la cancelas en la base de datos, no en PayPal), y por supuesto modificar cualquier dato de la suscripción. Abajo he creado un historial de cambios para que puedas ver qué cambios has ido realizando a lo largo del tiempo en cada apadrinamiento.
+        </p>
+
+        <div class="volver-indice">
+            <a href="#seccion-septima">Volver al índice</a>
+        </div>
+
+        <div class="page-break"></div>
+
         <div style="clear: both;"></div>
 
         <div class="separador-seccion"></div>
@@ -2757,12 +2861,9 @@ require_once(__DIR__ . '/../config/funciones.php');
 
     <div class="creditos">
 
-        <h2>Contacto</h2>
-
-        <ul>
-            <li>Ricard FS – Desarrollo y arquitectura</li>
-            <li>Noemí – Coordinación y validación funcional</li>
-        </ul>
+        <div class="diablillo">
+            <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/Logo_El_Diablillo_sarcastico.png') ?>" />
+        </div>
 
         <div class="separador-creditos"></div>
 
@@ -2779,7 +2880,6 @@ require_once(__DIR__ . '/../config/funciones.php');
             <li><strong>Lanzador Pro – Arca de Noemí</strong> (En producción) – GitHub</li>
             <li><strong>Lanzador Pro – Huerto de la Gatopía</strong> (En producción) – GitHub</li>
             <li><strong>Lanzador Pro – Ricard FS WEB</strong> (En producción) – GitHub</li>
-            <li><strong>Maya Refined</strong> – Theme para Directory Opus – GitHub</li>
         </ul>
 
         <div class="separador-creditos"></div>
