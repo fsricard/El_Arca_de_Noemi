@@ -816,7 +816,7 @@ require_once(__DIR__ . '/../config/funciones.php');
         </div>
 
         <!-- 6. Sexta sección - Adopciones -->
-        <div class="rama page-break" id="seccion-sexta">
+        <div class="rama" id="seccion-sexta">
             <div class="titulo-rama">
                 <a href="#adopciones">
                     6. Sexta Sección - Adopciones
@@ -893,7 +893,7 @@ require_once(__DIR__ . '/../config/funciones.php');
         </div>
 
         <!-- 7. Séptima sección - Apadrinamientos -->
-        <div class="rama page-break" id="seccion-septima">
+        <div class="rama" id="seccion-septima">
             <div class="titulo-rama">
                 <a href="#apadrinamientos">
                     7. Séptima Sección - Apadrinamientos
@@ -960,41 +960,14 @@ require_once(__DIR__ . '/../config/funciones.php');
             </div>
 
             <div class="subrama">
-                <a href="#base_de_datos_usuarios">
-                    8.2. Usuarios del panel de administración
-                </a>
-            </div>
-            <div class="subsubrama">
-                <a href="#base_de_datos_usuarios_crear">
-                    8.2.1. Crear un nuevo usuario para el panel de administración
-                </a>
-            </div>
-
-            <div class="subrama">
-                <a href="#base_de_datos_usuarios_actualizar">
-                    8.3. Actualizar los datos de un usuario del panel de administración
-                </a>
-            </div>
-
-            <div class="subrama">
-                <a href="base_de_datos_usuarios_eliminar">
-                    8.4. Eliminar un usuario del panel de administración
-                </a>
-            </div>
-
-            <div class="subrama">
                 <a href="#base_de_datos_usuarios_tablas">
-                    8.5. Tablas de la base de datos
+                    8.2. Tablas de la base de datos
                 </a>
             </div>
-            <div class="subsubrama">
-                <a href="#base_de_datos_usuarios_tablas_ver">
-                    8.5.1. Ver el contenido de una tabla de la base de datos
-                </a>
-            </div>
-            <div class="subsubrama">
-                <a href="#base_de_datos_usuarios_tablas_eliminar">
-                    8.5.1.1. Eliminar el contenido de una tabla de la base de datos
+
+            <div class="subrama">
+                <a href="#base_de_datos_usuarios">
+                    8.3. Usuarios del panel de administración
                 </a>
             </div>
         </div>
@@ -2833,8 +2806,6 @@ require_once(__DIR__ . '/../config/funciones.php');
             <a href="#seccion-septima">Volver al índice</a>
         </div>
 
-        <div class="page-break"></div>
-
         <div style="clear: both;"></div>
 
         <div class="separador-seccion"></div>
@@ -2844,10 +2815,103 @@ require_once(__DIR__ . '/../config/funciones.php');
     </div>
 
     <!-- 8. Octava sección - Base de datos -->
-    <div class="seccion" id="base_de_datos">
+    <div class="seccion page-break" id="base_de_datos">
 
-        <h2></h2>
+        <h2>8. Octava Sección - Base de datos</h2>
 
+        <p>
+            Este posiblemente sea el bloque de módulos menos importante para ti, pero aun así he creído necesario incluirlos para que tengas constancia de lo que va pasando en tu servidor, y no tengas que depender siempre de alguien, y cuando digo alguien me refiero a técnicos, gurús y más mierdas de este tipo, te cobran una pasta por hacer algo que igual cuesta menos de media hora. Pero bueno le damos un repaso por encima a estos módulos y damos por finalizado el documento.
+        </p>
+
+        <div class="volver-indice">
+            <a href="#seccion-octava">Volver al índice</a>
+        </div>
+
+        <div class="page-break"></div>
+
+        <h3 id="base_de_datos_logs">8.1. Logs de accesos al panel de administración</h3>
+
+        <div class="warning">
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
+            </div>
+
+            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/modulos/logs/logs.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
+            </div>
+        </div>
+
+        <div class="figura">
+            <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/8.1._Logs_de_accesos_al_panel.png') ?>" />
+        </div>
+
+        <p>
+            Este es el primer módulo que te vas a encontrar, el archivo de logs al servidor, ¿Pero qué coño es esto?, tranqui Noemí no te asuste que no es droga mala ni nada de eso, aquí vas a poder ver un listado con todos los accesos al panel de control, como puedes ver en la imagen que te dejo encima de este texto solo aparezco yo, eso es porque estoy trabajando en mi servidor local y solo yo tengo acceso, pero en tu caso es muy posible que una vez que la página web esté en marcha en tu servidor de producción le des acceso al panel de administración a voluntarios, ayudantes ... Y para eso sirve este módulo, para saber quién y cuándo ha accedido al panel de administración.
+        </p>
+
+        <div class="volver-indice">
+            <a href="#seccion-octava">Volver al índice</a>
+        </div>
+
+        <div class="page-break"></div>
+
+        <h3 id="base_de_datos_usuarios_tablas">8.2. Tablas de la base de datos</h3>
+
+        <div class="warning">
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
+            </div>
+
+            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/modulos/tablas_base_datos/tablas_de_datos.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
+            </div>
+        </div>
+
+        <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/8.2._Tablas_de_la_base_de_datos.png') ?>" class="img-left" />
+
+        <p>
+            Este es un módulo un poco conflictivo, pero que he creído que te puede servir como prueba/error para algunos casos, como el anterior tampoco tiene mucho misterio, no sé si sabes cómo funciona una base de datos MySQL o MariaDB, pero para que te hagas una idea por encima, si en el panel de administración he creado treinta módulos, pues en el servidor hay un programa para almacenar los datos (lógicamente en una base de datos) y cada uno de estos módulos se guarda en una tabla de esa base de datos. Pues bien, en este módulo puedes ver el contenido de todas las tablas de tu base de datos, y si lo necesitas (oremos a Dios porque no sea así) vaciarlas, yo confío en ti ... Creo.
+        </p>
+
+        <div class="volver-indice">
+            <a href="#seccion-octava">Volver al índice</a>
+        </div>
+
+        <div class="page-break"></div>
+
+        <h3 id="base_de_datos_usuarios">8.3. Usuarios del panel de administración</h3>
+
+        <div class="warning">
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
+            </div>
+
+            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+
+            <div class="infoA">
+                <a href="http://www.ricardfs.es.mialias.net/admin/modulos/usuarios/usuarios.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
+            </div>
+        </div>
+
+        <p>
+            Ahora vamos a ver el módulo de gestión de usuarios del panel de administración... Y este es importante, desde este módulo vas a poder crear nuevos usuarios, editar los usuarios existentes y evidentemente eliminar los usuarios existentes.
+        </p>
+
+        <div class="warning">
+            Debes tener en cuenta una cosa muy importante, cuando creas un usuario le puedes poner la contraseña que tú quieras, pero por motivos de seguridad cuando guardas los datos y estos se suben a la base de datos la contraseña se encripta, eso quiere decir que ese dato es el único que no puedes modificar de los usuarios. Si quieres, puedo hacerla editable ... Tú mandas (yo creo que sería mejor añadir la opción de recuperar contraseña en el formulario de acceso al panel de administración)
+        </div>
+
+        <div class="figura">
+            <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/8.3._Usuarios_del_panel.png') ?>" />
+        </div>
+
+        <div class="volver-indice">
+            <a href="#seccion-octava">Volver al índice</a>
+        </div>
 
         <div style="clear: both;"></div>
 
@@ -2856,8 +2920,6 @@ require_once(__DIR__ . '/../config/funciones.php');
         <div class="separador"></div>
 
     </div>
-
-    <div class="page-break"></div>
 
     <div class="creditos">
 
