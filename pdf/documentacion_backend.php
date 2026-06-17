@@ -1025,33 +1025,28 @@ require_once(__DIR__ . '/../config/funciones.php');
 
         <h3 id="crear_usuario">1.1.1. Crear tu usuario</h3>
 
-        <p>Cuando accedas a la página verás un formulario como el que tienes en la imagen de abajo, no te asustes que es muy sencillo aquí te dejo los pasos a seguir:</p>
+        <p>
+            Cuando accedas a la página verás un formulario como el que tienes en la imagen de abajo, no te asustes que es muy sencillo aquí te dejo los pasos a seguir:
+        </p>
 
-        <ol>
-            <li>Nombre completo:</li>
-            <ol>
-                <li>Aquí debes poner el nombre de usuario con el que después accederás al panel de administración, te recomiendo que no utilices símbolos raros, puedes utilizar letras, números, guiones ... Pero sobre todo NUNCA dejes un espacio en blanco.</li>
-            </ol>
-            <li>Correo electrónico:</li>
-            <ol>
-                <li>Como este es el servidor de pruebas, el correo electrónico te lo puedes inventar si quieres.</li>
-            </ol>
-            <li>Contraseña:</li>
-            <ol>
-                <li>Este sí que es un paso importante, aquí puedes utilizar cualquier carácter que se te ocurra, además nadie aparte de tú puede saber tu contraseña, ya que al guardarse en la base de datos se encripta automáticamente y ya no se puede desencriptar, te recomiendo que te la anotes en algún lado por si se te olvida.</li>
-            </ol>
-            <li>Rol de usuario:</li>
-            <ol>
-                <li>Este es el campo más importante de todos, como verás este campo es diferente al resto, es un campo multi selección, en este caso dos "Visitante" y "Administrador", en tu caso debes elegir el rol "Administrador".</li>
-            </ol>
-        </ol>
+        <p>
+            Nombre completo: Aquí debes poner el nombre de usuario con el que después accederás al panel de administración, te recomiendo que no utilices símbolos raros, puedes utilizar letras, números, guiones ... Pero sobre todo NUNCA dejes un espacio en blanco.
+        </p>
+
+        <p>
+            Correo electrónico: Como este es el servidor de pruebas, el correo electrónico te lo puedes inventar si quieres.
+        </p>
+
+        <p>
+            Contraseña: Este sí que es un paso importante, aquí puedes utilizar cualquier carácter que se te ocurra, además nadie aparte de tú puede saber tu contraseña, ya que al guardarse en la base de datos se encripta automáticamente y ya no se puede desencriptar, te recomiendo que te la anotes en algún lado por si se te olvida.
+        </p>
+
+        <p>
+            Rol de usuario: Este es el campo más importante de todos, como verás este campo es diferente al resto, es un campo multi selección, en este caso dos "Visitante" y "Administrador", en tu caso debes elegir el rol "Administrador".
+        </p>
 
         <div class="figura">
             <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/1.1._Dirección_Web_para_crear_tu_usuario.png') ?>" />
-        </div>
-
-        <div class="info">
-            El rol "Administrador" tiene todos los privilegios activados, mientras que el rol "Visitante" solo puede ver algunas secciones, este rol no puede editar, eliminar, crear, bloquear, activar, ocultar ...
         </div>
 
         <div class="volver-indice">
@@ -1241,16 +1236,8 @@ require_once(__DIR__ . '/../config/funciones.php');
         </div>
 
         <p>
-            Este módulo es el encargado de gestionar el contenido que aparece en la sección de contacto de la web, aquí podrás editar el texto de introducción que aparece a la izquierda del formulario de contacto de la web.
-        </p>
-
-        <div class="info">
             Te encontrarás varios módulos parecidos a este en el panel de administración, a simple vista te puede parecer que es simplemente una caja donde puedes escribir texto, pero en realidad es un módulo mucho más complejo de lo que parece, este módulo tiene un editor de texto enriquecido que te permite dar formato al texto, también te permite insertar imágenes, enlaces, tablas ... En fin, es un módulo muy completo que te permite crear contenido de calidad para la web.
-
-            <div class="success">
-                Es más, si te fijas en la barra de herramientas del editor de texto enriquecido, podrás ver a la derecha del todo un icono con forma de gatito. Me he tomado la libertad de programar un pequeño módulo para el editor de texto enriquecido que te permitirá añadir emoticonos con forma de animalicos entre tus textos.
-            </div>
-        </div>
+        </p>
 
         <div class="figura">
             <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/2.2._Contenido_de_la_seccion_de_contacto.png') ?>" />
@@ -1358,16 +1345,6 @@ require_once(__DIR__ . '/../config/funciones.php');
 
         <div class="figura">
             <img src="data:image/png;base64,<?= img64('/El_Arca_de_Noemi/pdf/img/2.6._Listado_de_las_opiniones_de_los_usuarios.png') ?>" />
-        </div>
-
-        <div class="danger">
-            <p>
-                ¡¡CUIDADO NOEMÏ!!
-            </p>
-
-            <p>
-                Debes tener en cuenta que la eliminación de un mensaje de la base de datos es algo irreversible, una vez que elimines un mensaje no podrás recuperarlo, así que ten mucho cuidado con eso, asegúrate de que realmente quieres eliminar el mensaje antes de darle al botón de eliminar.
-            </p>
         </div>
 
         <div class="volver-indice">
@@ -2129,20 +2106,12 @@ require_once(__DIR__ . '/../config/funciones.php');
         </div>
 
         <p>
-            Este módulo también es uno de los más importantes de todos los que te encontrarás en todo el panel de administración, desde este módulo es desde el que podrás vincular un animal con una persona/adoptante.
-        </p>
-
-        <p>
             El primer campo es un selector inteligente que te muestra todos los animales que hay disponibles en adopción en la base de datos de la página web, ¡¡OJO!!, solo te mostrará los que estén marcados como disponibles en adopción, los animales que ya estén vinculados a otros adoptantes no se mostrarán en este listado, a no ser que la adopción se haya marcado como "Cancelada". Para que lo tengas más fácil a la hora de buscar el animal en cuestión en el selector, solo debes empezar a teclear su nombre tal cual lo escribiste en la base de datos, el selector hará el resto por ti.
         </p>
 
         <p>
             El segundo campo también es un selector inteligente, su funcionamiento es exactamente el mismo que el selector anterior, pero en este caso lo que te da a elegir son los adoptantes que haya en la base de datos. ¡¡OJO!!, En este caso, el selector sí te mostrará todos los adoptantes que haya en la base de datos, estén vinculados ya a otros animales o no. Esto es así porque en el caso anterior un animal no puede tener dos adoptantes, pero en este caso un mismo adoptante sí puede hacer varias adopciones.
         </p>
-
-        <div class="warning">
-            Yo he puesto los campos que me han parecido básicos, estoy más que seguro de que tú necesitarás muchos más datos a la hora de crear una adopción, pero ya lo sabes, te lo he dicho muchas veces ... Ahora podemos añadir/modificar/eliminar lo que tú necesites.
-        </div>
 
         <div class="volver-indice">
             <a href="#seccion-sexta">Volver al índice</a>
@@ -2667,7 +2636,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+            <p>Usuario: ricard624 | Contraseña: mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/apadrinamientos/apadrina_listado_padrinos.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -2695,7 +2664,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+            <p>Usuario: ricard624 | Contraseña: mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/apadrinamientos/apadrina_listado_padrinos.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -2721,7 +2690,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+            <p>Usuario: ricard624 | Contraseña: mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/apadrinamientos/apadrina_editar_padrino.php?id=6" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -2750,8 +2719,6 @@ require_once(__DIR__ . '/../config/funciones.php');
             <a href="#seccion-septima">Volver al índice</a>
         </div>
 
-        <div class="page-break"></div>
-
         <h3 id="listado_padrinos_ver_apadrinamientos">7.3. Ver los animales apadrinados por cada padrino</h3>
 
         <div class="warning">
@@ -2759,7 +2726,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+            <p>Usuario: ricard624 | Contraseña: mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/apadrinamientos/apadrina_ver_apadrinamientos.php?sponsor_id=6" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -2787,7 +2754,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+            <p>Usuario: ricard624 | Contraseña: mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/apadrinamientos/apadrina_editar_relacion.php?id=6" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -2815,7 +2782,7 @@ require_once(__DIR__ . '/../config/funciones.php');
     </div>
 
     <!-- 8. Octava sección - Base de datos -->
-    <div class="seccion page-break" id="base_de_datos">
+    <div class="seccion" id="base_de_datos">
 
         <h2>8. Octava Sección - Base de datos</h2>
 
@@ -2836,7 +2803,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+            <p>Usuario: ricard624 | Contraseña: mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/logs/logs.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -2864,7 +2831,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+            <p>Usuario: ricard624 | Contraseña: mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/tablas_base_datos/tablas_de_datos.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
@@ -2890,7 +2857,7 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+            <p>Usuario: ricard624 | Contraseña: mNU1P4hZI36x</p>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/usuarios/usuarios.php" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
