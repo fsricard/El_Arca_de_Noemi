@@ -5,7 +5,7 @@ require_once __DIR__ . '/../../../../config/funciones.php';
 header('Content-Type: application/json; charset=utf-8');
 
 // Texto buscado
-$term = trim($_GET['term'] ?? '');
+$term = trim($_GET['q'] ?? '');
 
 if (strlen($term) < 2) {
     echo json_encode([]);
