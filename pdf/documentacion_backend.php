@@ -2901,14 +2901,14 @@ require_once(__DIR__ . '/../config/funciones.php');
         <p><strong>Ricard FS</strong>, creador de:</p>
 
         <ul>
-            <li><strong>El Arca de Noemí</strong> (En desarrollo) – GitHub</li>
-            <li><strong>El Huerto de la Gatopía</strong> (En desarrollo) – GitHub</li>
-            <li><strong>El Diablillo Sarcástico</strong> (En desarrollo) – GitHub</li>
-            <li><strong>La Gatopía de Miriam</strong> (En producción) – Web</li>
-            <li><strong>Global License</strong> (En producción) – GitHub</li>
-            <li><strong>Lanzador Pro – Arca de Noemí</strong> (En producción) – GitHub</li>
-            <li><strong>Lanzador Pro – Huerto de la Gatopía</strong> (En producción) – GitHub</li>
-            <li><strong>Lanzador Pro – Ricard FS WEB</strong> (En producción) – GitHub</li>
+            <li><strong>El Arca de Noemí</strong> (En desarrollo) – <a href="https://github.com/fsricard/El_Arca_de_Noemi" class="infoco" target="_blank">Está en GitHub</a></li>
+            <li><strong>El Huerto de la Gatopía</strong> (En desarrollo) – <a href="https://github.com/fsricard/El_huerto_de_la_Gatopia" class="infoco" target="_blank">Está en GitHub</a></li>
+            <li><strong>El Diablillo Sarcástico</strong> (En desarrollo) – <a href="https://github.com/fsricard/Ricard_FS_WEB" class="infoco" target="_blank">Está en GitHub</a></li>
+            <li><strong>La Gatopía de Miriam</strong> (En producción) – <a href="https://lagatopiademiriam.com/" class="infoco" target="_blank">Está online</a></li>
+            <li><strong>Global License</strong> (En producción) – <a href="https://github.com/fsricard/Global_License" class="infoco" target="_blank">Está en GitHub</a></li>
+            <li><strong>Lanzador Pro – Arca de Noemí</strong> (En producción) – <a href="https://github.com/fsricard/Lanzador_Pro_el_Arca_de_Noemi" class="infoco" target="_blank">Está en GitHub</a></li>
+            <li><strong>Lanzador Pro – Huerto de la Gatopía</strong> (En producción) – <a href="https://github.com/fsricard/Lanzador_Pro_el_Huerto_de_la_Gatopia" class="infoco" target="_blank">Está en GitHub</a></li>
+            <li><strong>Lanzador Pro – Ricard FS WEB</strong> (En producción) – <a href="https://github.com/fsricard/Lanzador_Pro_Ricard_FS_WEB" class="infoco" target="_blank">Está en GitHub</a></li>
         </ul>
 
         <div class="separador-creditos"></div>
