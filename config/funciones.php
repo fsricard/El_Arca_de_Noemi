@@ -110,6 +110,7 @@ function tituloPagina($pagina)
         'noemi_dice'                                => 'Frases de Noemí',
         'asi_es_noemi'                              => 'Así es Noemí',
         'crear_usuario'                             => 'Crear usuario',
+        'opinion_intro'                             => 'Intro opiniones de los usuarios',
         'contacto_intro'                            => 'Invocación al contacto',
         'noemi_bichillos'                           => 'Gestión de los bichillos de Noemí',
         'tablas_de_datos'                           => 'Tablas de la base de datos',
