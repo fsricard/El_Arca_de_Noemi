@@ -166,19 +166,19 @@ require_once(__DIR__ . '/../config/funciones.php');
         .img-center {
             display: block;
             margin: 20px auto;
-            width: 90%;
+            width: 70%;
         }
 
         .img-left {
             float: left;
             margin: 10px 20px 10px 0;
-            width: 45%;
+            width: 35%;
         }
 
         .img-right {
             float: right;
             margin: 10px 0 10px 20px;
-            width: 45%;
+            width: 35%;
         }
 
         .img-left-fine {
@@ -2221,23 +2221,23 @@ require_once(__DIR__ . '/../config/funciones.php');
             La quinta columna del listado es que la que te marca el estado de la adopción, y tiene cinco opciones diferenciadas por cinco colores:
 
         <ol>
-            <li style="background-color: #FFC107; padding: 8px 10px; width: max-content; border-radius: 10px;">En espera</li>
+            <li style="background-color: #FFC107; padding: 8px 10px; max-width: 55px; border-radius: 10px;">En espera</li>
             <p>
                 Las adopciones que provienen del formulario de la página web.
             </p>
-            <li style="background-color: #FFC107; padding: 8px 10px; width: max-content; border-radius: 10px;">Pendiente</li>
+            <li style="background-color: #FFC107; padding: 8px 10px; max-width: 55px; border-radius: 10px;">Pendiente</li>
             <p>
                 Cuando creas una adopción este es el estado predeterminado en el que se queda, a no ser que tú lo cambies.
             </p>
-            <li style="background-color: #17A2B8; padding: 8px 10px; width: max-content; border-radius: 10px;">En proceso</li>
+            <li style="background-color: #17A2B8; padding: 8px 10px; max-width: 62px; border-radius: 10px;">En proceso</li>
             <p>
                 Cuando ya has tomado la decisión de que un adoptante es apto, este es el estado que debes marcar para su adopción.
             </p>
-            <li style="background-color: #28A745; padding: 8px 10px; width: max-content; border-radius: 10px;">Finalizada</li>
+            <li style="background-color: #28A745; padding: 8px 10px; max-width: 55px; border-radius: 10px;">Finalizada</li>
             <p>
                 Este es lógico cuando finalices una adopción las marcas con este estado para tenerlas a mano.
             </p>
-            <li style="background-color: #D9534F; padding: 8px 10px; width: max-content; border-radius: 10px;">Cancelada</li>
+            <li style="background-color: #D9534F; padding: 8px 10px; max-width: 57px; border-radius: 10px;">Cancelada</li>
             <p>
                 Este es muy importante si pones una adopción en proceso y al final resulta que el adoptante se echa para atrás, o tú decides que no es apto, marca la adopción como "Cancelada", de esta manera el animal se activará como disponible para adopción automáticamente.
             </p>
