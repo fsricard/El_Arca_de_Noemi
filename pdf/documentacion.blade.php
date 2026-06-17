@@ -591,7 +591,9 @@ require_once(__DIR__ . '/../config/funciones.php');
                 <a href="http://www.ricardfs.es.mialias.net/admin/" target="_blank">Haz clic aquí para desencriptar la web y acceder al panel de administración</a>
             </div>
 
-            <p>Usuario:   ricard624     |     Contraseña:   mNU1P4hZI36x</p>
+            <div class="encriptado">
+                Usuario: <span>ricard624</span> | Contraseña: <span>mNU1P4hZI36x</span>
+            </div>
 
             <div class="infoA">
                 <a href="http://www.ricardfs.es.mialias.net/admin/modulos/" target="_blank">Haz clic aquí y se abrirá el módulo de esta sección</a>
