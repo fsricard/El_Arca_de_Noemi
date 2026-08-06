@@ -388,6 +388,8 @@ Actualmente se están implementando:
 8. **Lanzador de procesos Pro para el Huerto de la Gatopía** (*En producción*)  - [GitHub](https://github.com/fsricard/Lanzador_Pro_el_Huerto_de_la_Gatopia)
 9. **Lanzador de procesos Pro para Ricard FS WEB (El Diablillo Sarcástico)** (*En producción*) - [GitHub](https://github.com/fsricard/Lanzador_Pro_Ricard_FS_WEB)
 10. **Lanzador de procesos Pro para Cromos Mundial 2026** (*En producción*) - [GitHub](https://github.com/fsricard/Lanzador_Pro_Cromos_Mundial_2026)
+11. **Lanzador de procesos Pro para Página en construcción** (*En producción*) - [GitHub](https://github.com/fsricard/Lanzador_Pro_Pagina_en_construccion)
+12. **Página en construcción** (*En desarrollo*) - [GitHub](https://github.com/fsricard/Pagina_en_construccion)
 
 ---
 
